@@ -1,0 +1,19 @@
+Please add all of the assets you have added to this file to make documentation easier:
+
+Assets (picture):
+1. Simple Tower Placeholder:
+https://www.google.co.id/url?sa=i&url=http%3A%2F%2Fpluspng.com%2Ftriangle-png-1145.html&psig=AOvVaw3QszaLpixPLIfKrQoL9gob&ust=1583233421237000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD-xrTS--cCFQAAAAAdAAAAABAD
+2. Simple Background Placeholder:
+https://www.google.co.id/url?sa=i&url=https%3A%2F%2Fwww.growthgurus.com%2Fico-branding-websites%2Fico-websites-background-placeholder-image%2F&psig=AOvVaw3cyhN62rXVmjR30iqznPxD&ust=1583233420526000&source=images&cd=vfe&ved=0CAMQjB1qFwoTCMDzh6vS--cCFQAAAAAdAAAAABAD
+3. Simple Icon Placeholder : 
+https://www.google.co.id/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F1555553%2Fgallery_image_no_image_photo_photography_picture_placeholder_icon&psig=AOvVaw2gwVw0duYOIzEqeLPmSXks&ust=1583233411020000&source=images&cd=vfe&ved=0CAMQjB1qFwoTCJD6q6DS--cCFQAAAAAdAAAAABAD
+
+Script:
+1. EnemiesPoolingTesting
+2. EnemyBehaviourTesting
+3. PointTesting
+4. SpawningTesting
+================================================================================================================================================
+
+Progression Note:
+- 02/Mar/2019 : Added basic movement, placeholder, and spawning mechanic (Reivaldo Julianto) 
