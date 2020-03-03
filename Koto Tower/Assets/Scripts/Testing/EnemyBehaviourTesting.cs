@@ -16,15 +16,13 @@ public class EnemyBehaviourTesting : MonoBehaviour
     {
         // to get startTime when it was activated again
         // using timerPassed to avoid floating point error
-        startTime = 0f;
-        timerPassed = 0f;
+        resetTimer();
     }
 
     private void Start()
     {
         // to get 0.0 s
-        startTime = 0f;
-        timerPassed = 0f;
+        resetTimer();
     }
 
     private void Update()
@@ -51,6 +49,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
     {
         currTarget = point.getFirstIndexPoint();
         currJourneyLenght = Vector2.Distance(position, currTarget.getCurrPosition());
+        resetTimer();
     }
 
     // A method to change this agent parent, for the sake of tidiness for developer
@@ -91,8 +90,16 @@ public class EnemyBehaviourTesting : MonoBehaviour
         return false;
     }
 
+    // Used for initialization on spawn
     public void changePooler(EnemiesPoolingTesting pooler)
     {
         this.pooler = pooler;
+    }
+
+    // Can be use to reset timer everytime we reach a destination
+    void resetTimer()
+    {
+        startTime = 0f;
+        timerPassed = 0f;
     }
 }
