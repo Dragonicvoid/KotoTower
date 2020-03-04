@@ -4,30 +4,53 @@ using UnityEngine;
 
 public class EnemyBehaviourTesting : MonoBehaviour
 {
+    // Enemy attribute
     [SerializeField] float speed;
     [SerializeField] EnemiesPoolingTesting pooler;
+    [SerializeField] float maxHealth = 10;
+    float currHealth;
     PointTesting currTarget;
     Vector2 position;
+    Renderer render;
+    Color defaultColor;
+    public bool isDead;
+
+    // timer for movement distance
     float startTime;
     float timerPassed;
     float currJourneyLenght;
+
+    //timer and bool for hit detection
+    float hitTime;
+    bool isHit;
 
     private void OnEnable()
     {
         // to get startTime when it was activated again
         // using timerPassed to avoid floating point error
         resetTimer();
+        // Reseting health
+        resetAttribute();
     }
 
     private void Start()
     {
         // to get 0.0 s
         resetTimer();
+        // to get renderer and default color
+        render = this.GetComponent<Renderer>();
+        defaultColor = render.material.color;
+        // reset health
+        resetAttribute();
     }
 
+    // Call Update method
     private void Update()
     {
+        // Moving the target
         moveTo(currTarget);
+        // Reset color when not hitted
+        resetHit();
     }
 
     // Spawning the agent from a point
@@ -35,12 +58,14 @@ public class EnemyBehaviourTesting : MonoBehaviour
     {
         this.transform.position = pointPosition;
         position = pointPosition;
+        isDead = false;
         this.gameObject.SetActive(true);
     }
 
     // Despawning the enemy
     public void despawn()
     {
+        isDead = true;
         this.gameObject.SetActive(false);
     }
 
@@ -96,10 +121,50 @@ public class EnemyBehaviourTesting : MonoBehaviour
         this.pooler = pooler;
     }
 
+    // Method when enemy got hit
+    public void addDamage(float damage)
+    {
+        render.material.color = Color.red;
+        hitTime = 0f;
+        currHealth -= damage;
+        isHit = true;
+
+        if (currHealth <= 0f)
+            pooler.insertBack(this);
+    }
+
+    // to get this object position since it keeps moving
+    public Vector2 getPosition()
+    {
+        return this.position;
+    }
+
     // Can be use to reset timer everytime we reach a destination
     void resetTimer()
     {
         startTime = 0f;
         timerPassed = 0f;
+    }
+
+    // To reset the timer when you got hit
+    void resetHit()
+    {
+        // If it is hit then add the timer
+        if (isHit)
+            hitTime += Time.deltaTime;
+
+        // If it passed 0.2 second then bring it back to normal
+        if(hitTime >= 0.2f)
+        {
+            hitTime = 0f;
+            isHit = false;
+            render.material.color = defaultColor;
+        }
+    }
+
+    // Reseting other attribute like health, and many more
+    void resetAttribute()
+    {
+        currHealth = maxHealth;
     }
 }

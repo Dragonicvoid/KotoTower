@@ -7,8 +7,8 @@ public class SpawningTesting : MonoBehaviour
     #region Serialized Field Variables definition
     [SerializeField] EnemiesPoolingTesting inactiveObject;
     [SerializeField] Transform activeObject;
-    [SerializeField] int cost;
-    [SerializeField] float spawnNow;
+    [SerializeField] int cost = 5;
+    [SerializeField] float spawnNow = 1f;
     #endregion
 
     #region Private Variables definition
