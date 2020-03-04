@@ -13,7 +13,10 @@ Script:
 2. EnemyBehaviourTesting
 3. PointTesting
 4. SpawningTesting
+5. ShowFPSTesting
+6. ShootTargetTesting
 ================================================================================================================================================
 
 Progression Note:
 - 02/Mar/2019 : Added basic movement, placeholder, and spawning mechanic (Reivaldo Julianto) 
+- 04/Mar/2019 : Added basic tower shooting, damage, and FPS counter (Reivaldo Julianto)
