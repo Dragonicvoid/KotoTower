@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 1635361359}
 --- !u!212 &540310
 SpriteRenderer:
@@ -331,9 +331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 1258818023}
 --- !u!212 &21079929
 SpriteRenderer:
@@ -511,9 +511,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 574697922}
 --- !u!212 &61881012
 SpriteRenderer:
@@ -737,9 +737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 1801376092}
 --- !u!212 &125941586
 SpriteRenderer:
@@ -917,9 +917,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 975051484}
 --- !u!212 &255844879
 SpriteRenderer:
@@ -1110,9 +1110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 9871113}
 --- !u!212 &351457505
 SpriteRenderer:
@@ -1209,9 +1209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 861945036}
 --- !u!212 &435662899
 SpriteRenderer:
@@ -1401,9 +1401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 489247746}
 --- !u!212 &553039082
 SpriteRenderer:
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   inactiveObject: {fileID: 91662233}
   activeObject: {fileID: 581802003}
   cost: 2
-  spawnNow: 0.1
+  spawnNow: 1
 --- !u!1 &699861949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,9 +1707,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 943863343}
 --- !u!212 &699861951
 SpriteRenderer:
@@ -2105,9 +2105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 1346898358}
 --- !u!212 &882740565
 SpriteRenderer:
@@ -2398,9 +2398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 1792831659}
 --- !u!212 &944504825
 SpriteRenderer:
@@ -2659,9 +2659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 806825989}
 --- !u!212 &1008966808
 SpriteRenderer:
@@ -2758,9 +2758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 166609292}
 --- !u!212 &1093442091
 SpriteRenderer:
@@ -2857,9 +2857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 1322777467}
 --- !u!212 &1144306067
 SpriteRenderer:
@@ -3770,9 +3770,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 1006806338}
 --- !u!212 &1735053928
 SpriteRenderer:
@@ -4079,9 +4079,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 123455895}
 --- !u!212 &1871883001
 SpriteRenderer:
@@ -4277,9 +4277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   radius: 3
-  fireRate: 0.3
+  fireRate: 0.5
   fireFlash: {fileID: 59763269}
 --- !u!212 &2130502906
 SpriteRenderer:
@@ -4570,6 +4570,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283217305093379421, guid: 358dff1cfda46fa4ea8e5c4723696267,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283217305093379421, guid: 358dff1cfda46fa4ea8e5c4723696267,
+        type: 3}
+      propertyPath: radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283217305093379421, guid: 358dff1cfda46fa4ea8e5c4723696267,
+        type: 3}
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4283217305093379422, guid: 358dff1cfda46fa4ea8e5c4723696267,
         type: 3}

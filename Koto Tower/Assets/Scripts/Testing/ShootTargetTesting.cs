@@ -33,7 +33,7 @@ public class ShootTargetTesting : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(1, 0, 1, 0.25f);
-        Gizmos.DrawSphere(currentPosition, 3);
+        Gizmos.DrawSphere(currentPosition, radius);
     }
 
     // Calling the hit detection
