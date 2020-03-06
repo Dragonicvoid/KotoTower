@@ -61,13 +61,13 @@ public class ShootTargetTesting : MonoBehaviour
     // Checking around the tower and damage the enemy if found
     void checkAround()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(currentPosition, radius);
+        Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, radius);
 
-        if (hitColliders.Length != 0)
+        if (hitCollider != null)
         {
             // Keeping this found enemy as target
             hasTarget = true;
-            enemy = hitColliders[0].GetComponent<EnemyBehaviourTesting>();
+            enemy = hitCollider.GetComponent<EnemyBehaviourTesting>();
         }
     }
 

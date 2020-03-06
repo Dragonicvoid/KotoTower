@@ -8,7 +8,7 @@ public class EnemiesPoolingTesting : MonoBehaviour
     List<EnemyBehaviourTesting> nonActiveEnemies;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Get all of the child so we dont have to use transform everytime we called it
         // Using the class instead of GameObject to avoid usage of GameObject class

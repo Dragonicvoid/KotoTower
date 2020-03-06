@@ -18,7 +18,7 @@ public class SpawningTesting : MonoBehaviour
 
     #region Monobehaviour Method
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Putting every position of spawn points of the Level to a list, so we dont have to use
         // transform everytime we want it.

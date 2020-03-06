@@ -15,6 +15,9 @@ public class EnemyBehaviourTesting : MonoBehaviour
     Color defaultColor;
     public bool isDead;
 
+    // material id name to optimize color material
+    int colorPropertyId = Shader.PropertyToID("_Color");
+
     // timer for movement distance
     float startTime;
     float timerPassed;
@@ -33,13 +36,14 @@ public class EnemyBehaviourTesting : MonoBehaviour
         resetAttribute();
     }
 
+    // use start since the object is not active at the begining
     private void Start()
     {
         // to get 0.0 s
         resetTimer();
         // to get renderer and default color
         render = this.GetComponent<Renderer>();
-        defaultColor = render.material.color;
+        defaultColor = render.material.GetColor(colorPropertyId);
         // reset health
         resetAttribute();
     }
@@ -124,7 +128,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
     // Method when enemy got hit
     public void addDamage(float damage)
     {
-        render.material.color = Color.red;
+        render.material.SetColor(colorPropertyId, Color.red);
         hitTime = 0f;
         currHealth -= damage;
         isHit = true;
@@ -158,7 +162,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
         {
             hitTime = 0f;
             isHit = false;
-            render.material.color = defaultColor;
+            render.material.SetColor(colorPropertyId, defaultColor);
         }
     }
 

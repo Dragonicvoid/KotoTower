@@ -13,7 +13,7 @@ public class ShowFPSTesting : MonoBehaviour
     int count;
 
     // Get text component from this and start the timer from 0s
-    private void Start()
+    private void Awake()
     {
         text = this.GetComponent<Text>();
         timer = 0f;
@@ -28,7 +28,6 @@ public class ShowFPSTesting : MonoBehaviour
         count++;
         if (timer >= 1f)
         {
-            Debug.Log(count);
             text.text = "FPS = " + count;
             count = 0;
             timer = 0;

@@ -10,7 +10,7 @@ public class PointTesting : MonoBehaviour
     Transform currPosition;
 
     // Get its position
-    private void Start()
+    private void Awake()
     {
         currPosition = this.transform;
     }
