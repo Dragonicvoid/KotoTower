@@ -15,8 +15,14 @@ Script:
 4. SpawningTesting
 5. ShowFPSTesting
 6. ShootTargetTesting
-================================================================================================================================================
+7. ButtonForTowerTesting
+8. MoveCameraTesting
+9. SpawnTowerTesting
+
+===============================================================================================================================================
+===============================================================================================================================================
 
 Progression Note:
 - 02/Mar/2019 : Added basic movement, placeholder, and spawning mechanic (Reivaldo Julianto) 
 - 04/Mar/2019 : Added basic tower shooting, damage, and FPS counter (Reivaldo Julianto)
+- 06/Mar/2019 : Added basic tower spawn system, and camera movement (Reivaldo Julianto)
