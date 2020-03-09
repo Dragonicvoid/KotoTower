@@ -18,6 +18,14 @@ Script:
 7. ButtonForTowerTesting
 8. MoveCameraTesting
 9. SpawnTowerTesting
+10. AnswerTesting
+11. GameEventsTesting
+12. GeneratorBehaviourTesting
+13. OtherMethodTesting
+14. PlayQuestionSoundTesting
+15. QuestionManagerTesting
+16. QuestionAnswersTesting
+17. TruckBehaviourTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -26,3 +34,4 @@ Progression Note:
 - 02/Mar/2019 : Added basic movement, placeholder, and spawning mechanic (Reivaldo Julianto) 
 - 04/Mar/2019 : Added basic tower shooting, damage, and FPS counter (Reivaldo Julianto)
 - 06/Mar/2019 : Added basic tower spawn system, and camera movement (Reivaldo Julianto)
+- 09/Mar/2019 : Added basic answering system, and change enemy movement behaviour (Reivaldo Julianto)
