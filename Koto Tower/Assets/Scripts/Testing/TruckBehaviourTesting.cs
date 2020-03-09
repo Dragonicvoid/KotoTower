@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviourTesting : MonoBehaviour
+public class TruckBehaviourTesting : MonoBehaviour
 {
+    // The Koto Tower
+    [SerializeField] PointTesting kotoTower;
+
+    // The generator
+    [SerializeField] GeneratorBehaviourTesting generator;
+
     // Enemy attribute
     [SerializeField] float speed;
-    [SerializeField] EnemiesPoolingTesting pooler;
     [SerializeField] float maxHealth = 10;
     float currHealth;
     PointTesting currTarget;
@@ -18,9 +23,12 @@ public class EnemyBehaviourTesting : MonoBehaviour
     // material id name to optimize color material
     int colorPropertyId = Shader.PropertyToID("_Color");
 
-    //timer and bool for hit detection
+    // timer and bool for hit detection
     float hitTime;
     bool isHit;
+
+    // charCharge (Answer) that the truck bring
+    AnswerTesting charCharge;
 
     private void OnEnable()
     {
@@ -66,7 +74,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
     // A method to change current targeted point so the agent can move to the point
     public void changeTargetFromCurrPoint(PointTesting point)
     {
-        currTarget = point.getFirstIndexPoint();
+        currTarget = point.getSecondIndexPoint();
     }
 
     // A method to change this agent parent, for the sake of tidiness for developer
@@ -83,17 +91,29 @@ public class EnemyBehaviourTesting : MonoBehaviour
         this.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         position = this.gameObject.transform.position;
 
-        if (isNowAt(point.getCurrPosition()) && point.getIsEndPoint())
+        if (isNowAt(point.getCurrPosition()) && point.getIsGenerator())
         {
-            // Just for testing, checking if current position is the end point
-            // so the agent can be disabled and put it on another parent (for the sake of tidiness)
-            pooler.insertBack(this);
+            // Check if the answer you give is correct answer and despawn the truck
+            generator.checkAnswer(charCharge);
+            despawn();
         }
         else if (isNowAt(point.getCurrPosition()))
         {
             // If the agent reach a destination that is not end point
             changeTargetFromCurrPoint(currTarget);
         }
+    }
+
+    // to get this object position since it keeps moving
+    public Vector2 getPosition()
+    {
+        return this.position;
+    }
+
+    // Set the charCharge (Answer) that the truck brings
+    public void setCharCharge(AnswerTesting charCharge)
+    {
+        this.charCharge = charCharge;
     }
 
     // Checking if the agent is at a point
@@ -104,31 +124,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
 
         return false;
     }
-
-    // Used for initialization on spawn
-    public void changePooler(EnemiesPoolingTesting pooler)
-    {
-        this.pooler = pooler;
-    }
-
-    // Method when enemy got hit
-    public void addDamage(float damage)
-    {
-        render.material.SetColor(colorPropertyId, Color.red);
-        hitTime = 0f;
-        currHealth -= damage;
-        isHit = true;
-
-        if (currHealth <= 0f)
-            pooler.insertBack(this);
-    }
-
-    // to get this object position since it keeps moving
-    public Vector2 getPosition()
-    {
-        return this.position;
-    }
-
+    
     // To reset the timer when you got hit
     void resetHit()
     {
@@ -137,7 +133,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
             hitTime += Time.deltaTime;
 
         // If it passed 0.2 second then bring it back to normal
-        if(hitTime >= 0.2f)
+        if (hitTime >= 0.2f)
         {
             hitTime = 0f;
             isHit = false;

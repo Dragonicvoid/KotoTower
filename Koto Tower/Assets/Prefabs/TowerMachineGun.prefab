@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4283217305093379423}
   - component: {fileID: 4283217305093379421}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: TowerMachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -32,8 +32,8 @@ public class ShootTargetTesting : MonoBehaviour
     // Create gizmos so we can see the tower range when selected
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1, 0, 1, 0.25f);
-        Gizmos.DrawSphere(currentPosition, radius);
+        Gizmos.color = new Color(1, 0, 1, 0.20f);
+        Gizmos.DrawSphere(this.transform.position, radius);
     }
 
     // Calling the hit detection
