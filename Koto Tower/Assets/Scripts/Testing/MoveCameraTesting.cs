@@ -30,15 +30,18 @@ public class MoveCameraTesting : MonoBehaviour
 
                 // move the camera if the delta is big enough
                 if (Mathf.Abs(touchDelta.x) > 0.5f)
-                {
-                    // Move and prevent the screen moves more than it needs to
                     this.transform.Translate(-touchDelta.x * speed * Time.deltaTime, 0f, 0f);
-                    this.transform.position = new Vector3(
-                                            Mathf.Clamp(transform.position.x, minX, maxX),
-                                            0f,
-                                            -10f);
-                }
             }
         }
+
+        // If there is scroll wheel input move the screen (for PC debugging)
+        if (Input.mouseScrollDelta.y != 0)
+            this.transform.Translate(-Input.mouseScrollDelta.y * speed * Time.deltaTime * 15f, 0f, 0f);
+
+        // Move and prevent the screen moves more than it needs to
+        this.transform.position = new Vector3(
+                                    Mathf.Clamp(transform.position.x, minX, maxX),
+                                    0f,
+                                    -10f);
     }
 }

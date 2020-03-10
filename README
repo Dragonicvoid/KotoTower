@@ -29,6 +29,8 @@ Script:
 15. QuestionManagerTesting
 16. QuestionAnswersTesting
 17. TruckBehaviourTesting
+18. ArrowsDirectionTesting
+19. ChooseDirectionTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -38,3 +40,4 @@ Progression Note:
 - 04/Mar/2019 : Added basic tower shooting, damage, and FPS counter (Reivaldo Julianto)
 - 06/Mar/2019 : Added basic tower spawn system, and camera movement (Reivaldo Julianto)
 - 09/Mar/2019 : Added basic answering system, and change enemy movement behaviour (Reivaldo Julianto)
+- 10/Mar/2019 : Added choose path function and change some of the code so it uses enumerator instead of boolean(Reivaldo Julianto)

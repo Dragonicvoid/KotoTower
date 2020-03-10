@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TruckBehaviourTesting : MonoBehaviour
 {
-    // The Koto Tower
-    [SerializeField] PointTesting kotoTower;
+    enum TruckStatus
+    {
+        WaitingForPath,
+        Driving,
+        Destroyed
+    }
 
-    // The generator
-    [SerializeField] GeneratorBehaviourTesting generator;
-
-    // Enemy attribute
+    // Truck attribute
     [SerializeField] float speed;
     [SerializeField] float maxHealth = 10;
     float currHealth;
@@ -19,9 +20,13 @@ public class TruckBehaviourTesting : MonoBehaviour
     Renderer render;
     Color defaultColor;
     public bool isDead;
+    TruckStatus currStatus;
 
     // material id name to optimize color material
     int colorPropertyId = Shader.PropertyToID("_Color");
+
+    // Path opener
+    ChooseDirectionTesting chooseDirection;
 
     // timer and bool for hit detection
     float hitTime;
@@ -39,6 +44,8 @@ public class TruckBehaviourTesting : MonoBehaviour
     // use start since the object is not active at the begining
     private void Start()
     {
+        // to get choose direction class
+        chooseDirection = this.GetComponentInChildren<ChooseDirectionTesting>();
         // to get renderer and default color
         render = this.GetComponent<Renderer>();
         defaultColor = render.material.GetColor(colorPropertyId);
@@ -52,7 +59,7 @@ public class TruckBehaviourTesting : MonoBehaviour
         // Moving the target
         moveTo(currTarget);
         // Reset color when not hitted
-        resetHit();
+        //resetHit();
     }
 
     // Spawning the agent from a point
@@ -60,21 +67,27 @@ public class TruckBehaviourTesting : MonoBehaviour
     {
         this.transform.position = pointPosition;
         position = pointPosition;
-        isDead = false;
         this.gameObject.SetActive(true);
     }
 
     // Despawning the enemy
     public void despawn()
     {
-        isDead = true;
+        currStatus = TruckStatus.Destroyed;
         this.gameObject.SetActive(false);
     }
 
-    // A method to change current targeted point so the agent can move to the point
+    // A method to change current targeted point so the agent can move to the next point
     public void changeTargetFromCurrPoint(PointTesting point)
     {
-        currTarget = point.getSecondIndexPoint();
+        // if its not branching point just move
+        if(!point.getIsBranchingPath())
+            currTarget = point.getSecondIndexPoint();
+        else
+        {
+            currStatus = TruckStatus.WaitingForPath;
+            chooseDirection.openDirectionsFromPoint(point, this.getPosition());
+        }
     }
 
     // A method to change this agent parent, for the sake of tidiness for developer
@@ -86,21 +99,24 @@ public class TruckBehaviourTesting : MonoBehaviour
     // Moving agent to a point
     public void moveTo(PointTesting point)
     {
-        // Moving is now using translate to make the game more consistent
-        Vector2 dir = currTarget.getCurrPosition() - position;
-        this.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        position = this.gameObject.transform.position;
+        // if the truck is driving / moving then move it
+        if (currStatus == TruckStatus.Driving && point != null)
+        {
+            // Moving is now using translate to make the game more consistent
+            Vector2 dir = point.getCurrPosition() - position;
+            this.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+            position = this.gameObject.transform.position;
 
-        if (isNowAt(point.getCurrPosition()) && point.getIsGenerator())
-        {
-            // Check if the answer you give is correct answer and despawn the truck
-            generator.checkAnswer(charCharge);
-            despawn();
-        }
-        else if (isNowAt(point.getCurrPosition()))
-        {
-            // If the agent reach a destination that is not end point
-            changeTargetFromCurrPoint(currTarget);
+            if (isNowAt(point.getCurrPosition()) && point.getIsGenerator())
+            {
+                // Check if the answer you give is correct answer and despawn the truck
+                GeneratorBehaviourTesting generator = point.gameObject.GetComponent<GeneratorBehaviourTesting>();
+                generator.checkAnswer(charCharge);
+                despawn();
+            }
+            else if (isNowAt(point.getCurrPosition()))
+                // If the agent reach a destination that is not end point
+                changeTargetFromCurrPoint(point);
         }
     }
 
@@ -114,6 +130,13 @@ public class TruckBehaviourTesting : MonoBehaviour
     public void setCharCharge(AnswerTesting charCharge)
     {
         this.charCharge = charCharge;
+    }
+
+    // Chooose a path when there are multiple paths
+    public void choosePath(PointTesting point)
+    {
+        currStatus = TruckStatus.Driving;
+        currTarget = point;
     }
 
     // Checking if the agent is at a point
@@ -145,5 +168,6 @@ public class TruckBehaviourTesting : MonoBehaviour
     void resetAttribute()
     {
         currHealth = maxHealth;
+        currStatus = TruckStatus.Driving;
     }
 }

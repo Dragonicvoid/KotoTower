@@ -63,7 +63,7 @@ public class ShootTargetTesting : MonoBehaviour
     {
         Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, radius);
 
-        if (hitCollider != null)
+        if (hitCollider != null && hitCollider.tag.Equals("Enemy"))
         {
             // Keeping this found enemy as target
             hasTarget = true;
@@ -78,7 +78,7 @@ public class ShootTargetTesting : MonoBehaviour
         currentTargetPosition = enemy.getPosition();
         
         // If the enemy ran, or died change target
-        if (Vector2.Distance(currentPosition, currentTargetPosition) > radius || enemy.isDead)
+        if (Vector2.Distance(currentPosition, currentTargetPosition) > radius || enemy.status == EnemyBehaviourTesting.EnemyStatus.Dead)
             hasTarget = false;
         else if (shootTimer >= fireRate)
         {

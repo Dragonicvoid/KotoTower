@@ -8,6 +8,7 @@ public class PointTesting : MonoBehaviour
     [SerializeField] List<PointTesting> neighbor = new List<PointTesting>();
     [SerializeField] bool isEndPoint = false;
     [SerializeField] bool isGenerator = false;
+    [SerializeField] bool isBranchingPath = false;
     Transform currPosition;
 
     // Get its position
@@ -34,6 +35,14 @@ public class PointTesting : MonoBehaviour
         return this.neighbor[1];
     }
 
+    // Get all possible path for the truck if there are more than one path
+    // the index starts at 1 since 0 is for enemy path
+    public List<PointTesting> getAllPossiblePathForTruck()
+    {
+        List<PointTesting> list = new List<PointTesting>(neighbor.GetRange(1, neighbor.Count - 1));
+        return list;
+    }
+
     // Check if this is final point for the enemy (Koto Tower)
     public bool getIsEndPoint()
     {
@@ -44,5 +53,11 @@ public class PointTesting : MonoBehaviour
     public bool getIsGenerator()
     {
         return this.isGenerator;
+    }
+
+    // Check if this is branching path for the truck (player have to choose the path)
+    public bool getIsBranchingPath()
+    {
+        return this.isBranchingPath;
     }
 }

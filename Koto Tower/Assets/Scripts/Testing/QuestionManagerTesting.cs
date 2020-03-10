@@ -70,11 +70,10 @@ public class QuestionManagerTesting : MonoBehaviour
         {
             AnswerTesting answer = currQuestion.getAnswerAtIndex(idx);
             charCharge.text = answer.answer;
-            Debug.Log(isSendingTruck);
             // Truck property
             truck.setCharCharge(answer);
             truck.spawn(truckSpawnPoint.getCurrPosition());
-            truck.changeTargetFromCurrPoint(truckSpawnPoint.getSecondIndexPoint());
+            truck.changeTargetFromCurrPoint(truckSpawnPoint);
             isSendingTruck = true;
         }
     }

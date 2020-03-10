@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyBehaviourTesting : MonoBehaviour
 {
+    public enum EnemyStatus
+    {
+        Dead,
+        Moving,
+        Attacking
+    }
+
     // Enemy attribute
     [SerializeField] float speed;
     [SerializeField] EnemiesPoolingTesting pooler;
@@ -13,7 +20,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
     Vector2 position;
     Renderer render;
     Color defaultColor;
-    public bool isDead;
+    public EnemyStatus status;
 
     // material id name to optimize color material
     int colorPropertyId = Shader.PropertyToID("_Color");
@@ -52,14 +59,14 @@ public class EnemyBehaviourTesting : MonoBehaviour
     {
         this.transform.position = pointPosition;
         position = pointPosition;
-        isDead = false;
+        status = EnemyStatus.Moving;
         this.gameObject.SetActive(true);
     }
 
     // Despawning the enemy
     public void despawn()
     {
-        isDead = true;
+        status = EnemyStatus.Dead;
         this.gameObject.SetActive(false);
     }
 
