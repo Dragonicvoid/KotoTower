@@ -29,12 +29,12 @@ public class ChooseDirectionTesting : MonoBehaviour
 
             // there is a path on the right
             if (deltaVector.x >= 0.5f)
-                openDirection(Direction.Right, path);
+                openDirection(Direction.RIGHT, path);
 
             if (deltaVector.y >= 0.5f)
-                openDirection(Direction.Up, path);
+                openDirection(Direction.UP, path);
             else if (deltaVector.y <= -0.5f)
-                openDirection(Direction.Down, path);
+                openDirection(Direction.DOWN, path);
         }
     }
 

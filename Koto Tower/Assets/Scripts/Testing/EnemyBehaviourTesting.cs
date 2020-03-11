@@ -6,9 +6,9 @@ public class EnemyBehaviourTesting : MonoBehaviour
 {
     public enum EnemyStatus
     {
-        Dead,
-        Moving,
-        Attacking
+        DEAD,
+        MOVING,
+        ATTACKING
     }
 
     // Enemy attribute
@@ -59,14 +59,14 @@ public class EnemyBehaviourTesting : MonoBehaviour
     {
         this.transform.position = pointPosition;
         position = pointPosition;
-        status = EnemyStatus.Moving;
+        status = EnemyStatus.MOVING;
         this.gameObject.SetActive(true);
     }
 
     // Despawning the enemy
     public void despawn()
     {
-        status = EnemyStatus.Dead;
+        status = EnemyStatus.DEAD;
         this.gameObject.SetActive(false);
     }
 

@@ -22,4 +22,11 @@ public class OtherMethodTesting
 
         return finalList;
     }
+
+    // Find if spesific object is on the camera
+    public static bool isVisibleFrom(Renderer renderer, Camera camera)
+    {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+        return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+    }
 }

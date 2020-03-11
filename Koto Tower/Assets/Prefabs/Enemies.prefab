@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1594995334217872294}
   - component: {fileID: 1594995334217872293}
   - component: {fileID: -5875510009684064455}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemies
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   speed: 1
   pooler: {fileID: 0}
   maxHealth: 30
-  isDead: 0
+  status: 0
 --- !u!58 &-5875510009684064455
 CircleCollider2D:
   m_ObjectHideFlags: 0

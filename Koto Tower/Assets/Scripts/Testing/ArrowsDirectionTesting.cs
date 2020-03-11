@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public enum Direction
 {
-    Up,
-    Right,
-    Down
+    UP,
+    RIGHT,
+    DOWN
 }
 
 public class ArrowsDirectionTesting : MonoBehaviour, IPointerClickHandler

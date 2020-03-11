@@ -6,9 +6,9 @@ public class TruckBehaviourTesting : MonoBehaviour
 {
     enum TruckStatus
     {
-        WaitingForPath,
-        Driving,
-        Destroyed
+        WAITING,
+        DRIVING,
+        DESTROYED
     }
 
     // Truck attribute
@@ -73,7 +73,7 @@ public class TruckBehaviourTesting : MonoBehaviour
     // Despawning the enemy
     public void despawn()
     {
-        currStatus = TruckStatus.Destroyed;
+        currStatus = TruckStatus.DESTROYED;
         this.gameObject.SetActive(false);
     }
 
@@ -85,7 +85,7 @@ public class TruckBehaviourTesting : MonoBehaviour
             currTarget = point.getSecondIndexPoint();
         else
         {
-            currStatus = TruckStatus.WaitingForPath;
+            currStatus = TruckStatus.WAITING;
             chooseDirection.openDirectionsFromPoint(point, this.getPosition());
         }
     }
@@ -100,7 +100,7 @@ public class TruckBehaviourTesting : MonoBehaviour
     public void moveTo(PointTesting point)
     {
         // if the truck is driving / moving then move it
-        if (currStatus == TruckStatus.Driving && point != null)
+        if (currStatus == TruckStatus.DRIVING && point != null)
         {
             // Moving is now using translate to make the game more consistent
             Vector2 dir = point.getCurrPosition() - position;
@@ -135,7 +135,7 @@ public class TruckBehaviourTesting : MonoBehaviour
     // Chooose a path when there are multiple paths
     public void choosePath(PointTesting point)
     {
-        currStatus = TruckStatus.Driving;
+        currStatus = TruckStatus.DRIVING;
         currTarget = point;
     }
 
@@ -168,6 +168,6 @@ public class TruckBehaviourTesting : MonoBehaviour
     void resetAttribute()
     {
         currHealth = maxHealth;
-        currStatus = TruckStatus.Driving;
+        currStatus = TruckStatus.DRIVING;
     }
 }

@@ -31,6 +31,8 @@ Script:
 17. TruckBehaviourTesting
 18. ArrowsDirectionTesting
 19. ChooseDirectionTesting
+20. TweenTesting
+21. MoveCameraButtonControllerTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -41,3 +43,4 @@ Progression Note:
 - 06/Mar/2019 : Added basic tower spawn system, and camera movement (Reivaldo Julianto)
 - 09/Mar/2019 : Added basic answering system, and change enemy movement behaviour (Reivaldo Julianto)
 - 10/Mar/2019 : Added choose path function and change some of the code so it uses enumerator instead of boolean(Reivaldo Julianto)
+- 11/Mar/2019 : Added event, so that an ui is activated when Koto Tower or Generator is off screen and diactivated when they are on screen. Change on the enumeration naming(now all UpperCase). Create a simple Tweening script where you can test it by clicking the first option on the answer Tab near "Koto Tower". Change behaviour on tower so it can only target enemy instead the "Char Charge" (Reivaldo Julianto)

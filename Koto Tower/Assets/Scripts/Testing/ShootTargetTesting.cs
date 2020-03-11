@@ -61,7 +61,7 @@ public class ShootTargetTesting : MonoBehaviour
     // Checking around the tower and damage the enemy if found
     void checkAround()
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, radius);
+        Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, radius, (1 << 8));
 
         if (hitCollider != null && hitCollider.tag.Equals("Enemy"))
         {
@@ -78,7 +78,7 @@ public class ShootTargetTesting : MonoBehaviour
         currentTargetPosition = enemy.getPosition();
         
         // If the enemy ran, or died change target
-        if (Vector2.Distance(currentPosition, currentTargetPosition) > radius || enemy.status == EnemyBehaviourTesting.EnemyStatus.Dead)
+        if (Vector2.Distance(currentPosition, currentTargetPosition) > radius || enemy.status == EnemyBehaviourTesting.EnemyStatus.DEAD)
             hasTarget = false;
         else if (shootTimer >= fireRate)
         {

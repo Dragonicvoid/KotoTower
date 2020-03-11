@@ -7,12 +7,21 @@ public class MoveCameraTesting : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float minX;
     [SerializeField] float maxX;
+    [SerializeField] Renderer kotoTowerRenderer, generatorRenderer;
     Vector2 cameraPosition;
+    Camera cam;
 
     // initialize variables
     private void Awake()
     {
         cameraPosition = new Vector2(0f, 0f);
+        cam = this.GetComponent<Camera>();
+    }
+
+    // check if generator or kotoTower is off screen
+    private void Start()
+    {
+        checkKotoTowerAndGeneratorOnScreen();
     }
 
     // Update is called once per frame
@@ -43,5 +52,31 @@ public class MoveCameraTesting : MonoBehaviour
                                     Mathf.Clamp(transform.position.x, minX, maxX),
                                     0f,
                                     -10f);
+
+        checkKotoTowerAndGeneratorOnScreen();
+    }
+
+    public void goToMinX()
+    {
+        this.transform.position = new Vector3(minX, 0f, 0f);
+    }
+
+    public void goToMaxX()
+    {
+        this.transform.position = new Vector3(maxX, 0f, 0f);
+    }
+
+    private void checkKotoTowerAndGeneratorOnScreen()
+    {
+        if (OtherMethodTesting.isVisibleFrom(kotoTowerRenderer, cam))
+            GameEventsTesting.current.ObjectOnScreenEnter(0);
+        else
+            GameEventsTesting.current.ObjectOffScreenEnter(0);
+
+
+        if (OtherMethodTesting.isVisibleFrom(generatorRenderer, cam))
+            GameEventsTesting.current.ObjectOnScreenEnter(1);
+        else
+            GameEventsTesting.current.ObjectOffScreenEnter(1);
     }
 }
