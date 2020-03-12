@@ -802,19 +802,71 @@ MonoBehaviour:
   m_GameObject: {fileID: 232586917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4f5c287bc27d94b91777bd3858ad7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 38d505ace489fe240b075fd76f86daa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationTimer: 0.5
+  eventId: 2
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7626042
+      value: 0.15132608
+      inSlope: 1.2054994
+      outSlope: 1.2054994
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8818594
+      value: 0.828224
+      inSlope: 1.2606019
+      outSlope: 1.2606019
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.90958875
+      value: 1.0506248
+      inSlope: 1.021233
+      outSlope: 1.021233
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.96284
+      value: 0.89453834
+      inSlope: 0.8491788
+      outSlope: 0.8491788
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.088693574
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  tweenType: 0
-  time: 0.1
-  start: 100
-  end: 10
 --- !u!1 &349922319
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +927,7 @@ GameObject:
   - component: {fileID: 448115220}
   - component: {fileID: 448115219}
   - component: {fileID: 448115218}
+  - component: {fileID: 448115222}
   m_Layer: 5
   m_Name: Question Canvas
   m_TagString: Untagged
@@ -963,6 +1016,80 @@ RectTransform:
   m_AnchoredPosition: {x: -0.036597967, y: 0.09398329}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 1, y: 0}
+--- !u!114 &448115222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448115217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d505ace489fe240b075fd76f86daa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTimer: 0.5
+  eventId: 3
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7626042
+      value: 0.15132608
+      inSlope: 1.2054994
+      outSlope: 1.2054994
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8818594
+      value: 0.828224
+      inSlope: 1.2606019
+      outSlope: 1.2606019
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.90958875
+      value: 1.0506248
+      inSlope: 1.021233
+      outSlope: 1.021233
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.96284
+      value: 0.89453834
+      inSlope: 0.8491788
+      outSlope: 0.8491788
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.088693574
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &581802001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,17 +1914,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 232586922}
-        m_MethodName: linearUIVertical
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &952837199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1994,8 +2110,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1138616867}
   - component: {fileID: 1138616868}
+  - component: {fileID: 1138616869}
   m_Layer: 0
-  m_Name: Game Events System
+  m_Name: Game Events and Tween
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2025,6 +2142,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 754f8d58b1477ce4a91f2da0f8be6da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1138616869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138616866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4f5c287bc27d94b91777bd3858ad7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1207084386

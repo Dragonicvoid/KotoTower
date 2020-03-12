@@ -56,27 +56,41 @@ public class MoveCameraTesting : MonoBehaviour
         checkKotoTowerAndGeneratorOnScreen();
     }
 
+    // go to minimal horizontal plane
     public void goToMinX()
     {
         this.transform.position = new Vector3(minX, 0f, 0f);
     }
 
+    // go to maximal horizontal plane
     public void goToMaxX()
     {
         this.transform.position = new Vector3(maxX, 0f, 0f);
     }
 
+    // Calling event
     private void checkKotoTowerAndGeneratorOnScreen()
     {
         if (OtherMethodTesting.isVisibleFrom(kotoTowerRenderer, cam))
+        {
             GameEventsTesting.current.ObjectOnScreenEnter(0);
+            GameEventsTesting.current.ObjectOnScreenEnter(2);
+        }
         else
+        {
             GameEventsTesting.current.ObjectOffScreenEnter(0);
-
+            GameEventsTesting.current.ObjectOffScreenEnter(2);
+        }
 
         if (OtherMethodTesting.isVisibleFrom(generatorRenderer, cam))
+        {
             GameEventsTesting.current.ObjectOnScreenEnter(1);
+            GameEventsTesting.current.ObjectOnScreenEnter(3);
+        }
         else
+        {
             GameEventsTesting.current.ObjectOffScreenEnter(1);
+            GameEventsTesting.current.ObjectOffScreenEnter(3);
+        } 
     }
 }

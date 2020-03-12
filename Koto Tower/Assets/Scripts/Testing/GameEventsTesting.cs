@@ -7,6 +7,7 @@ public class GameEventsTesting : MonoBehaviour
 {
     public static GameEventsTesting current;
 
+    // Action and event caller
     private void Awake()
     {
         current = this;
