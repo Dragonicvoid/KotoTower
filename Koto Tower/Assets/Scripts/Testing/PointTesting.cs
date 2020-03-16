@@ -43,6 +43,13 @@ public class PointTesting : MonoBehaviour
         return list;
     }
 
+    // Get all path for blocking the grid
+    public List<PointTesting> getAllNeighbor()
+    {
+        List<PointTesting> list = new List<PointTesting>(neighbor.GetRange(0, neighbor.Count));
+        return list;
+    }
+
     // Check if this is final point for the enemy (Koto Tower)
     public bool getIsEndPoint()
     {

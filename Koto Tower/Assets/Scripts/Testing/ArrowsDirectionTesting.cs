@@ -7,7 +7,9 @@ public enum Direction
 {
     UP,
     RIGHT,
-    DOWN
+    DOWN,
+    LEFT,
+    NONE
 }
 
 public class ArrowsDirectionTesting : MonoBehaviour, IPointerClickHandler

@@ -12,7 +12,7 @@ public class ShootTargetTesting : MonoBehaviour
     bool hasTarget;
 
     // Fire flash object (the flash when tower is shooting)
-    [SerializeField] GameObject fireFlash;
+    [SerializeField] GameObject fireFlash = null;
 
     // Timer so the tower doesn't keep shooting every frame
     float shootTimer;
@@ -108,5 +108,11 @@ public class ShootTargetTesting : MonoBehaviour
     {
         if (shootTimer >= (fireRate * (75 / 100)))
             fireFlash.gameObject.SetActive(false);
+    }
+
+    // get radius for creating circle
+    public float getRadius()
+    {
+        return this.radius;
     }
 }

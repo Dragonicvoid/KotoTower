@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
 {
-    [SerializeField] float animationTimer;
-    [SerializeField] short eventId;
+    [SerializeField] float animationTimer = 0.5f;
+    [SerializeField] short eventId = 0;
     public AnimationCurve curve;
     RectTransform rectTransform;
     bool isClosed;

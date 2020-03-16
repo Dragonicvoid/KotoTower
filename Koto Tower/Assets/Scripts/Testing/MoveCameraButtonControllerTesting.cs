@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveCameraButtonControllerTesting : MonoBehaviour
 {
-    [SerializeField] GameObject kotoTowerButton;
-    [SerializeField] GameObject generatorButton;
+    [SerializeField] GameObject kotoTowerButton = null;
+    [SerializeField] GameObject generatorButton = null;
 
     private void Start()
     {

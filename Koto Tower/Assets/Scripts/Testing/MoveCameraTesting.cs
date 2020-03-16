@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MoveCameraTesting : MonoBehaviour
 {
-    [SerializeField] float speed;
-    [SerializeField] float minX;
-    [SerializeField] float maxX;
-    [SerializeField] Renderer kotoTowerRenderer, generatorRenderer;
+    [SerializeField] float speed = 1f;
+    [SerializeField] float minX = 0f;
+    [SerializeField] float maxX = 0f;
+    Renderer kotoTowerRenderer, generatorRenderer;
     Vector2 cameraPosition;
     Camera cam;
 
@@ -16,6 +16,8 @@ public class MoveCameraTesting : MonoBehaviour
     {
         cameraPosition = new Vector2(0f, 0f);
         cam = this.GetComponent<Camera>();
+        kotoTowerRenderer = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<SpriteRenderer>();
+        generatorRenderer = GameObject.FindGameObjectWithTag("Generator").GetComponent<SpriteRenderer>();
     }
 
     // check if generator or kotoTower is off screen
@@ -44,7 +46,7 @@ public class MoveCameraTesting : MonoBehaviour
         }
 
         // If there is scroll wheel input move the screen (for PC debugging)
-        if (Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y != 0 && !ButtonForTowerTesting.isSelectTower)
             this.transform.Translate(-Input.mouseScrollDelta.y * speed * Time.deltaTime * 15f, 0f, 0f);
 
         // Move and prevent the screen moves more than it needs to

@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawningTesting : MonoBehaviour
 {
     #region Serialized Field Variables definition
-    [SerializeField] EnemiesPoolingTesting inactiveObject;
-    [SerializeField] Transform activeObject;
+    [SerializeField] EnemiesPoolingTesting inactiveObject = null;
+    [SerializeField] Transform activeObject = null;
     [SerializeField] int cost = 5;
     [SerializeField] float spawnNow = 1f;
     #endregion

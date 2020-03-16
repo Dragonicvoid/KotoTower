@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4283217305093379420}
   - component: {fileID: 4283217305093379423}
   - component: {fileID: 4283217305093379421}
+  - component: {fileID: 4008298705093430486}
+  - component: {fileID: 7095632156805226881}
   m_Layer: 0
   m_Name: TowerMachineGun
   m_TagString: Untagged
@@ -99,6 +101,30 @@ MonoBehaviour:
   radius: 3
   fireRate: 0.3
   fireFlash: {fileID: 4283217305472608829}
+--- !u!114 &4008298705093430486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4283217305093379422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d6e69d19274b444aec7f103cd6d3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7095632156805226881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4283217305093379422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a9bfd12cf0d254f903da7b3bbe1b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4283217305472608829
 GameObject:
   m_ObjectHideFlags: 0

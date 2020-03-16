@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class QuestionsAnswersTesting
 {
-    [SerializeField] string question;
-    [SerializeField] List<AnswerTesting> answers;
-    [SerializeField] AudioClip audio;
+    [SerializeField] string question = null;
+    [SerializeField] List<AnswerTesting> answers = null;
+    [SerializeField] AudioClip audio = null;
 
     // set the question
     public void setQuestion(string question)

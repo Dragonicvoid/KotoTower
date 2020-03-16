@@ -12,7 +12,7 @@ public class TruckBehaviourTesting : MonoBehaviour
     }
 
     // Truck attribute
-    [SerializeField] float speed;
+    [SerializeField] float speed = 1;
     [SerializeField] float maxHealth = 10;
     float currHealth;
     PointTesting currTarget;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemiesPoolingTesting : MonoBehaviour
 {
-    [SerializeField] GameObject prefEnemy;
+    [SerializeField] GameObject prefEnemy = null;
     List<EnemyBehaviourTesting> nonActiveEnemies;
 
     // Start is called before the first frame update

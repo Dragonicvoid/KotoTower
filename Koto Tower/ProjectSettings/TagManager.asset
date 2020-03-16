@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Koto Tower
+  - Generator
+  - Char Charge
+  - Tower
+  - Truck
+  - Map
   layers:
   - Default
   - TransparentFX

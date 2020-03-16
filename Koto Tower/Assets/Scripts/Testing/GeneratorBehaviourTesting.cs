@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class GeneratorBehaviourTesting : MonoBehaviour
 {
     // Question and Answer property for testing (change the text if the answer is correct or wrong)
-    [SerializeField] QuestionManagerTesting questionManager;
+    [SerializeField] QuestionManagerTesting questionManager = null;
 
     // how many time it shoud be charge before player win the game
-    [SerializeField] int maxCharged;
+    [SerializeField] int maxCharged = 3;
     // timer for how long the text showing the player if the answer is correct or not
-    [SerializeField] float waitTimer;
+    [SerializeField] float waitTimer = 5f;
     int answeredQuestion;
 
     // the actual variable to hold the timer
@@ -19,9 +19,13 @@ public class GeneratorBehaviourTesting : MonoBehaviour
     // the flag to start timer
     bool isStartTiming;
 
+    // Baloon Text
+    Text questionText;
+
     // Initialization
     private void Start()
     {
+        questionText = this.gameObject.GetComponentInChildren<Text>();
         isStartTiming = false;
         answeredQuestion = 0;
         timer = 0;
@@ -35,13 +39,17 @@ public class GeneratorBehaviourTesting : MonoBehaviour
 
         if (timer >= waitTimer)
         {
-            // Change the question
-            questionManager.getNewQuestion();
-            // Tell question manager that the truck has arrived
+            // Tell question manager that the truck has arrived and charged the generator
             QuestionManagerTesting.isSendingTruck = false;
             // Reset Timer
             timer = 0;
             isStartTiming = false;
+
+            // if Player answer maxCharged amount of answers
+            if (answeredQuestion >= maxCharged)
+                questionText.text = "MENANG!!!";
+            else // Change the question
+                questionManager.getNewQuestion();
         }
     }
 
@@ -51,10 +59,10 @@ public class GeneratorBehaviourTesting : MonoBehaviour
         if (answer.isRightAnswer)
         {
             answeredQuestion++;
-            questionManager.questionUI.text = "JAWABAN BENAR!!!";
+            questionText.text = "JAWABAN BENAR!!!";
         }
         else
-            questionManager.questionUI.text = "JAWABAN SALAH!!!";
+            questionText.text = "JAWABAN SALAH!!!";
 
         // Start timer
         isStartTiming = true;

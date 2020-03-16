@@ -12,8 +12,8 @@ public class EnemyBehaviourTesting : MonoBehaviour
     }
 
     // Enemy attribute
-    [SerializeField] float speed;
-    [SerializeField] EnemiesPoolingTesting pooler;
+    [SerializeField] float speed = 1f;
+    [SerializeField] EnemiesPoolingTesting pooler = null;
     [SerializeField] float maxHealth = 10;
     float currHealth;
     PointTesting currTarget;

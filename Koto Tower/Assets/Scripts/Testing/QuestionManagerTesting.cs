@@ -15,18 +15,29 @@ public class QuestionManagerTesting : MonoBehaviour
     public Text questionUI;
 
     // how many times answer shuffled
-    [SerializeField] int epoch;
+    [SerializeField] int epoch = 3;
 
     // Truck property
-    [SerializeField] TruckBehaviourTesting truck;
-    [SerializeField] TextMesh charCharge;
-    [SerializeField] PointTesting truckSpawnPoint; // Koto Tower
+    TruckBehaviourTesting truck = null;
+    TextMesh charCharge = null;
+    PointTesting truckSpawnPoint = null; // Koto Tower
 
     // Current question and answers
     QuestionsAnswersTesting currQuestion;
 
     // Are the trucks on the way, prevent any other truck to spawn
     public static bool isSendingTruck = false;
+
+    // variable initialization
+    private void Awake()
+    {
+        // find all object
+        truck = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckBehaviourTesting>();
+        charCharge = GameObject.FindGameObjectWithTag("Char Charge").GetComponent<TextMesh>();
+        truck.gameObject.SetActive(false);
+
+        truckSpawnPoint = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<PointTesting>();
+    }
 
     // Shuffling the answer
     private void Start()
