@@ -39,7 +39,6 @@ public class SpawnTowerTesting : MonoBehaviour
 
                 if (GridTesting.cells[x,y].cellContent == CellContent.OPEN_FIELD)
                 {
-                    Debug.Log("Spawn at : " + GridTesting.getWorldSpace(x, y));
                     GameObject spawnedTower = Instantiate(tower, this.transform);
                     spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
                     spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();

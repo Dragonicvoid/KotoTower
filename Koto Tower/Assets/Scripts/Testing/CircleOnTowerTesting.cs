@@ -14,7 +14,7 @@ public class CircleOnTowerTesting : MonoBehaviour
         this.circle = new GameObject();
         this.circle.SetActive(false);
         this.circle.name = "circle";
-        this.circle.transform.position = this.transform.position;
+        this.circle.transform.position = this.transform.position + new Vector3(0, 0, 1);
         this.circle.transform.parent = this.transform;
         LineRenderer lineCircle = circle.AddComponent(typeof(LineRenderer)) as LineRenderer;
         lineCircle = createCircle(this.gameObject.GetComponent<ShootTargetTesting>().getRadius(), lineCircle, Color.red);
@@ -25,9 +25,10 @@ public class CircleOnTowerTesting : MonoBehaviour
     LineRenderer createCircle(float radius, LineRenderer line, Color color)
     {
         float segment = 360f;
-        Material mtr = new Material(Shader.Find("Transparent/Diffuse"));
-        mtr.SetColor(colorId, color);
-        line.material = mtr;
+        line.sortingOrder = 1;
+        line.material = new Material(Shader.Find("Sprites/Default"));
+        line.material.color = color;
+        line.SetVertexCount(2);
         line.useWorldSpace = false;
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;

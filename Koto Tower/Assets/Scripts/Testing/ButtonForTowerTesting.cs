@@ -87,14 +87,16 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     void drawLine(Vector3 start, Vector3 end, Color color, Transform parent)
     {
         GameObject myLine = new GameObject();
-        myLine.transform.position = start;
+        myLine.transform.position = start + new Vector3(0, 0, 1);
         myLine.AddComponent<LineRenderer>();
         LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        Material mtr = new Material(Shader.Find("Transparent/Diffuse"));
-        mtr.SetColor(colorId, color);
-        lr.material = mtr;
+        lr.sortingOrder = 1;
+        lr.material = new Material(Shader.Find("Sprites/Default"));
+        lr.material.color = color;
+        lr.SetVertexCount(2);
         lr.startColor = color;
         lr.startWidth = 0.1f;
+        lr.endWidth = 0.1f;
         lr.SetPosition(0, start);
         lr.SetPosition(1, end);
         myLine.name = "line";
