@@ -7,7 +7,9 @@ public class SpawnTowerTesting : MonoBehaviour
 {
     Camera mainCamera = null;
     // variable for spawning tower according the button that player selected
-    [SerializeField] GameObject tower = null;
+    [SerializeField] GameObject towerMachineGun = null;
+    [SerializeField] GameObject towerSniper= null;
+    [SerializeField] GameObject towerElectric = null;
     [SerializeField] ButtonForTowerTesting towerButton = null;
 
     // Find camera with tag
@@ -25,7 +27,8 @@ public class SpawnTowerTesting : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             // Spawn the tower at the position that player touch at camera and disable the toggle
-            if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId)
+                && (touch.position.y > (Screen.height * 19 / 100) || touch.position.x > (Screen.width * 37 / 100)))
             {
                 Vector2 touchPosition;
                 touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
@@ -39,11 +42,26 @@ public class SpawnTowerTesting : MonoBehaviour
 
                 if (GridTesting.cells[x,y].cellContent == CellContent.OPEN_FIELD)
                 {
-                    GameObject spawnedTower = Instantiate(tower, this.transform);
+                    GameObject spawnedTower;
+                    switch (ButtonForTowerTesting.selectedTower)
+                    {
+                        case 0:
+                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            break;
+                        case 1:
+                            spawnedTower = Instantiate(towerSniper, this.transform);
+                            break;
+                        case 2:
+                            spawnedTower = Instantiate(towerElectric, this.transform);
+                            break;
+                        default:
+                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            break;
+                    }
                     spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
                     spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
+                    towerButton.disableToogle(ButtonForTowerTesting.selectedTower);
                 }
-                towerButton.disableToogle(0);
             }
         }
 
@@ -63,13 +81,29 @@ public class SpawnTowerTesting : MonoBehaviour
                 x += GridTesting.offsetX;
                 y += GridTesting.offsetY;
 
-                if (GridTesting.cells[x, y].cellContent == CellContent.OPEN_FIELD)
+                if (GridTesting.cells[x, y].cellContent == CellContent.OPEN_FIELD 
+                    && (Input.mousePosition.y > (Screen.height * 19 / 100) || Input.mousePosition.x > (Screen.width * 37 / 100)))
                 {
-                    GameObject spawnedTower = Instantiate(tower, this.transform);
+                    GameObject spawnedTower;
+                    switch (ButtonForTowerTesting.selectedTower)
+                    {
+                        case 0:
+                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            break;
+                        case 1:
+                            spawnedTower = Instantiate(towerSniper, this.transform);
+                            break;
+                        case 2:
+                            spawnedTower = Instantiate(towerElectric, this.transform);
+                            break;
+                        default:
+                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            break;
+                    }
                     spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
                     spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
+                    towerButton.disableToogle(ButtonForTowerTesting.selectedTower);
                 }
-                towerButton.disableToogle(0);
             }
         }
     }

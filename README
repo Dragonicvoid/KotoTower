@@ -7,6 +7,10 @@ https://www.google.co.id/url?sa=i&url=http%3A%2F%2Fpluspng.com%2Ftriangle-png-11
 https://www.google.co.id/url?sa=i&url=https%3A%2F%2Fwww.growthgurus.com%2Fico-branding-websites%2Fico-websites-background-placeholder-image%2F&psig=AOvVaw3cyhN62rXVmjR30iqznPxD&ust=1583233420526000&source=images&cd=vfe&ved=0CAMQjB1qFwoTCMDzh6vS--cCFQAAAAAdAAAAABAD
 3. Simple Icon Placeholder : 
 https://www.google.co.id/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F1555553%2Fgallery_image_no_image_photo_photography_picture_placeholder_icon&psig=AOvVaw2gwVw0duYOIzEqeLPmSXks&ust=1583233411020000&source=images&cd=vfe&ved=0CAMQjB1qFwoTCJD6q6DS--cCFQAAAAAdAAAAABAD
+4. Simple Tower Sniper Placeholder : 
+https://www.google.co.id/url?sa=i&url=http%3A%2F%2Fpluspng.com%2Ftriangle-png-1145.html&psig=AOvVaw3QszaLpixPLIfKrQoL9gob&ust=1583233421237000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD-xrTS--cCFQAAAAAdAAAAABAD
+5. Simple Tower Electric Placeholder : 
+https://www.google.co.id/url?sa=i&url=http%3A%2F%2Fpluspng.com%2Ftriangle-png-1145.html&psig=AOvVaw3QszaLpixPLIfKrQoL9gob&ust=1583233421237000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD-xrTS--cCFQAAAAAdAAAAABAD
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -56,3 +60,4 @@ Progression Note:
 - 11/Mar/2019 : Added event, so that an ui is activated when Koto Tower or Generator is off screen and diactivated when they are on screen. Change on the enumeration naming(now all UpperCase). Create a simple Tweening script where you can test it by clicking the first option on the answer Tab near "Koto Tower". Change behaviour on tower so it can only target enemy instead the "Char Charge" (Reivaldo Julianto)
 - 12/Mar/2019 : Added event, so the answer ui of koto tower and question ui of generator ui tweened and disable or activated when they are off screen or on screen (Reivaldo Julianto)
 - 16/Mar/2019 : Added grid and UI to show which part of game world the tower can be spawned, also since everything runs on grid tower can only spawn on certain spot, and also create range and possible placement for tower(Reivaldo Julianto)
+- 17/Mar/2019 :added 3 tower and fixes on ui toggle (Reivaldo Julianto)

@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TowerType
+{
+    MACHINE_GUN,
+    SNIPER,
+    ELECTRIC
+}
+
 public class ShootTargetTesting : MonoBehaviour
 {
     // tower attribute
     [SerializeField] float damage = 3f;
     [SerializeField] float radius = 3f;
     [SerializeField] float fireRate = 3f;
+    [SerializeField] bool shootAround = false;
+    [SerializeField] TowerType type = TowerType.MACHINE_GUN;
     Vector2 currentPosition;
     bool hasTarget;
 
@@ -19,7 +28,7 @@ public class ShootTargetTesting : MonoBehaviour
 
     // Enemy attribute
     Vector2 currentTargetPosition;
-    EnemyBehaviourTesting enemy;
+    List<EnemyBehaviourTesting> enemy;
 
     // Initialize variables so we dont have to keep using transform class and for shoot method
     void Start()
@@ -27,13 +36,29 @@ public class ShootTargetTesting : MonoBehaviour
         currentPosition = this.transform.position;
         hasTarget = false;
         shootTimer = fireRate;
+        enemy = new List<EnemyBehaviourTesting>();
     }
 
     // Create gizmos so we can see the tower range when selected
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1, 0, 1, 0.20f);
-        Gizmos.DrawSphere(this.transform.position, radius);
+        switch (type)
+        {
+            case TowerType.MACHINE_GUN:
+                Gizmos.color = new Color(1, 0, 1, 0.20f);
+                Gizmos.DrawSphere(this.transform.position, radius);
+                break;
+            case TowerType.SNIPER:
+                Gizmos.color = new Color(1, 0, 0, 0.20f);
+                Gizmos.DrawSphere(this.transform.position, radius);
+                break;
+            case TowerType.ELECTRIC:
+                Gizmos.color = new Color(0, 0, 1, 0.20f);
+                Gizmos.DrawSphere(this.transform.position, radius);
+                break;
+        }
+            
+        
     }
 
     // Calling the hit detection
@@ -54,6 +79,9 @@ public class ShootTargetTesting : MonoBehaviour
                 break;
             case true:
                 shootTarget();
+                // for shoot around type of tower find target
+                if (shootAround)
+                    checkAround();
                 break;
         }
     }
@@ -61,34 +89,70 @@ public class ShootTargetTesting : MonoBehaviour
     // Checking around the tower and damage the enemy if found
     void checkAround()
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, radius, (1 << 8));
-
-        if (hitCollider != null && hitCollider.tag.Equals("Enemy"))
+        if (shootAround)
         {
-            // Keeping this found enemy as target
-            hasTarget = true;
-            enemy = hitCollider.GetComponent<EnemyBehaviourTesting>();
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(currentPosition, radius, (1 << 8));
+
+            if (hitColliders.Length > 0)
+            {
+                hasTarget = true;
+                enemy.Clear();
+                foreach (Collider2D hitCollider in hitColliders)
+                    enemy.Add(hitCollider.GetComponent<EnemyBehaviourTesting>());
+            }
+            else
+                hasTarget = false;
         }
+        else
+        {
+            Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, radius, (1 << 8));
+
+            if (hitCollider != null /*&& hitCollider.tag.Equals("Enemy")*/)
+            {
+                // Keeping this found enemy as target
+                hasTarget = true;
+                enemy.Clear();
+                enemy.Add(hitCollider.GetComponent<EnemyBehaviourTesting>());
+            }
+        }
+        
     }
 
     // Method to shoot the enemy until it's dead or escape the radius
     void shootTarget()
     {
-        rotateToTarget();
-        currentTargetPosition = enemy.getPosition();
-        
-        // If the enemy ran, or died change target
-        if (Vector2.Distance(currentPosition, currentTargetPosition) > radius || enemy.status == EnemyBehaviourTesting.EnemyStatus.DEAD)
-            hasTarget = false;
-        else if (shootTimer >= fireRate)
+        // if its shoot around type of tower and doesnt have target just move back
+        if (shootAround)
         {
-            // Hit enemy and reset timer
-            fireFlash.gameObject.SetActive(true);
-            enemy.addDamage(damage);
-            shootTimer = 0f;
+            if (shootTimer >= fireRate)
+            {
+                fireFlash.gameObject.SetActive(true);
+                // Hit enemy and reset timer
+                foreach (EnemyBehaviourTesting target in enemy)
+                    target.addDamage(damage);
+                shootTimer = 0f;
+            }
+            else if (shootTimer >= (fireRate * (75 / 100)))
+                fireFlash.gameObject.SetActive(false);
         }
-        else if (shootTimer >= (fireRate * (75 / 100)))
-            fireFlash.gameObject.SetActive(false);
+        else
+        {
+            rotateToTarget();
+            currentTargetPosition = enemy[0].getPosition();
+
+            // If the enemy ran, or died change target
+            if (Vector2.Distance(currentPosition, currentTargetPosition) > radius || enemy[0].status == EnemyBehaviourTesting.EnemyStatus.DEAD)
+                hasTarget = false;
+            else if (shootTimer >= fireRate)
+            {
+                // Hit enemy and reset timer
+                fireFlash.gameObject.SetActive(true);
+                enemy[0].addDamage(damage);
+                shootTimer = 0f;
+            }
+            else if (shootTimer >= (fireRate * (75 / 100)))
+                fireFlash.gameObject.SetActive(false);
+        }
     }
 
     // Method to rotate to target position

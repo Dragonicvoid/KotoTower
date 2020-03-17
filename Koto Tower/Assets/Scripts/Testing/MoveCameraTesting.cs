@@ -35,7 +35,8 @@ public class MoveCameraTesting : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             // Get the vector and move camera horizontally if it moves
-            if (touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Moved
+                && (touch.position.y > (Screen.height * 21 / 100) || touch.position.x > (Screen.width * 40 / 100)))
             { 
                 Vector2 touchDelta = touch.deltaPosition;
 

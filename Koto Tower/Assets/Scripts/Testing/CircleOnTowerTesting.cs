@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CircleOnTowerTesting : MonoBehaviour
 {
-    string colorId = "_Color";
     GameObject circle;
 
     // Start is called before the first frame update
@@ -28,7 +27,7 @@ public class CircleOnTowerTesting : MonoBehaviour
         line.sortingOrder = 1;
         line.material = new Material(Shader.Find("Sprites/Default"));
         line.material.color = color;
-        line.SetVertexCount(2);
+        line.positionCount = 2;
         line.useWorldSpace = false;
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;

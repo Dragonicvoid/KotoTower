@@ -7,10 +7,10 @@ using UnityEngine.EventSystems;
 public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
 {
     public static bool isSelectTower;
+    public static short selectedTower;
     public static bool isPressedButton;
     public static bool isDoneMakingLines;
     GameObject lineParent;
-    string colorId = "_Color";
     [SerializeField] List<Toggle> toggles = null;
 
     // property id for color;
@@ -21,6 +21,7 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     {
         isSelectTower = false;
         isPressedButton = false;
+        selectedTower = -1;
         foreach (Toggle toggle in toggles)
             toggle.isOn = false;
     }
@@ -35,6 +36,7 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     IEnumerator lateDraw(float waitTime)
     {
         this.lineParent = Instantiate(new GameObject());
+        lineParent.name = "Line Parent";
         lineParent.transform.position = new Vector3(0f, 0f, 0f);
 
         for (int i = 0; i < GridTesting.width; i++)
@@ -58,9 +60,21 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     }
 
     // Is change the state if it is to spawn tower, or want to move camera (can't be both)
-    public void selectTower()
+    public void selectTower(int idx)
     {
-        isSelectTower = !isSelectTower;
+        // all condition selecting button
+        if (selectedTower == -1)
+            enableToogle(idx);
+        else if (selectedTower == idx)
+        {
+            isSelectTower = false;
+            selectedTower = -1;
+        }
+        else
+        {
+            clearAllToggles();
+            enableToogle(idx);
+        }
 
         // Show the possible line
         if (isDoneMakingLines && isSelectTower)
@@ -75,12 +89,29 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
         Toggle selectedToggle = toggles[idx];
         selectedToggle.isOn = false;
         isSelectTower = false;
+        selectedTower = -1;
+    }
+
+    // enable the toggle
+    public void enableToogle(int idx)
+    {
+        Toggle selectedToggle = toggles[idx];
+        selectedToggle.isOn = true;
+        isSelectTower = true;
+        selectedTower = (short)idx;
     }
 
     // on the toggle click, this is for the mouse click (debug)
     public void OnPointerClick(PointerEventData eventData)
     {
         isPressedButton = true;
+    }
+
+    // clearing all toggle
+    void clearAllToggles()
+    {
+        foreach (Toggle toggle in toggles)
+            toggle.isOn = false;
     }
 
     //Drawing a line
@@ -93,7 +124,7 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
         lr.sortingOrder = 1;
         lr.material = new Material(Shader.Find("Sprites/Default"));
         lr.material.color = color;
-        lr.SetVertexCount(2);
+        lr.positionCount = 2;
         lr.startColor = color;
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
