@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SpawnTowerTesting : MonoBehaviour
+public class SpawnTrapTesting : MonoBehaviour
 {
     Camera mainCamera = null;
     float timer = 0f;
     float maxTimer = 0.5f;
     bool isTouched = false;
-    // variable for spawning tower according the button that player selected
-    [SerializeField] GameObject towerMachineGun = null;
-    [SerializeField] GameObject towerSniper= null;
-    [SerializeField] GameObject towerElectric = null;
-    [SerializeField] ButtonForTowerTesting towerButton = null;
+    // variable for spawning trap according the button that player selected
+    [SerializeField] GameObject trapBomb = null;
+    [SerializeField] GameObject trapTime = null;
+    [SerializeField] GameObject trapFreeze = null;
+    [SerializeField] ButtonForTrapTesting trapButton = null;
 
     // Find camera with tag
     private void Awake()
@@ -28,11 +28,11 @@ public class SpawnTowerTesting : MonoBehaviour
     void Update()
     {
         // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.touchCount > 0 && ButtonForTowerTesting.isSelectTower)
+        if (Input.touchCount > 0 && ButtonForTrapTesting.isSelectTrap)
         {
             Touch touch = Input.GetTouch(0);
 
-            // Spawn the tower at the position that player touch at camera and disable the toggle
+            // Spawn the trap at the position that player touch at camera and disable the toggle
             if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId)
                 && (touch.position.y > (Screen.height * 17 / 100) || touch.position.x > (Screen.width * 32 / 100))
                 && (touch.position.y > (Screen.height * 17 / 100) || touch.position.x < (Screen.width * 68 / 100)))
@@ -47,29 +47,28 @@ public class SpawnTowerTesting : MonoBehaviour
                 x += GridTesting.offsetX;
                 y += GridTesting.offsetY;
 
-                if (GridTesting.cells[x,y].cellContent == CellContent.OPEN_FIELD)
+                if (GridTesting.cells[x, y].cellContent == CellContent.PATH)
                 {
-                    GameObject spawnedTower;
-                    switch (ButtonForTowerTesting.selectedTower)
+                    GameObject spawnedTrap;
+                    switch (ButtonForTrapTesting.selectedTrap)
                     {
                         case 0:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            spawnedTrap = Instantiate(trapBomb, this.transform);
                             break;
                         case 1:
-                            spawnedTower = Instantiate(towerSniper, this.transform);
+                            spawnedTrap = Instantiate(trapTime, this.transform);
                             break;
                         case 2:
-                            spawnedTower = Instantiate(towerElectric, this.transform);
+                            spawnedTrap = Instantiate(trapFreeze, this.transform);
                             break;
                         default:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            spawnedTrap = Instantiate(trapBomb, this.transform);
                             break;
                     }
-                    spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
-                    spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
+                    spawnedTrap.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0f); ;
                     isTouched = false;
                     timer = 0f;
-                    towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                    trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
                     return;
                 }
             }
@@ -81,19 +80,19 @@ public class SpawnTowerTesting : MonoBehaviour
             {
                 isTouched = false;
                 timer = 0f;
-                towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
                 return;
             }
         }
 
         // Detecting mouse click for debug
         // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.GetMouseButtonDown(0) && ButtonForTowerTesting.isSelectTower)
+        if (Input.GetMouseButtonDown(0) && ButtonForTrapTesting.isSelectTrap)
         {
             Vector3 touchLocation = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-            // Spawn the tower at the position that player touch at camera and disable the toggle
-            if (!ButtonForTowerTesting.isPressedButton)
+            // Spawn the trap at the position that player touch at camera and disable the toggle
+            if (!ButtonForTrapTesting.isPressedButton)
             {
                 // checking if the place is open field
                 int x, y;
@@ -102,31 +101,30 @@ public class SpawnTowerTesting : MonoBehaviour
                 x += GridTesting.offsetX;
                 y += GridTesting.offsetY;
 
-                if (GridTesting.cells[x, y].cellContent == CellContent.OPEN_FIELD 
+                if (GridTesting.cells[x, y].cellContent == CellContent.PATH
                     && (Input.mousePosition.y > (Screen.height * 17 / 100) || Input.mousePosition.x > (Screen.width * 32 / 100))
                     && (Input.mousePosition.y > (Screen.height * 17 / 100) || Input.mousePosition.x < (Screen.width * 68 / 100)))
                 {
-                    GameObject spawnedTower;
-                    switch (ButtonForTowerTesting.selectedTower)
+                    GameObject spawnedTrap;
+                    switch (ButtonForTrapTesting.selectedTrap)
                     {
                         case 0:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            spawnedTrap = Instantiate(trapBomb, this.transform);
                             break;
                         case 1:
-                            spawnedTower = Instantiate(towerSniper, this.transform);
+                            spawnedTrap = Instantiate(trapTime, this.transform);
                             break;
                         case 2:
-                            spawnedTower = Instantiate(towerElectric, this.transform);
+                            spawnedTrap = Instantiate(trapFreeze, this.transform);
                             break;
                         default:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            spawnedTrap = Instantiate(trapBomb, this.transform);
                             break;
                     }
-                    spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
-                    spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
+                    spawnedTrap.transform.position = new Vector3(touchLocation.x, touchLocation.y, 0f);
                     isTouched = false;
                     timer = 0f;
-                    towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                    trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
                     return;
                 }
             }
@@ -138,7 +136,7 @@ public class SpawnTowerTesting : MonoBehaviour
             {
                 isTouched = false;
                 timer = 0f;
-                towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
                 return;
             }
         }
@@ -146,7 +144,7 @@ public class SpawnTowerTesting : MonoBehaviour
         if (isTouched)
             timer += Time.deltaTime;
 
-        if(timer > maxTimer)
+        if (timer > maxTimer)
         {
             timer = 0f;
             isTouched = false;

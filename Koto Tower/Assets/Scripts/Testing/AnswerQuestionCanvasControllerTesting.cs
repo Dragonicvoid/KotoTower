@@ -8,7 +8,6 @@ public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
     [SerializeField] short eventId = 0;
     public AnimationCurve curve;
     RectTransform rectTransform;
-    bool isClosed;
     float maxX, maxY;
 
     // Start is called before the first frame update
@@ -17,7 +16,6 @@ public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
         rectTransform = this.GetComponent<RectTransform>();
         maxX = rectTransform.rect.width;
         maxY = rectTransform.rect.height;
-        isClosed = false;
         GameEventsTesting.current.onObjectOffScreenEnter += OnObjectOffScreen;
         GameEventsTesting.current.onObjectOnScreenEnter += OnObjectOnScreen;
     }
@@ -27,7 +25,7 @@ public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
     // event that play when the object is off screen
     private void OnObjectOffScreen(int id)
     {
-        if(id == eventId && !isClosed)
+        if(id == eventId)
         {
             switch (id)
             {
@@ -41,14 +39,13 @@ public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
                     TweenTesting.tween.uiVertical(rectTransform, maxY, 0, animationTimer, Tweens.CURVE, curve, true);
                     break;
             }
-            isClosed = true;
         }
     }
 
     // event that play when the object is on screen
     private void OnObjectOnScreen(int id)
     {
-        if (id == eventId && isClosed)
+        if (id == eventId)
         {
             switch (id)
             {
@@ -62,7 +59,6 @@ public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
                     TweenTesting.tween.uiVertical(rectTransform, 0, maxY, animationTimer, Tweens.CURVE, curve, false);
                     break;
             }
-            isClosed = false;
         }
     }
 

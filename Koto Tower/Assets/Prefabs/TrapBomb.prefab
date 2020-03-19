@@ -91,11 +91,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2644477269257875312}
   - component: {fileID: 2644477269257875315}
-  - component: {fileID: 2644477269257875313}
-  - component: {fileID: 2909975229735433978}
-  - component: {fileID: 9059736911834684333}
+  - component: {fileID: 8235928614041392413}
   m_Layer: 0
-  m_Name: TowerElectric
+  m_Name: TrapBomb
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f1a42d16ef973a34389e83463e66bdfa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b3900c7902abcf4db29b244b12ccd0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,7 +164,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2644477269257875313
+--- !u!114 &8235928614041392413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,31 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2644477269257875314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
+  m_Script: {fileID: 11500000, guid: 49d9fc63f20755f4e85f46d9e3d7d30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  property: {fileID: 11400000, guid: 91378187b4baf784fad0411b228e630c, type: 2}
---- !u!114 &2909975229735433978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2644477269257875314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d6e69d19274b444aec7f103cd6d3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9059736911834684333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2644477269257875314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a9bfd12cf0d254f903da7b3bbe1b4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  property: {fileID: 11400000, guid: 833bbff2d880438408ca082bf1bc89c1, type: 2}

@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045eada084ccc624688c56149c3e9539, type: 3}
+  m_Name: Bomb Trap Properties
+  m_EditorClassIdentifier: 
+  prefabName: Bomb Trap
+  explodeTimer: 3
+  duration: 0
+  radius: 5
+  damage: 50
+  isStopTime: 0
+  sizeMultiplyer: 1.5
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.1708709
+      value: 0.6735426
+      inSlope: 1.1234044
+      outSlope: 1.1234044
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.58450156
+      value: 0.7475369
+      inSlope: 1.2858698
+      outSlope: 1.2858698
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6249109
+      value: 0.9132311
+      inSlope: 1.3553752
+      outSlope: 1.3553752
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.65705955
+      value: 0.8425434
+      inSlope: 1.4464208
+      outSlope: 1.4464208
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7008221
+      value: 0.9436297
+      inSlope: -0.18375194
+      outSlope: -0.18375194
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7501421
+      value: 0.8424685
+      inSlope: 0.5535573
+      outSlope: 0.5535573
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8012015
+      value: 0.9901887
+      inSlope: -0.90470123
+      outSlope: -0.90470123
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.1784533
+    - serializedVersion: 3
+      time: 0.8661927
+      value: 0.8794477
+      inSlope: -0.42659938
+      outSlope: -0.42659938
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.9470194
+    - serializedVersion: 3
+      time: 0.9033545
+      value: 1.0167934
+      inSlope: 0.8895577
+      outSlope: 0.8895577
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.93686855
+      value: 0.9465397
+      inSlope: -0.2684975
+      outSlope: -0.2684975
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  type: 0

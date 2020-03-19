@@ -2,26 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TowerType
-{
-    MACHINE_GUN,
-    SNIPER,
-    ELECTRIC
-}
-
 public class ShootTargetTesting : MonoBehaviour
 {
     // tower attribute
-    [SerializeField] float damage = 3f;
-    [SerializeField] float radius = 3f;
-    [SerializeField] float fireRate = 3f;
-    [SerializeField] bool shootAround = false;
-    [SerializeField] TowerType type = TowerType.MACHINE_GUN;
+    [SerializeField] TowerPropertiesScriptableObject property = null;
+
+    // Tower fire flash that seen when shooting
+    GameObject fireFlash;
+
     Vector2 currentPosition;
     bool hasTarget;
-
-    // Fire flash object (the flash when tower is shooting)
-    [SerializeField] GameObject fireFlash = null;
 
     // Timer so the tower doesn't keep shooting every frame
     float shootTimer;
@@ -33,28 +23,29 @@ public class ShootTargetTesting : MonoBehaviour
     // Initialize variables so we dont have to keep using transform class and for shoot method
     void Start()
     {
+        fireFlash = transform.GetChild(0).gameObject;
         currentPosition = this.transform.position;
         hasTarget = false;
-        shootTimer = fireRate;
+        shootTimer = property.fireRate;
         enemy = new List<EnemyBehaviourTesting>();
     }
 
     // Create gizmos so we can see the tower range when selected
     void OnDrawGizmosSelected()
     {
-        switch (type)
+        switch (property.type)
         {
             case TowerType.MACHINE_GUN:
                 Gizmos.color = new Color(1, 0, 1, 0.20f);
-                Gizmos.DrawSphere(this.transform.position, radius);
+                Gizmos.DrawSphere(this.transform.position, property.radius);
                 break;
             case TowerType.SNIPER:
                 Gizmos.color = new Color(1, 0, 0, 0.20f);
-                Gizmos.DrawSphere(this.transform.position, radius);
+                Gizmos.DrawSphere(this.transform.position, property.radius);
                 break;
             case TowerType.ELECTRIC:
                 Gizmos.color = new Color(0, 0, 1, 0.20f);
-                Gizmos.DrawSphere(this.transform.position, radius);
+                Gizmos.DrawSphere(this.transform.position, property.radius);
                 break;
         }
             
@@ -65,7 +56,7 @@ public class ShootTargetTesting : MonoBehaviour
     void Update()
     {
         // Even tho it is not currently shooting, we have to clear the fire flash, putting if to avoid floating point error
-        if (shootTimer < fireRate)
+        if (shootTimer < property.fireRate)
             shootTimer += Time.deltaTime;
 
         // disable the fire Flash if the timer is greater than 75% of the fire rate
@@ -80,7 +71,7 @@ public class ShootTargetTesting : MonoBehaviour
             case true:
                 shootTarget();
                 // for shoot around type of tower find target
-                if (shootAround)
+                if (property.shootAround)
                     checkAround();
                 break;
         }
@@ -89,9 +80,9 @@ public class ShootTargetTesting : MonoBehaviour
     // Checking around the tower and damage the enemy if found
     void checkAround()
     {
-        if (shootAround)
+        if (property.shootAround)
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(currentPosition, radius, (1 << 8));
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(currentPosition, property.radius, (1 << 8));
 
             if (hitColliders.Length > 0)
             {
@@ -105,7 +96,7 @@ public class ShootTargetTesting : MonoBehaviour
         }
         else
         {
-            Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, radius, (1 << 8));
+            Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, property.radius, (1 << 8));
 
             if (hitCollider != null /*&& hitCollider.tag.Equals("Enemy")*/)
             {
@@ -122,17 +113,17 @@ public class ShootTargetTesting : MonoBehaviour
     void shootTarget()
     {
         // if its shoot around type of tower and doesnt have target just move back
-        if (shootAround)
+        if (property.shootAround)
         {
-            if (shootTimer >= fireRate)
+            if (shootTimer >= property.fireRate)
             {
                 fireFlash.gameObject.SetActive(true);
                 // Hit enemy and reset timer
                 foreach (EnemyBehaviourTesting target in enemy)
-                    target.addDamage(damage);
+                    target.addDamage(property.damage, property.shootAround);
                 shootTimer = 0f;
             }
-            else if (shootTimer >= (fireRate * (75 / 100)))
+            else if (shootTimer >= (property.fireRate * (75 / 100)))
                 fireFlash.gameObject.SetActive(false);
         }
         else
@@ -141,16 +132,16 @@ public class ShootTargetTesting : MonoBehaviour
             currentTargetPosition = enemy[0].getPosition();
 
             // If the enemy ran, or died change target
-            if (Vector2.Distance(currentPosition, currentTargetPosition) > radius || enemy[0].status == EnemyBehaviourTesting.EnemyStatus.DEAD)
+            if (Vector2.Distance(currentPosition, currentTargetPosition) > property.radius || enemy[0].status == EnemyStatus.DEAD)
                 hasTarget = false;
-            else if (shootTimer >= fireRate)
+            else if (shootTimer >= property.fireRate)
             {
                 // Hit enemy and reset timer
                 fireFlash.gameObject.SetActive(true);
-                enemy[0].addDamage(damage);
+                enemy[0].addDamage(property.damage, property.shootAround);
                 shootTimer = 0f;
             }
-            else if (shootTimer >= (fireRate * (75 / 100)))
+            else if (shootTimer >= (property.fireRate * (75 / 100)))
                 fireFlash.gameObject.SetActive(false);
         }
     }
@@ -170,13 +161,13 @@ public class ShootTargetTesting : MonoBehaviour
     // disable the fire Flash if the timer is greater than 75% of the fire rate
     void disableFireFlash()
     {
-        if (shootTimer >= (fireRate * (75 / 100)))
+        if (shootTimer >= (property.fireRate * (75 / 100)))
             fireFlash.gameObject.SetActive(false);
     }
 
     // get radius for creating circle
     public float getRadius()
     {
-        return this.radius;
+        return this.property.radius;
     }
 }

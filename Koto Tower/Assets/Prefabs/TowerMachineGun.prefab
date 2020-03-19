@@ -97,12 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e62294aa8cd904ca700ff1451e554e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  radius: 5
-  fireRate: 0.3
-  shootAround: 0
-  type: 0
-  fireFlash: {fileID: 4283217305472608829}
+  property: {fileID: 11400000, guid: 9e168b2ff44e96140a7acd0261916e59, type: 2}
 --- !u!114 &4008298705093430486
 MonoBehaviour:
   m_ObjectHideFlags: 0

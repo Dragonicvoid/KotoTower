@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
+public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
 {
     // property
     int countLine;
@@ -27,8 +27,8 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public static bool isSelectTower;
-    public static short selectedTower;
+    public static bool isSelectTrap;
+    public static short selectedTrap;
     public static bool isPressedButton;
     public static bool isDoneMakingLines;
     GameObject lineParent;
@@ -38,21 +38,21 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     int colorPropertyId = Shader.PropertyToID("_Color");
 
     // Connect to Tower
-    ButtonForTrapTesting trapUi;
+    ButtonForTowerTesting towerUi;
 
     // Default value is not Selected
     private void Awake()
     {
-        trapUi = this.gameObject.GetComponent<ButtonForTrapTesting>();
+        towerUi = this.gameObject.GetComponent<ButtonForTowerTesting>();
         countLine = 0;
-        isSelectTower = false;
+        isSelectTrap = false;
         isPressedButton = false;
-        selectedTower = -1;
+        selectedTrap = -1;
         foreach (Toggle toggle in toggles)
             toggle.isOn = false;
     }
 
-    // Drawing all possible grid to place tower
+    // Drawing all possible grid to place trap
     private void Start()
     {
         StartCoroutine(lateDraw(0.3f));
@@ -63,30 +63,29 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     {
         yield return new WaitForSeconds(waitTime);
         this.lineParent = Instantiate(new GameObject());
-        lineParent.name = "Line Tower Parent";
+        lineParent.name = "Line Trap Parent";
         lineParent.transform.position = new Vector3(0f, 0f, 0f);
-
         checkVertically();
         checkHorizontally();
         this.lineParent.SetActive(false);
-        Debug.Log("Total Tower Line : " + countLine);
+        Debug.Log("Total Trap Line : " + countLine);
 
         isDoneMakingLines = true;
     }
 
-    // Is change the state if it is to spawn tower, or want to move camera (can't be both)
-    public void selectTower(int idx)
+    // Is change the state if it is to spawn trap, or want to move camera (can't be both)
+    public void selectTrap(int idx)
     {
-        if (ButtonForTrapTesting.isSelectTrap)
-            trapUi.disableToggle(ButtonForTrapTesting.selectedTrap);
+        if (ButtonForTowerTesting.isSelectTower)
+            towerUi.disableToggle(ButtonForTowerTesting.selectedTower);
 
         // all condition selecting button
-        if (selectedTower == -1)
+        if (selectedTrap == -1)
             enableToogle(idx);
-        else if (selectedTower == idx)
+        else if (selectedTrap == idx)
         {
-            isSelectTower = false;
-            selectedTower = -1;
+            isSelectTrap = false;
+            selectedTrap = -1;
         }
         else
         {
@@ -95,9 +94,9 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
         }
 
         // Show the possible line
-        if (isDoneMakingLines && isSelectTower)
+        if (isDoneMakingLines && isSelectTrap)
             lineParent.SetActive(true);
-        else if (isDoneMakingLines && !isSelectTower)
+        else if (isDoneMakingLines && !isSelectTrap)
             lineParent.SetActive(false);
     }
 
@@ -106,8 +105,8 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     {
         Toggle selectedToggle = toggles[idx];
         selectedToggle.isOn = false;
-        isSelectTower = false;
-        selectedTower = -1;
+        isSelectTrap = false;
+        selectedTrap = -1;
     }
 
     // enable the toggle
@@ -115,8 +114,8 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     {
         Toggle selectedToggle = toggles[idx];
         selectedToggle.isOn = true;
-        isSelectTower = true;
-        selectedTower = (short)idx;
+        isSelectTrap = true;
+        selectedTrap = (short)idx;
     }
 
     // on the toggle click, this is for the mouse click (debug)
@@ -163,10 +162,10 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
             for (int j = 0; j < GridTesting.width; j++)
             {
                 // if it is on open field or tower
-                if (GridTesting.cells[j, i].cellContent == CellContent.OPEN_FIELD || GridTesting.cells[j, i].cellContent == CellContent.TOWER)
+                if (GridTesting.cells[j, i].cellContent == CellContent.PATH)
                 {
                     // if the bottom is not open field or tower then just continue, for artistry purpose
-                    if (!(GridTesting.cells[j, i - 1].cellContent == CellContent.OPEN_FIELD || GridTesting.cells[j, i - 1].cellContent == CellContent.TOWER))
+                    if (!(GridTesting.cells[j, i - 1].cellContent == CellContent.PATH))
                     {
                         // if there is a start line then just end it there, looks too ugly
                         if (line.isStart)
@@ -221,10 +220,10 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
             for (int j = 0; j < GridTesting.height; j++)
             {
                 // if it is on open field or tower
-                if (GridTesting.cells[i, j].cellContent == CellContent.OPEN_FIELD || GridTesting.cells[i, j].cellContent == CellContent.TOWER)
+                if (GridTesting.cells[i, j].cellContent == CellContent.PATH)
                 {
                     // if the bottom is not open field or tower then just continue, for artistry purpose
-                    if (!(GridTesting.cells[i - 1, j].cellContent == CellContent.OPEN_FIELD || GridTesting.cells[i - 1, j].cellContent == CellContent.TOWER))
+                    if (!(GridTesting.cells[i - 1, j].cellContent == CellContent.PATH))
                     {
                         // if there is a start line then just end it there, looks too ugly
                         if (line.isStart)
