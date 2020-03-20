@@ -67,7 +67,7 @@ public class ClickOnKotoTowerTesting : MonoBehaviour
         foreach (RaycastHit2D hit in hits)
         {
             // Get the vector and move camera horizontally if it moves
-            if (touch.phase == TouchPhase.Ended && hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower"))
+            if (touch.phase == TouchPhase.Began && hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower"))
             {
                 isAnimating = true;
                 if (isClosed)

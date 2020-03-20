@@ -28,14 +28,14 @@ public class SpawnTrapTesting : MonoBehaviour
     void Update()
     {
         // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.touchCount > 0 && ButtonForTrapTesting.isSelectTrap)
+        if (Input.touchCount > 0 && GameManager.isSelectTrap)
         {
             Touch touch = Input.GetTouch(0);
 
             // Spawn the trap at the position that player touch at camera and disable the toggle
-            if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId)
-                && (touch.position.y > (Screen.height * 17 / 100) || touch.position.x > (Screen.width * 32 / 100))
-                && (touch.position.y > (Screen.height * 17 / 100) || touch.position.x < (Screen.width * 68 / 100)))
+            if (touch.phase == TouchPhase.Began
+                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x > (Screen.width * 32 / 100))
+                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x < (Screen.width * 68 / 100)))
             {
                 Vector2 touchPosition;
                 touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
@@ -50,25 +50,29 @@ public class SpawnTrapTesting : MonoBehaviour
                 if (GridTesting.cells[x, y].cellContent == CellContent.PATH)
                 {
                     GameObject spawnedTrap;
-                    switch (ButtonForTrapTesting.selectedTrap)
+                    switch (GameManager.selectedTrap)
                     {
                         case 0:
                             spawnedTrap = Instantiate(trapBomb, this.transform);
+                            GameManager.pay(TrapType.BOMB_TRAP);
                             break;
                         case 1:
                             spawnedTrap = Instantiate(trapTime, this.transform);
+                            GameManager.pay(TrapType.TIME_TRAP);
                             break;
                         case 2:
                             spawnedTrap = Instantiate(trapFreeze, this.transform);
+                            GameManager.pay(TrapType.FREEZE_TRAP);
                             break;
                         default:
                             spawnedTrap = Instantiate(trapBomb, this.transform);
+                            GameManager.pay(TrapType.BOMB_TRAP);
                             break;
                     }
                     spawnedTrap.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0f); ;
                     isTouched = false;
                     timer = 0f;
-                    trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
+                    trapButton.disableButton(GameManager.selectedTrap);
                     return;
                 }
             }
@@ -80,19 +84,19 @@ public class SpawnTrapTesting : MonoBehaviour
             {
                 isTouched = false;
                 timer = 0f;
-                trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
+                trapButton.disableButton(GameManager.selectedTrap);
                 return;
             }
         }
 
         // Detecting mouse click for debug
         // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.GetMouseButtonDown(0) && ButtonForTrapTesting.isSelectTrap)
+        if (Input.GetMouseButtonDown(0) && GameManager.isSelectTrap)
         {
             Vector3 touchLocation = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
             // Spawn the trap at the position that player touch at camera and disable the toggle
-            if (!ButtonForTrapTesting.isPressedButton)
+            if (!GameManager.isPressedButtonTrap)
             {
                 // checking if the place is open field
                 int x, y;
@@ -102,29 +106,33 @@ public class SpawnTrapTesting : MonoBehaviour
                 y += GridTesting.offsetY;
 
                 if (GridTesting.cells[x, y].cellContent == CellContent.PATH
-                    && (Input.mousePosition.y > (Screen.height * 17 / 100) || Input.mousePosition.x > (Screen.width * 32 / 100))
-                    && (Input.mousePosition.y > (Screen.height * 17 / 100) || Input.mousePosition.x < (Screen.width * 68 / 100)))
+                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x > (Screen.width * 32 / 100))
+                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x < (Screen.width * 68 / 100)))
                 {
                     GameObject spawnedTrap;
-                    switch (ButtonForTrapTesting.selectedTrap)
+                    switch (GameManager.selectedTrap)
                     {
                         case 0:
                             spawnedTrap = Instantiate(trapBomb, this.transform);
+                            GameManager.pay(TrapType.BOMB_TRAP);
                             break;
                         case 1:
                             spawnedTrap = Instantiate(trapTime, this.transform);
+                            GameManager.pay(TrapType.TIME_TRAP);
                             break;
                         case 2:
                             spawnedTrap = Instantiate(trapFreeze, this.transform);
+                            GameManager.pay(TrapType.FREEZE_TRAP);
                             break;
                         default:
                             spawnedTrap = Instantiate(trapBomb, this.transform);
+                            GameManager.pay(TrapType.BOMB_TRAP);
                             break;
                     }
                     spawnedTrap.transform.position = new Vector3(touchLocation.x, touchLocation.y, 0f);
                     isTouched = false;
                     timer = 0f;
-                    trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
+                    trapButton.disableButton(GameManager.selectedTrap);
                     return;
                 }
             }
@@ -136,7 +144,7 @@ public class SpawnTrapTesting : MonoBehaviour
             {
                 isTouched = false;
                 timer = 0f;
-                trapButton.disableToggle(ButtonForTrapTesting.selectedTrap);
+                trapButton.disableButton(GameManager.selectedTrap);
                 return;
             }
         }

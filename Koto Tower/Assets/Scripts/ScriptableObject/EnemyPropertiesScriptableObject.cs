@@ -19,4 +19,5 @@ public class EnemyPropertiesScriptableObject : ScriptableObject
     public float speed = 1f;
     public float maxHealth = 10f;
     public float shockRecovery = 10f;
+    public float rewardPrice = 20f;
 }

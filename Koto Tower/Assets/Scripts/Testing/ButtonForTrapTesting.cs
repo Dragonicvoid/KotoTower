@@ -27,12 +27,8 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public static bool isSelectTrap;
-    public static short selectedTrap;
-    public static bool isPressedButton;
-    public static bool isDoneMakingLines;
     GameObject lineParent;
-    [SerializeField] List<Toggle> toggles = null;
+    [SerializeField] List<ButtonChangeColorTesting> buttons = null;
 
     // property id for color;
     int colorPropertyId = Shader.PropertyToID("_Color");
@@ -45,11 +41,9 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
     {
         towerUi = this.gameObject.GetComponent<ButtonForTowerTesting>();
         countLine = 0;
-        isSelectTrap = false;
-        isPressedButton = false;
-        selectedTrap = -1;
-        foreach (Toggle toggle in toggles)
-            toggle.isOn = false;
+        GameManager.resetOnPlay();
+        foreach (ButtonChangeColorTesting button in buttons)
+            button.disable();
     }
 
     // Drawing all possible grid to place trap
@@ -70,65 +64,73 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
         this.lineParent.SetActive(false);
         Debug.Log("Total Trap Line : " + countLine);
 
-        isDoneMakingLines = true;
+        GameManager.isDoneMakingTrapLines = true;
     }
 
     // Is change the state if it is to spawn trap, or want to move camera (can't be both)
     public void selectTrap(int idx)
     {
-        if (ButtonForTowerTesting.isSelectTower)
-            towerUi.disableToggle(ButtonForTowerTesting.selectedTower);
+        if (GameManager.isSelectTower)
+            towerUi.disableButton(GameManager.selectedTower);
 
         // all condition selecting button
-        if (selectedTrap == -1)
-            enableToogle(idx);
-        else if (selectedTrap == idx)
+        if (GameManager.selectedTrap == -1)
+            enableButton(idx);
+        else if (GameManager.selectedTrap == idx)
         {
-            isSelectTrap = false;
-            selectedTrap = -1;
+            GameManager.isSelectTrap = false;
+            GameManager.selectedTrap = -1;
+            disableButton(idx);
         }
         else
         {
-            clearAllToggles();
-            enableToogle(idx);
+            clearAllButtons();
+            enableButton(idx);
         }
 
         // Show the possible line
-        if (isDoneMakingLines && isSelectTrap)
+        if (GameManager.isDoneMakingTrapLines && GameManager.isSelectTrap)
             lineParent.SetActive(true);
-        else if (isDoneMakingLines && !isSelectTrap)
+        else if (GameManager.isDoneMakingTrapLines && !GameManager.isSelectTrap)
             lineParent.SetActive(false);
     }
 
-    // disable the toggle
-    public void disableToggle(int idx)
+    // disable the button
+    public void disableButton(int idx)
     {
-        Toggle selectedToggle = toggles[idx];
-        selectedToggle.isOn = false;
-        isSelectTrap = false;
-        selectedTrap = -1;
+        ButtonChangeColorTesting selectedButton = buttons[idx];
+        selectedButton.disable();
+        GameManager.isSelectTrap = false;
+        GameManager.selectedTrap = -1;
+        lineParent.SetActive(false);
     }
 
-    // enable the toggle
-    public void enableToogle(int idx)
+    // enable the button
+    public void enableButton(int idx)
     {
-        Toggle selectedToggle = toggles[idx];
-        selectedToggle.isOn = true;
-        isSelectTrap = true;
-        selectedTrap = (short)idx;
+        if (GameManager.money >= GameManager.trapPrices[idx].price)
+        {
+            ButtonChangeColorTesting selectedButton = buttons[idx];
+            selectedButton.activate();
+            GameManager.isSelectTrap = true;
+            GameManager.selectedTrap = (short)idx;
+        }          
     }
 
-    // on the toggle click, this is for the mouse click (debug)
+    // on the button click, this is for the mouse click (debug)
     public void OnPointerClick(PointerEventData eventData)
     {
-        isPressedButton = true;
+        GameManager.isPressedButtonTrap = true;
     }
 
-    // clearing all toggle
-    void clearAllToggles()
+    // clearing all button
+    void clearAllButtons()
     {
-        foreach (Toggle toggle in toggles)
-            toggle.isOn = false;
+        GameManager.isSelectTrap = false;
+        GameManager.selectedTrap = -1;
+
+        foreach (ButtonChangeColorTesting button in buttons)
+            button.disable();
     }
 
     //Drawing a line

@@ -55,6 +55,12 @@ Script:
 35. ClickOnKotoTowerTesting
 36. SpawnTrapTesting
 37. TrapsBehaviourTesting
+38. ButtonChangeColorTesting
+39. FontChangeSizeTesting
+40. GameManager
+41. LevelProperty
+42. PriceEnumTesting
+43. ShowMoneyTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -70,3 +76,4 @@ Progression Note:
 - 16/Mar/2020 : Added grid and UI to show which part of game world the tower can be spawned, also since everything runs on grid tower can only spawn on certain spot, and also create range and possible placement for tower(Reivaldo Julianto)
 - 17/Mar/2020 : added 3 tower and fixes on ui toggle (Reivaldo Julianto)
 - 19/Mar/2020 : changes on UI, Line creating, and on how the animation works. added traps, and scriptable Object (Reivaldo Julianto)
+- 20/Mar/2020 : add buying function and get money from killing enemy. There are still some bugs about on how the map render incorrectly. (Reivaldo Julianto)

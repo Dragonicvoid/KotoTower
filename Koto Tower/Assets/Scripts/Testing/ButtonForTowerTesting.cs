@@ -27,12 +27,8 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public static bool isSelectTower;
-    public static short selectedTower;
-    public static bool isPressedButton;
-    public static bool isDoneMakingLines;
     GameObject lineParent;
-    [SerializeField] List<Toggle> toggles = null;
+    [SerializeField] List<ButtonChangeColorTesting> buttons = null;
 
     // property id for color;
     int colorPropertyId = Shader.PropertyToID("_Color");
@@ -45,11 +41,9 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     {
         trapUi = this.gameObject.GetComponent<ButtonForTrapTesting>();
         countLine = 0;
-        isSelectTower = false;
-        isPressedButton = false;
-        selectedTower = -1;
-        foreach (Toggle toggle in toggles)
-            toggle.isOn = false;
+        GameManager.resetOnPlay();
+        foreach (ButtonChangeColorTesting button in buttons)
+            button.disable();
     }
 
     // Drawing all possible grid to place tower
@@ -71,65 +65,73 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
         this.lineParent.SetActive(false);
         Debug.Log("Total Tower Line : " + countLine);
 
-        isDoneMakingLines = true;
+        GameManager.isDoneMakingTowerLines = true;
     }
 
     // Is change the state if it is to spawn tower, or want to move camera (can't be both)
     public void selectTower(int idx)
     {
-        if (ButtonForTrapTesting.isSelectTrap)
-            trapUi.disableToggle(ButtonForTrapTesting.selectedTrap);
+        if (GameManager.isSelectTrap)
+            trapUi.disableButton(GameManager.selectedTrap);
 
         // all condition selecting button
-        if (selectedTower == -1)
+        if (GameManager.selectedTower == -1)
             enableToogle(idx);
-        else if (selectedTower == idx)
+        else if (GameManager.selectedTower == idx)
         {
-            isSelectTower = false;
-            selectedTower = -1;
+            GameManager.isSelectTower = false;
+            GameManager.selectedTower = -1;
+            disableButton(idx);
         }
         else
         {
-            clearAllToggles();
+            clearAllButtons();
             enableToogle(idx);
         }
 
         // Show the possible line
-        if (isDoneMakingLines && isSelectTower)
+        if (GameManager.isDoneMakingTowerLines && GameManager.isSelectTower)
             lineParent.SetActive(true);
-        else if (isDoneMakingLines && !isSelectTower)
+        else if (GameManager.isDoneMakingTowerLines && !GameManager.isSelectTower)
             lineParent.SetActive(false);
     }
 
-    // disable the toggle
-    public void disableToggle(int idx)
+    // disable the button
+    public void disableButton(int idx)
     {
-        Toggle selectedToggle = toggles[idx];
-        selectedToggle.isOn = false;
-        isSelectTower = false;
-        selectedTower = -1;
+        ButtonChangeColorTesting selectedButton = buttons[idx];
+        selectedButton.disable();
+        GameManager.isSelectTower = false;
+        GameManager.selectedTower = -1;
+        lineParent.SetActive(false);
     }
 
-    // enable the toggle
+    // enable the button
     public void enableToogle(int idx)
     {
-        Toggle selectedToggle = toggles[idx];
-        selectedToggle.isOn = true;
-        isSelectTower = true;
-        selectedTower = (short)idx;
+        if (GameManager.money >= GameManager.towerPrices[idx].price)
+        {
+            ButtonChangeColorTesting selectedButton = buttons[idx];
+            selectedButton.activate();
+            GameManager.isSelectTower = true;
+            GameManager.selectedTower = (short)idx;
+        }         
     }
 
-    // on the toggle click, this is for the mouse click (debug)
+    // on the button click, this is for the mouse click (debug)
     public void OnPointerClick(PointerEventData eventData)
     {
-        isPressedButton = true;
+        GameManager.isPressedButtonTower = true;
     }
 
-    // clearing all toggle
-    void clearAllToggles()
+    // clearing all button
+    void clearAllButtons()
     {
-        foreach (Toggle toggle in toggles)
-            toggle.isOn = false;
+        GameManager.isSelectTower = false;
+        GameManager.selectedTower = -1;
+
+        foreach (ButtonChangeColorTesting button in buttons)
+            button.disable();
     }
 
     //Drawing a line

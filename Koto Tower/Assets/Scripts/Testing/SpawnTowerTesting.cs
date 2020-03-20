@@ -28,14 +28,14 @@ public class SpawnTowerTesting : MonoBehaviour
     void Update()
     {
         // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.touchCount > 0 && ButtonForTowerTesting.isSelectTower)
+        if (Input.touchCount > 0 && GameManager.isSelectTower)
         {
             Touch touch = Input.GetTouch(0);
 
             // Spawn the tower at the position that player touch at camera and disable the toggle
-            if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId)
-                && (touch.position.y > (Screen.height * 17 / 100) || touch.position.x > (Screen.width * 32 / 100))
-                && (touch.position.y > (Screen.height * 17 / 100) || touch.position.x < (Screen.width * 68 / 100)))
+            if (touch.phase == TouchPhase.Began
+                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x > (Screen.width * 32 / 100))
+                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x < (Screen.width * 68 / 100)))
             {
                 Vector2 touchPosition;
                 touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
@@ -50,26 +50,30 @@ public class SpawnTowerTesting : MonoBehaviour
                 if (GridTesting.cells[x,y].cellContent == CellContent.OPEN_FIELD)
                 {
                     GameObject spawnedTower;
-                    switch (ButtonForTowerTesting.selectedTower)
+                    switch (GameManager.selectedTower)
                     {
                         case 0:
                             spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            GameManager.pay(TowerType.MACHINE_GUN);
                             break;
                         case 1:
                             spawnedTower = Instantiate(towerSniper, this.transform);
+                            GameManager.pay(TowerType.SNIPER);
                             break;
                         case 2:
                             spawnedTower = Instantiate(towerElectric, this.transform);
+                            GameManager.pay(TowerType.ELECTRIC);
                             break;
                         default:
                             spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            GameManager.pay(TowerType.MACHINE_GUN);
                             break;
                     }
                     spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
                     spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
                     isTouched = false;
                     timer = 0f;
-                    towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                    towerButton.disableButton(GameManager.selectedTower);
                     return;
                 }
             }
@@ -81,19 +85,19 @@ public class SpawnTowerTesting : MonoBehaviour
             {
                 isTouched = false;
                 timer = 0f;
-                towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                towerButton.disableButton(GameManager.selectedTower);
                 return;
             }
         }
 
         // Detecting mouse click for debug
         // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.GetMouseButtonDown(0) && ButtonForTowerTesting.isSelectTower)
+        if (Input.GetMouseButtonDown(0) && GameManager.isSelectTower)
         {
             Vector3 touchLocation = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
             // Spawn the tower at the position that player touch at camera and disable the toggle
-            if (!ButtonForTowerTesting.isPressedButton)
+            if (!GameManager.isPressedButtonTower)
             {
                 // checking if the place is open field
                 int x, y;
@@ -103,30 +107,34 @@ public class SpawnTowerTesting : MonoBehaviour
                 y += GridTesting.offsetY;
 
                 if (GridTesting.cells[x, y].cellContent == CellContent.OPEN_FIELD 
-                    && (Input.mousePosition.y > (Screen.height * 17 / 100) || Input.mousePosition.x > (Screen.width * 32 / 100))
-                    && (Input.mousePosition.y > (Screen.height * 17 / 100) || Input.mousePosition.x < (Screen.width * 68 / 100)))
+                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x > (Screen.width * 32 / 100))
+                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x < (Screen.width * 68 / 100)))
                 {
                     GameObject spawnedTower;
-                    switch (ButtonForTowerTesting.selectedTower)
+                    switch (GameManager.selectedTower)
                     {
                         case 0:
                             spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            GameManager.pay(TowerType.MACHINE_GUN);
                             break;
                         case 1:
                             spawnedTower = Instantiate(towerSniper, this.transform);
+                            GameManager.pay(TowerType.SNIPER);
                             break;
                         case 2:
                             spawnedTower = Instantiate(towerElectric, this.transform);
+                            GameManager.pay(TowerType.ELECTRIC);
                             break;
                         default:
                             spawnedTower = Instantiate(towerMachineGun, this.transform);
+                            GameManager.pay(TowerType.MACHINE_GUN);
                             break;
                     }
                     spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
                     spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
                     isTouched = false;
                     timer = 0f;
-                    towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                    towerButton.disableButton(GameManager.selectedTower);
                     return;
                 }
             }
@@ -138,7 +146,7 @@ public class SpawnTowerTesting : MonoBehaviour
             {
                 isTouched = false;
                 timer = 0f;
-                towerButton.disableToggle(ButtonForTowerTesting.selectedTower);
+                towerButton.disableButton(GameManager.selectedTower);
                 return;
             }
         }

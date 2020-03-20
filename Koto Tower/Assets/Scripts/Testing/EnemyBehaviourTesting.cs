@@ -184,7 +184,10 @@ public class EnemyBehaviourTesting : MonoBehaviour
 
         // if it dies just put it to the pooler
         if (currHealth <= 0f || status == EnemyStatus.FROZEN)
+        {
             pooler.insertBack(this);
+            GameManager.addMoney(property.rewardPrice);
+        }
 
         conditionChanged = true;
     }
@@ -238,6 +241,11 @@ public class EnemyBehaviourTesting : MonoBehaviour
     void resetAttribute()
     {
         currHealth = property.maxHealth;
+        conditionChanged = true;
+        status = EnemyStatus.MOVING;
+        shockTimer = 0f;
+        isHit = false;
+        hitTime = 0f;
         conditionChanged = true;
     }
 }
