@@ -6,6 +6,7 @@ public class TrapsBehaviourTesting : MonoBehaviour
 {
     [SerializeField] TrapPropertiesScriptableObject property = null;
     bool hasExplode;
+    bool isActive;
     Vector3 currentPosition;
     float timer;
 
@@ -21,6 +22,7 @@ public class TrapsBehaviourTesting : MonoBehaviour
     private void Start()
     {
         hasExplode = false;
+        isActive = false;
         timer = 0f;
         currentPosition = this.transform.position;
     }
@@ -28,15 +30,18 @@ public class TrapsBehaviourTesting : MonoBehaviour
     // countdown to explosion
     private void Update()
     {
-        timer += Time.deltaTime;
+        if (isActive)
+        {
+            timer += Time.deltaTime;
 
-        if (timer > property.explodeTimer && !hasExplode)
-            explode();
+            if (timer > property.explodeTimer && !hasExplode)
+                explode();
 
-        if (timer >= property.duration && hasExplode)
-            expired();
-        else if (hasExplode)
-            StartCoroutine(active());
+            if (timer >= property.duration && hasExplode)
+                expired();
+            else if (hasExplode)
+                StartCoroutine(active());
+        }
     }
 
     // when it has explode but not expired
@@ -82,5 +87,11 @@ public class TrapsBehaviourTesting : MonoBehaviour
                 hitCollider.GetComponent<EnemyBehaviourTesting>().removeStatusFromTrap(property.type);
 
         Destroy(this.gameObject);
+    }
+
+    //activate
+    public void activate()
+    {
+        isActive = true;
     }
 }

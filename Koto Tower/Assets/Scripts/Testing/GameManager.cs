@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
     public static List<TowerPrice> towerPrices;
     public static List<TrapPrice> trapPrices;
 
+    public static int totalAnsweredQuestion;
+    public static int maxCharged;
+
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         resetOnPlay();
     }
 
@@ -41,6 +45,8 @@ public class GameManager : MonoBehaviour
         isPressedButtonTrap = false;
 
         moneyChanged = false;
+
+        totalAnsweredQuestion = 0;
     }
 
     // set the money and says that the money has changed

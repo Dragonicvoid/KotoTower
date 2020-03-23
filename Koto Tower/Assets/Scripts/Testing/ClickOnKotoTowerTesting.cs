@@ -36,8 +36,8 @@ public class ClickOnKotoTowerTesting : MonoBehaviour
 
         foreach(RaycastHit2D hit in hits)
         {
-            // Get the vector and move camera horizontally if it moves
-            if (hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower"))
+            // get the collider, and if it's Koto Tower and now the truck is sent then you can click the tower
+            if (hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower") && QuestionManagerTesting.isSendingTruck)
             {
                 isAnimating = true;
                 if (isClosed)
@@ -66,8 +66,8 @@ public class ClickOnKotoTowerTesting : MonoBehaviour
 
         foreach (RaycastHit2D hit in hits)
         {
-            // Get the vector and move camera horizontally if it moves
-            if (touch.phase == TouchPhase.Began && hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower"))
+            // get the collider, and if it's Koto Tower and now the truck is sent then you can click the tower
+            if (touch.phase == TouchPhase.Began && hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower") && QuestionManagerTesting.isSendingTruck)
             {
                 isAnimating = true;
                 if (isClosed)
@@ -90,10 +90,26 @@ public class ClickOnKotoTowerTesting : MonoBehaviour
     public IEnumerator closeKotoTower()
     {
         isAnimating = true;
-        GameEventsTesting.current.ObjectOffScreenEnter(2);
-        isClosed = true;
+        if (!isClosed)
+        {
+            GameEventsTesting.current.ObjectOffScreenEnter(2);
+            isClosed = true;
 
-        yield return new WaitForSeconds(0.60f);
+            yield return new WaitForSeconds(0.60f);
+        }
+        isAnimating = false;
+    }
+
+    public IEnumerator openKotoTower()
+    {
+        isAnimating = true;
+        if (isClosed)
+        {
+            GameEventsTesting.current.ObjectOnScreenEnter(2);
+            isClosed = false;
+
+            yield return new WaitForSeconds(0.60f);
+        }
         isAnimating = false;
     }
 

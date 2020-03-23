@@ -91,10 +91,29 @@ public class ClickOnGeneratorTesting : MonoBehaviour
     public IEnumerator closeGenerator()
     {
         isAnimating = true;
-        GameEventsTesting.current.ObjectOffScreenEnter(3);
-        isClosed = true;
+        if (!isClosed)
+        {
+            GameEventsTesting.current.ObjectOffScreenEnter(3);
+            isClosed = true;
 
-        yield return new WaitForSeconds(0.60f);
+            yield return new WaitForSeconds(0.60f);
+        }
+        
+        isAnimating = false;
+    }
+
+    // open the generator
+    public IEnumerator openGenerator()
+    {
+        isAnimating = true;
+        if (isClosed)
+        {
+            GameEventsTesting.current.ObjectOnScreenEnter(3);
+            isClosed = false;
+
+            yield return new WaitForSeconds(0.60f);
+        }
+
         isAnimating = false;
     }
 

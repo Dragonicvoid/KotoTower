@@ -7,6 +7,9 @@ public class ShootTargetTesting : MonoBehaviour
     // tower attribute
     [SerializeField] TowerPropertiesScriptableObject property = null;
 
+    // Tower isActive
+    bool isActive;
+
     // Tower fire flash that seen when shooting
     GameObject fireFlash;
 
@@ -24,10 +27,8 @@ public class ShootTargetTesting : MonoBehaviour
     void Start()
     {
         fireFlash = transform.GetChild(0).gameObject;
-        currentPosition = this.transform.position;
-        hasTarget = false;
-        shootTimer = property.fireRate;
         enemy = new List<EnemyBehaviourTesting>();
+        isActive = false;
     }
 
     // Create gizmos so we can see the tower range when selected
@@ -55,25 +56,28 @@ public class ShootTargetTesting : MonoBehaviour
     // Calling the hit detection
     void Update()
     {
-        // Even tho it is not currently shooting, we have to clear the fire flash, putting if to avoid floating point error
-        if (shootTimer < property.fireRate)
-            shootTimer += Time.deltaTime;
-
-        // disable the fire Flash if the timer is greater than 75% of the fire rate
-        disableFireFlash();
-
-        // Only has 2 states, which are checking if enemy nearby and shoot it
-        switch (hasTarget)
+        if (isActive)
         {
-            case false:
-                checkAround();
-                break;
-            case true:
-                shootTarget();
-                // for shoot around type of tower find target
-                if (property.shootAround)
+            // Even tho it is not currently shooting, we have to clear the fire flash, putting if to avoid floating point error
+            if (shootTimer < property.fireRate)
+                shootTimer += Time.deltaTime;
+
+            // disable the fire Flash if the timer is greater than 75% of the fire rate
+            disableFireFlash();
+
+            // Only has 2 states, which are checking if enemy nearby and shoot it
+            switch (hasTarget)
+            {
+                case false:
                     checkAround();
-                break;
+                    break;
+                case true:
+                    shootTarget();
+                    // for shoot around type of tower find target
+                    if (property.shootAround)
+                        checkAround();
+                    break;
+            }
         }
     }
 
@@ -169,5 +173,13 @@ public class ShootTargetTesting : MonoBehaviour
     public float getRadius()
     {
         return this.property.radius;
+    }
+
+    public void activate()
+    {
+        hasTarget = false;
+        shootTimer = property.fireRate;
+        currentPosition = this.transform.position;
+        isActive = true;
     }
 }

@@ -61,6 +61,9 @@ Script:
 41. LevelProperty
 42. PriceEnumTesting
 43. ShowMoneyTesting
+44. MoveUIToBottomScreenTesting
+45. ProgressBarTesting
+46. RectTransformSizeChangeTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -77,3 +80,4 @@ Progression Note:
 - 17/Mar/2020 : added 3 tower and fixes on ui toggle (Reivaldo Julianto)
 - 19/Mar/2020 : changes on UI, Line creating, and on how the animation works. added traps, and scriptable Object (Reivaldo Julianto)
 - 20/Mar/2020 : add buying function and get money from killing enemy. There are still some bugs about on how the map render incorrectly. (Reivaldo Julianto)
+- 23/Mar/2020 : Add progress Bar, change UI Behaviour (Reivaldo Julianto)

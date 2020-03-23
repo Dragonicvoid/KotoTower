@@ -6,9 +6,12 @@ using UnityEngine.EventSystems;
 public class SpawnTrapTesting : MonoBehaviour
 {
     Camera mainCamera = null;
-    float timer = 0f;
-    float maxTimer = 0.5f;
-    bool isTouched = false;
+    bool isReadyToBuild = false;
+    bool isReadyToSpawn = false;
+    bool canSpawn = false;
+    GameObject currentTrap;
+    TrapType currentTrapType;
+
     // variable for spawning trap according the button that player selected
     [SerializeField] GameObject trapBomb = null;
     [SerializeField] GameObject trapTime = null;
@@ -19,23 +22,49 @@ public class SpawnTrapTesting : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
-        timer = 0f;
-        maxTimer = 0.5f;
-        isTouched = false;
+        isReadyToBuild = false;
+        isReadyToSpawn = false;
+        currentTrap = null;
     }
 
     // Update is called once per frame after normal update
     void Update()
     {
-        // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.touchCount > 0 && GameManager.isSelectTrap)
+        // for touch
+        if (Input.touchCount > 0 && GameManager.isSelectTrap && !isReadyToSpawn)
         {
+            // If it is the first time to build then make the trap
+            if (!isReadyToBuild)
+            {
+                switch (GameManager.selectedTrap)
+                {
+                    case 0:
+                        currentTrap = Instantiate(trapBomb, this.transform);
+                        currentTrapType = TrapType.BOMB_TRAP;
+                        break;
+                    case 1:
+                        currentTrap = Instantiate(trapTime, this.transform);
+                        currentTrapType = TrapType.TIME_TRAP;
+                        break;
+                    case 2:
+                        currentTrap = Instantiate(trapFreeze, this.transform);
+                        currentTrapType = TrapType.FREEZE_TRAP;
+                        break;
+                    default:
+                        currentTrap = Instantiate(trapBomb, this.transform);
+                        currentTrapType = TrapType.BOMB_TRAP;
+                        break;
+                }
+
+                currentTrap.SetActive(false);
+                SpriteRenderer renderer = currentTrap.GetComponent<SpriteRenderer>();
+                renderer.color = new Color(1, 1, 1, 150f / 256f);
+                isReadyToBuild = true;
+            }
+
             Touch touch = Input.GetTouch(0);
 
-            // Spawn the trap at the position that player touch at camera and disable the toggle
-            if (touch.phase == TouchPhase.Began
-                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x > (Screen.width * 32 / 100))
-                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x < (Screen.width * 68 / 100)))
+            if (touch.phase == TouchPhase.Began)
             {
                 Vector2 touchPosition;
                 touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
@@ -46,116 +75,138 @@ public class SpawnTrapTesting : MonoBehaviour
 
                 x += GridTesting.offsetX;
                 y += GridTesting.offsetY;
-
+               
                 if (GridTesting.cells[x, y].cellContent == CellContent.PATH)
                 {
-                    GameObject spawnedTrap;
-                    switch (GameManager.selectedTrap)
-                    {
-                        case 0:
-                            spawnedTrap = Instantiate(trapBomb, this.transform);
-                            GameManager.pay(TrapType.BOMB_TRAP);
-                            break;
-                        case 1:
-                            spawnedTrap = Instantiate(trapTime, this.transform);
-                            GameManager.pay(TrapType.TIME_TRAP);
-                            break;
-                        case 2:
-                            spawnedTrap = Instantiate(trapFreeze, this.transform);
-                            GameManager.pay(TrapType.FREEZE_TRAP);
-                            break;
-                        default:
-                            spawnedTrap = Instantiate(trapBomb, this.transform);
-                            GameManager.pay(TrapType.BOMB_TRAP);
-                            break;
-                    }
-                    spawnedTrap.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0f); ;
-                    isTouched = false;
-                    timer = 0f;
-                    trapButton.disableButton(GameManager.selectedTrap);
-                    return;
+                    currentTrap.SetActive(true);
+                    isReadyToSpawn = true;
+                    canSpawn = false;
+                    currentTrap.transform.position = new Vector3(touch.position.x, touch.position.y, 0);
                 }
-            }
-
-            // check if its a double click or not, if it is break from this
-            if (!isTouched)
-                isTouched = true;
-            else
-            {
-                isTouched = false;
-                timer = 0f;
-                trapButton.disableButton(GameManager.selectedTrap);
-                return;
             }
         }
 
-        // Detecting mouse click for debug
-        // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.GetMouseButtonDown(0) && GameManager.isSelectTrap)
+        if (Input.touchCount > 0 && isReadyToBuild && isReadyToSpawn)
         {
-            Vector3 touchLocation = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPosition;
+            touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
 
-            // Spawn the trap at the position that player touch at camera and disable the toggle
-            if (!GameManager.isPressedButtonTrap)
+            int x, y;
+            GridTesting.getXYFromPosition(touchPosition, out x, out y);
+
+            x += GridTesting.offsetX;
+            y += GridTesting.offsetY;
+            // if the player touch the area again then spawn the trap
+            if (touch.phase == TouchPhase.Ended && GameManager.isSelectTrap)
             {
-                // checking if the place is open field
-                int x, y;
-                GridTesting.getXYFromPosition(touchLocation, out x, out y);
-
-                x += GridTesting.offsetX;
-                y += GridTesting.offsetY;
-
-                if (GridTesting.cells[x, y].cellContent == CellContent.PATH
-                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x > (Screen.width * 32 / 100))
-                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x < (Screen.width * 68 / 100)))
+                if (isReadyToSpawn && isReadyToBuild)
+                    canSpawn = true;
+                else if (canSpawn)
                 {
-                    GameObject spawnedTrap;
-                    switch (GameManager.selectedTrap)
-                    {
-                        case 0:
-                            spawnedTrap = Instantiate(trapBomb, this.transform);
-                            GameManager.pay(TrapType.BOMB_TRAP);
-                            break;
-                        case 1:
-                            spawnedTrap = Instantiate(trapTime, this.transform);
-                            GameManager.pay(TrapType.TIME_TRAP);
-                            break;
-                        case 2:
-                            spawnedTrap = Instantiate(trapFreeze, this.transform);
-                            GameManager.pay(TrapType.FREEZE_TRAP);
-                            break;
-                        default:
-                            spawnedTrap = Instantiate(trapBomb, this.transform);
-                            GameManager.pay(TrapType.BOMB_TRAP);
-                            break;
-                    }
-                    spawnedTrap.transform.position = new Vector3(touchLocation.x, touchLocation.y, 0f);
-                    isTouched = false;
-                    timer = 0f;
+                    // change the color
+                    SpriteRenderer renderer = currentTrap.GetComponent<SpriteRenderer>();
+                    renderer.color = new Color(1, 1, 1, 1);
+
+                    // activate it
+                    TrapsBehaviourTesting trap = currentTrap.GetComponent<TrapsBehaviourTesting>();
+                    trap.activate();
+
+                    // pay the trap
+                    GameManager.pay(currentTrapType);
                     trapButton.disableButton(GameManager.selectedTrap);
+
+                    // reset variable
+                    isReadyToBuild = false;
+                    isReadyToSpawn = false;
+                    canSpawn = false;
                     return;
                 }
             }
-
-            // check if its a double click or not, if it is break from this
-            if (!isTouched)
-                isTouched = true;
-            else
+            else if (touch.phase == TouchPhase.Began && Vector3.Distance(currentTrap.transform.position, new Vector3(touchPosition.x, touchPosition.y, 0f)) > 0.5f)
             {
-                isTouched = false;
-                timer = 0f;
-                trapButton.disableButton(GameManager.selectedTrap);
-                return;
+                isReadyToSpawn = false;
+                canSpawn = false;
+            }
+
+        }
+
+        // for mouse (debug)
+        if (Input.GetMouseButton(0) && GameManager.isSelectTrap)
+        {
+            // If it is the first time to build then make the trap
+            if (!isReadyToBuild)
+            {
+                switch (GameManager.selectedTrap)
+                {
+                    case 0:
+                        currentTrap = Instantiate(trapBomb, this.transform);
+                        currentTrapType = TrapType.BOMB_TRAP;
+                        break;
+                    case 1:
+                        currentTrap = Instantiate(trapTime, this.transform);
+                        currentTrapType = TrapType.TIME_TRAP;
+                        break;
+                    case 2:
+                        currentTrap = Instantiate(trapFreeze, this.transform);
+                        currentTrapType = TrapType.FREEZE_TRAP;
+                        break;
+                    default:
+                        currentTrap = Instantiate(trapBomb, this.transform);
+                        currentTrapType = TrapType.BOMB_TRAP;
+                        break;
+                }
+
+                currentTrap.SetActive(false);
+                SpriteRenderer renderer = currentTrap.GetComponent<SpriteRenderer>();
+                renderer.color = new Color(1, 1, 1, 150f / 256f);
+                isReadyToBuild = true;
+            }
+
+            Vector2 touchPosition;
+            touchPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+            // checking if the place is open field
+            int x, y;
+            GridTesting.getXYFromPosition(touchPosition, out x, out y);
+
+            x += GridTesting.offsetX;
+            y += GridTesting.offsetY;
+
+            if (Vector3.Distance(currentTrap.transform.position, touchPosition) > 0.5f)
+                isReadyToSpawn = false;
+
+            if (GridTesting.cells[x, y].cellContent == CellContent.PATH && !isReadyToSpawn)
+            {
+                currentTrap.SetActive(true);
+                currentTrap.transform.position = new Vector3(touchPosition.x, touchPosition.y, -0);
             }
         }
 
-        if (isTouched)
-            timer += Time.deltaTime;
-
-        if (timer > maxTimer)
+        // if the player touch the area again then spawn the trap, if its the first time then just be ready to spawn
+        if (Input.GetMouseButtonUp(0) && GameManager.isSelectTrap)
         {
-            timer = 0f;
-            isTouched = false;
+            if (!isReadyToSpawn && isReadyToBuild)
+                isReadyToSpawn = true;
+            else if (isReadyToBuild)
+            {
+                // change the color
+                SpriteRenderer renderer = currentTrap.GetComponent<SpriteRenderer>();
+                renderer.color = new Color(1, 1, 1, 1);
+
+                // activate it
+                TrapsBehaviourTesting trap = currentTrap.GetComponent<TrapsBehaviourTesting>();
+                trap.activate();
+
+                // pay the trap
+                GameManager.pay(currentTrapType);
+                trapButton.disableButton(GameManager.selectedTrap);
+
+                // reset variable
+                isReadyToBuild = false;
+                isReadyToSpawn = false;
+                return;
+            }
         }
     }
 }

@@ -8,7 +8,6 @@ public class MoveCameraTesting : MonoBehaviour
     [SerializeField] float minX = 0f;
     [SerializeField] float maxX = 0f;
     [SerializeField] float maxTimer = 0.5f;
-    bool isMoved;
     bool isTouchedLeft;
     bool isTouchedRight;
     float rightTimer;
@@ -22,7 +21,6 @@ public class MoveCameraTesting : MonoBehaviour
     // initialize variables
     private void Awake()
     {
-        isMoved = false;
         isTouchedLeft = false;
         isTouchedRight = false;
         rightTimer = 0f;
@@ -35,24 +33,16 @@ public class MoveCameraTesting : MonoBehaviour
         generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<ClickOnGeneratorTesting>();
     }
 
-    // check if generator or kotoTower is off screen
-    private void Start()
-    {
-        checkKotoTowerAndGeneratorOnScreen();
-    }
-
     // Update is called once per frame
     void Update()
     {
         // If there is touch(es)
-        if (Input.touchCount > 0 && !GameManager.isSelectTower)
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
 
             // Get the vector and move camera horizontally if it moves
-            if (touch.phase == TouchPhase.Moved
-                && (touch.position.y > (Screen.height * 16 / 100) || touch.position.x > (Screen.width * 32 / 100))
-                && (touch.position.y > (Screen.height * 16 / 100) || touch.position.x < (Screen.width * 68 / 100)))
+            if (touch.phase == TouchPhase.Moved)
             { 
                 Vector2 touchDelta = touch.deltaPosition;
 
@@ -61,24 +51,19 @@ public class MoveCameraTesting : MonoBehaviour
                 {
                     this.transform.Translate(-touchDelta.x * speed * Time.deltaTime, 0f, 0f);
                     this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX, maxX), 0f, -10f);
-                    isMoved = true;
                 }
             }
         }
 
-        // If there is scroll wheel input move the screen (for PC debugging)
-        if (Input.mouseScrollDelta.y != 0 && !GameManager.isSelectTower)
+        // If there is scroll wheel input and not left control, move the screen (for PC debugging)
+        if (Input.mouseScrollDelta.y != 0 && !Input.GetKey(KeyCode.LeftControl))
         {
             this.transform.Translate(-Input.mouseScrollDelta.y * speed * Time.deltaTime * 15f, 0f, 0f);
             this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX, maxX), 0f, -10f);
-            isMoved = true;
         }
 
         if(!GameManager.isSelectTower)
             checkLeftOrRightClick();
-
-        if (isMoved)
-            checkKotoTowerAndGeneratorOnScreen();
 
         // Look at timer if the screen on left is pressed
         if (isTouchedLeft)
@@ -99,8 +84,6 @@ public class MoveCameraTesting : MonoBehaviour
             rightTimer = 0f;
             isTouchedRight = false;
         }
-
-        isMoved = false;
     }
 
     // go to minimal horizontal plane
@@ -109,7 +92,6 @@ public class MoveCameraTesting : MonoBehaviour
         this.transform.position = new Vector3(minX, 0f, -10f);
         leftTimer = 0f;
         isTouchedLeft = false;
-        isMoved = true;
     }
 
     // go to maximal horizontal plane
@@ -118,29 +100,24 @@ public class MoveCameraTesting : MonoBehaviour
         this.transform.position = new Vector3(maxX, 0f, -10f);
         rightTimer = 0f;
         isTouchedRight = false;
-        isMoved = true;
     }
 
     //check left or right click
     private void checkLeftOrRightClick()
     {
         // If there is touch(es)
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !GameManager.isSelectTower && !GameManager.isSelectTrap)
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began
-                && ((touch.position.y > (Screen.height * 16 / 100) || touch.position.x < (Screen.width * 68 / 100))
-                && touch.position.x >= (Screen.width * 0.5f)))
+            if (touch.phase == TouchPhase.Began && touch.position.x >= (Screen.width * 0.5f))
             {
                 if (!isTouchedLeft)
                     isTouchedLeft = true;
                 else
                     goToMinX();
             }
-            else if (touch.phase == TouchPhase.Began
-                && ((touch.position.y > (Screen.height * 16 / 100) || touch.position.x < (Screen.width * 68 / 100))
-                && touch.position.x >= (Screen.width * 0.5f)))
+            else if (touch.phase == TouchPhase.Began && touch.position.x >= (Screen.width * 0.5f))
             {
                 if (!isTouchedRight)
                     isTouchedRight = true;
@@ -149,20 +126,18 @@ public class MoveCameraTesting : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !GameManager.isSelectTower && !GameManager.isSelectTrap)
         {
             Vector3 mousePosition = Input.mousePosition;
 
-            if ((mousePosition.y > (Screen.height * 16 / 100) || mousePosition.x > (Screen.width * 32 / 100))
-                && mousePosition.x < (Screen.width * 0.5f))
+            if (mousePosition.x < (Screen.width * 0.5f))
             {
                 if (!isTouchedLeft)
                     isTouchedLeft = true;
                 else
                     goToMinX();
             }
-            else if ((mousePosition.y > (Screen.height * 16 / 100) || mousePosition.x < (Screen.width * 68 / 100))
-                && mousePosition.x >= (Screen.width * 0.5f))
+            else
             {
                 if (!isTouchedRight)
                     isTouchedRight = true;
@@ -170,15 +145,5 @@ public class MoveCameraTesting : MonoBehaviour
                     goToMaxX();
             }
         }
-    }
-
-    // Calling event if is not visiole
-    private void checkKotoTowerAndGeneratorOnScreen()
-    {
-        if (!OtherMethodTesting.isVisibleFrom(kotoTowerRenderer, cam) && !kotoTower.getisClose())
-            kotoTower.StartCoroutine(kotoTower.closeKotoTower());
-
-        if (!OtherMethodTesting.isVisibleFrom(generatorRenderer, cam) && !generator.getisClose())
-            generator.StartCoroutine(generator.closeGenerator());
     }
 }

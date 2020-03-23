@@ -11,7 +11,9 @@ public class QuestionManagerTesting : MonoBehaviour
     public QuestionsAnswersTesting[] hardQuestions;
 
     // UI attribute
-    public Text[] possibleAnswers;
+    List<Button> possibleAnswers;
+    List<Text> possibleAnswersText;
+
     public Text questionUI;
 
     // how many times answer shuffled
@@ -21,6 +23,7 @@ public class QuestionManagerTesting : MonoBehaviour
     TruckBehaviourTesting truck = null;
     TextMesh charCharge = null;
     PointTesting truckSpawnPoint = null; // Koto Tower
+    ClickOnKotoTowerTesting kotoTower = null; // Koto Tower
 
     // Current question and answers
     QuestionsAnswersTesting currQuestion;
@@ -36,7 +39,18 @@ public class QuestionManagerTesting : MonoBehaviour
         charCharge = GameObject.FindGameObjectWithTag("Char Charge").GetComponent<TextMesh>();
         truck.gameObject.SetActive(false);
 
+        // for koto Tower
         truckSpawnPoint = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<PointTesting>();
+        kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<ClickOnKotoTowerTesting>();
+
+        // possible answer's button
+        possibleAnswers = new List<Button>();
+        possibleAnswers.AddRange(kotoTower.gameObject.GetComponentsInChildren<Button>());
+
+        // possible anwer
+        possibleAnswersText = new List<Text>();
+        foreach (Button answer in possibleAnswers)
+            possibleAnswersText.Add(answer.GetComponentInChildren<Text>());
     }
 
     // Shuffling the answer
@@ -71,7 +85,10 @@ public class QuestionManagerTesting : MonoBehaviour
         audioSrc.clip = question.getAudio();
 
         for (int i = 0; i < question.getAnswerCount(); i++)
-            possibleAnswers[i].text = question.getAnswerAtIndex(i).answer;
+            possibleAnswersText[i].text = question.getAnswerAtIndex(i).answer;
+
+        disableOrEnabledAnswers(true);
+        kotoTower.StartCoroutine(kotoTower.openKotoTower());
     }
 
     // Sending the answer with a truck
@@ -86,6 +103,15 @@ public class QuestionManagerTesting : MonoBehaviour
             truck.spawn(truckSpawnPoint.getCurrPosition());
             truck.changeTargetFromCurrPoint(truckSpawnPoint);
             isSendingTruck = true;
+            kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+            disableOrEnabledAnswers(false);
         }
+    }
+
+    // Disable button if the answer is sent
+    void disableOrEnabledAnswers(bool status)
+    {
+        foreach (Button button in possibleAnswers)
+            button.interactable = status;
     }
 }

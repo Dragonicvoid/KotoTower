@@ -42,13 +42,13 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
         towerUi = this.gameObject.GetComponent<ButtonForTowerTesting>();
         countLine = 0;
         GameManager.resetOnPlay();
-        foreach (ButtonChangeColorTesting button in buttons)
-            button.disable();
     }
 
     // Drawing all possible grid to place trap
     private void Start()
     {
+        foreach (ButtonChangeColorTesting button in buttons)
+            button.disable();
         StartCoroutine(lateDraw(0.3f));
     }
 

@@ -6,9 +6,13 @@ using UnityEngine.EventSystems;
 public class SpawnTowerTesting : MonoBehaviour
 {
     Camera mainCamera = null;
-    float timer = 0f;
-    float maxTimer = 0.5f;
-    bool isTouched = false;
+    bool isReadyToBuild = false;
+    bool isReadyToSpawn = false;
+    bool canSpawn = false;
+    GameObject currentTower;
+    TowerType currentTowerType;
+    int currX, currY;
+
     // variable for spawning tower according the button that player selected
     [SerializeField] GameObject towerMachineGun = null;
     [SerializeField] GameObject towerSniper= null;
@@ -19,23 +23,51 @@ public class SpawnTowerTesting : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
-        timer = 0f;
-        maxTimer = 0.5f;
-        isTouched = false;
+        isReadyToBuild = false;
+        isReadyToSpawn = false;
+        currentTower = null;
+        currX = -1;
+        currY = -1;
     }
 
     // Update is called once per frame after normal update
     void Update()
     {
-        // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.touchCount > 0 && GameManager.isSelectTower)
+        // for touch
+        if (Input.touchCount > 0 && GameManager.isSelectTower && !isReadyToSpawn)
         {
+            // If it is the first time to build then make the tower
+            if (!isReadyToBuild)
+            {
+                switch (GameManager.selectedTower)
+                {
+                    case 0:
+                        currentTower = Instantiate(towerMachineGun, this.transform);
+                        currentTowerType = TowerType.MACHINE_GUN;
+                        break;
+                    case 1:
+                        currentTower = Instantiate(towerSniper, this.transform);
+                        currentTowerType = TowerType.SNIPER;
+                        break;
+                    case 2:
+                        currentTower = Instantiate(towerElectric, this.transform);
+                        currentTowerType = TowerType.ELECTRIC;
+                        break;
+                    default:
+                        currentTower = Instantiate(towerMachineGun, this.transform);
+                        currentTowerType = TowerType.MACHINE_GUN;
+                        break;
+                }
+
+                currentTower.SetActive(false);
+                SpriteRenderer renderer = currentTower.GetComponent<SpriteRenderer>();
+                renderer.color = new Color(1, 1, 1, 150f / 256f);
+                isReadyToBuild = true;
+            }
+
             Touch touch = Input.GetTouch(0);
 
-            // Spawn the tower at the position that player touch at camera and disable the toggle
-            if (touch.phase == TouchPhase.Began
-                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x > (Screen.width * 32 / 100))
-                && (touch.position.y > (Screen.height * 20 / 100) || touch.position.x < (Screen.width * 68 / 100)))
+            if (touch.phase == TouchPhase.Began)
             {
                 Vector2 touchPosition;
                 touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
@@ -47,117 +79,154 @@ public class SpawnTowerTesting : MonoBehaviour
                 x += GridTesting.offsetX;
                 y += GridTesting.offsetY;
 
-                if (GridTesting.cells[x,y].cellContent == CellContent.OPEN_FIELD)
+                if (GridTesting.cells[x, y].cellContent == CellContent.OPEN_FIELD)
                 {
-                    GameObject spawnedTower;
-                    switch (GameManager.selectedTower)
-                    {
-                        case 0:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
-                            GameManager.pay(TowerType.MACHINE_GUN);
-                            break;
-                        case 1:
-                            spawnedTower = Instantiate(towerSniper, this.transform);
-                            GameManager.pay(TowerType.SNIPER);
-                            break;
-                        case 2:
-                            spawnedTower = Instantiate(towerElectric, this.transform);
-                            GameManager.pay(TowerType.ELECTRIC);
-                            break;
-                        default:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
-                            GameManager.pay(TowerType.MACHINE_GUN);
-                            break;
-                    }
-                    spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
-                    spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
-                    isTouched = false;
-                    timer = 0f;
+                    currentTower.SetActive(true);
+                    isReadyToSpawn = true;
+                    canSpawn = false;
+                    currentTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
+                    currX = x;
+                    currY = y;
+                }   
+            }          
+        }
+
+        if (Input.touchCount > 0 && isReadyToBuild && isReadyToSpawn)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPosition;
+            touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
+
+            int x, y;
+            GridTesting.getXYFromPosition(touchPosition, out x, out y);
+
+            x += GridTesting.offsetX;
+            y += GridTesting.offsetY;
+            // if the player touch the area again then spawn the tower
+            if (touch.phase == TouchPhase.Ended && GameManager.isSelectTower)
+            {
+                if (isReadyToSpawn && isReadyToBuild)
+                    canSpawn = true;
+                else if (canSpawn)
+                {
+                    // change the color
+                    SpriteRenderer renderer = currentTower.GetComponent<SpriteRenderer>();
+                    renderer.color = new Color(1, 1, 1, 1);
+
+                    // activate it
+                    ShootTargetTesting tower = currentTower.GetComponent<ShootTargetTesting>();
+                    tower.activate();
+
+                    // block the area
+                    TowerGridBlocker gridBlocker = currentTower.GetComponent<TowerGridBlocker>();
+                    gridBlocker.changeGridStatus();
+
+                    // pay the tower
+                    GameManager.pay(currentTowerType);
                     towerButton.disableButton(GameManager.selectedTower);
+
+                    // reset variable
+                    isReadyToBuild = false;
+                    isReadyToSpawn = false;
+                    canSpawn = false;
+                    currX = -1;
+                    currY = -1;
                     return;
                 }
             }
-
-            // check if its a double click or not, if it is break from this
-            if (!isTouched)
-                isTouched = true;
-            else
+            else if (touch.phase == TouchPhase.Began && !(currX == x && currY == y))
             {
-                isTouched = false;
-                timer = 0f;
-                towerButton.disableButton(GameManager.selectedTower);
-                return;
+                isReadyToSpawn = false;
+                canSpawn = false;
             }
+                
         }
 
-        // Detecting mouse click for debug
-        // check if there is touches, button is selected, and there is no button in front of the touches
-        if (Input.GetMouseButtonDown(0) && GameManager.isSelectTower)
+        // for mouse (debug)
+        if (Input.GetMouseButton(0) && GameManager.isSelectTower)
         {
-            Vector3 touchLocation = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-            // Spawn the tower at the position that player touch at camera and disable the toggle
-            if (!GameManager.isPressedButtonTower)
+            // If it is the first time to build then make the tower
+            if (!isReadyToBuild)
             {
-                // checking if the place is open field
-                int x, y;
-                GridTesting.getXYFromPosition(touchLocation, out x, out y);
-
-                x += GridTesting.offsetX;
-                y += GridTesting.offsetY;
-
-                if (GridTesting.cells[x, y].cellContent == CellContent.OPEN_FIELD 
-                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x > (Screen.width * 32 / 100))
-                    && (Input.mousePosition.y > (Screen.height * 20 / 100) || Input.mousePosition.x < (Screen.width * 68 / 100)))
+                switch (GameManager.selectedTower)
                 {
-                    GameObject spawnedTower;
-                    switch (GameManager.selectedTower)
-                    {
-                        case 0:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
-                            GameManager.pay(TowerType.MACHINE_GUN);
-                            break;
-                        case 1:
-                            spawnedTower = Instantiate(towerSniper, this.transform);
-                            GameManager.pay(TowerType.SNIPER);
-                            break;
-                        case 2:
-                            spawnedTower = Instantiate(towerElectric, this.transform);
-                            GameManager.pay(TowerType.ELECTRIC);
-                            break;
-                        default:
-                            spawnedTower = Instantiate(towerMachineGun, this.transform);
-                            GameManager.pay(TowerType.MACHINE_GUN);
-                            break;
-                    }
-                    spawnedTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
-                    spawnedTower.GetComponent<TowerGridBlocker>().changeGridStatus();
-                    isTouched = false;
-                    timer = 0f;
-                    towerButton.disableButton(GameManager.selectedTower);
-                    return;
+                    case 0:
+                        currentTower = Instantiate(towerMachineGun, this.transform);
+                        currentTowerType = TowerType.MACHINE_GUN;
+                        break;
+                    case 1:
+                        currentTower = Instantiate(towerSniper, this.transform);
+                        currentTowerType = TowerType.SNIPER;
+                        break;
+                    case 2:
+                        currentTower = Instantiate(towerElectric, this.transform);
+                        currentTowerType = TowerType.ELECTRIC;
+                        break;
+                    default:
+                        currentTower = Instantiate(towerMachineGun, this.transform);
+                        currentTowerType = TowerType.MACHINE_GUN;
+                        break;
                 }
+
+                currentTower.SetActive(false);
+                SpriteRenderer renderer = currentTower.GetComponent<SpriteRenderer>();
+                renderer.color = new Color(1, 1, 1, 150f / 256f);
+                isReadyToBuild = true;
             }
 
-            // check if its a double click or not, if it is break from this
-            if (!isTouched)
-                isTouched = true;
-            else
+            Vector2 touchPosition;
+            touchPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+            // checking if the place is open field
+            int x, y;
+            GridTesting.getXYFromPosition(touchPosition, out x, out y);
+
+            x += GridTesting.offsetX;
+            y += GridTesting.offsetY;
+
+            if (currX != x || currY != y)
+                isReadyToSpawn = false;
+
+            if (GridTesting.cells[x, y].cellContent == CellContent.OPEN_FIELD && !isReadyToSpawn)
             {
-                isTouched = false;
-                timer = 0f;
-                towerButton.disableButton(GameManager.selectedTower);
-                return;
+                currentTower.SetActive(true);
+                currentTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
+                currX = x;
+                currY = y;
             }
         }
 
-        if (isTouched)
-            timer += Time.deltaTime;
-
-        if(timer > maxTimer)
+        // if the player touch the area again then spawn the tower, if its the first time then just be ready to spawn
+        if (Input.GetMouseButtonUp(0) && GameManager.isSelectTower)
         {
-            timer = 0f;
-            isTouched = false;
+            Debug.Log(isReadyToSpawn);
+            if (!isReadyToSpawn && isReadyToBuild)
+                isReadyToSpawn = true;
+            else if(isReadyToBuild)
+            {
+                // change the color
+                SpriteRenderer renderer = currentTower.GetComponent<SpriteRenderer>();
+                renderer.color = new Color(1, 1, 1, 1);
+
+                // activate it
+                ShootTargetTesting tower = currentTower.GetComponent<ShootTargetTesting>();
+                tower.activate();
+
+                // block the area
+                TowerGridBlocker gridBlocker = currentTower.GetComponent<TowerGridBlocker>();
+                gridBlocker.changeGridStatus();
+
+                // pay the tower
+                GameManager.pay(currentTowerType);
+                towerButton.disableButton(GameManager.selectedTower);
+
+                // reset variable
+                isReadyToBuild = false;
+                isReadyToSpawn = false;
+                currX = -1;
+                currY = -1;
+                return;
+            }
         }
     }
 }
