@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fba1c0eefa8e6044a103ced5f4b36e5, type: 3}
-  m_Name: Normal Enemy Properties
+  m_Name: Armored Enemy Properties
   m_EditorClassIdentifier: 
-  prefabName: Normal Enemy
+  prefabName: Armored Enemy
   speed: 1
-  maxHealth: 20
+  maxHealth: 50
   damage: 2
-  shockRecovery: 3
-  rewardPrice: 100
-  type: 0
+  shockRecovery: 10
+  rewardPrice: 200
+  type: 1

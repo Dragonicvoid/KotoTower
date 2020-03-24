@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EnemyBehaviourTesting : MonoBehaviour
 {
-    
-
     // Enemy attribute
     [SerializeField] EnemyPropertiesScriptableObject property = null;
     EnemiesPoolingTesting pooler = null;
     float shockTimer;
+    float attackTimer;
     float currHealth;
     bool conditionChanged;
     PointTesting currTarget;
@@ -17,6 +16,9 @@ public class EnemyBehaviourTesting : MonoBehaviour
     Renderer render;
     Color defaultColor;
     public EnemyStatus status;
+
+    // koto Tower
+    KotoTowerBehaviourTesting kotoTower;
 
     // material id name to optimize color material
     int colorPropertyId = Shader.PropertyToID("_Color");
@@ -52,8 +54,12 @@ public class EnemyBehaviourTesting : MonoBehaviour
         // if it is not frozen then it is still actively moving
         if (status != EnemyStatus.FROZEN)
         {
-            // Moving the target
-            moveTo(currTarget);
+            if (status != EnemyStatus.MOVING)
+                // Moving the target
+                moveTo(currTarget);
+            else
+                attackKotoTower();
+
             // Reset attribute when not hitted
             resetHit();
         }
@@ -103,16 +109,38 @@ public class EnemyBehaviourTesting : MonoBehaviour
 
         position = this.gameObject.transform.position;
 
+        if (isNowAt(point.getCurrPosition()) && point.getIsStartPoint())
+        {
+            // activate the enemy (change layer)
+            activate();
+        }
         if (isNowAt(point.getCurrPosition()) && point.getIsEndPoint())
         {
-            // Just for testing, checking if current position is the end point
-            // so the agent can be disabled and put it on another parent (for the sake of tidiness)
-            pooler.insertBack(this);
+            // attack
+            attackKotoTower();
         }
         else if (isNowAt(point.getCurrPosition()))
         {
             // If the agent reach a destination that is not end point
             changeTargetFromCurrPoint(currTarget);
+        }
+    }
+
+    // attack kotoTower
+    void attackKotoTower()
+    {
+        if (attackTimer < property.hitRate && status == EnemyStatus.ATTACKING)
+            attackTimer += Time.deltaTime;
+
+        if(status != EnemyStatus.ATTACKING && status == EnemyStatus.MOVING)
+        {
+            status = EnemyStatus.ATTACKING;
+            kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<KotoTowerBehaviourTesting>();
+        }
+        else if(attackTimer > property.hitRate)
+        {
+            kotoTower.addDamage(property.damage);
+            attackTimer = 0f;
         }
     }
 
@@ -137,15 +165,18 @@ public class EnemyBehaviourTesting : MonoBehaviour
         switch (type)
         {
             case TrapType.BOMB_TRAP:
-                addDamage(damage);
+                addDamage(damage, TowerType.SNIPER); // the bomb has the same hit attribute as the sniper
                 break;
             case TrapType.FREEZE_TRAP:
                 status = EnemyStatus.FROZEN;
                 conditionChanged = true;
                 break;
             case TrapType.TIME_TRAP:
-                status = EnemyStatus.STOPPED;
-                conditionChanged = true;
+                if(status != EnemyStatus.FROZEN)
+                {
+                    status = EnemyStatus.STOPPED;
+                    conditionChanged = true;
+                }
                 break;
             default:
                 break;
@@ -159,8 +190,11 @@ public class EnemyBehaviourTesting : MonoBehaviour
         switch (type)
         {
             case TrapType.TIME_TRAP:
-                status = EnemyStatus.MOVING;
-                conditionChanged = true;
+                if(status != EnemyStatus.FROZEN)
+                {
+                    status = EnemyStatus.MOVING;
+                    conditionChanged = true;
+                }
                 break;
             default:
                 break;
@@ -168,18 +202,20 @@ public class EnemyBehaviourTesting : MonoBehaviour
     }
 
     // Method when enemy got hit
-    public void addDamage(float damage, bool isShock = false)
+    public void addDamage(float damage, TowerType tower)
     {
         // to indicate hitting, damage must be more than 0
         if (damage > 0)
         {
             hitTime = 0f;
+            if (property.type == EnemyType.ARMORED && tower != TowerType.SNIPER)
+                damage *= 0.25f;
             currHealth -= damage;
             isHit = true;
         }
 
         // if enemy got shocked
-        if(isShock)
+        if(tower == TowerType.ELECTRIC)
             shockTimer = property.shockRecovery;
 
         // if it dies just put it to the pooler
@@ -235,6 +271,12 @@ public class EnemyBehaviourTesting : MonoBehaviour
             return Color.cyan;
         else // nothing happen
             return defaultColor;
+    }
+
+    // activate the enemy
+    void activate()
+    {
+        this.gameObject.layer = 8;
     }
 
     // Reseting other attribute like health, and many more

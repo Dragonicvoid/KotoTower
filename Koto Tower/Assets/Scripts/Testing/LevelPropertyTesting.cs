@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelPropertyTesting : MonoBehaviour
 {
@@ -17,5 +18,25 @@ public class LevelPropertyTesting : MonoBehaviour
         GameManager.setMoney(startMoney);
         GameManager.setPrices(startTowerPrices, startTrapPrices);
         GameManager.maxCharged = 3;
+    }
+
+    // event initialization
+    private void Start()
+    {
+        GameEventsTesting.current.onGameWonEnter += OnGameWon;
+        GameEventsTesting.current.onKotoTowerDestroyedEnter += OnGameWon;
+    }
+
+    // when the game won just reset(for debug)
+    void OnGameWon()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // delete the event
+    private void OnDestroy()
+    {
+        GameEventsTesting.current.onGameWonEnter -= OnGameWon;
+        GameEventsTesting.current.onKotoTowerDestroyedEnter -= OnGameWon;
     }
 }

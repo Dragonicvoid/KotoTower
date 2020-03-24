@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabName: Bomb Trap
   explodeTimer: 3
   duration: 0
-  radius: 5
+  radius: 3
   damage: 50
   isStopTime: 0
   sizeMultiplyer: 1.5

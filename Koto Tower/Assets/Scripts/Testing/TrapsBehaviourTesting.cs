@@ -27,6 +27,26 @@ public class TrapsBehaviourTesting : MonoBehaviour
         currentPosition = this.transform.position;
     }
 
+    // Create gizmos so we can see the tower range when selected
+    void OnDrawGizmosSelected()
+    {
+        switch (property.type)
+        {
+            case TrapType.BOMB_TRAP:
+                Gizmos.color = new Color(1, 1, 1, 0.20f);
+                Gizmos.DrawSphere(this.transform.position, property.radius);
+                break;
+            case TrapType.TIME_TRAP:
+                Gizmos.color = new Color(0, 0.75f, 0.75f, 0.20f);
+                Gizmos.DrawSphere(this.transform.position, property.radius);
+                break;
+            case TrapType.FREEZE_TRAP:
+                Gizmos.color = new Color(0, 0, 0.75f, 0.20f);
+                Gizmos.DrawSphere(this.transform.position, property.radius);
+                break;
+        }
+    }
+
     // countdown to explosion
     private void Update()
     {

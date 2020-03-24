@@ -8,13 +8,20 @@ public class TruckBehaviourTesting : MonoBehaviour
     {
         WAITING,
         DRIVING,
+        BOOSTED,
+        EXPLODING,
         DESTROYED
     }
 
     // Truck attribute
-    [SerializeField] float speed = 1;
-    [SerializeField] float maxHealth = 10;
+    [SerializeField] float speed = 1f;
+    [SerializeField] float maxHealth = 10f;
+    [SerializeField] float radius = 1f;
+    [SerializeField] float explodeTime = 2f;
+    [SerializeField] float explodeDamage = 50f;
+    [SerializeField] float boostedDuration = 2f;
     float currHealth;
+    float explodeTimer;
     PointTesting currTarget;
     Vector2 position;
     Renderer render;
@@ -34,11 +41,22 @@ public class TruckBehaviourTesting : MonoBehaviour
 
     // charCharge (Answer) that the truck bring
     AnswerTesting charCharge;
+    Vector3 charChagePosition;
+
+    // Radius Circle
+    GameObject radiusCircle;
 
     private void OnEnable()
     {
         // Reseting health
         resetAttribute();
+    }
+
+    private void Awake()
+    {
+        // set char charge position
+        charChagePosition = this.gameObject.transform.GetChild(0).GetComponent<Transform>().position;
+        radiusCircle = this.gameObject.transform.GetChild(1).gameObject;
     }
 
     // use start since the object is not active at the begining
@@ -57,9 +75,17 @@ public class TruckBehaviourTesting : MonoBehaviour
     private void Update()
     {
         // Moving the target
-        moveTo(currTarget);
-        // Reset color when not hitted
-        //resetHit();
+        if (currStatus != TruckStatus.EXPLODING)
+            moveTo(currTarget);
+        else
+            explodeCountdown();
+    }
+
+    // Draw explosion radius on scene panel
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(0, 0, 0.75f, 0.20f);
+        Gizmos.DrawSphere(this.transform.position, 1f);
     }
 
     // Spawning the agent from a point
@@ -70,9 +96,10 @@ public class TruckBehaviourTesting : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
-    // Despawning the enemy
+    // Despawning the truck
     public void despawn()
     {
+        QuestionManagerTesting.isSendingTruck = false;
         currStatus = TruckStatus.DESTROYED;
         this.gameObject.SetActive(false);
     }
@@ -100,11 +127,11 @@ public class TruckBehaviourTesting : MonoBehaviour
     public void moveTo(PointTesting point)
     {
         // if the truck is driving / moving then move it
-        if (currStatus == TruckStatus.DRIVING && point != null)
+        if ((currStatus == TruckStatus.DRIVING || currStatus == TruckStatus.BOOSTED) && point != null)
         {
             // Moving is now using translate to make the game more consistent
             Vector2 dir = point.getCurrPosition() - position;
-            this.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+            this.transform.Translate(dir.normalized * speed * Time.deltaTime * (currStatus == TruckStatus.BOOSTED ? 4f : 1f), Space.World);
             position = this.gameObject.transform.position;
 
             if (isNowAt(point.getCurrPosition()) && point.getIsGenerator())
@@ -169,5 +196,46 @@ public class TruckBehaviourTesting : MonoBehaviour
     {
         currHealth = maxHealth;
         currStatus = TruckStatus.DRIVING;
+        radiusCircle.SetActive(false);
+    }
+
+    // boosted
+    public void boosted()
+    {
+        if (currStatus == TruckStatus.DRIVING)
+            currStatus = TruckStatus.BOOSTED;
+    }
+
+    // explode
+    public void explode()
+    {
+        if(currStatus != TruckStatus.EXPLODING)
+        {
+            currStatus = TruckStatus.EXPLODING;
+            radiusCircle.SetActive(true);
+        }
+        else
+        {
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(charChagePosition, radius, (1 << 8));
+
+            if (hitColliders.Length > 0)
+                foreach (Collider2D hitCollider in hitColliders)
+                    hitCollider.GetComponent<EnemyBehaviourTesting>().addDamage(explodeDamage, TowerType.SNIPER);
+
+            currStatus = TruckStatus.DESTROYED;
+            // Reset Timer
+            explodeTimer = 0;
+            GameEventsTesting.current.TruckDestroyedEnter(true);
+            despawn();
+        }
+    }
+
+    // coundown the explosion
+    void explodeCountdown()
+    {
+        explodeTimer += Time.deltaTime;
+
+        if (explodeTimer > explodeTime)
+            explode();
     }
 }

@@ -199,7 +199,6 @@ public class SpawnTowerTesting : MonoBehaviour
         // if the player touch the area again then spawn the tower, if its the first time then just be ready to spawn
         if (Input.GetMouseButtonUp(0) && GameManager.isSelectTower)
         {
-            Debug.Log(isReadyToSpawn);
             if (!isReadyToSpawn && isReadyToBuild)
                 isReadyToSpawn = true;
             else if(isReadyToBuild)

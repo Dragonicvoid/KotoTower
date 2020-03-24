@@ -68,6 +68,20 @@ public class QuestionManagerTesting : MonoBehaviour
             question.setAnswers(OtherMethodTesting.shuffle<AnswerTesting>(question.getAnswers(), epoch));
 
         getNewQuestion();
+
+        // game event controller
+        GameEventsTesting.current.onTruckDestroyedEnter += OnTruckDestroyed;
+    }
+
+    void OnTruckDestroyed(bool isTruckDestroyed)
+    {
+        StartCoroutine(getNewQuestion(isTruckDestroyed));
+    }
+
+    IEnumerator getNewQuestion(bool isTruckDestroyed)
+    {
+        yield return new WaitForSeconds(isTruckDestroyed ? 10f : 0f);
+        getNewQuestion();
     }
 
     // Function to get the question with answers
@@ -105,6 +119,7 @@ public class QuestionManagerTesting : MonoBehaviour
             isSendingTruck = true;
             kotoTower.StartCoroutine(kotoTower.closeKotoTower());
             disableOrEnabledAnswers(false);
+            GameEventsTesting.current.TruckSentEnter();
         }
     }
 
@@ -113,5 +128,11 @@ public class QuestionManagerTesting : MonoBehaviour
     {
         foreach (Button button in possibleAnswers)
             button.interactable = status;
+    }
+
+    private void OnDestroy()
+    {
+        // game event controller
+        GameEventsTesting.current.onTruckDestroyedEnter -= OnTruckDestroyed;
     }
 }

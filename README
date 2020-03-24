@@ -13,6 +13,8 @@ https://www.google.co.id/url?sa=i&url=http%3A%2F%2Fpluspng.com%2Ftriangle-png-11
 https://www.google.co.id/url?sa=i&url=http%3A%2F%2Fpluspng.com%2Ftriangle-png-1145.html&psig=AOvVaw3QszaLpixPLIfKrQoL9gob&ust=1583233421237000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD-xrTS--cCFQAAAAAdAAAAABAD
 6. Simple Trap Placeholder: (for time, bomb, and freeze)
 https://www.google.co.id/search?q=circle+png&safe=strict&sxsrf=ALeKk036g-TrBDoKW56nr78vZYn4la6gZw:1584516558347&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjkhOeUwKPoAhUJWX0KHbfcAAAQ_AUoAXoECA0QAw&biw=2021&bih=1060#imgrc=NXb3yzU_MC3GrM&imgdii=otyfqxi8MdQVHM
+7. Circle PNG:
+Self Made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -64,6 +66,9 @@ Script:
 44. MoveUIToBottomScreenTesting
 45. ProgressBarTesting
 46. RectTransformSizeChangeTesting
+47. TruckPowerUITesting
+48. MoveUIComponentTesting
+49. KotoTowerBehaviourTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -81,3 +86,4 @@ Progression Note:
 - 19/Mar/2020 : changes on UI, Line creating, and on how the animation works. added traps, and scriptable Object (Reivaldo Julianto)
 - 20/Mar/2020 : add buying function and get money from killing enemy. There are still some bugs about on how the map render incorrectly. (Reivaldo Julianto)
 - 23/Mar/2020 : Add progress Bar, change UI Behaviour (Reivaldo Julianto)
+- 24/Mar/2020 : Add Event for winning the game and losing, add power for truck (with the UI), and 2 new enemies type, change UI behaviour (Reivaldo Julianto)

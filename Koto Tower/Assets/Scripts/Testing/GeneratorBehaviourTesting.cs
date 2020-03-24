@@ -9,7 +9,7 @@ public class GeneratorBehaviourTesting : MonoBehaviour
     [SerializeField] QuestionManagerTesting questionManager = null;
 
     // timer for how long the text showing the player if the answer is correct or not
-    [SerializeField] float waitTimer = 5f;
+    float waitTimer = 3f;
 
     // the actual variable to hold the timer
     float timer;
@@ -50,9 +50,10 @@ public class GeneratorBehaviourTesting : MonoBehaviour
             {
                 kotoTowerClick.StartCoroutine(kotoTowerClick.closeKotoTower());
                 questionText.text = "MENANG!!!";
+                GameEventsTesting.current.GameWonEnter();
             }
             else // Change the question
-                questionManager.getNewQuestion();
+                GameEventsTesting.current.TruckDestroyedEnter(false);
 
             generatorClick.StartCoroutine(generatorClick.openGenerator());
         }
@@ -73,7 +74,6 @@ public class GeneratorBehaviourTesting : MonoBehaviour
         // Start timer
         isStartTiming = true;
         // Tell question manager that the truck has arrived and charged the generator
-        QuestionManagerTesting.isSendingTruck = false;
         kotoTowerClick.StartCoroutine(kotoTowerClick.closeKotoTower());
     }
 }

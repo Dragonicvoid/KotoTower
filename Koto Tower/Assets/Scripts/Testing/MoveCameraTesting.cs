@@ -37,7 +37,7 @@ public class MoveCameraTesting : MonoBehaviour
     void Update()
     {
         // If there is touch(es)
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !GameManager.isSelectTower && !GameManager.isSelectTrap)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -56,7 +56,7 @@ public class MoveCameraTesting : MonoBehaviour
         }
 
         // If there is scroll wheel input and not left control, move the screen (for PC debugging)
-        if (Input.mouseScrollDelta.y != 0 && !Input.GetKey(KeyCode.LeftControl))
+        if (Input.mouseScrollDelta.y != 0 && !Input.GetKey(KeyCode.LeftControl) && !GameManager.isSelectTower && !GameManager.isSelectTrap)
         {
             this.transform.Translate(-Input.mouseScrollDelta.y * speed * Time.deltaTime * 15f, 0f, 0f);
             this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX, maxX), 0f, -10f);

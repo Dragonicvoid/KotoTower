@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemiesPoolingTesting : MonoBehaviour
 {
     [SerializeField] GameObject prefEnemy = null;
+    [SerializeField] GameObject prefEnemyArmored = null;
+    [SerializeField] GameObject prefEnemyGiant = null;
     List<EnemyBehaviourTesting> nonActiveEnemies;
 
     // Start is called before the first frame update
@@ -28,9 +30,25 @@ public class EnemiesPoolingTesting : MonoBehaviour
             return enemy;
         }
 
+        // Spawn a random enemy
+        EnemyBehaviourTesting instantiatedEnemy = new EnemyBehaviourTesting();
+        int random = Random.Range(0, 3);
+        switch (random)
+        {
+            case 0:
+                instantiatedEnemy = Instantiate(prefEnemy).GetComponent<EnemyBehaviourTesting>();
+                break;
+            case 1:
+                instantiatedEnemy = Instantiate(prefEnemyArmored).GetComponent<EnemyBehaviourTesting>();
+                break;
+            case 2:
+                instantiatedEnemy = Instantiate(prefEnemyGiant).GetComponent<EnemyBehaviourTesting>();
+                break;
+        }
+
         // Pooling a new instantiated object since the list is empty and added the pooler, so it knows its original parent
-        EnemyBehaviourTesting instantiatedEnemy = Instantiate(prefEnemy).GetComponent<EnemyBehaviourTesting>();
         instantiatedEnemy.changePooler(this);
+        instantiatedEnemy.gameObject.layer = 0;
         return instantiatedEnemy;
     }
 

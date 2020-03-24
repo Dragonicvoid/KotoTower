@@ -6,6 +6,7 @@ public class PointTesting : MonoBehaviour
 {
     // Point for spawn, target, tower, and everything else
     [SerializeField] List<PointTesting> neighbor = new List<PointTesting>();
+    [SerializeField] bool isStartPoint = false;
     [SerializeField] bool isEndPoint = false;
     [SerializeField] bool isGenerator = false;
     [SerializeField] bool isBranchingPath = false;
@@ -66,5 +67,11 @@ public class PointTesting : MonoBehaviour
     public bool getIsBranchingPath()
     {
         return this.isBranchingPath;
+    }
+
+    // Check if this is start point for enemy, when they got activated for the first time
+    public bool getIsStartPoint()
+    {
+        return this.isStartPoint;
     }
 }

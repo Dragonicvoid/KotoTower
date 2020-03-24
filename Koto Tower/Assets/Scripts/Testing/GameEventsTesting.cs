@@ -13,24 +13,6 @@ public class GameEventsTesting : MonoBehaviour
         current = this;
     }
 
-    public event Action onTowerOverwhelmEnter;
-    public void TowerOverwhelmEnter()
-    {
-        if (onTowerOverwhelmEnter != null)
-        {
-            onTowerOverwhelmEnter();
-        }
-    }
-
-    public event Action onKotoTowerDestroyedEnter;
-    public void KotoTowerDestroyedEnter()
-    {
-        if (onKotoTowerDestroyedEnter != null)
-        {
-            onKotoTowerDestroyedEnter();
-        }
-    }
-
     // Event that plays when Koto Tower or Generator is off screen
     // 0 is for Koto Tower and 1 is for Generator
     public event Action<int> onObjectOffScreenEnter;
@@ -51,5 +33,33 @@ public class GameEventsTesting : MonoBehaviour
         {
             onObjectOnScreenEnter(id);
         }
+    }
+
+    // Event that plays when the truck is destroyed
+    public event Action<bool> onTruckDestroyedEnter;
+    public void TruckDestroyedEnter(bool isExplode)
+    {
+        onTruckDestroyedEnter(isExplode);
+    }
+
+    // Event that plays when the truck is sent
+    public event Action onTruckSentEnter;
+    public void TruckSentEnter()
+    {
+        onTruckSentEnter();
+    }
+
+    // Event that plays when the player won
+    public event Action onGameWonEnter;
+    public void GameWonEnter()
+    {
+        onGameWonEnter();
+    }
+
+    // Event that plays when the Koto Tower is destroyed
+    public event Action onKotoTowerDestroyedEnter;
+    public void KotoTowerDestroyed()
+    {
+        onKotoTowerDestroyedEnter();
     }
 }

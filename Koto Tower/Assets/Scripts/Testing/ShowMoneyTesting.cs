@@ -15,7 +15,7 @@ public class ShowMoneyTesting : MonoBehaviour
     {
         text = this.GetComponent<Text>();
         text.text = "Money = " + (int)GameManager.money;
-        text.fontSize = Screen.currentResolution.width / division;
+        text.fontSize = Screen.width / division;
     }
 
     // change the money if there is a change

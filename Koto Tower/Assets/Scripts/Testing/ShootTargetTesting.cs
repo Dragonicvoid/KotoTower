@@ -12,6 +12,7 @@ public class ShootTargetTesting : MonoBehaviour
 
     // Tower fire flash that seen when shooting
     GameObject fireFlash;
+    GameObject circle;
 
     Vector2 currentPosition;
     bool hasTarget;
@@ -27,6 +28,7 @@ public class ShootTargetTesting : MonoBehaviour
     void Start()
     {
         fireFlash = transform.GetChild(0).gameObject;
+        circle = transform.GetChild(1).gameObject;
         enemy = new List<EnemyBehaviourTesting>();
         isActive = false;
     }
@@ -48,9 +50,7 @@ public class ShootTargetTesting : MonoBehaviour
                 Gizmos.color = new Color(0, 0, 1, 0.20f);
                 Gizmos.DrawSphere(this.transform.position, property.radius);
                 break;
-        }
-            
-        
+        }   
     }
 
     // Calling the hit detection
@@ -102,7 +102,7 @@ public class ShootTargetTesting : MonoBehaviour
         {
             Collider2D hitCollider = Physics2D.OverlapCircle(currentPosition, property.radius, (1 << 8));
 
-            if (hitCollider != null /*&& hitCollider.tag.Equals("Enemy")*/)
+            if (hitCollider != null)
             {
                 // Keeping this found enemy as target
                 hasTarget = true;
@@ -124,7 +124,7 @@ public class ShootTargetTesting : MonoBehaviour
                 fireFlash.gameObject.SetActive(true);
                 // Hit enemy and reset timer
                 foreach (EnemyBehaviourTesting target in enemy)
-                    target.addDamage(property.damage, property.shootAround);
+                    target.addDamage(property.damage, property.type);
                 shootTimer = 0f;
             }
             else if (shootTimer >= (property.fireRate * (75 / 100)))
@@ -142,7 +142,7 @@ public class ShootTargetTesting : MonoBehaviour
             {
                 // Hit enemy and reset timer
                 fireFlash.gameObject.SetActive(true);
-                enemy[0].addDamage(property.damage, property.shootAround);
+                enemy[0].addDamage(property.damage, property.type);
                 shootTimer = 0f;
             }
             else if (shootTimer >= (property.fireRate * (75 / 100)))
@@ -181,5 +181,6 @@ public class ShootTargetTesting : MonoBehaviour
         shootTimer = property.fireRate;
         currentPosition = this.transform.position;
         isActive = true;
+        circle.SetActive(false);
     }
 }
