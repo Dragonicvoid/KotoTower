@@ -59,7 +59,8 @@ public class SpawningTesting : MonoBehaviour
         // haven't added cost function
 
         //Initializing all agent attribute
-        EnemyBehaviourTesting enemy = inactiveObject.pooling();
+        GameObject enemyObj = inactiveObject.pooling();
+        EnemyBehaviourTesting enemy = enemyObj.GetComponent<EnemyBehaviourTesting>();
         enemy.spawn(spawnLocation);
         enemy.changeParent(activeObject);
         enemy.changeTargetFromCurrPoint(target);

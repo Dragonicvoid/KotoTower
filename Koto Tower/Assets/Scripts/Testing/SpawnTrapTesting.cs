@@ -120,6 +120,7 @@ public class SpawnTrapTesting : MonoBehaviour
                     isReadyToBuild = false;
                     isReadyToSpawn = false;
                     canSpawn = false;
+                    GameEventsTesting.current.TowerOrTrapBuild();
                     return;
                 }
             }
@@ -205,8 +206,24 @@ public class SpawnTrapTesting : MonoBehaviour
                 // reset variable
                 isReadyToBuild = false;
                 isReadyToSpawn = false;
+                GameEventsTesting.current.TowerOrTrapBuild();
                 return;
             }
         }
+    }
+
+    // cancel the building tower
+    public void cancel()
+    {
+        isReadyToBuild = false;
+        isReadyToSpawn = false;
+
+        if(currentTrap != null)
+            Destroy(currentTrap);
+
+        currentTrap = null;
+
+        if(GameManager.isSelectTrap)
+            trapButton.disableButton(GameManager.selectedTrap);
     }
 }

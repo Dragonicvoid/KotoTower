@@ -36,6 +36,12 @@ public class MoveCameraTesting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        touches();
+    }
+
+    // just to make it more readable
+    void touches()
+    {
         // If there is touch(es)
         if (Input.touchCount > 0 && !GameManager.isSelectTower && !GameManager.isSelectTrap)
         {
@@ -43,7 +49,7 @@ public class MoveCameraTesting : MonoBehaviour
 
             // Get the vector and move camera horizontally if it moves
             if (touch.phase == TouchPhase.Moved)
-            { 
+            {
                 Vector2 touchDelta = touch.deltaPosition;
 
                 // move the camera if the delta is big enough
@@ -61,9 +67,6 @@ public class MoveCameraTesting : MonoBehaviour
             this.transform.Translate(-Input.mouseScrollDelta.y * speed * Time.deltaTime * 15f, 0f, 0f);
             this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX, maxX), 0f, -10f);
         }
-
-        if(!GameManager.isSelectTower)
-            checkLeftOrRightClick();
 
         // Look at timer if the screen on left is pressed
         if (isTouchedLeft)
@@ -100,50 +103,5 @@ public class MoveCameraTesting : MonoBehaviour
         this.transform.position = new Vector3(maxX, 0f, -10f);
         rightTimer = 0f;
         isTouchedRight = false;
-    }
-
-    //check left or right click
-    private void checkLeftOrRightClick()
-    {
-        // If there is touch(es)
-        if (Input.touchCount > 0 && !GameManager.isSelectTower && !GameManager.isSelectTrap)
-        {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began && touch.position.x >= (Screen.width * 0.5f))
-            {
-                if (!isTouchedLeft)
-                    isTouchedLeft = true;
-                else
-                    goToMinX();
-            }
-            else if (touch.phase == TouchPhase.Began && touch.position.x >= (Screen.width * 0.5f))
-            {
-                if (!isTouchedRight)
-                    isTouchedRight = true;
-                else
-                    goToMaxX();
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0) && !GameManager.isSelectTower && !GameManager.isSelectTrap)
-        {
-            Vector3 mousePosition = Input.mousePosition;
-
-            if (mousePosition.x < (Screen.width * 0.5f))
-            {
-                if (!isTouchedLeft)
-                    isTouchedLeft = true;
-                else
-                    goToMinX();
-            }
-            else
-            {
-                if (!isTouchedRight)
-                    isTouchedRight = true;
-                else
-                    goToMaxX();
-            }
-        }
     }
 }

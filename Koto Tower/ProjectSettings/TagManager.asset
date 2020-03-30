@@ -11,6 +11,7 @@ TagManager:
   - Tower
   - Truck
   - Map
+  - Trap
   layers:
   - Default
   - TransparentFX

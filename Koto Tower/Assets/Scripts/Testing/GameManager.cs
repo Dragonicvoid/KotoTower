@@ -1,6 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum GameStatus
+{
+    PAUSED,
+    PLAY,
+    SELECTING_TOWER
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +22,8 @@ public class GameManager : MonoBehaviour
     public static bool isDoneMakingTowerLines;
     public static bool isPressedButtonTower;
 
+    public static GameStatus currentStatus;
+
     public static float money;
     public static bool moneyChanged;
 
@@ -22,6 +32,20 @@ public class GameManager : MonoBehaviour
 
     public static int totalAnsweredQuestion;
     public static int maxCharged;
+
+    public static Camera mainCamera;
+
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoad;
+    }
+
+    // get the camera variable at start of level load
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        mainCamera = Camera.main;
+    }
 
     private void Start()
     {
@@ -34,6 +58,8 @@ public class GameManager : MonoBehaviour
     {
         isSelectTrap = false;
         isSelectTower = false;
+
+        currentStatus = GameStatus.PLAY;
 
         isDoneMakingTowerLines = false;
         isDoneMakingTrapLines = false;
@@ -111,5 +137,31 @@ public class GameManager : MonoBehaviour
                 break;
         }
         moneyChanged = true;
+    }
+
+    // refund for tower for quarter of the price
+    public static void refund(TowerType type)
+    {
+        switch (type)
+        {
+            case TowerType.MACHINE_GUN:
+                money += Mathf.Floor(towerPrices[0].price / 4f);
+                break;
+            case TowerType.SNIPER:
+                money += Mathf.Floor(towerPrices[1].price / 4f);
+                break;
+            case TowerType.ELECTRIC:
+                money += Mathf.Floor(towerPrices[2].price / 4f);
+                break;
+            default:
+                break;
+        }
+        moneyChanged = true;
+    }
+
+    // delete scene manager event
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoad;
     }
 }

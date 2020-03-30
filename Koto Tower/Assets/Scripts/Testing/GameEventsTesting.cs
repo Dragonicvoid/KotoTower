@@ -62,4 +62,25 @@ public class GameEventsTesting : MonoBehaviour
     {
         onKotoTowerDestroyedEnter();
     }
+
+    // Event that plays when the tower is selected
+    public event Action<TowerBehaviourTesting> onTowerSelected;
+    public void TowerSelected(TowerBehaviourTesting obj)
+    {
+        onTowerSelected(obj);
+    }
+
+    // Event that plays when the tower is selected
+    public event Action onTowerUnselected;
+    public void TowerUnselected()
+    {
+        onTowerUnselected();
+    }
+
+    // Event that plays when the tower is build
+    public event Action onTowerOrTrapBuild;
+    public void TowerOrTrapBuild()
+    {
+        onTowerOrTrapBuild();
+    }
 }

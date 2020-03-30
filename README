@@ -15,6 +15,8 @@ https://www.google.co.id/url?sa=i&url=http%3A%2F%2Fpluspng.com%2Ftriangle-png-11
 https://www.google.co.id/search?q=circle+png&safe=strict&sxsrf=ALeKk036g-TrBDoKW56nr78vZYn4la6gZw:1584516558347&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjkhOeUwKPoAhUJWX0KHbfcAAAQ_AUoAXoECA0QAw&biw=2021&bih=1060#imgrc=NXb3yzU_MC3GrM&imgdii=otyfqxi8MdQVHM
 7. Circle PNG:
 Self Made
+8. Grid_Tile_Map_Placeholder PNG:
+Self Made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -25,7 +27,7 @@ Script:
 3. PointTesting
 4. SpawningTesting
 5. ShowFPSTesting
-6. ShootTargetTesting
+6. TowerBehaviourTesting
 7. ButtonForTowerTesting
 8. MoveCameraTesting
 9. SpawnTowerTesting
@@ -69,6 +71,9 @@ Script:
 47. TruckPowerUITesting
 48. MoveUIComponentTesting
 49. KotoTowerBehaviourTesting
+50. MoveUIToTopScreenTesting
+51. TruckPropertiesScriptableObject
+52. CancelTrapTowerTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -87,3 +92,4 @@ Progression Note:
 - 20/Mar/2020 : add buying function and get money from killing enemy. There are still some bugs about on how the map render incorrectly. (Reivaldo Julianto)
 - 23/Mar/2020 : Add progress Bar, change UI Behaviour (Reivaldo Julianto)
 - 24/Mar/2020 : Add Event for winning the game and losing, add power for truck (with the UI), and 2 new enemies type, change UI behaviour (Reivaldo Julianto)
+- 30/Mar/2020 : Add Delete tower, and some UI improvement, and added Tile Map (Reivaldo Julianto)

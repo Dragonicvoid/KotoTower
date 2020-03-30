@@ -20,9 +20,6 @@ public class EnemyBehaviourTesting : MonoBehaviour
     // koto Tower
     KotoTowerBehaviourTesting kotoTower;
 
-    // material id name to optimize color material
-    int colorPropertyId = Shader.PropertyToID("_Color");
-
     //timer and bool for hit detection
     float hitTime;
     bool isHit;
@@ -34,7 +31,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
         // reset hit since it just spawn
         hitTime = 0f;
         isHit = false;
-        render.material.SetColor(colorPropertyId, defaultColor);
+        render.material.SetColor("_Color", defaultColor);
     }
 
     // use start since the object is not active at the begining
@@ -43,13 +40,19 @@ public class EnemyBehaviourTesting : MonoBehaviour
         // to get renderer and default color
         render = this.GetComponent<Renderer>();
         pooler = this.transform.GetComponentInParent<EnemiesPoolingTesting>();
-        defaultColor = render.material.GetColor(colorPropertyId);
+        defaultColor = render.material.GetColor("_Color");
         // reset health
         resetAttribute();
     }
 
     // Call Update method
     private void Update()
+    {
+        enemyBehave();
+    }
+
+    // for tidiness
+    void enemyBehave()
     {
         // if it is not frozen then it is still actively moving
         if (status != EnemyStatus.FROZEN)
@@ -64,8 +67,8 @@ public class EnemyBehaviourTesting : MonoBehaviour
             resetHit();
         }
         // Change color based on condition
-        if(conditionChanged)
-            render.material.SetColor(colorPropertyId, colorBaseOnCondition());
+        if (conditionChanged)
+            render.material.SetColor("_Color", colorBaseOnCondition());
     }
 
     // Spawning the agent from a point

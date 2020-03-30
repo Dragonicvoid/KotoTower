@@ -12,7 +12,7 @@ public class ButtonChangeColorTesting : MonoBehaviour
     private void Awake()
     {
         thisImage = this.gameObject.GetComponent<Image>();
-        thisImage.color = new Color(1, 1, 1, 150f / 255f);
+        thisImage.color = new Color(1, 1, 1, 50f / 255f);
     }
 
     // activate means change the background color to black with alpha 150
@@ -24,6 +24,6 @@ public class ButtonChangeColorTesting : MonoBehaviour
     // disable means change to normal
     public void disable()
     {
-        thisImage.color = new Color(1, 1, 1, 150f / 255f);
+        thisImage.color = new Color(1, 1, 1, 50f / 255f);
     }
 }

@@ -19,20 +19,23 @@ public class ClickOnGeneratorTesting : MonoBehaviour
     // check every frame if we hit the tower or not
     private void Update()
     {
+        clickGeneratorBehave();
+    }
+
+    void clickGeneratorBehave()
+    {
         // If there is touch(es)
         if (Input.touchCount > 0 && !isAnimating)
             StartCoroutine(touchOnGenerator());
 
         // If there is scroll wheel input move the screen (for PC debugging)
-        if (Input.GetMouseButtonDown(0) && !isAnimating)
+        if (Input.touchCount == 0 && Input.GetMouseButtonDown(0) && !isAnimating)
             StartCoroutine(mouseClickOnOnGenerator());
     }
 
     IEnumerator mouseClickOnOnGenerator()
     {
-        RaycastHit2D[] hits;
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        hits = Physics2D.RaycastAll(cam.ScreenToWorldPoint(Input.mousePosition), new Vector3(0, 0, 15));
+        RaycastHit2D[] hits = Physics2D.RaycastAll(cam.ScreenToWorldPoint(Input.mousePosition), new Vector3(0, 0, 15));
 
         foreach (RaycastHit2D hit in hits)
         {
@@ -60,9 +63,7 @@ public class ClickOnGeneratorTesting : MonoBehaviour
     IEnumerator touchOnGenerator()
     {
         Touch touch = Input.GetTouch(0);
-        RaycastHit2D[] hits;
-        Ray ray = cam.ScreenPointToRay(touch.position);
-        hits = Physics2D.RaycastAll(cam.ScreenToWorldPoint(touch.position), new Vector3(0, 0, 15));
+        RaycastHit2D[] hits = Physics2D.RaycastAll(cam.ScreenToWorldPoint(touch.position), new Vector3(0, 0, 15));
 
         foreach (RaycastHit2D hit in hits)
         {

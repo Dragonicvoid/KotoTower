@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class DeleteTowerTesting : MonoBehaviour
+{
+    TowerBehaviourTesting selectedTower;
+    Button[] buttons;
+    RectTransform rect;
+    MoveUIComponentTesting moveUiComp;
+
+    //initialization
+    private void Start()
+    {
+        GameEventsTesting.current.onTowerSelected += OnTowerSelected;
+        GameEventsTesting.current.onTowerUnselected += OnTowerUnselected;
+
+        buttons = this.gameObject.GetComponentsInChildren<Button>();
+        rect = this.gameObject.GetComponent<RectTransform>();
+        moveUiComp = this.gameObject.GetComponent<MoveUIComponentTesting>();
+    }
+
+    // select Tower 
+    void OnTowerSelected(TowerBehaviourTesting obj)
+    {
+        selectedTower = obj;
+
+        foreach (Button button in buttons)
+            button.interactable = true;
+
+        rect.anchoredPosition = new Vector2(0, (Screen.width / moveUiComp.getDivY()) * -1.05f);
+    }
+
+    // unselect Tower
+    void OnTowerUnselected()
+    {
+        foreach (Button button in buttons)
+            button.interactable = false;
+
+        rect.anchoredPosition = new Vector2(0, Screen.width / (moveUiComp.getDivY()));
+    }
+
+    //despawn the tower and give back the money
+    public void despawn()
+    {
+        TowerGridBlocker blocker = selectedTower.gameObject.GetComponent<TowerGridBlocker>();
+        blocker.removeGridStatus();
+        Debug.Log(selectedTower + " : " + selectedTower.transform.position);
+        GameManager.refund(selectedTower.getTowerType());
+        Destroy(selectedTower.gameObject);
+        GameEventsTesting.current.TowerUnselected();
+        GameManager.currentStatus = GameStatus.PLAY;
+        OnTowerUnselected();
+    }
+
+    // delete the event
+    private void OnDestroy()
+    {
+        GameEventsTesting.current.onTowerSelected -= OnTowerSelected;
+        GameEventsTesting.current.onTowerUnselected -= OnTowerUnselected;
+    }
+}

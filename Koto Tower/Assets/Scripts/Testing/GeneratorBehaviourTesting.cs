@@ -36,7 +36,12 @@ public class GeneratorBehaviourTesting : MonoBehaviour
     // Countdown until timer reach waitTimer to give nextQuestion
     private void Update()
     {
-        if(isStartTiming)
+        generatorBehave();
+    }
+
+    void generatorBehave()
+    {
+        if (isStartTiming)
             timer += Time.deltaTime;
 
         if (timer >= waitTimer)

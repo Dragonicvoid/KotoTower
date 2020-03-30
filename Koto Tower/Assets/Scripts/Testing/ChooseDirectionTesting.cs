@@ -60,7 +60,7 @@ public class ChooseDirectionTesting : MonoBehaviour
     }
     
     // close all direction when the truck start moving again
-    void closeAllPossiblePath()
+    public void closeAllPossiblePath()
     {
         foreach (ArrowsDirectionTesting arrow in arrows)
             arrow.gameObject.SetActive(false);

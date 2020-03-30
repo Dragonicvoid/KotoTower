@@ -20,7 +20,7 @@ public class ShowFPSTesting : MonoBehaviour
         text = this.GetComponent<Text>();
         timer = 0f;
         text.text = "FPS = " + (int)(1f / Time.unscaledDeltaTime);
-        text.fontSize = Screen.width / division;
+        text.fontSize = Screen.height / division;
     }
 
     // change text fps

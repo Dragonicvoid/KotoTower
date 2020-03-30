@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveUIComponentTesting : MonoBehaviour
 {
-    [SerializeField] float divX, divY, divZ = 0f;
+    [SerializeField] float divX = 0, divY = 0;
     RectTransform rect;
 
     private void Start()

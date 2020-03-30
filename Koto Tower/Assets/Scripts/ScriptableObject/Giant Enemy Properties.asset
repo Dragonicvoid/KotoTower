@@ -19,4 +19,4 @@ MonoBehaviour:
   shockRecovery: 4
   rewardPrice: 500
   hitRate: 4
-  type: 1
+  type: 2

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootTargetTesting : MonoBehaviour
+public class TowerBehaviourTesting : MonoBehaviour
 {
     // tower attribute
     [SerializeField] TowerPropertiesScriptableObject property = null;
@@ -175,6 +175,7 @@ public class ShootTargetTesting : MonoBehaviour
         return this.property.radius;
     }
 
+    // activate means start shooting
     public void activate()
     {
         hasTarget = false;
@@ -182,5 +183,23 @@ public class ShootTargetTesting : MonoBehaviour
         currentPosition = this.transform.position;
         isActive = true;
         circle.SetActive(false);
+    }
+
+    // show Circle
+    public void showCircle()
+    {
+        circle.gameObject.SetActive(true);
+    }
+
+    // unshow circle
+    public void unshowCircle()
+    {
+        circle.gameObject.SetActive(false);
+    }
+
+    // get type of tower
+    public TowerType getTowerType()
+    {
+        return this.property.type;
     }
 }

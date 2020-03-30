@@ -33,6 +33,13 @@ public class SpawnTowerTesting : MonoBehaviour
     // Update is called once per frame after normal update
     void Update()
     {
+        detectTouches();
+        detectMouse();
+    }
+
+    // for touches
+    void detectTouches()
+    {
         // for touch
         if (Input.touchCount > 0 && GameManager.isSelectTower && !isReadyToSpawn)
         {
@@ -87,8 +94,8 @@ public class SpawnTowerTesting : MonoBehaviour
                     currentTower.transform.position = GridTesting.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);
                     currX = x;
                     currY = y;
-                }   
-            }          
+                }
+            }
         }
 
         if (Input.touchCount > 0 && isReadyToBuild && isReadyToSpawn)
@@ -114,7 +121,7 @@ public class SpawnTowerTesting : MonoBehaviour
                     renderer.color = new Color(1, 1, 1, 1);
 
                     // activate it
-                    ShootTargetTesting tower = currentTower.GetComponent<ShootTargetTesting>();
+                    TowerBehaviourTesting tower = currentTower.GetComponent<TowerBehaviourTesting>();
                     tower.activate();
 
                     // block the area
@@ -131,6 +138,7 @@ public class SpawnTowerTesting : MonoBehaviour
                     canSpawn = false;
                     currX = -1;
                     currY = -1;
+                    GameEventsTesting.current.TowerOrTrapBuild();
                     return;
                 }
             }
@@ -139,10 +147,13 @@ public class SpawnTowerTesting : MonoBehaviour
                 isReadyToSpawn = false;
                 canSpawn = false;
             }
-                
-        }
 
-        // for mouse (debug)
+        }
+    }
+
+    // for mouse (debug)
+    void detectMouse()
+    {
         if (Input.GetMouseButton(0) && GameManager.isSelectTower)
         {
             // If it is the first time to build then make the tower
@@ -201,14 +212,14 @@ public class SpawnTowerTesting : MonoBehaviour
         {
             if (!isReadyToSpawn && isReadyToBuild)
                 isReadyToSpawn = true;
-            else if(isReadyToBuild)
+            else if (isReadyToBuild)
             {
                 // change the color
                 SpriteRenderer renderer = currentTower.GetComponent<SpriteRenderer>();
                 renderer.color = new Color(1, 1, 1, 1);
 
                 // activate it
-                ShootTargetTesting tower = currentTower.GetComponent<ShootTargetTesting>();
+                TowerBehaviourTesting tower = currentTower.GetComponent<TowerBehaviourTesting>();
                 tower.activate();
 
                 // block the area
@@ -224,8 +235,26 @@ public class SpawnTowerTesting : MonoBehaviour
                 isReadyToSpawn = false;
                 currX = -1;
                 currY = -1;
+                GameEventsTesting.current.TowerOrTrapBuild();
                 return;
             }
         }
     }
+
+    public void cancel()
+    {
+        isReadyToBuild = false;
+        isReadyToSpawn = false;
+        currX = -1;
+        currY = -1;
+
+        if(currentTower != null)
+            Destroy(currentTower);
+
+        currentTower = null;
+
+        if(GameManager.isSelectTower)
+            towerButton.disableButton(GameManager.selectedTower);
+    }
+
 }

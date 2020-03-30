@@ -20,34 +20,37 @@ public class EnemiesPoolingTesting : MonoBehaviour
             nonActiveEnemies.Add(child.GetComponent<EnemyBehaviourTesting>());
     }
 
-    public EnemyBehaviourTesting pooling()
+    public GameObject pooling()
     {
         //pooling a nonactive object, if there is a data in the list
         if (nonActiveEnemies.Count != 0)
         {
-            EnemyBehaviourTesting enemy = nonActiveEnemies[0];
+            GameObject enemy = nonActiveEnemies[0].gameObject;
             nonActiveEnemies.RemoveAt(0);
             return enemy;
         }
 
         // Spawn a random enemy
-        EnemyBehaviourTesting instantiatedEnemy = new EnemyBehaviourTesting();
+        GameObject instantiatedEnemy;
         int random = Random.Range(0, 3);
         switch (random)
         {
             case 0:
-                instantiatedEnemy = Instantiate(prefEnemy).GetComponent<EnemyBehaviourTesting>();
+                instantiatedEnemy = Instantiate(prefEnemy);
                 break;
             case 1:
-                instantiatedEnemy = Instantiate(prefEnemyArmored).GetComponent<EnemyBehaviourTesting>();
+                instantiatedEnemy = Instantiate(prefEnemyArmored);
                 break;
             case 2:
-                instantiatedEnemy = Instantiate(prefEnemyGiant).GetComponent<EnemyBehaviourTesting>();
+                instantiatedEnemy = Instantiate(prefEnemyGiant);
+                break;
+            default:
+                instantiatedEnemy = Instantiate(prefEnemy);
                 break;
         }
 
         // Pooling a new instantiated object since the list is empty and added the pooler, so it knows its original parent
-        instantiatedEnemy.changePooler(this);
+        instantiatedEnemy.GetComponent<EnemyBehaviourTesting>().changePooler(this);
         instantiatedEnemy.gameObject.layer = 0;
         return instantiatedEnemy;
     }

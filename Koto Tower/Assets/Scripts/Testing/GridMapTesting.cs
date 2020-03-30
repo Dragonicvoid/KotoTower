@@ -15,18 +15,4 @@ public class GridMapTesting : MonoBehaviour
         mainCamera = Camera.main;
         grid = new GridTesting(width, height, cellSize, offsetX);
     }
-
-    // get input touches
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            // For debug using mouse click instead touches
-            Vector3 touchLocation = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-            int x, y;
-            GridTesting.getXYFromPosition(touchLocation, out x, out y);
-        }
-        
-    }
 }

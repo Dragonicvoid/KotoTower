@@ -4,22 +4,8 @@ using UnityEngine;
 
 public class TruckBehaviourTesting : MonoBehaviour
 {
-    enum TruckStatus
-    {
-        WAITING,
-        DRIVING,
-        BOOSTED,
-        EXPLODING,
-        DESTROYED
-    }
-
     // Truck attribute
-    [SerializeField] float speed = 1f;
-    [SerializeField] float maxHealth = 10f;
-    [SerializeField] float radius = 1f;
-    [SerializeField] float explodeTime = 2f;
-    [SerializeField] float explodeDamage = 50f;
-    [SerializeField] float boostedDuration = 2f;
+    [SerializeField] TruckPropertiesScriptableObject property = null;
     float currHealth;
     float explodeTimer;
     PointTesting currTarget;
@@ -131,7 +117,7 @@ public class TruckBehaviourTesting : MonoBehaviour
         {
             // Moving is now using translate to make the game more consistent
             Vector2 dir = point.getCurrPosition() - position;
-            this.transform.Translate(dir.normalized * speed * Time.deltaTime * (currStatus == TruckStatus.BOOSTED ? 4f : 1f), Space.World);
+            this.transform.Translate(dir.normalized * property.speed * Time.deltaTime * (currStatus == TruckStatus.BOOSTED ? 4f : 1f), Space.World);
             position = this.gameObject.transform.position;
 
             if (isNowAt(point.getCurrPosition()) && point.getIsGenerator())
@@ -162,8 +148,11 @@ public class TruckBehaviourTesting : MonoBehaviour
     // Chooose a path when there are multiple paths
     public void choosePath(PointTesting point)
     {
-        currStatus = TruckStatus.DRIVING;
-        currTarget = point;
+        if(currStatus != TruckStatus.EXPLODING)
+        {
+            currStatus = TruckStatus.DRIVING;
+            currTarget = point;
+        }
     }
 
     // Checking if the agent is at a point
@@ -194,7 +183,7 @@ public class TruckBehaviourTesting : MonoBehaviour
     // Reseting other attribute like health, and many more
     void resetAttribute()
     {
-        currHealth = maxHealth;
+        currHealth = property.maxHealth;
         currStatus = TruckStatus.DRIVING;
         radiusCircle.SetActive(false);
     }
@@ -213,14 +202,15 @@ public class TruckBehaviourTesting : MonoBehaviour
         {
             currStatus = TruckStatus.EXPLODING;
             radiusCircle.SetActive(true);
+            chooseDirection.closeAllPossiblePath();
         }
         else
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(charChagePosition, radius, (1 << 8));
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(charChagePosition, property.radius, (1 << 8));
 
             if (hitColliders.Length > 0)
                 foreach (Collider2D hitCollider in hitColliders)
-                    hitCollider.GetComponent<EnemyBehaviourTesting>().addDamage(explodeDamage, TowerType.SNIPER);
+                    hitCollider.GetComponent<EnemyBehaviourTesting>().addDamage(property.explodeDamage, TowerType.SNIPER);
 
             currStatus = TruckStatus.DESTROYED;
             // Reset Timer
@@ -233,9 +223,10 @@ public class TruckBehaviourTesting : MonoBehaviour
     // coundown the explosion
     void explodeCountdown()
     {
+
         explodeTimer += Time.deltaTime;
 
-        if (explodeTimer > explodeTime)
+        if (explodeTimer > property.explodeTime)
             explode();
     }
 }
