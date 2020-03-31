@@ -18,6 +18,8 @@ public class CancelTrapTowerTesting : MonoBehaviour
         buttons = this.gameObject.GetComponentsInChildren<Button>();
         rect = this.gameObject.GetComponent<RectTransform>();
         moveUiComp = this.gameObject.GetComponent<MoveUIComponentTesting>();
+
+        this.gameObject.SetActive(false);
     }
 
     // show the UI
@@ -26,7 +28,7 @@ public class CancelTrapTowerTesting : MonoBehaviour
         foreach (Button button in buttons)
             button.interactable = true;
 
-        rect.anchoredPosition = new Vector2(0, (Screen.width / moveUiComp.getDivY()) * -1.05f);
+        this.gameObject.SetActive(true);
     }
 
     // deactivate the UI
@@ -35,7 +37,7 @@ public class CancelTrapTowerTesting : MonoBehaviour
         foreach (Button button in buttons)
             button.interactable = false;
 
-        rect.anchoredPosition = new Vector2(0, Screen.width / (moveUiComp.getDivY()));
+        this.gameObject.SetActive(false);
     }
 
     // delete the event

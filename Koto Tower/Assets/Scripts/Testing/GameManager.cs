@@ -12,6 +12,7 @@ public enum GameStatus
 
 public class GameManager : MonoBehaviour
 {
+    // attribute for game
     public static bool isSelectTrap;
     public static short selectedTrap;
     public static bool isDoneMakingTrapLines;
@@ -35,6 +36,13 @@ public class GameManager : MonoBehaviour
 
     public static Camera mainCamera;
 
+    // attribute for level selection
+    public static int difficultyIdx;
+
+    private void Awake()
+    {
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+    }
 
     private void OnEnable()
     {
@@ -159,9 +167,20 @@ public class GameManager : MonoBehaviour
         moneyChanged = true;
     }
 
+    public static void setDifficulty(int difficultyIdx)
+    {
+        GameManager.difficultyIdx = difficultyIdx;
+    }
+
     // delete scene manager event
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoad;
+    }
+
+    public static void loadGame(int levelIdx)
+    {
+        SceneManager.UnloadSceneAsync(1);
+        SceneManager.LoadSceneAsync(levelIdx, LoadSceneMode.Additive);
     }
 }

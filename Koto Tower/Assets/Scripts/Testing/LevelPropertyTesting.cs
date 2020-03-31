@@ -17,7 +17,26 @@ public class LevelPropertyTesting : MonoBehaviour
     {
         GameManager.setMoney(startMoney);
         GameManager.setPrices(startTowerPrices, startTrapPrices);
-        GameManager.maxCharged = 3;
+
+        switch (GameManager.difficultyIdx)
+        {
+            case 0:
+                GameManager.maxCharged = 5;
+                maxCharged = 5;
+                break;
+            case 1:
+                GameManager.maxCharged = 8;
+                maxCharged = 8;
+                break;
+            case 2:
+                GameManager.maxCharged = 10;
+                maxCharged = 10;
+                break;
+            default:
+                GameManager.maxCharged = 5;
+                maxCharged = 5;
+                break;
+        }
     }
 
     // event initialization
@@ -30,7 +49,8 @@ public class LevelPropertyTesting : MonoBehaviour
     // when the game won just reset(for debug)
     void OnGameWon()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.UnloadSceneAsync(2);
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
     }
 
     // delete the event

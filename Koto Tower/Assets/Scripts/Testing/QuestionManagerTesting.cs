@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+enum DifficultyType
+{
+    EASY,
+    MEDIUM,
+    HARD
+}
+
 public class QuestionManagerTesting : MonoBehaviour
 {
     // Attribute for answer and question
@@ -28,6 +35,13 @@ public class QuestionManagerTesting : MonoBehaviour
     // Current question and answers
     QuestionsAnswersTesting currQuestion;
 
+    // Queue of difficulty Question
+    // easy : all 5 easy
+    // medium : 3 easy + 5 medium
+    // hard : 2 east + 3 medium + 5 hard
+    Queue<DifficultyType> questions;
+    DifficultyType currentDifficulty;
+
     // Are the trucks on the way, prevent any other truck to spawn
     public static bool isSendingTruck = false;
 
@@ -51,6 +65,34 @@ public class QuestionManagerTesting : MonoBehaviour
         possibleAnswersText = new List<Text>();
         foreach (Button answer in possibleAnswers)
             possibleAnswersText.Add(answer.GetComponentInChildren<Text>());
+
+        // easy : all 5 easy
+        // medium : 3 easy + 5 medium
+        // hard : 2 east + 3 medium + 5 hard
+        questions = new Queue<DifficultyType>();
+        switch (GameManager.difficultyIdx)
+        {
+            case 0:
+                for (int i = 0; i < 5; i++)
+                    questions.Enqueue(DifficultyType.EASY);
+                break;
+            case 1:
+                for (int i = 0; i < 3; i++)
+                    questions.Enqueue(DifficultyType.EASY);
+                for (int i = 0; i < 5; i++)
+                    questions.Enqueue(DifficultyType.MEDIUM);
+                break;
+            case 2:
+                for (int i = 0; i < 2; i++)
+                    questions.Enqueue(DifficultyType.EASY);
+                for (int i = 0; i < 3; i++)
+                    questions.Enqueue(DifficultyType.MEDIUM);
+                for (int i = 0; i < 5; i++)
+                    questions.Enqueue(DifficultyType.HARD);
+                break;
+            default:
+                break;
+        }
     }
 
     // Shuffling the answer
@@ -88,8 +130,34 @@ public class QuestionManagerTesting : MonoBehaviour
     public void getNewQuestion()
     {
         // get random answer for this test
-        int randomQuestionIdx = Random.Range(0, easyQuestions.Length);
-        QuestionsAnswersTesting question = easyQuestions[randomQuestionIdx];
+        currentDifficulty = questions.Dequeue();
+
+        // find randomizer based on queue
+        int randomQuestionIdx;
+        QuestionsAnswersTesting question;
+
+        switch (currentDifficulty)
+        {
+            case DifficultyType.EASY:
+                randomQuestionIdx = Random.Range(0, easyQuestions.Length);
+                question = easyQuestions[randomQuestionIdx];
+                break;
+            case DifficultyType.MEDIUM:
+                randomQuestionIdx = Random.Range(0, mediumQuestions.Length);
+                question = mediumQuestions[randomQuestionIdx];
+                break;
+            case DifficultyType.HARD:
+                randomQuestionIdx = Random.Range(0, hardQuestions.Length);
+                question = hardQuestions[randomQuestionIdx];
+                break;
+            default:
+                randomQuestionIdx = Random.Range(0, easyQuestions.Length);
+                question = easyQuestions[randomQuestionIdx];
+                break;
+        }
+
+        // put back at the queue
+        questions.Enqueue(currentDifficulty);
 
         currQuestion = question;
         questionUI.text = question.getQuestion();

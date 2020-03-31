@@ -17,6 +17,12 @@ https://www.google.co.id/search?q=circle+png&safe=strict&sxsrf=ALeKk036g-TrBDoKW
 Self Made
 8. Grid_Tile_Map_Placeholder PNG:
 Self Made
+9. Cancel_Placeholder:
+Google
+10. White_Square:
+Self Made
+11. Image_Background_Hiragana_1
+Self Made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -60,25 +66,29 @@ Script:
 36. SpawnTrapTesting
 37. TrapsBehaviourTesting
 38. ButtonChangeColorTesting
-39. FontChangeSizeTesting
+39. HealthControllerTesting
 40. GameManager
 41. LevelProperty
 42. PriceEnumTesting
 43. ShowMoneyTesting
 44. MoveUIToBottomScreenTesting
 45. ProgressBarTesting
-46. RectTransformSizeChangeTesting
+46. LevelSelectTesting
 47. TruckPowerUITesting
 48. MoveUIComponentTesting
 49. KotoTowerBehaviourTesting
 50. MoveUIToTopScreenTesting
 51. TruckPropertiesScriptableObject
 52. CancelTrapTowerTesting
+53. FilterShowTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
 
 Progression Note:
+
+SPRINT 1 :
+
 - 02/Mar/2020 : Added basic movement, placeholder, and spawning mechanic (Reivaldo Julianto) 
 - 04/Mar/2020 : Added basic tower shooting, damage, and FPS counter (Reivaldo Julianto)
 - 06/Mar/2020 : Added basic tower spawn system, and camera movement (Reivaldo Julianto)
@@ -93,3 +103,6 @@ Progression Note:
 - 23/Mar/2020 : Add progress Bar, change UI Behaviour (Reivaldo Julianto)
 - 24/Mar/2020 : Add Event for winning the game and losing, add power for truck (with the UI), and 2 new enemies type, change UI behaviour (Reivaldo Julianto)
 - 30/Mar/2020 : Add Delete tower, and some UI improvement, and added Tile Map (Reivaldo Julianto)
+- 31/Mar/2020 : Add Difficulty Selection, new Scene for loading, and more UI improvement(Reivaldo Julianto)
+
+Sprint 2 :

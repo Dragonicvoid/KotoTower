@@ -202,6 +202,7 @@ public class TruckBehaviourTesting : MonoBehaviour
         {
             currStatus = TruckStatus.EXPLODING;
             radiusCircle.SetActive(true);
+            charChagePosition = this.gameObject.transform.GetChild(0).GetComponent<Transform>().position;
             chooseDirection.closeAllPossiblePath();
         }
         else
@@ -223,7 +224,6 @@ public class TruckBehaviourTesting : MonoBehaviour
     // coundown the explosion
     void explodeCountdown()
     {
-
         explodeTimer += Time.deltaTime;
 
         if (explodeTimer > property.explodeTime)

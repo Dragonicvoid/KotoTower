@@ -22,8 +22,8 @@ public class TruckPowerUITesting : MonoBehaviour
         truckMove = false;
         buttons = this.gameObject.GetComponentsInChildren<Button>();
         rect = this.gameObject.GetComponent<RectTransform>();
-        rectHeight = rect.rect.height + 10;
-        currentValue = rectHeight;
+        rectHeight = rect.rect.height;
+        currentValue = rectHeight + 10;
         moveUiComp = this.gameObject.GetComponent<MoveUIComponentTesting>();
     }
 
@@ -37,7 +37,7 @@ public class TruckPowerUITesting : MonoBehaviour
     void moveUIToTopBehave()
     {
         if (rect.rect.height != rectHeight)
-            rectHeight = rect.rect.height + 10;
+            rectHeight = rect.rect.height;
 
         // if now tower is selected, make the UI goes up
         if ((GameManager.isSelectTower || GameManager.isSelectTrap || GameManager.currentStatus == GameStatus.SELECTING_TOWER) && truckMove)

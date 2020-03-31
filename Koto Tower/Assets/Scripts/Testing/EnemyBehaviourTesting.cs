@@ -15,6 +15,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
     Vector2 position;
     Renderer render;
     Color defaultColor;
+    int colorPropertyId;
     public EnemyStatus status;
 
     // koto Tower
@@ -24,6 +25,18 @@ public class EnemyBehaviourTesting : MonoBehaviour
     float hitTime;
     bool isHit;
 
+    // use start since the object is not active at the begining
+    private void Awake()
+    {
+        // to get renderer and default color
+        render = this.GetComponent<Renderer>();
+        pooler = this.transform.GetComponentInParent<EnemiesPoolingTesting>();
+        colorPropertyId = Shader.PropertyToID("_Color");
+        defaultColor = render.material.GetColor(colorPropertyId);
+        // reset health
+        resetAttribute();
+    }
+
     private void OnEnable()
     {
         // Reseting health
@@ -31,18 +44,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
         // reset hit since it just spawn
         hitTime = 0f;
         isHit = false;
-        render.material.SetColor("_Color", defaultColor);
-    }
-
-    // use start since the object is not active at the begining
-    private void Awake()
-    {
-        // to get renderer and default color
-        render = this.GetComponent<Renderer>();
-        pooler = this.transform.GetComponentInParent<EnemiesPoolingTesting>();
-        defaultColor = render.material.GetColor("_Color");
-        // reset health
-        resetAttribute();
+        render.material.SetColor(colorPropertyId, defaultColor);
     }
 
     // Call Update method
@@ -68,7 +70,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
         }
         // Change color based on condition
         if (conditionChanged)
-            render.material.SetColor("_Color", colorBaseOnCondition());
+            render.material.SetColor(colorPropertyId, colorBaseOnCondition());
     }
 
     // Spawning the agent from a point

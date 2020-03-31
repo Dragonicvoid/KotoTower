@@ -19,6 +19,7 @@ public class DeleteTowerTesting : MonoBehaviour
         buttons = this.gameObject.GetComponentsInChildren<Button>();
         rect = this.gameObject.GetComponent<RectTransform>();
         moveUiComp = this.gameObject.GetComponent<MoveUIComponentTesting>();
+        this.gameObject.SetActive(false);
     }
 
     // select Tower 
@@ -29,7 +30,7 @@ public class DeleteTowerTesting : MonoBehaviour
         foreach (Button button in buttons)
             button.interactable = true;
 
-        rect.anchoredPosition = new Vector2(0, (Screen.width / moveUiComp.getDivY()) * -1.05f);
+        this.gameObject.SetActive(true);
     }
 
     // unselect Tower
@@ -38,7 +39,7 @@ public class DeleteTowerTesting : MonoBehaviour
         foreach (Button button in buttons)
             button.interactable = false;
 
-        rect.anchoredPosition = new Vector2(0, Screen.width / (moveUiComp.getDivY()));
+        this.gameObject.SetActive(false);
     }
 
     //despawn the tower and give back the money
@@ -49,6 +50,14 @@ public class DeleteTowerTesting : MonoBehaviour
         Debug.Log(selectedTower + " : " + selectedTower.transform.position);
         GameManager.refund(selectedTower.getTowerType());
         Destroy(selectedTower.gameObject);
+        GameEventsTesting.current.TowerUnselected();
+        GameManager.currentStatus = GameStatus.PLAY;
+        OnTowerUnselected();
+    }
+
+    //cancel the condition
+    public void unselect()
+    {
         GameEventsTesting.current.TowerUnselected();
         GameManager.currentStatus = GameStatus.PLAY;
         OnTowerUnselected();

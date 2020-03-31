@@ -109,4 +109,10 @@ public class SelectTowerTesting : MonoBehaviour
                 isPressOnTower = true;
         }
     }
+
+    //unshow the circle
+    public void unshowCurrentTower()
+    {
+        currentTower.unshowCircle();
+    }
 }

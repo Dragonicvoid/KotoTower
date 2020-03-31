@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ShowFPSTesting : MonoBehaviour
 {
-    //size of the font base on division of width resolution
-    [SerializeField] int division = 25;
     // Get its own text
     Text text;
     //timer so the fps counter only show FPS every second
@@ -20,7 +18,6 @@ public class ShowFPSTesting : MonoBehaviour
         text = this.GetComponent<Text>();
         timer = 0f;
         text.text = "FPS = " + (int)(1f / Time.unscaledDeltaTime);
-        text.fontSize = Screen.height / division;
     }
 
     // change text fps

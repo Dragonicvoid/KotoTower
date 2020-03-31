@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ShowMoneyTesting : MonoBehaviour
 {
-    //size of the font base on division of width resolution
-    [SerializeField] int division = 25;
     // Get its own text
     Text text;
 
@@ -15,7 +13,6 @@ public class ShowMoneyTesting : MonoBehaviour
     {
         text = this.GetComponent<Text>();
         text.text = "Money = " + (int)GameManager.money;
-        text.fontSize = Screen.width / division;
     }
 
     // change the money if there is a change
