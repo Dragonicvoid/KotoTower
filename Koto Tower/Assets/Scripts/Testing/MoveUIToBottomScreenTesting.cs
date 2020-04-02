@@ -30,7 +30,7 @@ public class MoveUIToBottomScreenTesting : MonoBehaviour
             rectHeight = rect.rect.height;
 
         // if there is vertical input the make the UI go to that direction
-        if (Input.touchCount > 0 && !GameManager.isSelectTower && !GameManager.isSelectTrap && GameManager.currentStatus == GameStatus.PLAY)
+        if (Input.touchCount > 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus == GameStatus.PLAY)
         {
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
@@ -43,10 +43,10 @@ public class MoveUIToBottomScreenTesting : MonoBehaviour
         }
 
         // For debugging (PC), by pressing left control and scroll wheel you can move the UI
-        if (Input.mouseScrollDelta.y != 0 && Input.GetKey(KeyCode.LeftControl) && !GameManager.isSelectTower && !GameManager.isSelectTrap && GameManager.currentStatus == GameStatus.PLAY)
+        if (Input.mouseScrollDelta.y != 0 && Input.GetKey(KeyCode.LeftControl) && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus == GameStatus.PLAY)
             currentValue = Mathf.Clamp(currentValue + Input.mouseScrollDelta.y * 6f, rectHeight * -1.1f, 0f);
 
-        if (!Input.GetKey(KeyCode.LeftControl) && !GameManager.isSelectTower && !GameManager.isSelectTrap && GameManager.currentStatus == GameStatus.PLAY)
+        if (!Input.GetKey(KeyCode.LeftControl) && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus == GameStatus.PLAY)
         {
             if (currentValue >= -0.5f * rectHeight)
                 currentValue = Mathf.Clamp(currentValue + (rectHeight / 10), rectHeight * -1.1f, 0f);
@@ -55,7 +55,7 @@ public class MoveUIToBottomScreenTesting : MonoBehaviour
         }
 
         // if now tower is selected, make the UI goes down
-        if (GameManager.isSelectTower || GameManager.isSelectTrap || GameManager.currentStatus == GameStatus.SELECTING_TOWER)
+        if (GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER)
             currentValue = Mathf.Clamp(currentValue - (rectHeight / 10), rectHeight * -1.1f, 0f);
 
         rect.anchoredPosition = new Vector3(rect.anchoredPosition.x,

@@ -51,7 +51,7 @@ public class GeneratorBehaviourTesting : MonoBehaviour
             isStartTiming = false;
 
             // if Player answer maxCharged amount of answers
-            if (GameManager.totalAnsweredQuestion >= GameManager.maxCharged)
+            if (GameManager.instance.totalAnsweredQuestion >= GameManager.instance.maxCharged)
             {
                 kotoTowerClick.StartCoroutine(kotoTowerClick.closeKotoTower());
                 questionText.text = "MENANG!!!";
@@ -70,7 +70,7 @@ public class GeneratorBehaviourTesting : MonoBehaviour
         generatorClick.StartCoroutine(generatorClick.openGenerator());
         if (answer.isRightAnswer)
         {
-            GameManager.totalAnsweredQuestion++;
+            GameManager.instance.totalAnsweredQuestion++;
             questionText.text = "JAWABAN BENAR!!!";
         }
         else

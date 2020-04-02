@@ -40,23 +40,23 @@ public class ClickOnGeneratorTesting : MonoBehaviour
         foreach (RaycastHit2D hit in hits)
         {
             // Get the vector and move camera horizontally if it moves
-            if (hit.collider != null && hit.collider.gameObject.tag.Equals("Generator"))
+            if (hit.collider != null && hit.collider.gameObject.tag.Equals("Generator") && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !isAnimating)
             {
                 isAnimating = true;
                 if (isClosed)
                 {
-                    GameEventsTesting.current.ObjectOnScreenEnter(3);
+                    GameEventsTesting.current.OpenGeneratorBalloonBox();
                     isClosed = false;
                 }
                 else
                 {
-                    GameEventsTesting.current.ObjectOffScreenEnter(3);
+                    GameEventsTesting.current.CloseGeneratorBalloonBox();
                     isClosed = true;
                 }
             }
         }
 
-        yield return new WaitForSeconds(0.60f);
+        yield return new WaitForSeconds(0.2f);
         isAnimating = false;
     }
 
@@ -68,58 +68,76 @@ public class ClickOnGeneratorTesting : MonoBehaviour
         foreach (RaycastHit2D hit in hits)
         {
             // Get the vector and move camera horizontally if it moves
-            if (touch.phase == TouchPhase.Began && hit.collider != null && hit.collider.gameObject.tag.Equals("Generator"))
+            if (touch.phase == TouchPhase.Began && hit.collider != null && hit.collider.gameObject.tag.Equals("Generator") && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !isAnimating)
             {
                 isAnimating = true;
                 if (isClosed)
                 {
-                    GameEventsTesting.current.ObjectOnScreenEnter(3);
+                    GameEventsTesting.current.OpenGeneratorBalloonBox();
                     isClosed = false;
                 }
                 else
                 {
-                    GameEventsTesting.current.ObjectOffScreenEnter(3);
+                    GameEventsTesting.current.CloseGeneratorBalloonBox();
                     isClosed = true;
                 }
             }
         }
 
-        yield return new WaitForSeconds(0.60f);
+        yield return new WaitForSeconds(0.2f);
         isAnimating = false;
     }
 
     // close the generator
     public IEnumerator closeGenerator()
     {
-        isAnimating = true;
-        if (!isClosed)
+        if (!isClosed && !isAnimating)
         {
-            GameEventsTesting.current.ObjectOffScreenEnter(3);
+            isAnimating = true;
+            GameEventsTesting.current.CloseGeneratorBalloonBox();
             isClosed = true;
 
-            yield return new WaitForSeconds(0.60f);
+            yield return new WaitForSeconds(0.2f);
         }
         
         isAnimating = false;
+        yield return null;
     }
 
     // open the generator
     public IEnumerator openGenerator()
     {
-        isAnimating = true;
-        if (isClosed)
+        if (isClosed && !isAnimating)
         {
-            GameEventsTesting.current.ObjectOnScreenEnter(3);
+            isAnimating = true;
+            GameEventsTesting.current.OpenGeneratorBalloonBox();
             isClosed = false;
 
-            yield return new WaitForSeconds(0.60f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         isAnimating = false;
+        yield return null;
     }
 
     public bool getisClose()
     {
         return isClosed;
+    }
+
+    // when on screen make the generator button invisible
+    private void OnBecameVisible()
+    {
+        Debug.Log("I Found Generator");
+        if (GameManager.instance.isNewQuestion)
+            GameEventsTesting.current.GeneratorOnScreenEnter();
+    }
+
+    // when on screen make the generator button visible
+    private void OnBecameInvisible()
+    {
+        Debug.Log("I Lost Generator");
+        if (GameManager.instance.isNewQuestion)
+            GameEventsTesting.current.GeneratorOffScreenEnter();
     }
 }

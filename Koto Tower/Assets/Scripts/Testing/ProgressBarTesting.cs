@@ -9,25 +9,59 @@ public class ProgressBarTesting : MonoBehaviour
     int currentAnswered;
     Slider slider;
     Text progressText;
+    float changeTime;
+    float timer;
+    bool isDone;
+    float width, height;
+    RectTransform rectTrans;
 
-    // start the slider at 0
+    // start the slider at 0 and some initialization
     private void Start()
     {
+        isDone = false;
+        timer = 1.1f;
+        changeTime = 1f;
         progressText = this.gameObject.GetComponentInChildren<Text>();
-        progressText.text = "0 / " + GameManager.maxCharged;
+        progressText.text = "0 / " + GameManager.instance.maxCharged;
         currentAnswered = 0;
         slider = this.gameObject.GetComponent<Slider>();
         slider.value = 0;
+        rectTrans = this.GetComponent<RectTransform>();
+        width = rectTrans.rect.width;
+        height = rectTrans.rect.height;
     }
 
     // update the slider value if there is changed
     private void Update()
     {
-        if (currentAnswered != GameManager.totalAnsweredQuestion)
+        if (timer < changeTime)
+            timer += Time.deltaTime;
+
+        if (currentAnswered != GameManager.instance.totalAnsweredQuestion)
         {
-            slider.value = (float)GameManager.totalAnsweredQuestion / GameManager.maxCharged;
-            currentAnswered = GameManager.totalAnsweredQuestion;
-            progressText.text = currentAnswered + " / " + GameManager.maxCharged;
-        }       
+            currentAnswered = GameManager.instance.totalAnsweredQuestion;
+            progressText.text = currentAnswered + " / " + GameManager.instance.maxCharged;
+
+            timer = 0;
+            isDone = false;
+
+            rectTrans.sizeDelta = new Vector3(width * 1.2f, height * 1.2f);
+        }    
+        
+        if(!isDone)
+            slider.value = (float)((float)currentAnswered - (1 - deltaTime()) ) / GameManager.instance.maxCharged;
+    }
+
+    // ease in delta time
+    private float deltaTime()
+    {
+        if (timer < changeTime)
+            return Mathf.Pow(timer / changeTime, 2);
+        else
+        {
+            rectTrans.sizeDelta = new Vector3(width, height);
+            isDone = true;
+            return 1;
+        }
     }
 }

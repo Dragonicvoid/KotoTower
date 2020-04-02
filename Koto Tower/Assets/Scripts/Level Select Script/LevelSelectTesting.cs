@@ -106,7 +106,7 @@ public class LevelSelectTesting : MonoBehaviour
     // bila pemain pilih untuk bermain
     public void play()
     {
-        GameManager.setDifficulty(difficultyIdx);
-        GameManager.loadGame(2);
+        GameManager.instance.setDifficulty(difficultyIdx);
+        GameManager.instance.loadGame(2);
     }
 }

@@ -15,25 +15,25 @@ public class LevelPropertyTesting : MonoBehaviour
     // On Start change value on GameManager
     private void Awake()
     {
-        GameManager.setMoney(startMoney);
-        GameManager.setPrices(startTowerPrices, startTrapPrices);
+        GameManager.instance.setMoney(startMoney);
+        GameManager.instance.setPrices(startTowerPrices, startTrapPrices);
 
-        switch (GameManager.difficultyIdx)
+        switch (GameManager.instance.difficultyIdx)
         {
             case 0:
-                GameManager.maxCharged = 5;
+                GameManager.instance.maxCharged = 5;
                 maxCharged = 5;
                 break;
             case 1:
-                GameManager.maxCharged = 8;
+                GameManager.instance.maxCharged = 8;
                 maxCharged = 8;
                 break;
             case 2:
-                GameManager.maxCharged = 10;
+                GameManager.instance.maxCharged = 10;
                 maxCharged = 10;
                 break;
             default:
-                GameManager.maxCharged = 5;
+                GameManager.instance.maxCharged = 5;
                 maxCharged = 5;
                 break;
         }

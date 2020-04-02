@@ -124,6 +124,7 @@ public class TruckBehaviourTesting : MonoBehaviour
             {
                 // Check if the answer you give is correct answer and despawn the truck
                 GeneratorBehaviourTesting generator = point.gameObject.GetComponent<GeneratorBehaviourTesting>();
+                GameEventsTesting.current.TruckAnswerEnter();
                 generator.checkAnswer(charCharge);
                 despawn();
             }
@@ -204,6 +205,7 @@ public class TruckBehaviourTesting : MonoBehaviour
             radiusCircle.SetActive(true);
             charChagePosition = this.gameObject.transform.GetChild(0).GetComponent<Transform>().position;
             chooseDirection.closeAllPossiblePath();
+            GameEventsTesting.current.TruckDestroyedEnter(true);
         }
         else
         {
@@ -216,7 +218,6 @@ public class TruckBehaviourTesting : MonoBehaviour
             currStatus = TruckStatus.DESTROYED;
             // Reset Timer
             explodeTimer = 0;
-            GameEventsTesting.current.TruckDestroyedEnter(true);
             despawn();
         }
     }

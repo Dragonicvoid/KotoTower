@@ -48,10 +48,10 @@ public class DeleteTowerTesting : MonoBehaviour
         TowerGridBlocker blocker = selectedTower.gameObject.GetComponent<TowerGridBlocker>();
         blocker.removeGridStatus();
         Debug.Log(selectedTower + " : " + selectedTower.transform.position);
-        GameManager.refund(selectedTower.getTowerType());
+        GameManager.instance.refund(selectedTower.getTowerType());
         Destroy(selectedTower.gameObject);
         GameEventsTesting.current.TowerUnselected();
-        GameManager.currentStatus = GameStatus.PLAY;
+        GameManager.instance.currentStatus = GameStatus.PLAY;
         OnTowerUnselected();
     }
 
@@ -59,7 +59,7 @@ public class DeleteTowerTesting : MonoBehaviour
     public void unselect()
     {
         GameEventsTesting.current.TowerUnselected();
-        GameManager.currentStatus = GameStatus.PLAY;
+        GameManager.instance.currentStatus = GameStatus.PLAY;
         OnTowerUnselected();
     }
 

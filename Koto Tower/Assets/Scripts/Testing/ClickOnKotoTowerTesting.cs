@@ -40,23 +40,23 @@ public class ClickOnKotoTowerTesting : MonoBehaviour
         foreach(RaycastHit2D hit in hits)
         {
             // get the collider, and if it's Koto Tower and now the truck is sent then you can click the tower
-            if (hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower") && QuestionManagerTesting.isSendingTruck)
+            if (hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower") && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !isAnimating)
             {
                 isAnimating = true;
                 if (isClosed)
                 {
-                    GameEventsTesting.current.ObjectOnScreenEnter(2);
+                    GameEventsTesting.current.OpenKotoTowerBalloonBox();
                     isClosed = false;
                 }
                 else
                 {
-                    GameEventsTesting.current.ObjectOffScreenEnter(2);
+                    GameEventsTesting.current.CloseKotoTowerBalloonBox();
                     isClosed = true;
                 }
             }
         }
 
-        yield return new WaitForSeconds(0.60f);
+        yield return new WaitForSeconds(0.2f);
         isAnimating = false;
     }
 
@@ -68,54 +68,70 @@ public class ClickOnKotoTowerTesting : MonoBehaviour
         foreach (RaycastHit2D hit in hits)
         {
             // get the collider, and if it's Koto Tower and now the truck is sent then you can click the tower
-            if (touch.phase == TouchPhase.Began && hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower") && QuestionManagerTesting.isSendingTruck)
+            if (touch.phase == TouchPhase.Began && hit.collider != null && hit.collider.gameObject.tag.Equals("Koto Tower") && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !isAnimating)
             {
                 isAnimating = true;
                 if (isClosed)
                 {
-                    GameEventsTesting.current.ObjectOnScreenEnter(2);
+                    GameEventsTesting.current.OpenKotoTowerBalloonBox();
                     isClosed = false;
                 }
                 else
                 {
-                    GameEventsTesting.current.ObjectOffScreenEnter(2);
+                    GameEventsTesting.current.CloseKotoTowerBalloonBox();
                     isClosed = true;
                 }
             }
         }
 
-        yield return new WaitForSeconds(0.60f);
+        yield return new WaitForSeconds(0.2f);
         isAnimating = false;
     }
 
     public IEnumerator closeKotoTower()
     {
-        isAnimating = true;
-        if (!isClosed)
+        if (!isClosed && !isAnimating)
         {
-            GameEventsTesting.current.ObjectOffScreenEnter(2);
+            isAnimating = true;
+            GameEventsTesting.current.CloseKotoTowerBalloonBox();
             isClosed = true;
 
-            yield return new WaitForSeconds(0.60f);
+            yield return new WaitForSeconds(0.2f);
         }
         isAnimating = false;
+        yield return null;
     }
 
     public IEnumerator openKotoTower()
     {
-        isAnimating = true;
-        if (isClosed)
+        if (isClosed && !isAnimating)
         {
-            GameEventsTesting.current.ObjectOnScreenEnter(2);
+            isAnimating = true;
+            GameEventsTesting.current.OpenKotoTowerBalloonBox();
             isClosed = false;
 
-            yield return new WaitForSeconds(0.60f);
+            yield return new WaitForSeconds(0.2f);
         }
         isAnimating = false;
+        yield return null;
     }
 
     public bool getisClose()
     {
         return isClosed;
+    }
+
+    // when on screen make the koto tower button invisible
+    private void OnBecameVisible()
+    {
+        if (GameManager.instance.isNewQuestion)
+            GameEventsTesting.current.KotoTowerOnScreenEnter();
+    }
+
+    // when on screen make the koto tower button visible
+    private void OnBecameInvisible()
+    {
+        if (GameManager.instance.isNewQuestion)
+            GameEventsTesting.current.KotoTowerOffScreenEnter();
     }
 }

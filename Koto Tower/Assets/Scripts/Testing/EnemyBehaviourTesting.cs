@@ -227,7 +227,7 @@ public class EnemyBehaviourTesting : MonoBehaviour
         if (currHealth <= 0f || status == EnemyStatus.FROZEN)
         {
             pooler.insertBack(this);
-            GameManager.addMoney(property.rewardPrice);
+            GameManager.instance.addMoney(property.rewardPrice);
         }
 
         conditionChanged = true;

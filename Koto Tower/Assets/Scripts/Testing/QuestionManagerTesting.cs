@@ -29,7 +29,9 @@ public class QuestionManagerTesting : MonoBehaviour
     // Truck property
     TruckBehaviourTesting truck = null;
     TextMesh charCharge = null;
-    PointTesting truckSpawnPoint = null; // Koto Tower
+    PointTesting truckSpawnPoint = null; // Koto Tower location
+
+    // koto tower
     ClickOnKotoTowerTesting kotoTower = null; // Koto Tower
 
     // Current question and answers
@@ -68,9 +70,9 @@ public class QuestionManagerTesting : MonoBehaviour
 
         // easy : all 5 easy
         // medium : 3 easy + 5 medium
-        // hard : 2 east + 3 medium + 5 hard
+        // hard : 2 easy + 3 medium + 5 hard
         questions = new Queue<DifficultyType>();
-        switch (GameManager.difficultyIdx)
+        switch (GameManager.instance.difficultyIdx)
         {
             case 0:
                 for (int i = 0; i < 5; i++)
@@ -93,6 +95,7 @@ public class QuestionManagerTesting : MonoBehaviour
             default:
                 break;
         }
+        GameManager.instance.isNewQuestion = true;
     }
 
     // Shuffling the answer
@@ -170,6 +173,7 @@ public class QuestionManagerTesting : MonoBehaviour
             possibleAnswersText[i].text = question.getAnswerAtIndex(i).answer;
 
         disableOrEnabledAnswers(true);
+        GameManager.instance.isNewQuestion = true;
         kotoTower.StartCoroutine(kotoTower.openKotoTower());
     }
 
@@ -185,7 +189,6 @@ public class QuestionManagerTesting : MonoBehaviour
             truck.spawn(truckSpawnPoint.getCurrPosition());
             truck.changeTargetFromCurrPoint(truckSpawnPoint);
             isSendingTruck = true;
-            kotoTower.StartCoroutine(kotoTower.closeKotoTower());
             disableOrEnabledAnswers(false);
             GameEventsTesting.current.TruckSentEnter();
         }

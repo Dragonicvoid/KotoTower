@@ -9,6 +9,8 @@ public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
     public AnimationCurve curve;
     RectTransform rectTransform;
     float maxX, maxY;
+    ClickOnGeneratorTesting generatorClick;
+    ClickOnKotoTowerTesting kotoTowerClick;
 
     // Start is called before the first frame update
     void Start()
@@ -16,55 +18,49 @@ public class AnswerQuestionCanvasControllerTesting : MonoBehaviour
         rectTransform = this.GetComponent<RectTransform>();
         maxX = rectTransform.rect.width;
         maxY = rectTransform.rect.height;
-        GameEventsTesting.current.onObjectOffScreenEnter += OnObjectOffScreen;
-        GameEventsTesting.current.onObjectOnScreenEnter += OnObjectOnScreen;
+        generatorClick = this.gameObject.GetComponentInParent<ClickOnGeneratorTesting>();
+        kotoTowerClick = this.gameObject.GetComponentInParent<ClickOnKotoTowerTesting>();
+
+        //event
+        GameEventsTesting.current.onCloseKotoTowerBalloonBox += OnCloseKotoTowerBalloonBox;
+        GameEventsTesting.current.onOpenKotoTowerBalloonBox += OnOpenKotoTowerBalloonBox;
+        GameEventsTesting.current.onCloseGeneratorBalloonBox += OnCloseGeneratorBalloonBox;
+        GameEventsTesting.current.onOpenGeneratorBalloonBox += OnOpenGeneratorBalloonBox;
     }
 
-    // Activate the event id 2 is for Answer Canvas and 3 is for Question Canvas
-
-    // event that play when the object is off screen
-    private void OnObjectOffScreen(int id)
+    // event that play to close the balloon box
+    private void OnCloseKotoTowerBalloonBox()
     {
-        if(id == eventId)
-        {
-            switch (id)
-            {
-                case 2:
-                    TweenTesting.tween.uiVertical(rectTransform, maxY, 0, animationTimer, Tweens.CURVE, curve, true);
-                    break;
-                case 3:
-                    TweenTesting.tween.uiHorizontal(rectTransform, maxX, 0, animationTimer, Tweens.CURVE, curve, true);
-                    break;
-                default:
-                    TweenTesting.tween.uiVertical(rectTransform, maxY, 0, animationTimer, Tweens.CURVE, curve, true);
-                    break;
-            }
-        }
+        if(kotoTowerClick != null)
+            TweenTesting.tween.uiVertical(rectTransform, maxY, 0, animationTimer, Tweens.CURVE, curve, true);
     }
 
-    // event that play when the object is on screen
-    private void OnObjectOnScreen(int id)
+    // event that play to open the balloon box
+    private void OnOpenKotoTowerBalloonBox()
     {
-        if (id == eventId)
-        {
-            switch (id)
-            {
-                case 2:
-                    TweenTesting.tween.uiVertical(rectTransform, 0, maxY, animationTimer, Tweens.CURVE, curve, false);
-                    break;
-                case 3:
-                    TweenTesting.tween.uiHorizontal(rectTransform, 0, maxX, animationTimer, Tweens.CURVE, curve, false);
-                    break;
-                default:
-                    TweenTesting.tween.uiVertical(rectTransform, 0, maxY, animationTimer, Tweens.CURVE, curve, false);
-                    break;
-            }
-        }
+        if (kotoTowerClick != null)
+            TweenTesting.tween.uiVertical(rectTransform, 0, maxY, animationTimer, Tweens.CURVE, curve, false);
+    }
+
+    // event that play to close the balloon box
+    private void OnCloseGeneratorBalloonBox()
+    {
+        if (generatorClick != null)
+            TweenTesting.tween.uiHorizontal(rectTransform, maxX, 0, animationTimer, Tweens.CURVE, curve, true);
+    }
+
+    // event that play to open the balloon box
+    private void OnOpenGeneratorBalloonBox()
+    {
+        if (generatorClick != null)
+            TweenTesting.tween.uiHorizontal(rectTransform, 0, maxX, animationTimer, Tweens.CURVE, curve, false);
     }
 
     private void OnDestroy()
     {
-        GameEventsTesting.current.onObjectOffScreenEnter -= OnObjectOffScreen;
-        GameEventsTesting.current.onObjectOnScreenEnter -= OnObjectOnScreen;
+        GameEventsTesting.current.onCloseKotoTowerBalloonBox -= OnCloseKotoTowerBalloonBox;
+        GameEventsTesting.current.onOpenKotoTowerBalloonBox -= OnOpenKotoTowerBalloonBox;
+        GameEventsTesting.current.onCloseGeneratorBalloonBox -= OnCloseGeneratorBalloonBox;
+        GameEventsTesting.current.onOpenGeneratorBalloonBox -= OnOpenGeneratorBalloonBox;
     }
 }

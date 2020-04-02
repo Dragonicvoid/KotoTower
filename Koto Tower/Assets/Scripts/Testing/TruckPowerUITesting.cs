@@ -17,6 +17,7 @@ public class TruckPowerUITesting : MonoBehaviour
     private void Start()
     {
         GameEventsTesting.current.onTruckDestroyedEnter += OnTruckDestroyed;
+        GameEventsTesting.current.onTruckAnswerEnter += OnTruckAnswer;
         GameEventsTesting.current.onTruckSentEnter += OnTruckSent;
 
         truckMove = false;
@@ -40,7 +41,7 @@ public class TruckPowerUITesting : MonoBehaviour
             rectHeight = rect.rect.height;
 
         // if now tower is selected, make the UI goes up
-        if ((GameManager.isSelectTower || GameManager.isSelectTrap || GameManager.currentStatus == GameStatus.SELECTING_TOWER) && truckMove)
+        if ((GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER) && truckMove)
             currentValue = Mathf.Clamp(currentValue + (rectHeight / 10), -rectHeight, rectHeight + 10);
         else if (truckMove)
             currentValue = Mathf.Clamp(currentValue - (rectHeight / 10), -rectHeight, rectHeight + 10);
@@ -50,7 +51,7 @@ public class TruckPowerUITesting : MonoBehaviour
                                                 0f);
     }
 
-    // show the UI
+    // deactivate show the UI
     void OnTruckDestroyed(bool isExplode)
     {
         foreach (Button button in buttons)
@@ -61,7 +62,18 @@ public class TruckPowerUITesting : MonoBehaviour
         rect.anchoredPosition = new Vector2(0, rectHeight + 10);
     }
 
-    // deactivate the UI
+    // deactivate show the UI
+    void OnTruckAnswer()
+    {
+        foreach (Button button in buttons)
+            button.interactable = false;
+
+        truckMove = false;
+        currentValue = rectHeight + 10;
+        rect.anchoredPosition = new Vector2(0, rectHeight + 10);
+    }
+
+    // show the UI
     void OnTruckSent()
     {
         foreach (Button button in buttons)
@@ -74,6 +86,7 @@ public class TruckPowerUITesting : MonoBehaviour
     private void OnDestroy()
     {
         GameEventsTesting.current.onTruckDestroyedEnter -= OnTruckDestroyed;
+        GameEventsTesting.current.onTruckAnswerEnter -= OnTruckAnswer;
         GameEventsTesting.current.onTruckSentEnter -= OnTruckSent;
     }
 }

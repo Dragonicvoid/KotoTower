@@ -21,10 +21,10 @@ public class SelectTowerTesting : MonoBehaviour
     // only when it is on normal camera mode
     private void Update()
     {
-        if (Input.touchCount > 0 && !GameManager.isSelectTower && !GameManager.isSelectTrap && GameManager.currentStatus != GameStatus.PAUSED)
+        if (Input.touchCount > 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus != GameStatus.PAUSED)
             detectPressOnTower();
 
-        if(Input.touchCount == 0 && !GameManager.isSelectTower && !GameManager.isSelectTrap && GameManager.currentStatus != GameStatus.PAUSED) 
+        if(Input.touchCount == 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus != GameStatus.PAUSED) 
             detectClickOnTower();
     }
 
@@ -55,13 +55,13 @@ public class SelectTowerTesting : MonoBehaviour
                 if (hit.collider != null && "Tower".Equals(hit.collider.gameObject.tag) && isPressOnTower)
                 {
                     // if we already select a tower
-                    if (GameManager.currentStatus == GameStatus.SELECTING_TOWER)
+                    if (GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER)
                         currentTower.unshowCircle();
 
                     currentTower = hit.collider.gameObject.GetComponent<TowerBehaviourTesting>();
                     currentTower.showCircle();
                     GameEventsTesting.current.TowerSelected(currentTower);
-                    GameManager.currentStatus = GameStatus.SELECTING_TOWER;
+                    GameManager.instance.currentStatus = GameStatus.SELECTING_TOWER;
                 }
             }
 
@@ -95,13 +95,13 @@ public class SelectTowerTesting : MonoBehaviour
                 // show the circle if it is tower
                 if (hit.collider != null && "Tower".Equals(hit.collider.gameObject.tag) && isPressOnTower)
                 {
-                    if (GameManager.currentStatus == GameStatus.SELECTING_TOWER)
+                    if (GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER)
                         currentTower.unshowCircle();
 
                     currentTower = hit.collider.gameObject.GetComponent<TowerBehaviourTesting>();
                     currentTower.showCircle();
                     GameEventsTesting.current.TowerSelected(currentTower);
-                    GameManager.currentStatus = GameStatus.SELECTING_TOWER;
+                    GameManager.instance.currentStatus = GameStatus.SELECTING_TOWER;
                 }
             }
 

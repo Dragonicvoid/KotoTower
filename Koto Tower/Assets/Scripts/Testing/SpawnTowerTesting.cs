@@ -41,12 +41,12 @@ public class SpawnTowerTesting : MonoBehaviour
     void detectTouches()
     {
         // for touch
-        if (Input.touchCount > 0 && GameManager.isSelectTower && !isReadyToSpawn)
+        if (Input.touchCount > 0 && GameManager.instance.isSelectTower && !isReadyToSpawn)
         {
             // If it is the first time to build then make the tower
             if (!isReadyToBuild)
             {
-                switch (GameManager.selectedTower)
+                switch (GameManager.instance.selectedTower)
                 {
                     case 0:
                         currentTower = Instantiate(towerMachineGun, this.transform);
@@ -110,7 +110,7 @@ public class SpawnTowerTesting : MonoBehaviour
             x += GridTesting.offsetX;
             y += GridTesting.offsetY;
             // if the player touch the area again then spawn the tower
-            if (touch.phase == TouchPhase.Ended && GameManager.isSelectTower)
+            if (touch.phase == TouchPhase.Ended && GameManager.instance.isSelectTower)
             {
                 if (isReadyToSpawn && isReadyToBuild)
                     canSpawn = true;
@@ -129,8 +129,8 @@ public class SpawnTowerTesting : MonoBehaviour
                     gridBlocker.changeGridStatus();
 
                     // pay the tower
-                    GameManager.pay(currentTowerType);
-                    towerButton.disableButton(GameManager.selectedTower);
+                    GameManager.instance.pay(currentTowerType);
+                    towerButton.disableButton(GameManager.instance.selectedTower);
 
                     // reset variable
                     isReadyToBuild = false;
@@ -154,12 +154,12 @@ public class SpawnTowerTesting : MonoBehaviour
     // for mouse (debug)
     void detectMouse()
     {
-        if (Input.GetMouseButton(0) && GameManager.isSelectTower)
+        if (Input.GetMouseButton(0) && GameManager.instance.isSelectTower)
         {
             // If it is the first time to build then make the tower
             if (!isReadyToBuild)
             {
-                switch (GameManager.selectedTower)
+                switch (GameManager.instance.selectedTower)
                 {
                     case 0:
                         currentTower = Instantiate(towerMachineGun, this.transform);
@@ -208,7 +208,7 @@ public class SpawnTowerTesting : MonoBehaviour
         }
 
         // if the player touch the area again then spawn the tower, if its the first time then just be ready to spawn
-        if (Input.GetMouseButtonUp(0) && GameManager.isSelectTower)
+        if (Input.GetMouseButtonUp(0) && GameManager.instance.isSelectTower)
         {
             if (!isReadyToSpawn && isReadyToBuild)
                 isReadyToSpawn = true;
@@ -227,8 +227,8 @@ public class SpawnTowerTesting : MonoBehaviour
                 gridBlocker.changeGridStatus();
 
                 // pay the tower
-                GameManager.pay(currentTowerType);
-                towerButton.disableButton(GameManager.selectedTower);
+                GameManager.instance.pay(currentTowerType);
+                towerButton.disableButton(GameManager.instance.selectedTower);
 
                 // reset variable
                 isReadyToBuild = false;
@@ -253,8 +253,8 @@ public class SpawnTowerTesting : MonoBehaviour
 
         currentTower = null;
 
-        if(GameManager.isSelectTower)
-            towerButton.disableButton(GameManager.selectedTower);
+        if(GameManager.instance.isSelectTower)
+            towerButton.disableButton(GameManager.instance.selectedTower);
     }
 
 }

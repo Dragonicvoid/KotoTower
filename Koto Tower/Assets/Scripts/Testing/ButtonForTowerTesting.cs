@@ -36,17 +36,24 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     // Connect to Tower
     ButtonForTrapTesting trapUi;
 
+    // koto tower and generator
+    ClickOnGeneratorTesting generator;
+    ClickOnKotoTowerTesting kotoTower;
+
     // Default value is not Selected
     private void Awake()
     {
         trapUi = this.gameObject.GetComponent<ButtonForTrapTesting>();
         countLine = 0;
-        GameManager.resetOnPlay();
+        GameManager.instance.resetOnPlay();
     }
 
     // Drawing all possible grid to place tower
     private void Start()
     {
+        kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<ClickOnKotoTowerTesting>();
+        generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<ClickOnGeneratorTesting>();
+
         foreach (ButtonChangeColorTesting button in buttons)
             button.disable();
 
@@ -57,31 +64,31 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     IEnumerator lateDraw(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        this.lineParent = Instantiate(new GameObject());
+        this.lineParent = new GameObject();
         lineParent.name = "Line Tower Parent";
         lineParent.transform.position = new Vector3(0f, 0f, 0f);
-
+        lineParent.transform.parent = this.gameObject.transform;
         checkVertically();
         checkHorizontally();
         this.lineParent.SetActive(false);
         Debug.Log("Total Tower Line : " + countLine);
 
-        GameManager.isDoneMakingTowerLines = true;
+        GameManager.instance.isDoneMakingTowerLines = true;
     }
 
     // Is change the state if it is to spawn tower, or want to move camera (can't be both)
     public void selectTower(int idx)
     {
-        if (GameManager.isSelectTrap)
-            trapUi.disableButton(GameManager.selectedTrap);
+        if (GameManager.instance.isSelectTrap)
+            trapUi.disableButton(GameManager.instance.selectedTrap);
 
         // all condition selecting button
-        if (GameManager.selectedTower == -1)
+        if (GameManager.instance.selectedTower == -1)
             enableToogle(idx);
-        else if (GameManager.selectedTower == idx)
+        else if (GameManager.instance.selectedTower == idx)
         {
-            GameManager.isSelectTower = false;
-            GameManager.selectedTower = -1;
+            GameManager.instance.isSelectTower = false;
+            GameManager.instance.selectedTower = -1;
             disableButton(idx);
         }
         else
@@ -90,10 +97,14 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
             enableToogle(idx);
         }
 
+        // close the koto tower and generator balloon box
+        generator.StartCoroutine(generator.closeGenerator());
+        kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+
         // Show the possible line
-        if (GameManager.isDoneMakingTowerLines && GameManager.isSelectTower)
+        if (GameManager.instance.isDoneMakingTowerLines && GameManager.instance.isSelectTower)
             lineParent.SetActive(true);
-        else if (GameManager.isDoneMakingTowerLines && !GameManager.isSelectTower)
+        else if (GameManager.instance.isDoneMakingTowerLines && !GameManager.instance.isSelectTower)
             lineParent.SetActive(false);
     }
 
@@ -102,34 +113,34 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
     {
         ButtonChangeColorTesting selectedButton = buttons[idx];
         selectedButton.disable();
-        GameManager.isSelectTower = false;
-        GameManager.selectedTower = -1;
+        GameManager.instance.isSelectTower = false;
+        GameManager.instance.selectedTower = -1;
         lineParent.SetActive(false);
     }
 
     // enable the button
     public void enableToogle(int idx)
     {
-        if (GameManager.money >= GameManager.towerPrices[idx].price)
+        if (GameManager.instance.money >= GameManager.instance.towerPrices[idx].price)
         {
             ButtonChangeColorTesting selectedButton = buttons[idx];
             selectedButton.activate();
-            GameManager.isSelectTower = true;
-            GameManager.selectedTower = (short)idx;
+            GameManager.instance.isSelectTower = true;
+            GameManager.instance.selectedTower = (short)idx;
         }         
     }
 
     // on the button click, this is for the mouse click (debug)
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameManager.isPressedButtonTower = true;
+        GameManager.instance.isPressedButtonTower = true;
     }
 
     // clearing all button
     void clearAllButtons()
     {
-        GameManager.isSelectTower = false;
-        GameManager.selectedTower = -1;
+        GameManager.instance.isSelectTower = false;
+        GameManager.instance.selectedTower = -1;
 
         foreach (ButtonChangeColorTesting button in buttons)
             button.disable();

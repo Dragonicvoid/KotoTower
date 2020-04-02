@@ -36,17 +36,24 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
     // Connect to Tower
     ButtonForTowerTesting towerUi;
 
+    // koto tower and generator
+    ClickOnGeneratorTesting generator;
+    ClickOnKotoTowerTesting kotoTower;
+
     // Default value is not Selected
     private void Awake()
     {
         towerUi = this.gameObject.GetComponent<ButtonForTowerTesting>();
         countLine = 0;
-        GameManager.resetOnPlay();
+        GameManager.instance.resetOnPlay();
     }
 
     // Drawing all possible grid to place trap
     private void Start()
     {
+        kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<ClickOnKotoTowerTesting>();
+        generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<ClickOnGeneratorTesting>();
+
         foreach (ButtonChangeColorTesting button in buttons)
             button.disable();
         StartCoroutine(lateDraw(0.3f));
@@ -56,30 +63,31 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
     IEnumerator lateDraw(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        this.lineParent = Instantiate(new GameObject());
+        lineParent = new GameObject();
         lineParent.name = "Line Trap Parent";
         lineParent.transform.position = new Vector3(0f, 0f, 0f);
+        lineParent.transform.parent = this.gameObject.transform;
         checkVertically();
         checkHorizontally();
-        this.lineParent.SetActive(false);
+        lineParent.SetActive(false);
         Debug.Log("Total Trap Line : " + countLine);
 
-        GameManager.isDoneMakingTrapLines = true;
+        GameManager.instance.isDoneMakingTrapLines = true;
     }
 
     // Is change the state if it is to spawn trap, or want to move camera (can't be both)
     public void selectTrap(int idx)
     {
-        if (GameManager.isSelectTower)
-            towerUi.disableButton(GameManager.selectedTower);
+        if (GameManager.instance.isSelectTower)
+            towerUi.disableButton(GameManager.instance.selectedTower);
 
         // all condition selecting button
-        if (GameManager.selectedTrap == -1)
+        if (GameManager.instance.selectedTrap == -1)
             enableButton(idx);
-        else if (GameManager.selectedTrap == idx)
+        else if (GameManager.instance.selectedTrap == idx)
         {
-            GameManager.isSelectTrap = false;
-            GameManager.selectedTrap = -1;
+            GameManager.instance.isSelectTrap = false;
+            GameManager.instance.selectedTrap = -1;
             disableButton(idx);
         }
         else
@@ -88,10 +96,14 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
             enableButton(idx);
         }
 
+        // close the koto tower and generator balloon box
+        generator.StartCoroutine(generator.closeGenerator());
+        kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+
         // Show the possible line
-        if (GameManager.isDoneMakingTrapLines && GameManager.isSelectTrap)
+        if (GameManager.instance.isDoneMakingTrapLines && GameManager.instance.isSelectTrap)
             lineParent.SetActive(true);
-        else if (GameManager.isDoneMakingTrapLines && !GameManager.isSelectTrap)
+        else if (GameManager.instance.isDoneMakingTrapLines && !GameManager.instance.isSelectTrap)
             lineParent.SetActive(false);
     }
 
@@ -100,34 +112,34 @@ public class ButtonForTrapTesting : MonoBehaviour, IPointerClickHandler
     {
         ButtonChangeColorTesting selectedButton = buttons[idx];
         selectedButton.disable();
-        GameManager.isSelectTrap = false;
-        GameManager.selectedTrap = -1;
+        GameManager.instance.isSelectTrap = false;
+        GameManager.instance.selectedTrap = -1;
         lineParent.SetActive(false);
     }
 
     // enable the button
     public void enableButton(int idx)
     {
-        if (GameManager.money >= GameManager.trapPrices[idx].price)
+        if (GameManager.instance.money >= GameManager.instance.trapPrices[idx].price)
         {
             ButtonChangeColorTesting selectedButton = buttons[idx];
             selectedButton.activate();
-            GameManager.isSelectTrap = true;
-            GameManager.selectedTrap = (short)idx;
+            GameManager.instance.isSelectTrap = true;
+            GameManager.instance.selectedTrap = (short)idx;
         }          
     }
 
     // on the button click, this is for the mouse click (debug)
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameManager.isPressedButtonTrap = true;
+        GameManager.instance.isPressedButtonTrap = true;
     }
 
     // clearing all button
     void clearAllButtons()
     {
-        GameManager.isSelectTrap = false;
-        GameManager.selectedTrap = -1;
+        GameManager.instance.isSelectTrap = false;
+        GameManager.instance.selectedTrap = -1;
 
         foreach (ButtonChangeColorTesting button in buttons)
             button.disable();

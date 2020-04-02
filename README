@@ -81,6 +81,7 @@ Script:
 51. TruckPropertiesScriptableObject
 52. CancelTrapTowerTesting
 53. FilterShowTesting
+54. KotoTowerGeneratorTruckButtonTesting
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -106,3 +107,4 @@ SPRINT 1 :
 - 31/Mar/2020 : Add Difficulty Selection, new Scene for loading, and more UI improvement(Reivaldo Julianto)
 
 Sprint 2 :
+- 2/Apr/2020 : Fix some UI bugs, and added back the button to move back and forth to koto tower and generator when there is a question that is not answer. (Reivaldo Julianto) 

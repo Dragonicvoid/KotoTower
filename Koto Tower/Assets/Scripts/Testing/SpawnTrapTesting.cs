@@ -31,12 +31,12 @@ public class SpawnTrapTesting : MonoBehaviour
     void Update()
     {
         // for touch
-        if (Input.touchCount > 0 && GameManager.isSelectTrap && !isReadyToSpawn)
+        if (Input.touchCount > 0 && GameManager.instance.isSelectTrap && !isReadyToSpawn)
         {
             // If it is the first time to build then make the trap
             if (!isReadyToBuild)
             {
-                switch (GameManager.selectedTrap)
+                switch (GameManager.instance.selectedTrap)
                 {
                     case 0:
                         currentTrap = Instantiate(trapBomb, this.transform);
@@ -98,7 +98,7 @@ public class SpawnTrapTesting : MonoBehaviour
             x += GridTesting.offsetX;
             y += GridTesting.offsetY;
             // if the player touch the area again then spawn the trap
-            if (touch.phase == TouchPhase.Ended && GameManager.isSelectTrap)
+            if (touch.phase == TouchPhase.Ended && GameManager.instance.isSelectTrap)
             {
                 if (isReadyToSpawn && isReadyToBuild)
                     canSpawn = true;
@@ -113,8 +113,8 @@ public class SpawnTrapTesting : MonoBehaviour
                     trap.activate();
 
                     // pay the trap
-                    GameManager.pay(currentTrapType);
-                    trapButton.disableButton(GameManager.selectedTrap);
+                    GameManager.instance.pay(currentTrapType);
+                    trapButton.disableButton(GameManager.instance.selectedTrap);
 
                     // reset variable
                     isReadyToBuild = false;
@@ -133,12 +133,12 @@ public class SpawnTrapTesting : MonoBehaviour
         }
 
         // for mouse (debug)
-        if (Input.GetMouseButton(0) && GameManager.isSelectTrap)
+        if (Input.GetMouseButton(0) && GameManager.instance.isSelectTrap)
         {
             // If it is the first time to build then make the trap
             if (!isReadyToBuild)
             {
-                switch (GameManager.selectedTrap)
+                switch (GameManager.instance.selectedTrap)
                 {
                     case 0:
                         currentTrap = Instantiate(trapBomb, this.transform);
@@ -185,7 +185,7 @@ public class SpawnTrapTesting : MonoBehaviour
         }
 
         // if the player touch the area again then spawn the trap, if its the first time then just be ready to spawn
-        if (Input.GetMouseButtonUp(0) && GameManager.isSelectTrap)
+        if (Input.GetMouseButtonUp(0) && GameManager.instance.isSelectTrap)
         {
             if (!isReadyToSpawn && isReadyToBuild)
                 isReadyToSpawn = true;
@@ -200,8 +200,8 @@ public class SpawnTrapTesting : MonoBehaviour
                 trap.activate();
 
                 // pay the trap
-                GameManager.pay(currentTrapType);
-                trapButton.disableButton(GameManager.selectedTrap);
+                GameManager.instance.pay(currentTrapType);
+                trapButton.disableButton(GameManager.instance.selectedTrap);
 
                 // reset variable
                 isReadyToBuild = false;
@@ -223,7 +223,7 @@ public class SpawnTrapTesting : MonoBehaviour
 
         currentTrap = null;
 
-        if(GameManager.isSelectTrap)
-            trapButton.disableButton(GameManager.selectedTrap);
+        if(GameManager.instance.isSelectTrap)
+            trapButton.disableButton(GameManager.instance.selectedTrap);
     }
 }

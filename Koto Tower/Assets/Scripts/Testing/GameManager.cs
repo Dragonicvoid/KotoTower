@@ -12,35 +12,42 @@ public enum GameStatus
 
 public class GameManager : MonoBehaviour
 {
+    // singleton
+    public static GameManager instance;
+
     // attribute for game
-    public static bool isSelectTrap;
-    public static short selectedTrap;
-    public static bool isDoneMakingTrapLines;
-    public static bool isPressedButtonTrap;
+    public bool isSelectTrap;
+    public short selectedTrap;
+    public bool isDoneMakingTrapLines;
+    public bool isPressedButtonTrap;
 
-    public static bool isSelectTower;
-    public static short selectedTower;
-    public static bool isDoneMakingTowerLines;
-    public static bool isPressedButtonTower;
+    public bool isSelectTower;
+    public short selectedTower;
+    public bool isDoneMakingTowerLines;
+    public bool isPressedButtonTower;
 
-    public static GameStatus currentStatus;
+    // attribute for question and answer
+    public bool isNewQuestion;
 
-    public static float money;
-    public static bool moneyChanged;
+    public GameStatus currentStatus;
 
-    public static List<TowerPrice> towerPrices;
-    public static List<TrapPrice> trapPrices;
+    public float money;
+    public bool moneyChanged;
 
-    public static int totalAnsweredQuestion;
-    public static int maxCharged;
+    public List<TowerPrice> towerPrices;
+    public List<TrapPrice> trapPrices;
 
-    public static Camera mainCamera;
+    public int totalAnsweredQuestion;
+    public int maxCharged;
+
+    public Camera mainCamera;
 
     // attribute for level selection
-    public static int difficultyIdx;
+    public int difficultyIdx;
 
     private void Awake()
     {
+        instance = this;
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
     }
 
@@ -62,7 +69,7 @@ public class GameManager : MonoBehaviour
     }
 
     // initialization
-    public static void resetOnPlay()
+    public void resetOnPlay()
     {
         isSelectTrap = false;
         isSelectTower = false;
@@ -71,6 +78,8 @@ public class GameManager : MonoBehaviour
 
         isDoneMakingTowerLines = false;
         isDoneMakingTrapLines = false;
+
+        isNewQuestion = true;
 
         selectedTower = -1;
         selectedTrap = -1;
@@ -84,21 +93,21 @@ public class GameManager : MonoBehaviour
     }
 
     // set the money and says that the money has changed
-    public static void setMoney(float money)
+    public void setMoney(float money)
     {
-        GameManager.money = money;
+        this.money = money;
         moneyChanged = true;
     }
 
     // add the money and says that the money has changed
-    public static void addMoney(float money)
+    public void addMoney(float money)
     {
-        GameManager.money += money;
+        this.money += money;
         moneyChanged = true;
     }
 
     // set the Tower and Trap prices
-    public static void setPrices(List<TowerPrice> towerP, List<TrapPrice> trapP)
+    public void setPrices(List<TowerPrice> towerP, List<TrapPrice> trapP)
     {
         towerPrices = new List<TowerPrice>();
         trapPrices = new List<TrapPrice>();
@@ -108,7 +117,7 @@ public class GameManager : MonoBehaviour
     }
 
     // pay for tower
-    public static void pay(TowerType type)
+    public void pay(TowerType type)
     {
         switch (type)
         {
@@ -128,7 +137,7 @@ public class GameManager : MonoBehaviour
     }
 
     // pay for trap
-    public static void pay(TrapType type)
+    public void pay(TrapType type)
     {
         switch (type)
         {
@@ -148,7 +157,7 @@ public class GameManager : MonoBehaviour
     }
 
     // refund for tower for quarter of the price
-    public static void refund(TowerType type)
+    public void refund(TowerType type)
     {
         switch (type)
         {
@@ -167,9 +176,9 @@ public class GameManager : MonoBehaviour
         moneyChanged = true;
     }
 
-    public static void setDifficulty(int difficultyIdx)
+    public void setDifficulty(int difficultyIdx)
     {
-        GameManager.difficultyIdx = difficultyIdx;
+        this.difficultyIdx = difficultyIdx;
     }
 
     // delete scene manager event
@@ -178,7 +187,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoad;
     }
 
-    public static void loadGame(int levelIdx)
+    public void loadGame(int levelIdx)
     {
         SceneManager.UnloadSceneAsync(1);
         SceneManager.LoadSceneAsync(levelIdx, LoadSceneMode.Additive);
