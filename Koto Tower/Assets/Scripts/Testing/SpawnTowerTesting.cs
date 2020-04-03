@@ -133,6 +133,8 @@ public class SpawnTowerTesting : MonoBehaviour
                     towerButton.disableButton(GameManager.instance.selectedTower);
 
                     // reset variable
+                    currentTower = null;
+                    currentTowerType = TowerType.MACHINE_GUN;
                     isReadyToBuild = false;
                     isReadyToSpawn = false;
                     canSpawn = false;
@@ -231,6 +233,8 @@ public class SpawnTowerTesting : MonoBehaviour
                 towerButton.disableButton(GameManager.instance.selectedTower);
 
                 // reset variable
+                currentTower = null;
+                currentTowerType = TowerType.MACHINE_GUN;
                 isReadyToBuild = false;
                 isReadyToSpawn = false;
                 currX = -1;

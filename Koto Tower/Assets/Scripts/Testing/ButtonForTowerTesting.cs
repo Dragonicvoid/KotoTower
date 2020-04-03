@@ -6,6 +6,10 @@ using UnityEngine.EventSystems;
 
 public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
 {
+    // filter and cancel button
+    [SerializeField] GameObject filter;
+    [SerializeField] CancelTrapTowerTesting cancelButton;
+
     // property
     int countLine;
     class Line
@@ -127,6 +131,8 @@ public class ButtonForTowerTesting : MonoBehaviour, IPointerClickHandler
             selectedButton.activate();
             GameManager.instance.isSelectTower = true;
             GameManager.instance.selectedTower = (short)idx;
+            filter.SetActive(true);
+            cancelButton.readyToSpawn();
         }         
     }
 

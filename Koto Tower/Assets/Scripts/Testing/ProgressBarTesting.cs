@@ -44,8 +44,6 @@ public class ProgressBarTesting : MonoBehaviour
 
             timer = 0;
             isDone = false;
-
-            rectTrans.sizeDelta = new Vector3(width * 1.2f, height * 1.2f);
         }    
         
         if(!isDone)
@@ -59,7 +57,6 @@ public class ProgressBarTesting : MonoBehaviour
             return Mathf.Pow(timer / changeTime, 2);
         else
         {
-            rectTrans.sizeDelta = new Vector3(width, height);
             isDone = true;
             return 1;
         }

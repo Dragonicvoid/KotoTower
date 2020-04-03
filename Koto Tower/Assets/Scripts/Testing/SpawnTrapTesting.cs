@@ -117,6 +117,8 @@ public class SpawnTrapTesting : MonoBehaviour
                     trapButton.disableButton(GameManager.instance.selectedTrap);
 
                     // reset variable
+                    currentTrap = null;
+                    currentTrapType = TrapType.BOMB_TRAP;
                     isReadyToBuild = false;
                     isReadyToSpawn = false;
                     canSpawn = false;
@@ -204,6 +206,8 @@ public class SpawnTrapTesting : MonoBehaviour
                 trapButton.disableButton(GameManager.instance.selectedTrap);
 
                 // reset variable
+                currentTrap = null;
+                currentTrapType = TrapType.BOMB_TRAP;
                 isReadyToBuild = false;
                 isReadyToSpawn = false;
                 GameEventsTesting.current.TowerOrTrapBuild();
