@@ -23,65 +23,67 @@ Google
 Self Made
 11. Image_Background_Hiragana_1
 Self Made
+11. Image_Background_Hiragana_2
+Self Made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
 
 Script:
-1. EnemiesPoolingTesting
-2. EnemyBehaviourTesting
-3. PointTesting
-4. SpawningTesting
-5. ShowFPSTesting
-6. TowerBehaviourTesting
-7. ButtonForTowerTesting
-8. MoveCameraTesting
-9. SpawnTowerTesting
-10. AnswerTesting
-11. GameEventsTesting
-12. GeneratorBehaviourTesting
-13. OtherMethodTesting
-14. PlayQuestionSoundTesting
-15. QuestionManagerTesting
-16. QuestionAnswersTesting
-17. TruckBehaviourTesting
-18. ArrowsDirectionTesting
-19. ChooseDirectionTesting
-20. TweenTesting
+1. EnemiesPooling
+2. EnemyBehaviour
+3. Point
+4. Spawning
+5. ShowFPS
+6. TowerBehaviour
+7. ButtonForTower
+8. MoveCamera
+9. SpawnTower
+10. Answer
+11. GameEvents
+12. GeneratorBehaviour
+13. OtherMethod
+14. PlayQuestionSound
+15. QuestionManager
+16. QuestionAnswers
+17. TruckBehaviour
+18. ArrowsDirection
+19. ChooseDirection
+20. TweenCustom
 21. TrapPropertiesScriptableObject
-22. AnswerQuestionCanvasControllerTesting
-23. ActivatingTowerTesting
-24. CellTesting
-25. CircleOnTowerTesting
+22. AnswerQuestionCanvasController
+23. ActivatingTower
+24. Cell
+25. CircleOnTower
 26. GeneratorGridBlocker
-27. GridMapTesting
-28. GridTesting
+27. GridMap
+28. GridCustom
 29. KotoTowerGridBlocker
 30. PointGridBlocker
 31. TowerGridBlocker
 32. TowerPropertiesScriptableObject
-33. ButtonFromTrapTesting
-34. ClickOnGeneratorTesting
-35. ClickOnKotoTowerTesting
-36. SpawnTrapTesting
-37. TrapsBehaviourTesting
-38. ButtonChangeColorTesting
-39. HealthControllerTesting
+33. ButtonFromTrap
+34. ClickOnGenerator
+35. ClickOnKotoTower
+36. SpawnTrap
+37. TrapsBehaviour
+38. ButtonChangeColor
+39. HealthController
 40. GameManager
 41. LevelProperty
-42. PriceEnumTesting
-43. ShowMoneyTesting
-44. MoveUIToBottomScreenTesting
-45. ProgressBarTesting
-46. LevelSelectTesting
-47. TruckPowerUITesting
-48. MoveUIComponentTesting
-49. KotoTowerBehaviourTesting
-50. MoveUIToTopScreenTesting
+42. PriceEnum
+43. ShowMoney
+44. MoveUIToBottomScreen
+45. ProgressBar
+46. LevelSelect
+47. TruckPowerUI
+48. MoveUIComponent
+49. KotoTowerBehaviour
+50. MoveUIToTopScreen
 51. TruckPropertiesScriptableObject
-52. CancelTrapTowerTesting
-53. FilterShowTesting
-54. KotoTowerGeneratorTruckButtonTesting
+52. CancelTrapTower
+53. FilterShow
+54. KotoTowerGeneratorTruckButton
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -108,3 +110,5 @@ SPRINT 1 :
 
 Sprint 2 :
 - 2/Apr/2020 : Fix some UI bugs, and added back the button to move back and forth to koto tower and generator when there is a question that is not answer. (Reivaldo Julianto) 
+- 3/Apr/2020 : Meeting 
+- 6/Arl/2020 : Change Every script name to the right one (without "Testing"), added simple main menu and level selection (Reivaldo Julianto) 
