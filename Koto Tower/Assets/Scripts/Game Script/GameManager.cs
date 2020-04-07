@@ -96,7 +96,6 @@ public class GameManager : MonoBehaviour
         moneyChanged = false;
 
         totalAnsweredQuestion = 0;
-        enemyVariation = 0;
     }
 
     // set the money and says that the money has changed
@@ -121,6 +120,11 @@ public class GameManager : MonoBehaviour
 
         towerPrices.AddRange(towerP);
         trapPrices.AddRange(trapP);
+    }
+
+    public void setEnemyVariation(int enemyVariation)
+    {
+        this.enemyVariation = enemyVariation;
     }
 
     // pay for tower

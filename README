@@ -111,4 +111,5 @@ SPRINT 1 :
 Sprint 2 :
 - 2/Apr/2020 : Fix some UI bugs, and added back the button to move back and forth to koto tower and generator when there is a question that is not answer. (Reivaldo Julianto) 
 - 3/Apr/2020 : Meeting 
-- 6/Arl/2020 : Change Every script name to the right one (without "Testing"), added simple main menu and level selection (Reivaldo Julianto) 
+- 6/Apr/2020 : Change Every script name to the right one (without "Testing"), added simple main menu and level selection (Reivaldo Julianto) 
+- 7.Apr/2020 : Added new level (Test level), and make the enemy attack the trucks when they are close (Reivaldo Julianto)

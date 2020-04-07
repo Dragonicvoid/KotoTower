@@ -5,5 +5,5 @@
     CHOOSE_LEVEL = 2,
     LEVEL1 = 3,
     LEVEL2 = 4,
-    TEST_LEVEL = 99
+    TEST_LEVEL = 5
 }

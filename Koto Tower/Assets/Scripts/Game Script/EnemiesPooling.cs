@@ -33,6 +33,7 @@ public class EnemiesPooling : MonoBehaviour
         // Spawn a random enemy
         GameObject instantiatedEnemy;
         int random = Random.Range(0, GameManager.instance.enemyVariation);
+        Debug.Log(GameManager.instance.enemyVariation);
         switch (random)
         {
             case 0:

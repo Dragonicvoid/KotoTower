@@ -21,6 +21,9 @@ public class EnemyBehaviour : MonoBehaviour
     // koto Tower
     KotoTowerBehaviour kotoTower;
 
+    // tower
+    TruckBehaviour truck;
+
     //timer and bool for hit detection
     float hitTime;
     bool isHit;
@@ -59,11 +62,7 @@ public class EnemyBehaviour : MonoBehaviour
         // if it is not frozen then it is still actively moving
         if (status != EnemyStatus.FROZEN)
         {
-            if (status != EnemyStatus.MOVING)
-                // Moving the target
-                moveTo(currTarget);
-            else
-                attackKotoTower();
+            moveTo(currTarget);
 
             // Reset attribute when not hitted
             resetHit();
@@ -104,13 +103,16 @@ public class EnemyBehaviour : MonoBehaviour
     // Moving agent to a point
     public void moveTo(Point point)
     {
+        Collider2D hitCollider = Physics2D.OverlapCircle(position, 0.3f, 1 << 9);
+
         // Moving is now using translate to make the game more consistent
         Vector2 dir = currTarget.getCurrPosition() - position;
 
         // half the movement speed if the enemy are shocked, stop when freeze or stopped
         this.transform.Translate(dir.normalized * property.speed * Time.deltaTime
             * (shockTimer > 0 ? 0.5f : 1f)
-            * (status == EnemyStatus.STOPPED || status == EnemyStatus.FROZEN ? 0f : 1f), Space.World);
+            * (status == EnemyStatus.STOPPED || status == EnemyStatus.FROZEN ? 0f : 1f)
+            * (hitCollider != null && truck != null && !truck.isExploding() ? 0f : 1f) , Space.World);
 
         position = this.gameObject.transform.position;
 
@@ -119,9 +121,21 @@ public class EnemyBehaviour : MonoBehaviour
             // activate the enemy (change layer)
             activate();
         }
-        if (isNowAt(point.getCurrPosition()) && point.getIsEndPoint())
+
+        // if lost the truck and not near the tower
+        if (hitCollider == null && !(isNowAt(point.getCurrPosition()) && point.getIsEndPoint()) && !(status == EnemyStatus.STOPPED || status == EnemyStatus.FROZEN))
+            status = EnemyStatus.MOVING;
+
+        // prioritize the truck
+        if (hitCollider != null && !(status == EnemyStatus.STOPPED || status == EnemyStatus.FROZEN) && !hitCollider.GetComponent<TruckBehaviour>().isExploding())
         {
-            // attack
+            truck = hitCollider.GetComponent<TruckBehaviour>();
+            // attack truck
+            attackTruck();
+        }
+        else if (isNowAt(point.getCurrPosition()) && point.getIsEndPoint())
+        {
+            // attack koto tower
             attackKotoTower();
         }
         else if (isNowAt(point.getCurrPosition()))
@@ -145,6 +159,21 @@ public class EnemyBehaviour : MonoBehaviour
         else if(attackTimer > property.hitRate)
         {
             kotoTower.addDamage(property.damage);
+            attackTimer = 0f;
+        }
+    }
+
+    // attack truck
+    void attackTruck()
+    {
+        if (attackTimer < property.hitRate && status == EnemyStatus.ATTACKING)
+            attackTimer += Time.deltaTime;
+
+        if (status != EnemyStatus.ATTACKING && status == EnemyStatus.MOVING)
+            status = EnemyStatus.ATTACKING;
+        else if (attackTimer > property.hitRate && !truck.isExploding())
+        {
+            truck.damageTruck();
             attackTimer = 0f;
         }
     }
@@ -292,7 +321,7 @@ public class EnemyBehaviour : MonoBehaviour
         status = EnemyStatus.MOVING;
         shockTimer = 0f;
         isHit = false;
-        hitTime = 0f;
+        hitTime = property.hitRate;
         conditionChanged = true;
     }
 }

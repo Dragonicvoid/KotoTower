@@ -18,7 +18,7 @@ public class LevelProperty : MonoBehaviour
     {
         GameManager.instance.setMoney(startMoney);
         GameManager.instance.setPrices(startTowerPrices, startTrapPrices);
-        GameManager.instance.enemyVariation = enemyVariation;
+        GameManager.instance.setEnemyVariation(enemyVariation);
 
         switch (GameManager.instance.difficultyIdx)
         {

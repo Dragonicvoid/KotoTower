@@ -7,6 +7,7 @@ public class TruckBehaviour : MonoBehaviour
     // Truck attribute
     [SerializeField] TruckPropertiesScriptableObject property = null;
     float currHealth;
+    float damageTimer;
     float explodeTimer;
     Point currTarget;
     Vector2 position;
@@ -65,6 +66,8 @@ public class TruckBehaviour : MonoBehaviour
             moveTo(currTarget);
         else
             explodeCountdown();
+
+        resetHit();
     }
 
     // Draw explosion radius on scene panel
@@ -184,6 +187,7 @@ public class TruckBehaviour : MonoBehaviour
     // Reseting other attribute like health, and many more
     void resetAttribute()
     {
+        damageTimer = property.damageTimer;
         currHealth = property.maxHealth;
         currStatus = TruckStatus.DRIVING;
         radiusCircle.SetActive(false);
@@ -229,5 +233,22 @@ public class TruckBehaviour : MonoBehaviour
 
         if (explodeTimer > property.explodeTime)
             explode();
+    }
+
+    // damaging 1 health of the truck
+    public void damageTruck()
+    {
+        currHealth -= 1;
+        isHit = true;
+        render.material.SetColor(colorPropertyId, Color.red);
+
+        if (currHealth <= 0 && currStatus != TruckStatus.EXPLODING)
+            explode();
+    }
+
+    // get is explode property
+    public bool isExploding()
+    {
+        return currStatus == TruckStatus.EXPLODING;
     }
 }

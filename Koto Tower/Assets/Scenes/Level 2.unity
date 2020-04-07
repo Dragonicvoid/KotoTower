@@ -6691,7 +6691,7 @@ GameObject:
   - component: {fileID: 1261516735}
   - component: {fileID: 1261516737}
   - component: {fileID: 1261516738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Truck
   m_TagString: Truck
   m_Icon: {fileID: 0}
@@ -6922,7 +6922,7 @@ MonoBehaviour:
   isStartPoint: 0
   isEndPoint: 0
   isGenerator: 0
-  isBranchingPath: 0
+  isBranchingPath: 1
 --- !u!114 &1280891043
 MonoBehaviour:
   m_ObjectHideFlags: 0

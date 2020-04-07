@@ -19,6 +19,7 @@ public class TruckPropertiesScriptableObject : ScriptableObject
     // Truck attribute
     public float speed = 1f;
     public float maxHealth = 10f;
+    public float damageTimer = 1f;
     public float radius = 1f;
     public float explodeTime = 2f;
     public float explodeDamage = 50f;

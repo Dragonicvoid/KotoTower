@@ -661,9 +661,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e227840834c1754ba05933bcfc6e15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefEnemy: {fileID: 0}
-  prefEnemyArmored: {fileID: 0}
-  prefEnemyGiant: {fileID: 0}
+  prefEnemy: {fileID: 1594995334217872288, guid: 9f265afb90d85c642b2205269bda84dc,
+    type: 3}
+  prefEnemyArmored: {fileID: 7516736122928615346, guid: bd3d86043b0ea1a4cb186aff8eba5bd3,
+    type: 3}
+  prefEnemyGiant: {fileID: 8590819985370394449, guid: 3dd7922480bf8fa4caf1c04e0e1aa319,
+    type: 3}
 --- !u!1 &127820732
 GameObject:
   m_ObjectHideFlags: 0
@@ -7062,9 +7065,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 694561511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96cdf565a9879e4288ccd3e7b011138, type: 3}
+  m_Script: {fileID: 11500000, guid: e8b1f58b9e325ad48b3fee06e0961147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inactiveObject: {fileID: 91662233}
+  activeObject: {fileID: 581802003}
+  cost: 5
+  spawnNow: 1
 --- !u!1 &699104071
 GameObject:
   m_ObjectHideFlags: 0
@@ -9198,7 +9205,7 @@ GameObject:
   - component: {fileID: 1261516735}
   - component: {fileID: 1261516737}
   - component: {fileID: 1261516738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Truck
   m_TagString: Truck
   m_Icon: {fileID: 0}
@@ -12125,7 +12132,7 @@ MonoBehaviour:
     type: 1
   - price: 400
     type: 2
-  enemyVariation: 0
+  enemyVariation: 3
 --- !u!1 &1812893424
 GameObject:
   m_ObjectHideFlags: 0
@@ -13727,6 +13734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634420924297972066, guid: 52b0bf070efc5fd4b9f33434002c76b3,
+        type: 3}
+      propertyPath: neighbor.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 634420924297972066, guid: 52b0bf070efc5fd4b9f33434002c76b3,
         type: 3}
