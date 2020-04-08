@@ -18,9 +18,6 @@ public class KotoTowerGeneratorTruckButton : MonoBehaviour
         generatorButton = this.gameObject.transform.GetChild(0).gameObject;
         kotoTowerButton = this.gameObject.transform.GetChild(1).gameObject;
 
-        Debug.Log(generatorButton.name);
-        Debug.Log(kotoTowerButton.name);
-
         showKotoTower = false;
         showGenerator = true;
         showtruck = false;

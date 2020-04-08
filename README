@@ -25,6 +25,32 @@ Self Made
 Self Made
 11. Image_Background_Hiragana_2
 Self Made
+12. Bomb_Trap.png:
+Self Made
+13. Electric Tower:
+Self Made
+14. Exclamation_Point_Mark.png and png:
+self made
+15. Explode_Button.png:
+self made
+16. Freeze_Trap.png:
+self made
+17. Machine_Gun_Tower.png:
+self made
+18. Question_Mark.png and jpg:
+self made
+19. Sniper_Tower.png:
+self made
+20. Time_Trap.png:
+self made
+21. Truck_Dash_Button.png:
+self made
+22. Zombie_Armored.png:
+self made
+23. Zombie_Giant.png:
+self made
+23. Zombie_Normal.png:
+self made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -112,4 +138,5 @@ Sprint 2 :
 - 2/Apr/2020 : Fix some UI bugs, and added back the button to move back and forth to koto tower and generator when there is a question that is not answer. (Reivaldo Julianto) 
 - 3/Apr/2020 : Meeting 
 - 6/Apr/2020 : Change Every script name to the right one (without "Testing"), added simple main menu and level selection (Reivaldo Julianto) 
-- 7.Apr/2020 : Added new level (Test level), and make the enemy attack the trucks when they are close (Reivaldo Julianto)
+- 7/Apr/2020 : Added new level (Test level), and make the enemy attack the trucks when they are close (Reivaldo Julianto)
+- 8/Apr/2020 : Added new sprite for enemies, tower, trap, tower and generator notification and truck power buttons(Reivaldo Julianto)
