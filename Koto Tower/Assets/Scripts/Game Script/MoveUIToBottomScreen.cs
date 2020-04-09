@@ -9,6 +9,7 @@ public class MoveUIToBottomScreen : MonoBehaviour
     float currentValue;
     Vector3 startTouch;
     bool isOnBottom;
+    bool isGoingDown;
 
     // get this rect transform component
     RectTransform rect;
@@ -17,6 +18,7 @@ public class MoveUIToBottomScreen : MonoBehaviour
     {
         rect = this.gameObject.GetComponent<RectTransform>();
         isOnBottom = false;
+        isGoingDown = false;
         rectHeight = rect.rect.height;
         currentValue = rectHeight * -1;
     }
@@ -45,7 +47,7 @@ public class MoveUIToBottomScreen : MonoBehaviour
 
                 startTouch = touch.position;
             }
-            else if (touch.phase == TouchPhase.Moved && isOnBottom)
+            else if (touch.phase == TouchPhase.Moved && (isOnBottom || !isGoingDown))
             {
                 float deltaY = touch.position.y - startTouch.y;
                 currentValue = Mathf.Clamp(currentValue + deltaY * 0.5f, rectHeight * -1.1f, 0f);
@@ -69,6 +71,8 @@ public class MoveUIToBottomScreen : MonoBehaviour
         // if now tower is selected, make the UI goes down, the 0.1 value is to prevent error
         if (GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER)
             currentValue = Mathf.Clamp(currentValue - (rectHeight / 10), rectHeight * -1.1f, 0f);
+
+        isGoingDown = !(currentValue >= -0.5f * rectHeight);
 
         rect.anchoredPosition = new Vector3(rect.anchoredPosition.x,
                                                 currentValue,

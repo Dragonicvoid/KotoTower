@@ -71,6 +71,7 @@ public class GeneratorBehaviour : MonoBehaviour
         if (answer.isRightAnswer)
         {
             GameManager.instance.totalAnsweredQuestion++;
+            GameManager.instance.isChangedDifficulty = true;
             questionText.text = "JAWABAN BENAR!!!";
         }
         else

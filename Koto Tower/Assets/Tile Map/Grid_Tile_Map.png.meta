@@ -1,0 +1,727 @@
+fileFormatVersion: 2
+guid: 672de5a882708e84899c187d4056d176
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -333193509141364384
+    second: Grid_Tile_Map_0
+  - first:
+      213: 229324956859959828
+    second: Grid_Tile_Map_1
+  - first:
+      213: -2892771180198114494
+    second: Grid_Tile_Map_2
+  - first:
+      213: -1170024393725849943
+    second: Grid_Tile_Map_3
+  - first:
+      213: 6548902143454506111
+    second: Grid_Tile_Map_4
+  - first:
+      213: -2594063576992543950
+    second: Grid_Tile_Map_5
+  - first:
+      213: 2890327136240637392
+    second: Grid_Tile_Map_6
+  - first:
+      213: -2925174450178457185
+    second: Grid_Tile_Map_7
+  - first:
+      213: -9179983824025944206
+    second: Grid_Tile_Map_8
+  - first:
+      213: -5643469642453135424
+    second: Grid_Tile_Map_9
+  - first:
+      213: -3118928785854099472
+    second: Grid_Tile_Map_10
+  - first:
+      213: 2137870835889191129
+    second: Grid_Tile_Map_11
+  - first:
+      213: -2182669535480430041
+    second: Grid_Tile_Map_12
+  - first:
+      213: -8077401950008470241
+    second: Grid_Tile_Map_13
+  - first:
+      213: 8580532693502662638
+    second: Grid_Tile_Map_14
+  - first:
+      213: 3400959975104912176
+    second: Grid_Tile_Map_15
+  - first:
+      213: -5265379596604475568
+    second: Grid_Tile_Map_16
+  - first:
+      213: -7029639596773558389
+    second: Grid_Tile_Map_17
+  - first:
+      213: 2859560350055748461
+    second: Grid_Tile_Map_18
+  - first:
+      213: 6648620430027576683
+    second: Grid_Tile_Map_19
+  - first:
+      213: -1553977322465097516
+    second: Grid_Tile_Map_20
+  - first:
+      213: 4371311511488553410
+    second: Grid_Tile_Map_21
+  - first:
+      213: -311855984467604325
+    second: Grid_Tile_Map_22
+  - first:
+      213: -4501896780085518095
+    second: Grid_Tile_Map_23
+  - first:
+      213: -8060209299417369882
+    second: Grid_Tile_Map_24
+  - first:
+      213: -4853977291328307920
+    second: Grid_Tile_Map_25
+  - first:
+      213: -2182957163260455365
+    second: Grid_Tile_Map_26
+  - first:
+      213: -3345465143513053043
+    second: Grid_Tile_Map_27
+  - first:
+      213: -5638746958916943728
+    second: Grid_Tile_Map_28
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Grid_Tile_Map_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 83
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061c92ec442406bf0800000000000000
+      internalID: -333193509141364384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 83
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a05cf45d9be2300800000000000000
+      internalID: 229324956859959828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 83
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24bcdcb20ffcad7d0800000000000000
+      internalID: -2892771180198114494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_3
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 5
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aecd61530d33cfe0800000000000000
+      internalID: -1170024393725849943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 45
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c66694dcf52ea50800000000000000
+      internalID: 6548902143454506111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 83
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b8490bbe8000cd0800000000000000
+      internalID: -2594063576992543950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_6
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 83
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d59b4087318c1820800000000000000
+      internalID: 2890327136240637392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_7
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 68
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f918017f551b767d0800000000000000
+      internalID: -2925174450178457185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_8
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 68
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ff91589552a9080800000000000000
+      internalID: -9179983824025944206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_9
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 68
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf41e4b24e5ea1b0800000000000000
+      internalID: -5643469642453135424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_10
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 53
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff0d674bc657b4d0800000000000000
+      internalID: -3118928785854099472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_11
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 53
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8b7d4c23e3bad10800000000000000
+      internalID: 2137870835889191129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 53
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7224f9b2f9995b1e0800000000000000
+      internalID: -2182669535480430041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 53
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1592bde8bd47ef80800000000000000
+      internalID: -8077401950008470241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_14
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 35
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee71adbe50d241770800000000000000
+      internalID: 8580532693502662638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_15
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 35
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b137b0413a23f20800000000000000
+      internalID: 3400959975104912176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_16
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 35
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057fcc0772d9de6b0800000000000000
+      internalID: -5265379596604475568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_17
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 20
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87ba470804b17e90800000000000000
+      internalID: -7029639596773558389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_18
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 20
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d635ddedcf23fa720800000000000000
+      internalID: 2859560350055748461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_19
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 5
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65d2322e05a44c50800000000000000
+      internalID: 6648620430027576683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_20
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 5
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d88479cbd92f6ae0800000000000000
+      internalID: -1553977322465097516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_21
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 5
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1e9d4d8a40aac30800000000000000
+      internalID: 4371311511488553410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_22
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 20
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c8ab862a01cabf0800000000000000
+      internalID: -311855984467604325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_23
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 35
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f027870bbc0681c0800000000000000
+      internalID: -4501896780085518095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_24
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 50
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e27de4d852642090800000000000000
+      internalID: -8060209299417369882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,12 +8,17 @@ public class Spawning : MonoBehaviour
     [SerializeField] EnemiesPooling inactiveObject = null;
     [SerializeField] Transform activeObject = null;
     [SerializeField] int cost = 5;
-    [SerializeField] float spawnNow = 1f;
+    [SerializeField] List<float> spawnTimer = new List<float>();
+    // Change diffculty to next timer after 100s
+    [SerializeField] float forceChangeDiffCountdown = 100f;
     #endregion
 
     #region Private Variables definition
     List<Point> spawnPoints;
     float timer = 0f;
+    float spawnNow = 1f;
+    float changeTimer = 0f;
+    int diffCount = 0;
     #endregion
 
     #region Monobehaviour Method
@@ -28,9 +33,35 @@ public class Spawning : MonoBehaviour
             spawnPoints.Add(child.GetComponent<Point>());
     }
 
+    //initialization
+    private void Start()
+    {
+        // get the respawn timer to the first of the spawn timer list
+        spawnNow = spawnTimer[0];
+        timer = 0f;
+        changeTimer = 0f;
+        diffCount = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.isChangedDifficulty || changeTimer >= forceChangeDiffCountdown)
+        {
+            diffCount++;
+            if(diffCount >= spawnTimer.Count)
+                spawnNow = spawnTimer[spawnTimer.Count - 1];
+            else
+                spawnNow = spawnTimer[diffCount];
+            GameManager.instance.isChangedDifficulty = false;
+
+            // if the change timer is longer force change and diffculty is at the end of diff then just spawn a bunch
+            if (diffCount >= spawnTimer.Count + 5)
+                spawnNow = 0.5f;
+
+            changeTimer = 0f;
+        }
+
         // Every "spawnNow" second spawn someone (might change how it works during development)
         if (timer >= spawnNow)
         {
@@ -47,6 +78,7 @@ public class Spawning : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+        changeTimer += Time.deltaTime;
     }
     #endregion
 

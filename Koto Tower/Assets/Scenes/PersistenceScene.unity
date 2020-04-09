@@ -342,7 +342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7308878203404663635, guid: 8ef6f954c4aad2447a7b5856a1fcf914,
+  m_Sprite: {fileID: -4722234179525943695, guid: 8ef6f954c4aad2447a7b5856a1fcf914,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -404,6 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02d50021c42ee2469d36ad2c53a933d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 353568129}
+  currentSceneIndex: 0
   isSelectTrap: 0
   selectedTrap: 0
   isDoneMakingTrapLines: 0
@@ -412,6 +414,7 @@ MonoBehaviour:
   selectedTower: 0
   isDoneMakingTowerLines: 0
   isPressedButtonTower: 0
+  enemyVariation: 0
   isNewQuestion: 0
   currentStatus: 1
   money: 0

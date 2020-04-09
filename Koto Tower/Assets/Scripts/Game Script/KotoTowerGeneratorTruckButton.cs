@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KotoTowerGeneratorTruckButton : MonoBehaviour
 {
+    // variables
+    KotoTowerBehaviour kotoTower;
     GameObject generatorButton;
     GameObject kotoTowerButton;
     GameObject truckButton;
@@ -15,6 +17,9 @@ public class KotoTowerGeneratorTruckButton : MonoBehaviour
     // initialize event
     private void Start()
     {
+        // get all needed component
+        kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<KotoTowerBehaviour>();
+
         generatorButton = this.gameObject.transform.GetChild(0).gameObject;
         kotoTowerButton = this.gameObject.transform.GetChild(1).gameObject;
 
@@ -33,7 +38,7 @@ public class KotoTowerGeneratorTruckButton : MonoBehaviour
     private void Update()
     {
         generatorButton.SetActive(showGenerator);
-        kotoTowerButton.SetActive(showKotoTower);
+        kotoTowerButton.SetActive(showKotoTower && kotoTower.getIsHit());
 
         if (GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || QuestionManager.isSendingTruck)
         {

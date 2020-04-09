@@ -88,10 +88,13 @@ public class EnemyBehaviour : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    // A method to change current targeted point so the agent can move to the point
+    // A method to change current targeted point so the agent can move to the point and rotate to target
     public void changeTargetFromCurrPoint(Point point)
     {
         currTarget = point.getFirstIndexPoint();
+        Vector3 targetPosition = currTarget.gameObject.transform.position - this.transform.position;
+        float zRotation = (Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg) - 90.0f;
+        this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, zRotation));
     }
 
     // A method to change this agent parent, for the sake of tidiness for developer
@@ -156,7 +159,7 @@ public class EnemyBehaviour : MonoBehaviour
             status = EnemyStatus.ATTACKING;
             kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<KotoTowerBehaviour>();
         }
-        else if(attackTimer > property.hitRate)
+        else if(attackTimer >= property.hitRate)
         {
             kotoTower.addDamage(property.damage);
             attackTimer = 0f;
@@ -171,7 +174,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (status != EnemyStatus.ATTACKING && status == EnemyStatus.MOVING)
             status = EnemyStatus.ATTACKING;
-        else if (attackTimer > property.hitRate && !truck.isExploding())
+        else if (attackTimer >= property.hitRate && !truck.isExploding())
         {
             truck.damageTruck();
             attackTimer = 0f;
@@ -323,5 +326,6 @@ public class EnemyBehaviour : MonoBehaviour
         isHit = false;
         hitTime = property.hitRate;
         conditionChanged = true;
+        attackTimer = property.hitRate;
     }
 }

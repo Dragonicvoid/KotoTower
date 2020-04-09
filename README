@@ -140,3 +140,4 @@ Sprint 2 :
 - 6/Apr/2020 : Change Every script name to the right one (without "Testing"), added simple main menu and level selection (Reivaldo Julianto) 
 - 7/Apr/2020 : Added new level (Test level), and make the enemy attack the trucks when they are close (Reivaldo Julianto)
 - 8/Apr/2020 : Added new sprite for enemies, tower, trap, tower and generator notification and truck power buttons(Reivaldo Julianto)
+- 9/Apr/2020 : Add UI for Level selection, more UI improvement (on the tower being attacked), and added increasing difficulty each time question is answer or just being idle or keep answering wrong answer(Reivaldo Julianto)

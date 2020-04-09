@@ -7071,7 +7071,19 @@ MonoBehaviour:
   inactiveObject: {fileID: 91662233}
   activeObject: {fileID: 581802003}
   cost: 5
-  spawnNow: 1
+  spawnTimer:
+  - 10
+  - 9
+  - 8
+  - 7
+  - 6
+  - 5
+  - 4
+  - 3
+  - 2
+  - 1
+  - 1
+  forceChangeDiffCountdown: 100
 --- !u!1 &699104071
 GameObject:
   m_ObjectHideFlags: 0
@@ -8861,7 +8873,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 23.809998, y: 29.02}
+  m_SizeDelta: {x: 43.16, y: 44.49}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1073622209
 MonoBehaviour:
@@ -12981,8 +12993,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.70781}
-  m_SizeDelta: {x: 31.43, y: 31.426}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 36.28, y: 36.27}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2039936140
 MonoBehaviour:

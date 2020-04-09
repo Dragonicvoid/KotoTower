@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelProperty : MonoBehaviour
 {
@@ -45,7 +44,7 @@ public class LevelProperty : MonoBehaviour
     private void Start()
     {
         GameEvents.current.onGameWonEnter += OnGameWon;
-        GameEvents.current.onKotoTowerDestroyedEnter += OnGameWon;
+        GameEvents.current.onKotoTowerDestroyedEnter += OnGameLost;
     }
 
     // when the game won just reset(for debug)
@@ -54,10 +53,16 @@ public class LevelProperty : MonoBehaviour
         GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
     }
 
+    // when the game lost just reset(for debug)
+    void OnGameLost()
+    {
+        GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
+    }
+
     // delete the event
     private void OnDestroy()
     {
         GameEvents.current.onGameWonEnter -= OnGameWon;
-        GameEvents.current.onKotoTowerDestroyedEnter -= OnGameWon;
+        GameEvents.current.onKotoTowerDestroyedEnter -= OnGameLost;
     }
 }

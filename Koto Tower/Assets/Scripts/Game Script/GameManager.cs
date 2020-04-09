@@ -12,6 +12,11 @@ public enum GameStatus
 
 public class GameManager : MonoBehaviour
 {
+    // private method
+    [SerializeField] GameObject loadingScreen = null;
+    bool isLoading;
+    List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
+
     // singleton
     public static GameManager instance;
 
@@ -44,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     public int totalAnsweredQuestion;
     public int maxCharged;
+    public bool isChangedDifficulty;
 
     public Camera mainCamera;
 
@@ -72,6 +78,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         resetOnPlay();
+        isLoading = false;
     }
 
     // initialization
@@ -92,6 +99,8 @@ public class GameManager : MonoBehaviour
 
         isPressedButtonTower = false;
         isPressedButtonTrap = false;
+
+        isChangedDifficulty = false;
 
         moneyChanged = false;
 
@@ -200,9 +209,24 @@ public class GameManager : MonoBehaviour
 
     public void loadGame(int levelIdx)
     {
-        Debug.Log(currentSceneIndex + " -> " + levelIdx);
-        SceneManager.UnloadSceneAsync(currentSceneIndex);
-        SceneManager.LoadSceneAsync(levelIdx, LoadSceneMode.Additive);
-        currentSceneIndex = levelIdx;
+        if(!isLoading)
+        {
+            isLoading = true;
+            loadingScreen.gameObject.SetActive(true);
+            scenesLoading.Add(SceneManager.UnloadSceneAsync(currentSceneIndex));
+            scenesLoading.Add(SceneManager.LoadSceneAsync(levelIdx, LoadSceneMode.Additive));
+            StartCoroutine(GetSceneLoadProgress());
+            currentSceneIndex = levelIdx;
+        }
+    }
+
+    public IEnumerator GetSceneLoadProgress()
+    {
+        for (int i = 0; i < scenesLoading.Count; i++)
+            while (!scenesLoading[i].isDone)
+                yield return null;
+
+        isLoading = false;
+        loadingScreen.SetActive(false);
     }
 }
