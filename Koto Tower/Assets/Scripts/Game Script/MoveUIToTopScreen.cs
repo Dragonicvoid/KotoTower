@@ -40,7 +40,7 @@ public class MoveUIToTopScreen : MonoBehaviour
             rectHeight = rect.rect.height;
 
         // if now tower or trap is selected, or there is a selected tower make the UI goes up
-        if (GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER)
+        if (GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER || GameManager.instance.isPaused)
             currentValue = Mathf.Clamp(currentValue + (rectHeight / 10), 0f, rectHeight);
         else
             currentValue = 0;

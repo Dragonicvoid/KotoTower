@@ -34,20 +34,23 @@ public class ProgressBar : MonoBehaviour
     // update the slider value if there is changed
     private void Update()
     {
-        if (timer < changeTime)
-            timer += Time.deltaTime;
-
-        if (currentAnswered != GameManager.instance.totalAnsweredQuestion)
+        if (!GameManager.instance.isPaused)
         {
-            currentAnswered = GameManager.instance.totalAnsweredQuestion;
-            progressText.text = currentAnswered + " / " + GameManager.instance.maxCharged;
+            if (timer < changeTime)
+                timer += Time.deltaTime;
 
-            timer = 0;
-            isDone = false;
-        }    
-        
-        if(!isDone)
-            slider.value = (float)((float)currentAnswered - (1 - deltaTime()) ) / GameManager.instance.maxCharged;
+            if (currentAnswered != GameManager.instance.totalAnsweredQuestion)
+            {
+                currentAnswered = GameManager.instance.totalAnsweredQuestion;
+                progressText.text = currentAnswered + " / " + GameManager.instance.maxCharged;
+
+                timer = 0;
+                isDone = false;
+            }
+
+            if (!isDone)
+                slider.value = (float)((float)currentAnswered - (1 - deltaTime())) / GameManager.instance.maxCharged;
+        }
     }
 
     // ease in delta time

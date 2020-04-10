@@ -53,7 +53,8 @@ public class EnemyBehaviour : MonoBehaviour
     // Call Update method
     private void Update()
     {
-        enemyBehave();
+        if(!GameManager.instance.isPaused)
+            enemyBehave();
     }
 
     // for tidiness

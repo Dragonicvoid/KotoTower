@@ -50,7 +50,7 @@ public class TrapsBehaviour : MonoBehaviour
     // countdown to explosion
     private void Update()
     {
-        if (isActive)
+        if (isActive && !GameManager.instance.isPaused)
         {
             timer += Time.deltaTime;
 

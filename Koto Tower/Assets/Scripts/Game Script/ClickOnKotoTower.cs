@@ -19,7 +19,8 @@ public class ClickOnKotoTower : MonoBehaviour
     // check every frame if we hit the tower or not
     private void Update()
     {
-        clickKotoTowerBehave();
+        if (!GameManager.instance.isPaused)
+            clickKotoTowerBehave();
     }
 
     void clickKotoTowerBehave()

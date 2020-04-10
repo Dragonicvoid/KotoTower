@@ -22,10 +22,13 @@ public class KotoTowerBehaviour : MonoBehaviour
     // decreasing the hit timer
     private void Update()
     {
-        if (damageTimer > 0f && isHit)
-            damageTimer -= Time.deltaTime;
-        else
-            isHit = false;
+        if (!GameManager.instance.isPaused)
+        {
+            if (damageTimer > 0f && isHit)
+                damageTimer -= Time.deltaTime;
+            else
+                isHit = false;
+        }
     }
 
     // damage

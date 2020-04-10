@@ -11,6 +11,7 @@ public class LevelProperty : MonoBehaviour
     [SerializeField] List<TowerPrice> startTowerPrices = null;
     [SerializeField] List<TrapPrice> startTrapPrices = null;
     [SerializeField] int enemyVariation = 0;
+    [SerializeField] LoseWinController loseWinController = null;
 
     // On Start change value on GameManager
     private void Awake()
@@ -50,13 +51,42 @@ public class LevelProperty : MonoBehaviour
     // when the game won just reset(for debug)
     void OnGameWon()
     {
-        GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
+        GameManager.instance.isPaused = true;
+        loseWinController.changeText(true);
+        loseWinController.gameObject.SetActive(true);
     }
 
     // when the game lost just reset(for debug)
     void OnGameLost()
     {
+        GameManager.instance.isPaused = true;
+        loseWinController.changeText(false);
+        loseWinController.gameObject.SetActive(true);
+    }
+
+    // for pausing
+    public void pause()
+    {
+        if(!GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus != GameStatus.SELECTING_TOWER)
+            GameManager.instance.isPaused = true;
+    }
+
+    // for pausing
+    public void unpause()
+    {
+        GameManager.instance.isPaused = false;
+    }
+
+    // For exiting the game
+    public void exitLevel()
+    {
         GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
+    }
+
+    // For replaying the game
+    public void playAgain()
+    {
+        GameManager.instance.loadGame(GameManager.instance.currentSceneIndex);
     }
 
     // delete the event

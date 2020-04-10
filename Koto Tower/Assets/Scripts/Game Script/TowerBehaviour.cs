@@ -56,7 +56,7 @@ public class TowerBehaviour : MonoBehaviour
     // Calling the hit detection
     void Update()
     {
-        if (isActive)
+        if (isActive && !GameManager.instance.isPaused)
         {
             // Even tho it is not currently shooting, we have to clear the fire flash, putting if to avoid floating point error
             if (shootTimer < property.fireRate)

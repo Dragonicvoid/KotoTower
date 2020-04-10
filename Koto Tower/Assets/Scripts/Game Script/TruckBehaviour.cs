@@ -61,13 +61,16 @@ public class TruckBehaviour : MonoBehaviour
     // Call Update method
     private void Update()
     {
-        // Moving the target
-        if (currStatus != TruckStatus.EXPLODING)
-            moveTo(currTarget);
-        else
-            explodeCountdown();
+        if (!GameManager.instance.isPaused)
+        {
+            // Moving the target
+            if (currStatus != TruckStatus.EXPLODING)
+                moveTo(currTarget);
+            else
+                explodeCountdown();
 
-        resetHit();
+            resetHit();
+        }
     }
 
     // Draw explosion radius on scene panel

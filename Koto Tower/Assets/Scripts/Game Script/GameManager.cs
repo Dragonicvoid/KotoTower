@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public bool isDoneMakingTowerLines;
     public bool isPressedButtonTower;
 
+    public bool isPaused;
+
     public int enemyVariation;
 
     // attribute for question and answer
@@ -103,6 +105,8 @@ public class GameManager : MonoBehaviour
         isChangedDifficulty = false;
 
         moneyChanged = false;
+
+        isPaused = false;
 
         totalAnsweredQuestion = 0;
     }

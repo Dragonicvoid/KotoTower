@@ -19,7 +19,8 @@ public class ClickOnGenerator : MonoBehaviour
     // check every frame if we hit the tower or not
     private void Update()
     {
-        clickGeneratorBehave();
+        if(!GameManager.instance.isPaused)
+            clickGeneratorBehave();
     }
 
     void clickGeneratorBehave()

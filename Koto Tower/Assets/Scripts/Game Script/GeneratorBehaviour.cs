@@ -36,7 +36,8 @@ public class GeneratorBehaviour : MonoBehaviour
     // Countdown until timer reach waitTimer to give nextQuestion
     private void Update()
     {
-        generatorBehave();
+        if(!GameManager.instance.isPaused)
+            generatorBehave();
     }
 
     void generatorBehave()

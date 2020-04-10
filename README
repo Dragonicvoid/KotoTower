@@ -51,6 +51,8 @@ self made
 self made
 23. Zombie_Normal.png:
 self made
+24. Door_Keluar.png:
+self made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -110,6 +112,8 @@ Script:
 52. CancelTrapTower
 53. FilterShow
 54. KotoTowerGeneratorTruckButton
+55. LoseWinController
+56. LevelManager
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -141,3 +145,4 @@ Sprint 2 :
 - 7/Apr/2020 : Added new level (Test level), and make the enemy attack the trucks when they are close (Reivaldo Julianto)
 - 8/Apr/2020 : Added new sprite for enemies, tower, trap, tower and generator notification and truck power buttons(Reivaldo Julianto)
 - 9/Apr/2020 : Add UI for Level selection, more UI improvement (on the tower being attacked), and added increasing difficulty each time question is answer or just being idle or keep answering wrong answer(Reivaldo Julianto)
+- 10/Apr/2020 : Add UI for back button with picture, and added lose win UI when the game is win or lose(Reivaldo Julianto)

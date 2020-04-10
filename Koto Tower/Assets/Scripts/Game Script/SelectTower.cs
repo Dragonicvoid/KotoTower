@@ -21,10 +21,10 @@ public class SelectTower : MonoBehaviour
     // only when it is on normal camera mode
     private void Update()
     {
-        if (Input.touchCount > 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus != GameStatus.PAUSED)
+        if (Input.touchCount > 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !GameManager.instance.isPaused)
             detectPressOnTower();
 
-        if(Input.touchCount == 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus != GameStatus.PAUSED) 
+        if(Input.touchCount == 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !GameManager.instance.isPaused) 
             detectClickOnTower();
     }
 

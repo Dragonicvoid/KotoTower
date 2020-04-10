@@ -41,7 +41,7 @@ public class TruckPowerUI : MonoBehaviour
             rectHeight = rect.rect.height;
 
         // if now tower is selected, make the UI goes up
-        if ((GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER) && truckMove)
+        if ((GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER || GameManager.instance.isPaused) && truckMove)
             currentValue = Mathf.Clamp(currentValue + (rectHeight / 10), -rectHeight, rectHeight + 10);
         else if (truckMove)
             currentValue = Mathf.Clamp(currentValue - (rectHeight / 10), -rectHeight, rectHeight + 10);

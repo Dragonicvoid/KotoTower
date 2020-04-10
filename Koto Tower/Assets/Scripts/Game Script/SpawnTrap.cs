@@ -30,6 +30,9 @@ public class SpawnTrap : MonoBehaviour
     // Update is called once per frame after normal update
     void Update()
     {
+        if (GameManager.instance.isPaused)
+            cancel();
+
         // for touch
         if (Input.touchCount > 0 && GameManager.instance.isSelectTrap && !isReadyToSpawn)
         {

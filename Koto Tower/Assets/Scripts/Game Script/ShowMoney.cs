@@ -18,7 +18,7 @@ public class ShowMoney : MonoBehaviour
     // change the money if there is a change
     private void Update()
     {
-        if (GameManager.instance.moneyChanged)
+        if (GameManager.instance.moneyChanged && !GameManager.instance.isPaused)
         {
             text.text = "Money = " + (int)GameManager.instance.money;
             GameManager.instance.moneyChanged = false;

@@ -46,39 +46,42 @@ public class Spawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.isChangedDifficulty || changeTimer >= forceChangeDiffCountdown)
+        if (!GameManager.instance.isPaused)
         {
-            diffCount++;
-            if(diffCount >= spawnTimer.Count)
-                spawnNow = spawnTimer[spawnTimer.Count - 1];
-            else
-                spawnNow = spawnTimer[diffCount];
-            GameManager.instance.isChangedDifficulty = false;
+            if (GameManager.instance.isChangedDifficulty || changeTimer >= forceChangeDiffCountdown)
+            {
+                diffCount++;
+                if (diffCount >= spawnTimer.Count)
+                    spawnNow = spawnTimer[spawnTimer.Count - 1];
+                else
+                    spawnNow = spawnTimer[diffCount];
+                GameManager.instance.isChangedDifficulty = false;
 
-            // if the change timer is longer force change and diffculty is at the end of diff then just spawn a bunch
-            if (diffCount >= spawnTimer.Count + 5)
-                spawnNow = 0.5f;
+                // if the change timer is longer force change and diffculty is at the end of diff then just spawn a bunch
+                if (diffCount >= spawnTimer.Count + 5)
+                    spawnNow = 0.5f;
 
-            changeTimer = 0f;
+                changeTimer = 0f;
+            }
+
+            // Every "spawnNow" second spawn someone (might change how it works during development)
+            if (timer >= spawnNow)
+            {
+                // Getting random spawn location 
+                int randIdx = Random.Range(0, spawnPoints.Count);
+                Point point = spawnPoints[(randIdx < 0 ? 0 : randIdx)];
+                Vector2 spawnLocation = point.getCurrPosition();
+
+                // Get enemies from pool according to the cost
+                List<EnemyBehaviour> enemies = enemiesPool(cost, spawnLocation, point);
+
+                // Resetting the timer
+                timer = 0f;
+            }
+
+            timer += Time.deltaTime;
+            changeTimer += Time.deltaTime;
         }
-
-        // Every "spawnNow" second spawn someone (might change how it works during development)
-        if (timer >= spawnNow)
-        {
-            // Getting random spawn location 
-            int randIdx = Random.Range(0, spawnPoints.Count);
-            Point point = spawnPoints[(randIdx < 0 ? 0 : randIdx)];
-            Vector2 spawnLocation = point.getCurrPosition();
-
-            // Get enemies from pool according to the cost
-            List<EnemyBehaviour> enemies = enemiesPool(cost, spawnLocation, point);
-
-            // Resetting the timer
-            timer = 0f;
-        }
-
-        timer += Time.deltaTime;
-        changeTimer += Time.deltaTime;
     }
     #endregion
 

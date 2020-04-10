@@ -34,7 +34,8 @@ public class HealthController : MonoBehaviour
     // timer is ticking
     private void Update()
     {
-        checkGotDamage();
+        if(!GameManager.instance.isPaused)
+            checkGotDamage();
     }
 
     // checking if there is damage, if yes show the 

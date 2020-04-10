@@ -36,14 +36,15 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        touches();
+        if (!GameManager.instance.isPaused)
+            touches();
     }
 
     // just to make it more readable
     void touches()
     {
         // If there is touch(es)
-        if (Input.touchCount > 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap)
+        if (Input.touchCount > 0 && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !GameManager.instance.isPaused)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -62,7 +63,7 @@ public class MoveCamera : MonoBehaviour
         }
 
         // If there is scroll wheel input and not left control, move the screen (for PC debugging)
-        if (Input.mouseScrollDelta.y != 0 && !Input.GetKey(KeyCode.LeftControl) && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap)
+        if (Input.mouseScrollDelta.y != 0 && !Input.GetKey(KeyCode.LeftControl) && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !GameManager.instance.isPaused)
         {
             this.transform.Translate(-Input.mouseScrollDelta.y * speed * Time.deltaTime * 15f, 0f, 0f);
             this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX, maxX), 0f, -10f);

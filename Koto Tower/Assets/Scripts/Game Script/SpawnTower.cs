@@ -33,8 +33,11 @@ public class SpawnTower : MonoBehaviour
     // Update is called once per frame after normal update
     void Update()
     {
-        detectTouches();
-        detectMouse();
+        if (!GameManager.instance.isPaused)
+        {
+            detectTouches();
+            detectMouse();
+        }
     }
 
     // for touches
