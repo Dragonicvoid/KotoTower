@@ -10218,6 +10218,7 @@ GameObject:
   - component: {fileID: 1073622211}
   - component: {fileID: 1073622210}
   - component: {fileID: 1073622209}
+  - component: {fileID: 1073622212}
   m_Layer: 5
   m_Name: Go to Koto Tower Button
   m_TagString: Untagged
@@ -10334,6 +10335,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073622207}
   m_CullTransparentMesh: 0
+--- !u!114 &1073622212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073622207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c619a3df5b9445b4592d79581b9eba3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1096880701
 GameObject:
   m_ObjectHideFlags: 0
@@ -15519,6 +15532,7 @@ GameObject:
   - component: {fileID: 2039936142}
   - component: {fileID: 2039936141}
   - component: {fileID: 2039936140}
+  - component: {fileID: 2039936143}
   m_Layer: 5
   m_Name: Go to Generator Button
   m_TagString: Untagged
@@ -15635,6 +15649,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039936138}
   m_CullTransparentMesh: 0
+--- !u!114 &2039936143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039936138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c619a3df5b9445b4592d79581b9eba3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2048079122
 GameObject:
   m_ObjectHideFlags: 0
