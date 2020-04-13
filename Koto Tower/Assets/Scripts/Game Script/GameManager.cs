@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
 
     public int enemyVariation;
 
+    // for leaderboards
+    public Scoreboard scoreboard;
+
     // attribute for question and answer
     public bool isNewQuestion;
 
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        scoreboard = new Scoreboard();
         resetOnPlay();
         isLoading = false;
     }
@@ -109,6 +113,8 @@ public class GameManager : MonoBehaviour
         isPaused = false;
 
         totalAnsweredQuestion = 0;
+
+        scoreboard.reset();
     }
 
     // set the money and says that the money has changed

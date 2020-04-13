@@ -51,6 +51,22 @@ public class GeneratorBehaviour : MonoBehaviour
             timer = 0;
             isStartTiming = false;
 
+            if (GameManager.instance.totalAnsweredQuestion < GameManager.instance.maxCharged) // Change the question
+                GameEvents.current.TruckDestroyedEnter(false);
+
+            generatorClick.StartCoroutine(generatorClick.openGenerator());
+        }
+    }
+
+    // Check if the answer is correct or not then change the question text to tell player if its right or wrong, and update the gameManager
+    public void checkAnswer(Answer answer)
+    {
+        generatorClick.StartCoroutine(generatorClick.openGenerator());
+        if (answer.isRightAnswer)
+        {
+            GameManager.instance.totalAnsweredQuestion++;
+            GameManager.instance.scoreboard.consecutiveAnswer++;
+
             // if Player answer maxCharged amount of answers
             if (GameManager.instance.totalAnsweredQuestion >= GameManager.instance.maxCharged)
             {
@@ -58,28 +74,20 @@ public class GeneratorBehaviour : MonoBehaviour
                 questionText.text = "MENANG!!!";
                 GameEvents.current.GameWonEnter();
             }
-            else // Change the question
-                GameEvents.current.TruckDestroyedEnter(false);
-
-            generatorClick.StartCoroutine(generatorClick.openGenerator());
-        }
-    }
-
-    // Check if the answer is correct or not then change the question text to tell player if its right or wrong
-    public void checkAnswer(Answer answer)
-    {
-        generatorClick.StartCoroutine(generatorClick.openGenerator());
-        if (answer.isRightAnswer)
-        {
-            GameManager.instance.totalAnsweredQuestion++;
-            GameManager.instance.isChangedDifficulty = true;
-            questionText.text = "JAWABAN BENAR!!!";
+            else
+            {
+                GameManager.instance.isChangedDifficulty = true;
+                questionText.text = "JAWABAN BENAR!!!";
+                isStartTiming = true; // start the timer
+            }
         }
         else
+        {
+            GameManager.instance.scoreboard.consecutiveAnswer = 0;
             questionText.text = "JAWABAN SALAH!!!";
-
-        // Start timer
-        isStartTiming = true;
+            isStartTiming = true; // start the timer
+        }
+        
         // Tell question manager that the truck has arrived and charged the generator
         kotoTowerClick.StartCoroutine(kotoTowerClick.closeKotoTower());
     }

@@ -40,7 +40,7 @@ public class KotoTowerGeneratorTruckButton : MonoBehaviour
         generatorButton.SetActive(showGenerator);
         kotoTowerButton.SetActive(showKotoTower && kotoTower.getIsHit());
 
-        if (GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || QuestionManager.isSendingTruck || GameManager.instance.isPaused)
+        if (GameManager.instance.isSelectTower || GameManager.instance.isSelectTrap || QuestionManager.isSendingTruck || GameManager.instance.currentStatus == GameStatus.SELECTING_TOWER || GameManager.instance.isPaused)
         {
             generatorButton.SetActive(false);
             kotoTowerButton.SetActive(false);

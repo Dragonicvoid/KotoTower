@@ -200,10 +200,16 @@ public class SpawnTower : MonoBehaviour
             x += GridCustom.offsetX;
             y += GridCustom.offsetY;
 
+            if (x < 0)
+                x = 0;
+
+            if (y < 0)
+                y = 0;
+
             if (currX != x || currY != y)
                 isReadyToSpawn = false;
 
-            if (GridCustom.cells[x, y].cellContent == CellContent.OPEN_FIELD && !isReadyToSpawn)
+            if (x < GridCustom.cells.GetLength(0) && y < GridCustom.cells.GetLength(1) && GridCustom.cells[x, y].cellContent == CellContent.OPEN_FIELD && !isReadyToSpawn)
             {
                 currentTower.SetActive(true);
                 currentTower.transform.position = GridCustom.getWorldSpace(x, y) + new Vector3(0.5f, 0.5f, 0);

@@ -114,6 +114,8 @@ Script:
 54. KotoTowerGeneratorTruckButton
 55. LoseWinController
 56. LevelManager
+57. DisableUIWhenPause
+58. Scoreboard
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -146,3 +148,4 @@ Sprint 2 :
 - 8/Apr/2020 : Added new sprite for enemies, tower, trap, tower and generator notification and truck power buttons(Reivaldo Julianto)
 - 9/Apr/2020 : Add UI for Level selection, more UI improvement (on the tower being attacked), and added increasing difficulty each time question is answer or just being idle or keep answering wrong answer(Reivaldo Julianto)
 - 10/Apr/2020 : Add UI for back button with picture, and added lose win UI when the game is win or lose(Reivaldo Julianto)
+- 13/Apr/2020 : Add scoreboard to the end of the game, and fixes some UI bugs(Reivaldo Julianto)
