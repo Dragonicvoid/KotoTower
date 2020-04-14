@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ChooseLevel.unity
     guid: cef90616516eeda4ea0eea3af3edb0e6
   - enabled: 1
+    path: Assets/Scenes/Rangkuman.unity
+    guid: b5170bc1cb5cbae49a06f877df0f4e2f
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 99c0dc0db38f3ad43ba3544505c10fc7
   - enabled: 1

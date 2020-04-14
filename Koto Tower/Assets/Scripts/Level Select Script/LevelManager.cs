@@ -9,4 +9,10 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.instance.loadGame((int)Levels.MAIN_MENU);
     }
+
+    // go to rangkuman menu
+    public void goToRangkuman(int selectedIdx)
+    {
+        GameManager.instance.loadGame((int)Levels.RANGKUMAN, selectedIdx);
+    }
 }

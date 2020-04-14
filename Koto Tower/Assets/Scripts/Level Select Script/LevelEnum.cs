@@ -3,7 +3,8 @@
     PERSISTENCE_SCENE = 0,
     MAIN_MENU = 1,
     CHOOSE_LEVEL = 2,
-    LEVEL1 = 3,
-    LEVEL2 = 4,
-    TEST_LEVEL = 5
+    RANGKUMAN = 3,
+    LEVEL1 = 4,
+    LEVEL2 = 5,
+    TEST_LEVEL = 6
 }

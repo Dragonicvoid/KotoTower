@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
     // for leaderboards
     public Scoreboard scoreboard;
 
+    // for "Rangkuman" menu
+    public int selectedSummaryIndex;
+
     // attribute for question and answer
     public bool isNewQuestion;
 
@@ -66,6 +69,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         SceneManager.LoadSceneAsync((int)Levels.MAIN_MENU, LoadSceneMode.Additive);
         currentSceneIndex = (int)Levels.MAIN_MENU;
+        selectedSummaryIndex = -1;
     }
 
     private void OnEnable()
@@ -217,7 +221,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoad;
     }
 
-    public void loadGame(int levelIdx)
+    public void loadGame(int levelIdx, int rangkumanIdx = -1)
     {
         if(!isLoading)
         {
@@ -227,6 +231,7 @@ public class GameManager : MonoBehaviour
             scenesLoading.Add(SceneManager.LoadSceneAsync(levelIdx, LoadSceneMode.Additive));
             StartCoroutine(GetSceneLoadProgress());
             currentSceneIndex = levelIdx;
+            selectedSummaryIndex = rangkumanIdx;
         }
     }
 
