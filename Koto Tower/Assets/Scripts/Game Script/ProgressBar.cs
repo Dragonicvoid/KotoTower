@@ -29,12 +29,14 @@ public class ProgressBar : MonoBehaviour
         rectTrans = this.GetComponent<RectTransform>();
         width = rectTrans.rect.width;
         height = rectTrans.rect.height;
+
+        this.gameObject.SetActive(!GameManager.instance.isPractice);
     }
 
     // update the slider value if there is changed
     private void Update()
     {
-        if (!GameManager.instance.isPaused)
+        if (!GameManager.instance.isPaused && !GameManager.instance.isPractice)
         {
             if (timer < changeTime)
                 timer += Time.deltaTime;

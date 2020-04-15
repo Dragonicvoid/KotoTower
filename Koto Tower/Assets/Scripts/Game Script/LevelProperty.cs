@@ -61,6 +61,13 @@ public class LevelProperty : MonoBehaviour
     void OnGameWon()
     {
         GameManager.instance.isPaused = true;
+        
+        // save game when game won, and update unlockable level when player was playing hard
+        if (GameManager.instance.saveFile.levelDone <= GameManager.instance.currentLevelIndex && GameManager.instance.difficultyIdx == 2)
+            GameManager.instance.saveFile.levelDone = GameManager.instance.currentLevelIndex + 1;
+
+        SaveManager.instance.saveAndUpdate();
+
         loseWinController.changeText(true, calculateTimeScore(GameManager.instance.scoreboard.time), GameManager.instance.scoreboard.consecutiveAnswer);
         loseWinController.gameObject.SetActive(true);
     }

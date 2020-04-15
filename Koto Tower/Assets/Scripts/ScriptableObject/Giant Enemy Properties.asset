@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: Giant Enemy
   speed: 0.5
-  maxHealth: 500
+  maxHealth: 1000
   damage: 5
   shockRecovery: 4
   rewardPrice: 500

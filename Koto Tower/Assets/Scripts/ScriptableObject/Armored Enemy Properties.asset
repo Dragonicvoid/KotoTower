@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: Armored Enemy
   speed: 1
-  maxHealth: 50
+  maxHealth: 200
   damage: 2
   shockRecovery: 10
   rewardPrice: 200
+  hitRate: 2
   type: 1

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: Normal Enemy
   speed: 1
-  maxHealth: 20
+  maxHealth: 100
   damage: 2
   shockRecovery: 3
-  rewardPrice: 100
+  rewardPrice: 10
+  hitRate: 2
   type: 0

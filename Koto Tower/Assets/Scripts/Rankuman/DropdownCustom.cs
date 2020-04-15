@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DropdownCustom: MonoBehaviour
 {
-    [SerializeField] GameObject background;
+    [SerializeField] GameObject background = null;
+    [SerializeField] int maxLevel = 2;
 
     private Dropdown dropdownBab;
     private List<DropdownProperty> dptList;
@@ -22,8 +23,8 @@ public class DropdownCustom: MonoBehaviour
         dropdownBab = this.gameObject.GetComponentInChildren<Dropdown>();
 
         List<string> listOfString = new List<string>();
-        foreach (DropdownProperty dpt in dptList)
-            listOfString.Add(dpt.namaBab);
+        for (int i = 0; i < GameManager.instance.saveFile.levelDone && i < maxLevel; i++)
+            listOfString.Add(dptList[i].namaBab);
 
         dropdownBab.AddOptions(listOfString);
         currSummary = dptList[GameManager.instance.selectedSummaryIndex != -1 ? GameManager.instance.selectedSummaryIndex : 0];
@@ -34,7 +35,7 @@ public class DropdownCustom: MonoBehaviour
     // Go to the next lesson
     public void next()
     {
-        if(currSummary.index != dptList.Count - 1)
+        if(currSummary.index != GameManager.instance.saveFile.levelDone - 1 && currSummary.index != maxLevel - 1)
         {
             currSummary.gameObject.SetActive(false);
             currSummary = dptList[dropdownBab.value + 1];
@@ -66,7 +67,6 @@ public class DropdownCustom: MonoBehaviour
     // open the current level for current summary
     public void openLevel()
     {
-        Debug.Log(levels.Count);
         levels[currSummary.index > 1 ? 2 : currSummary.index].gameObject.SetActive(true);
         background.gameObject.SetActive(false);
         this.gameObject.SetActive(false);

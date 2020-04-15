@@ -64,9 +64,13 @@ public class GeneratorBehaviour : MonoBehaviour
         generatorClick.StartCoroutine(generatorClick.openGenerator());
         if (answer.isRightAnswer)
         {
-            GameManager.instance.totalAnsweredQuestion++;
-            GameManager.instance.scoreboard.consecutiveAnswer++;
-
+            // if its not practice ignore the total answered question
+            if (!GameManager.instance.isPractice)
+            {
+                GameManager.instance.totalAnsweredQuestion++;
+                GameManager.instance.scoreboard.consecutiveAnswer++;
+            }
+            
             // if Player answer maxCharged amount of answers
             if (GameManager.instance.totalAnsweredQuestion >= GameManager.instance.maxCharged)
             {

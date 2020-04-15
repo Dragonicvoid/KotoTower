@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
     // singleton
     public static GameManager instance;
 
+    // player save state
+    public SaveState saveFile;
+
     // Level selection attribute
     public int currentSceneIndex;
+    public int currentLevelIndex;
 
     // attribute for game
     public bool isSelectTrap;
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
     public bool isPressedButtonTower;
 
     public bool isPaused;
+    public bool isPractice;
 
     public int enemyVariation;
 

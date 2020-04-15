@@ -16,6 +16,7 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] Text difficultyText = null;
     [SerializeField] Image backgroundDiffImage = null;
     [SerializeField] Levels level;
+    [SerializeField] int levelIndex = 0;
 
     // get color property id
     int colorPropertyId;
@@ -103,9 +104,20 @@ public class LevelSelect : MonoBehaviour
             difficultyDescText[i].gameObject.SetActive(true);
     }
 
+    // bila pemain pilih untuk latihan
+    public void practice()
+    {
+        GameManager.instance.isPractice = true;
+        GameManager.instance.currentLevelIndex = levelIndex;
+        GameManager.instance.setDifficulty(difficultyIdx);
+        GameManager.instance.loadGame((int)level);
+    }
+
     // bila pemain pilih untuk bermain
     public void play()
     {
+        GameManager.instance.isPractice = false;
+        GameManager.instance.currentLevelIndex = levelIndex;
         GameManager.instance.setDifficulty(difficultyIdx);
         GameManager.instance.loadGame((int)level);
     }

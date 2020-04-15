@@ -13,12 +13,12 @@ public class DisableUIWhenPause : MonoBehaviour
         currButton = this.GetComponent<Button>();
     }
 
-    // if the game is paused, disable the UI
+    // if the game is paused, disable the UI, with exception
     void Update()
     {
-        if (GameManager.instance.isPaused)
+        if (GameManager.instance.isPaused && !"Boosted Button".Equals(this.gameObject.name))
             currButton.interactable = false;
-        else
+        else if (!"Boosted Button".Equals(this.gameObject.name))
             currButton.interactable = true;
     }
 }

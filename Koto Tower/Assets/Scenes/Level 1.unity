@@ -6321,7 +6321,7 @@ MonoBehaviour:
   - 8
   - 8
   - 7
-  forceChangeDiffCountdown: 100
+  forceChangeDiffCountdown: 30
 --- !u!1 &847503622
 GameObject:
   m_ObjectHideFlags: 0

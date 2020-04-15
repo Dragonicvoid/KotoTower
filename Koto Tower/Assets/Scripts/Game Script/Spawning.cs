@@ -10,7 +10,7 @@ public class Spawning : MonoBehaviour
     [SerializeField] int cost = 5;
     [SerializeField] List<float> spawnTimer = new List<float>();
     // Change diffculty to next timer after 100s
-    [SerializeField] float forceChangeDiffCountdown = 100f;
+    [SerializeField] float forceChangeDiffCountdown = 30f;
     #endregion
 
     #region Private Variables definition
@@ -46,7 +46,7 @@ public class Spawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.instance.isPaused)
+        if (!GameManager.instance.isPaused && !GameManager.instance.isPractice)
         {
             if (GameManager.instance.isChangedDifficulty || changeTimer >= forceChangeDiffCountdown)
             {
@@ -58,7 +58,7 @@ public class Spawning : MonoBehaviour
                 GameManager.instance.isChangedDifficulty = false;
 
                 // if the change timer is longer force change and diffculty is at the end of diff then just spawn a bunch
-                if (diffCount >= spawnTimer.Count + 5)
+                if (diffCount >= spawnTimer.Count + 3)
                     spawnNow = 0.5f;
 
                 changeTimer = 0f;

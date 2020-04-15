@@ -371,6 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1317425880}
   - component: {fileID: 1317425881}
+  - component: {fileID: 1317425882}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -414,7 +415,9 @@ MonoBehaviour:
   selectedTower: 0
   isDoneMakingTowerLines: 0
   isPressedButtonTower: 0
+  isPaused: 0
   enemyVariation: 0
+  selectedSummaryIndex: 0
   isNewQuestion: 0
   currentStatus: 1
   money: 0
@@ -423,8 +426,21 @@ MonoBehaviour:
   trapPrices: []
   totalAnsweredQuestion: 0
   maxCharged: 0
+  isChangedDifficulty: 0
   mainCamera: {fileID: 0}
   difficultyIdx: 0
+--- !u!114 &1317425882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317425879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e58f8c34b09a824aad49e8a8fe416c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1936655059
 GameObject:
   m_ObjectHideFlags: 0

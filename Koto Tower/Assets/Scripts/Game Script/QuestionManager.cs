@@ -129,7 +129,10 @@ public class QuestionManager : MonoBehaviour
     IEnumerator getNewQuestionBasedOnTruck(bool isTruckDestroyed)
     {
         yield return new WaitForSeconds(isTruckDestroyed ? 10f : 0f);
-        getNewQuestion(GameManager.instance.totalAnsweredQuestion != currentRightAnswer ? true : false);
+        if(!GameManager.instance.isPractice)
+            getNewQuestion(GameManager.instance.totalAnsweredQuestion != currentRightAnswer ? true : false);
+        else
+            getNewQuestion(isTruckDestroyed ? false : true);
     }
 
     // Function to get the question with answers
@@ -138,20 +141,24 @@ public class QuestionManager : MonoBehaviour
         // get random answer for this test if its the start or the player got the answer right
         if (gotRight)
         {
-            // remove the question so the player will not get the same one
-            switch (currentDifficulty)
+            // remove the question so the player will not get the same one, only when playing
+            if (!GameManager.instance.isPractice)
             {
-                case DifficultyType.EASY:
-                    easyQuestions.Remove(currQuestion);
-                    break;
-                case DifficultyType.MEDIUM:
-                    mediumQuestions.Remove(currQuestion);
-                    break;
-                case DifficultyType.HARD:
-                    hardQuestions.Remove(currQuestion);
-                    break;
+                switch (currentDifficulty)
+                {
+                    case DifficultyType.EASY:
+                        easyQuestions.Remove(currQuestion);
+                        break;
+                    case DifficultyType.MEDIUM:
+                        mediumQuestions.Remove(currQuestion);
+                        break;
+                    case DifficultyType.HARD:
+                        hardQuestions.Remove(currQuestion);
+                        break;
+                }
             }
 
+            // get another difficulty
             currentDifficulty = questions.Dequeue();
             currentRightAnswer = GameManager.instance.totalAnsweredQuestion;
         }

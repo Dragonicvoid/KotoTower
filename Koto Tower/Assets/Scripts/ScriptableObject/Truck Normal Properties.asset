@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Truck Normal Properties
   m_EditorClassIdentifier: 
   prefabName: 
-  speed: 1
+  speed: 2
   maxHealth: 10
+  damageTimer: 1
   radius: 1
   explodeTime: 2
   explodeDamage: 50

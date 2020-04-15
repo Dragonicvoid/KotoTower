@@ -123,7 +123,7 @@ public class TruckBehaviour : MonoBehaviour
         {
             // Moving is now using translate to make the game more consistent
             Vector2 dir = point.getCurrPosition() - position;
-            this.transform.Translate(dir.normalized * property.speed * Time.deltaTime * (currStatus == TruckStatus.BOOSTED ? 4f : 1f), Space.World);
+            this.transform.Translate(dir.normalized * property.speed * Time.deltaTime * (currStatus == TruckStatus.BOOSTED ? 2f : 1f), Space.World);
             position = this.gameObject.transform.position;
 
             if (isNowAt(point.getCurrPosition()) && point.getIsGenerator())

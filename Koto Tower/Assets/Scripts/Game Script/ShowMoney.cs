@@ -13,6 +13,7 @@ public class ShowMoney : MonoBehaviour
     {
         text = this.GetComponent<Text>();
         text.text = "Money = " + (int)GameManager.instance.money;
+        this.gameObject.SetActive(!GameManager.instance.isPractice);
     }
 
     // change the money if there is a change

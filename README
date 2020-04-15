@@ -125,6 +125,10 @@ Script:
 59. GetDataTest
 60. DropdownCustom
 61. DropdownProperty
+62. SaveManager
+63. SaveState
+64. LevelUi
+65. ShowLevelBasedOnSaveFile
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -159,3 +163,4 @@ Sprint 2 :
 - 10/Apr/2020 : Add UI for back button with picture, and added lose win UI when the game is win or lose(Reivaldo Julianto)
 - 13/Apr/2020 : Add scoreboard to the end of the game, and fixes some UI bugs(Reivaldo Julianto)
 - 14/Apr/2020 : Add rangkuman scene, and establish connection to database and PHP apps to Unity(Reivaldo Julianto)
+- 15/Apr/2020 : Add Save System, and practice mode(Reivaldo Julianto)

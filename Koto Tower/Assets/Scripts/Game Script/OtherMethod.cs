@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using UnityEngine;
 
-public class OtherMethod 
+public static class OtherMethod 
 {
     // Shuffle a list by epoch times
     public static List<T> shuffle<T>(List<T> collection, int epoch)
@@ -28,5 +30,21 @@ public class OtherMethod
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
         return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+    }
+
+    // Serialize save file
+    public static string serialize<T>(this T toSerialize)
+    {
+        XmlSerializer xml = new XmlSerializer(typeof(T));
+        StringWriter writer = new StringWriter();
+        xml.Serialize(writer, toSerialize);
+        return writer.ToString();
+    }
+
+    public static T deserialize<T>(this string toDeserialize)
+    {
+        XmlSerializer xml = new XmlSerializer(typeof(T));
+        StringReader reader = new StringReader(toDeserialize);
+        return (T)xml.Deserialize(reader);
     }
 }
