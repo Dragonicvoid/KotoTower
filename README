@@ -129,6 +129,7 @@ Script:
 63. SaveState
 64. LevelUi
 65. ShowLevelBasedOnSaveFile
+66. LoginRegister
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -164,3 +165,4 @@ Sprint 2 :
 - 13/Apr/2020 : Add scoreboard to the end of the game, and fixes some UI bugs(Reivaldo Julianto)
 - 14/Apr/2020 : Add rangkuman scene, and establish connection to database and PHP apps to Unity(Reivaldo Julianto)
 - 15/Apr/2020 : Add Save System, and practice mode(Reivaldo Julianto)
+- 16/Apr/2020 : Add login and register system, and change the database (Reivaldo Julianto)

@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     // player save state
     public SaveState saveFile;
 
+    // player login attribute
+    public bool hasLogin;
+    public int userId;
+
     // Level selection attribute
     public int currentSceneIndex;
     public int currentLevelIndex;
@@ -72,6 +76,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        hasLogin = false;
+        userId = -1;
         SceneManager.LoadSceneAsync((int)Levels.MAIN_MENU, LoadSceneMode.Additive);
         currentSceneIndex = (int)Levels.MAIN_MENU;
         selectedSummaryIndex = -1;
@@ -248,5 +254,11 @@ public class GameManager : MonoBehaviour
 
         isLoading = false;
         loadingScreen.SetActive(false);
+    }
+
+    // get user id
+    public int getUserId()
+    {
+        return userId;
     }
 }

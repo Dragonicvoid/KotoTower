@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DropdownCustom: MonoBehaviour
 {
-    [SerializeField] GameObject background = null;
+    [SerializeField] GameObject filter = null;
     [SerializeField] int maxLevel = 2;
 
     private Dropdown dropdownBab;
@@ -68,7 +68,6 @@ public class DropdownCustom: MonoBehaviour
     public void openLevel()
     {
         levels[currSummary.index > 1 ? 2 : currSummary.index].gameObject.SetActive(true);
-        background.gameObject.SetActive(false);
-        this.gameObject.SetActive(false);
+        filter.gameObject.SetActive(true);
     }
 }

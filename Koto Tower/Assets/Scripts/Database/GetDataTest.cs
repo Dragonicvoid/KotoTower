@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Security.Cryptography;
+using System.Text;
+using System;
 
 public class GetDataTest : MonoBehaviour
 {
@@ -14,11 +17,15 @@ public class GetDataTest : MonoBehaviour
     private void Start()
     {
         text = this.gameObject.GetComponent<Text>();
-        StartCoroutine(getDataTest());
     }
 
     private void Update()
     {
+        if (GameManager.instance.hasLogin)
+            text.text = "Logged";
+        else
+            text.text = "not logged";
+
         if (isDoneScanData)
         {
             text.text = description;
@@ -70,5 +77,20 @@ public class GetDataTest : MonoBehaviour
             description = "FOUND ERROR NO " + www.text;
             isDoneScanData = true;
         }
+    }
+
+    IEnumerator testHashing(string s)
+    {
+        yield return null;
+        SHA1 hash = SHA1.Create();
+        byte[] data1 = hash.ComputeHash(Encoding.UTF8.GetBytes(s));
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < data1.Length; i++)
+            sb.Append(data1[i].ToString("x2"));
+
+        description = sb.ToString();
+        isDoneScanData = true;
     }
 }
