@@ -53,11 +53,13 @@ self made
 self made
 24. Door_Keluar.png:
 self made
-25. All material for study:
+25. All material for study.PNG:
 udemy.com : attains online japanese, "Online Japanese N5 Course"
-26. Hamburger Menu:
+26. Hamburger Menu.PNG:
 Self Made
-27. White Box Border:
+27. White Box Border.PNG:
+Self Made
+28. Loading.PNG with its animation:
 Self Made
 
 Assets (audio):
@@ -136,7 +138,7 @@ Script:
 
 Progression Note:
 
-SPRINT 1 :
+Bulan Maret :
 
 - 02/Mar/2020 : Added basic movement, placeholder, and spawning mechanic (Reivaldo Julianto) 
 - 04/Mar/2020 : Added basic tower shooting, damage, and FPS counter (Reivaldo Julianto)
@@ -154,7 +156,7 @@ SPRINT 1 :
 - 30/Mar/2020 : Add Delete tower, and some UI improvement, and added Tile Map (Reivaldo Julianto)
 - 31/Mar/2020 : Add Difficulty Selection, new Scene for loading, and more UI improvement(Reivaldo Julianto)
 
-Sprint 2 :
+Bulan April :
 - 2/Apr/2020 : Fix some UI bugs, and added back the button to move back and forth to koto tower and generator when there is a question that is not answer. (Reivaldo Julianto) 
 - 3/Apr/2020 : Meeting 
 - 6/Apr/2020 : Change Every script name to the right one (without "Testing"), added simple main menu and level selection (Reivaldo Julianto) 
@@ -166,3 +168,4 @@ Sprint 2 :
 - 14/Apr/2020 : Add rangkuman scene, and establish connection to database and PHP apps to Unity(Reivaldo Julianto)
 - 15/Apr/2020 : Add Save System, and practice mode(Reivaldo Julianto)
 - 16/Apr/2020 : Add login and register system, and change the database (Reivaldo Julianto)
+- 17/Apr/2020 : Add Login and Register validation, so that register can only have one username in database, and add loading when you are loging in or register you account, also remove a bug where you can choose 2 levels in level selection scene (Reivaldo Julianto)

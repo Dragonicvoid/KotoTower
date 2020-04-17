@@ -15,9 +15,30 @@ public class LoginRegister : MonoBehaviour
     [SerializeField] InputField usernameRegisterField = null;
     [SerializeField] InputField passwordRegisterField = null;
     [SerializeField] InputField confirmPasswordRegisterField = null;
-    
+
+    // login and register box
+    [SerializeField] GameObject loginBox = null;
+    [SerializeField] GameObject registerBox = null;
+
+    //filter
+    [SerializeField] GameObject filter = null;
+
+    // Text login dan register akun
+    [SerializeField] Text loginText = null;
+    [SerializeField] Text loginErrorText = null;
+    [SerializeField] Text registerErrorText = null;
+
+    // cancel button when loading
+    [SerializeField] GameObject loadingBox = null;
+    [SerializeField] Button cancelButton = null;
+
+    // button leaderboards
+    [SerializeField] Button leaderboards = null;
+
     // is sending the input field done?
     bool doneSending;
+    // error text;
+    string errorText;
 
     private void Start()
     {
@@ -29,19 +50,31 @@ public class LoginRegister : MonoBehaviour
     {
         // if any field is empty
         if ("".Equals(usernameLoginField.text) || "".Equals(passwordLoginField.text))
+        {
+            errorText = "Seluruh field harus diisi";
             return false;
+        }
 
         // if any field is not alpha numeric
         if (!isAlphaNumer(usernameLoginField.text) || !isAlphaNumer(passwordLoginField.text))
+        {
+            errorText = "Username dan password akun harus berupa huruf atau/dan angka";
             return false;
+        }
 
         // if username is shorter than 3
-        if (usernameLoginField.text.Length < 3)
+        if (usernameLoginField.text.Length < 3 || usernameLoginField.text.Length > 20)
+        {
+            errorText = "Panjang username harus diantara 3 sampai 20 huruf";
             return false;
-
+        }
+            
         // if password length is shorter than 3
-        if (passwordLoginField.text.Length < 3)
+        if (passwordLoginField.text.Length < 3 || passwordLoginField.text.Length > 20)
+        {
+            errorText = "Panjang password harus diantara 3 sampai 20 huruf";
             return false;
+        }
 
         return true;
     }
@@ -49,42 +82,42 @@ public class LoginRegister : MonoBehaviour
     // check validity for register
     bool checkRegister()
     {
+        errorText = "";
         // if any field is empty
         if ("".Equals(usernameRegisterField.text) || "".Equals(passwordRegisterField.text) || "".Equals(confirmPasswordRegisterField.text))
         {
-            Debug.Log("empty");
+            errorText = "Seluruh field harus diisi";
             return false;
         }
             
         // if any field is not alpha numeric
         if (!isAlphaNumer(usernameRegisterField.text) || !isAlphaNumer(passwordRegisterField.text) || !isAlphaNumer(confirmPasswordRegisterField.text))
         {
-            Debug.Log("alpha numeric");
+            errorText = "Username dan password akun harus berupa huruf atau/dan angka";
             return false;
         }
 
         // if username is shorter than 3
-        if (usernameRegisterField.text.Length < 3)
+        if (usernameRegisterField.text.Length < 3 || usernameRegisterField.text.Length > 20)
         {
-            Debug.Log("lenght user");
+            errorText = "Panjang username harus diantara 3 sampai 20 huruf";
             return false;
         }
 
         // if password length is shorter than 3
-        if (passwordRegisterField.text.Length < 3)
+        if (passwordRegisterField.text.Length < 3 || passwordRegisterField.text.Length > 20)
         {
-            Debug.Log("length pass");
+            errorText = "Panjang password harus diantara 3 sampai 20 huruf";
             return false;
         }
 
         // if confimation is not the same
         if (!confirmPasswordRegisterField.text.Equals(passwordRegisterField.text))
         {
-            Debug.Log("Not same");
+            errorText = "Password dan konfirmasi password tidak sama";
             return false;
         }
 
-        Debug.Log("here");
         return true;
     }
 
@@ -102,34 +135,40 @@ public class LoginRegister : MonoBehaviour
         // if the requirement is valid
         if (checkLogin())
         {
-            Debug.Log("halo");
+            loadingBox.SetActive(true);
+            errorText = "";
             WWWForm form = new WWWForm();
             form.AddField("username", usernameLoginField.text);
-            Debug.Log(usernameLoginField.text);
 
             string hashedPassword = hashing(passwordLoginField.text);
             form.AddField("password", hashedPassword);
-            Debug.Log(hashedPassword);
 
             WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
             yield return www;
 
             if (www.text == null || "".Equals(www.text))
-            {
-                Debug.Log("error : " + "\n server is offline");
-            }
+                errorText = "error : " + "\n server is offline";
             else if (www.text[0] == '0')
             {
+                cancelButton.interactable = false;
                 string[] data = www.text.Split('\t');
-                Debug.Log(data[1]);
                 GameManager.instance.userId = int.Parse(data[1]);
                 GameManager.instance.hasLogin = true;
+                changeText(GameManager.instance.hasLogin);
+                leaderboards.interactable = GameManager.instance.hasLogin;
+                resetFields();
+                loginBox.SetActive(false);
+                filter.SetActive(false);
+                cancelButton.interactable = true;
             }
             else
-            {
-                Debug.Log("FOUND ERROR NO " + www.text);
-            }
+                errorText = "FOUND ERROR NO " + www.text;
+
+            loginErrorText.text = errorText;
+            loadingBox.SetActive(false);
         }
+        else
+            loginErrorText.text = errorText;
     }
 
     // register
@@ -146,6 +185,8 @@ public class LoginRegister : MonoBehaviour
         // if requirement is valid
         if (checkRegister())
         {
+            loadingBox.SetActive(true);
+            errorText = "";
             WWWForm form = new WWWForm();
             form.AddField("username", usernameRegisterField.text);
             Debug.Log(usernameRegisterField.text);
@@ -162,21 +203,29 @@ public class LoginRegister : MonoBehaviour
             yield return www;
 
             if (www.text == null || "".Equals(www.text))
-            {
-                Debug.Log("error : " + "\n server is offline");
-            }
+                errorText = "error : " + "\n server is offline";
             else if (www.text[0] == '0')
             {
+                cancelButton.interactable = false;
                 string[] data = www.text.Split('\t');
-                Debug.Log(data[1]);
                 GameManager.instance.userId = int.Parse(data[1]);
                 GameManager.instance.hasLogin = true;
+                changeText(GameManager.instance.hasLogin);
+                leaderboards.interactable = GameManager.instance.hasLogin;
+                resetFields();
+                registerBox.SetActive(false);
+                filter.SetActive(false);
+                cancelButton.interactable = true;
             }
             else
-            {
-                Debug.Log("FOUND ERROR NO " + www.text);
-            }
+                errorText = "FOUND ERROR NO " + www.text;
+
+            registerErrorText.text = errorText;
+            loadingBox.SetActive(false);
         }
+        else
+            registerErrorText.text = errorText;
+
     }
 
     //check words
@@ -196,6 +245,10 @@ public class LoginRegister : MonoBehaviour
         usernameRegisterField.text = "";
         passwordRegisterField.text = "";
         confirmPasswordRegisterField.text = "";
+
+        // error text
+        loginErrorText.text = "";
+        registerErrorText.text = "";
     }
 
     // hashing
@@ -214,5 +267,21 @@ public class LoginRegister : MonoBehaviour
         finalResult = sb.ToString();
 
         return finalResult;
+    }
+
+    // change text based of login condition
+    public void changeText(bool hasLogin)
+    {
+        if (hasLogin)
+            loginText.text = "Logout Akun";
+        else
+            loginText.text = "Login atau Daftar Akun";
+    }
+
+    // cancel all couroutine
+    public void cancelLoginOrRegister()
+    {
+        StopAllCoroutines();
+        loadingBox.SetActive(false);
     }
 }

@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     // register
     [SerializeField] GameObject register = null;
 
+    LoginRegister loginRegister;
     bool isNowConfirmation;
 
     Camera mainCamera;
@@ -29,6 +30,7 @@ public class MainMenu : MonoBehaviour
     {
         continueButton.interactable = PlayerPrefs.HasKey("save");
         rangkumanButton.interactable = PlayerPrefs.HasKey("save");
+        leaderboards.interactable = GameManager.instance.hasLogin;
     }
 
     // get main camera of the scene
@@ -36,6 +38,8 @@ public class MainMenu : MonoBehaviour
     {
         isNowConfirmation = false;
         mainCamera = Camera.main;
+        loginRegister = this.gameObject.GetComponent<LoginRegister>();
+        loginRegister.changeText(GameManager.instance.hasLogin);
     }
 
     // go to level select by new Game
@@ -62,6 +66,7 @@ public class MainMenu : MonoBehaviour
         GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
     }
 
+    // close the confirmation
     public void closeConfirmation()
     {
         confirmationPanel.SetActive(false);
@@ -92,10 +97,17 @@ public class MainMenu : MonoBehaviour
     // open login page and the filter
     public void openLogin()
     {
-        if (!isNowConfirmation)
+        if (!isNowConfirmation && !GameManager.instance.hasLogin)
         {
             filter.SetActive(true);
             login.SetActive(true);
+        }
+        else if(!isNowConfirmation)
+        {
+            GameManager.instance.hasLogin = false;
+            GameManager.instance.userId = -1;
+            loginRegister.changeText(GameManager.instance.hasLogin);
+            leaderboards.interactable = false;
         }
     }
 
@@ -136,6 +148,15 @@ public class MainMenu : MonoBehaviour
         {
             register.SetActive(false);
             login.SetActive(true);
+        }
+    }
+
+    // exit the game
+    public void quit()
+    {
+        if (!isNowConfirmation)
+        {
+            Application.Quit(0);
         }
     }
 }
