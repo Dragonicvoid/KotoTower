@@ -99,6 +99,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation && !GameManager.instance.hasLogin)
         {
+            loginRegister.resetFields();
             filter.SetActive(true);
             login.SetActive(true);
         }
@@ -116,6 +117,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            loginRegister.resetFields();
             login.SetActive(false);
             register.SetActive(true);
         }

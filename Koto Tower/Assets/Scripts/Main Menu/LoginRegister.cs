@@ -22,6 +22,7 @@ public class LoginRegister : MonoBehaviour
 
     //filter
     [SerializeField] GameObject filter = null;
+    [SerializeField] GameObject filterLoginRegister = null;
 
     // Text login dan register akun
     [SerializeField] Text loginText = null;
@@ -136,6 +137,7 @@ public class LoginRegister : MonoBehaviour
         if (checkLogin())
         {
             loadingBox.SetActive(true);
+            filterLoginRegister.SetActive(true);
             errorText = "";
             WWWForm form = new WWWForm();
             form.AddField("username", usernameLoginField.text);
@@ -158,7 +160,9 @@ public class LoginRegister : MonoBehaviour
                 leaderboards.interactable = GameManager.instance.hasLogin;
                 resetFields();
                 loginBox.SetActive(false);
+                registerBox.SetActive(false);
                 filter.SetActive(false);
+                filterLoginRegister.SetActive(false);
                 cancelButton.interactable = true;
             }
             else
@@ -186,6 +190,7 @@ public class LoginRegister : MonoBehaviour
         if (checkRegister())
         {
             loadingBox.SetActive(true);
+            filterLoginRegister.SetActive(true);
             errorText = "";
             WWWForm form = new WWWForm();
             form.AddField("username", usernameRegisterField.text);
@@ -214,7 +219,9 @@ public class LoginRegister : MonoBehaviour
                 leaderboards.interactable = GameManager.instance.hasLogin;
                 resetFields();
                 registerBox.SetActive(false);
+                loginBox.SetActive(false);
                 filter.SetActive(false);
+                filterLoginRegister.SetActive(false);
                 cancelButton.interactable = true;
             }
             else
@@ -222,6 +229,7 @@ public class LoginRegister : MonoBehaviour
 
             registerErrorText.text = errorText;
             loadingBox.SetActive(false);
+
         }
         else
             registerErrorText.text = errorText;
@@ -283,5 +291,6 @@ public class LoginRegister : MonoBehaviour
     {
         StopAllCoroutines();
         loadingBox.SetActive(false);
+        filterLoginRegister.SetActive(false);
     }
 }
