@@ -90,6 +90,7 @@ public class GeneratorBehaviour : MonoBehaviour
             GameManager.instance.scoreboard.consecutiveAnswer = 0;
             questionText.text = "JAWABAN SALAH!!!";
             isStartTiming = true; // start the timer
+            GameManager.instance.isChangedEnemyGroupSize = true;
         }
         
         // Tell question manager that the truck has arrived and charged the generator

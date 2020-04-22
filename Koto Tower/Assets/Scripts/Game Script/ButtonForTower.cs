@@ -9,6 +9,7 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
     // filter and cancel button
     [SerializeField] GameObject filter = null;
     [SerializeField] CancelTrapTower cancelButton = null;
+    [SerializeField] GameObject desc = null;
 
     // property
     int countLine;
@@ -131,6 +132,9 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
             selectedButton.activate();
             GameManager.instance.isSelectTower = true;
             GameManager.instance.selectedTower = (short)idx;
+            DescriptionForBuilding descForBuilding = desc.GetComponent<DescriptionForBuilding>();
+            descForBuilding.changeDesc(true, idx);
+            desc.gameObject.SetActive(true);
             filter.SetActive(true);
             cancelButton.readyToSpawn();
         }         

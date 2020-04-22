@@ -22,7 +22,13 @@ public class LevelManager : MonoBehaviour
     // back to main menu
     public void backToMainMenu()
     {
-        GameManager.instance.loadGame((int)Levels.MAIN_MENU);
+        if(GameManager.instance.selectedSummaryIndex == -1)
+            GameManager.instance.loadGame((int)Levels.MAIN_MENU);
+        else
+        {
+            GameManager.instance.selectedSummaryIndex = -1;
+            GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
+        }
     }
 
     // go to rangkuman menu

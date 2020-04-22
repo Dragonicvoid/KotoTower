@@ -17,6 +17,7 @@ public class SpawnTrap : MonoBehaviour
     [SerializeField] GameObject trapTime = null;
     [SerializeField] GameObject trapFreeze = null;
     [SerializeField] ButtonForTrap trapButton = null;
+    [SerializeField] GameObject desc = null;
 
     // Find camera with tag
     private void Awake()
@@ -34,10 +35,12 @@ public class SpawnTrap : MonoBehaviour
             cancel();
 
         // for touch
-        if (Input.touchCount > 0 && GameManager.instance.isSelectTrap && !isReadyToSpawn)
+        if (Input.touchCount > 0 && GameManager.instance.isSelectTrap && !isReadyToSpawn && !OtherMethod.onUiPressed(Input.GetTouch(0).position))
         {
+            Touch touch = Input.GetTouch(0);
+
             // If it is the first time to build then make the trap
-            if (!isReadyToBuild)
+            if (!isReadyToBuild && !OtherMethod.onUiPressed(touch.position))
             {
                 switch (GameManager.instance.selectedTrap)
                 {
@@ -65,9 +68,7 @@ public class SpawnTrap : MonoBehaviour
                 isReadyToBuild = true;
             }
 
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began && !OtherMethod.onUiPressed(touch.position))
             {
                 Vector2 touchPosition;
                 touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
@@ -89,7 +90,7 @@ public class SpawnTrap : MonoBehaviour
             }
         }
 
-        if (Input.touchCount > 0 && isReadyToBuild && isReadyToSpawn)
+        if (Input.touchCount > 0 && isReadyToBuild && isReadyToSpawn && !OtherMethod.onUiPressed(Input.GetTouch(0).position))
         {
             Touch touch = Input.GetTouch(0);
             Vector2 touchPosition;
@@ -125,6 +126,7 @@ public class SpawnTrap : MonoBehaviour
                     isReadyToBuild = false;
                     isReadyToSpawn = false;
                     canSpawn = false;
+                    desc.gameObject.SetActive(false);
                     GameEvents.current.TowerOrTrapBuild();
                     return;
                 }
@@ -138,7 +140,7 @@ public class SpawnTrap : MonoBehaviour
         }
 
         // for mouse (debug)
-        if (Input.GetMouseButton(0) && GameManager.instance.isSelectTrap)
+        if (Input.GetMouseButton(0) && GameManager.instance.isSelectTrap && !OtherMethod.onUiPressed(Input.mousePosition))
         {
             // If it is the first time to build then make the trap
             if (!isReadyToBuild)
@@ -190,7 +192,7 @@ public class SpawnTrap : MonoBehaviour
         }
 
         // if the player touch the area again then spawn the trap, if its the first time then just be ready to spawn
-        if (Input.GetMouseButtonUp(0) && GameManager.instance.isSelectTrap)
+        if (Input.GetMouseButtonUp(0) && GameManager.instance.isSelectTrap && !OtherMethod.onUiPressed(Input.mousePosition))
         {
             if (!isReadyToSpawn && isReadyToBuild)
                 isReadyToSpawn = true;
@@ -213,6 +215,7 @@ public class SpawnTrap : MonoBehaviour
                 currentTrapType = TrapType.BOMB_TRAP;
                 isReadyToBuild = false;
                 isReadyToSpawn = false;
+                desc.gameObject.SetActive(false);
                 GameEvents.current.TowerOrTrapBuild();
                 return;
             }
@@ -229,6 +232,7 @@ public class SpawnTrap : MonoBehaviour
             Destroy(currentTrap);
 
         currentTrap = null;
+        desc.gameObject.SetActive(false);
 
         if(GameManager.instance.isSelectTrap)
             trapButton.disableButton(GameManager.instance.selectedTrap);

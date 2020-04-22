@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     public int totalAnsweredQuestion;
     public int maxCharged;
     public bool isChangedDifficulty;
+    public bool isChangedEnemyGroupSize;
 
     public Camera mainCamera;
 
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
         isPressedButtonTrap = false;
 
         isChangedDifficulty = false;
+        isChangedEnemyGroupSize = false;
 
         moneyChanged = false;
 

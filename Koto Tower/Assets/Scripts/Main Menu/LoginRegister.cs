@@ -149,7 +149,7 @@ public class LoginRegister : MonoBehaviour
             yield return www;
 
             if (www.text == null || "".Equals(www.text))
-                errorText = "error : " + "\n server is offline";
+                errorText = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
             else if (www.text[0] == '0')
             {
                 cancelButton.interactable = false;
@@ -162,14 +162,14 @@ public class LoginRegister : MonoBehaviour
                 loginBox.SetActive(false);
                 registerBox.SetActive(false);
                 filter.SetActive(false);
-                filterLoginRegister.SetActive(false);
                 cancelButton.interactable = true;
             }
             else
-                errorText = "FOUND ERROR NO " + www.text;
+                errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
 
             loginErrorText.text = errorText;
             loadingBox.SetActive(false);
+            filterLoginRegister.SetActive(false);
         }
         else
             loginErrorText.text = errorText;
@@ -208,7 +208,7 @@ public class LoginRegister : MonoBehaviour
             yield return www;
 
             if (www.text == null || "".Equals(www.text))
-                errorText = "error : " + "\n server is offline";
+                errorText =  "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
             else if (www.text[0] == '0')
             {
                 cancelButton.interactable = false;
@@ -221,15 +221,14 @@ public class LoginRegister : MonoBehaviour
                 registerBox.SetActive(false);
                 loginBox.SetActive(false);
                 filter.SetActive(false);
-                filterLoginRegister.SetActive(false);
                 cancelButton.interactable = true;
             }
             else
-                errorText = "FOUND ERROR NO " + www.text;
+                errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
 
             registerErrorText.text = errorText;
             loadingBox.SetActive(false);
-
+            filterLoginRegister.SetActive(false);
         }
         else
             registerErrorText.text = errorText;

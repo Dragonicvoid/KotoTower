@@ -18,6 +18,7 @@ public class SpawnTower : MonoBehaviour
     [SerializeField] GameObject towerSniper= null;
     [SerializeField] GameObject towerElectric = null;
     [SerializeField] ButtonForTower towerButton = null;
+    [SerializeField] GameObject desc = null;
 
     // Find camera with tag
     private void Awake()
@@ -44,8 +45,9 @@ public class SpawnTower : MonoBehaviour
     void detectTouches()
     {
         // for touch
-        if (Input.touchCount > 0 && GameManager.instance.isSelectTower && !isReadyToSpawn)
+        if (Input.touchCount > 0 && GameManager.instance.isSelectTower && !isReadyToSpawn && !OtherMethod.onUiPressed(Input.GetTouch(0).position))
         {
+            Touch touch = Input.GetTouch(0);
             // If it is the first time to build then make the tower
             if (!isReadyToBuild)
             {
@@ -75,8 +77,6 @@ public class SpawnTower : MonoBehaviour
                 isReadyToBuild = true;
             }
 
-            Touch touch = Input.GetTouch(0);
-
             if (touch.phase == TouchPhase.Began)
             {
                 Vector2 touchPosition;
@@ -101,7 +101,7 @@ public class SpawnTower : MonoBehaviour
             }
         }
 
-        if (Input.touchCount > 0 && isReadyToBuild && isReadyToSpawn)
+        if (Input.touchCount > 0 && isReadyToBuild && isReadyToSpawn && !OtherMethod.onUiPressed(Input.GetTouch(0).position))
         {
             Touch touch = Input.GetTouch(0);
             Vector2 touchPosition;
@@ -143,6 +143,7 @@ public class SpawnTower : MonoBehaviour
                     canSpawn = false;
                     currX = -1;
                     currY = -1;
+                    desc.gameObject.SetActive(false);
                     GameEvents.current.TowerOrTrapBuild();
                     return;
                 }
@@ -159,7 +160,7 @@ public class SpawnTower : MonoBehaviour
     // for mouse (debug)
     void detectMouse()
     {
-        if (Input.GetMouseButton(0) && GameManager.instance.isSelectTower)
+        if (Input.GetMouseButton(0) && GameManager.instance.isSelectTower && !OtherMethod.onUiPressed(Input.mousePosition))
         {
             // If it is the first time to build then make the tower
             if (!isReadyToBuild)
@@ -219,7 +220,7 @@ public class SpawnTower : MonoBehaviour
         }
 
         // if the player touch the area again then spawn the tower, if its the first time then just be ready to spawn
-        if (Input.GetMouseButtonUp(0) && GameManager.instance.isSelectTower)
+        if (Input.GetMouseButtonUp(0) && GameManager.instance.isSelectTower && !OtherMethod.onUiPressed(Input.mousePosition))
         {
             if (!isReadyToSpawn && isReadyToBuild)
                 isReadyToSpawn = true;
@@ -248,6 +249,7 @@ public class SpawnTower : MonoBehaviour
                 isReadyToSpawn = false;
                 currX = -1;
                 currY = -1;
+                desc.gameObject.SetActive(false);
                 GameEvents.current.TowerOrTrapBuild();
                 return;
             }
@@ -265,6 +267,7 @@ public class SpawnTower : MonoBehaviour
             Destroy(currentTower);
 
         currentTower = null;
+        desc.gameObject.SetActive(false);
 
         if(GameManager.instance.isSelectTower)
             towerButton.disableButton(GameManager.instance.selectedTower);

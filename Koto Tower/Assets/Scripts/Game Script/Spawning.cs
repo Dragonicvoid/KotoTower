@@ -7,7 +7,6 @@ public class Spawning : MonoBehaviour
     #region Serialized Field Variables definition
     [SerializeField] EnemiesPooling inactiveObject = null;
     [SerializeField] Transform activeObject = null;
-    [SerializeField] int cost = 5;
     [SerializeField] List<float> spawnTimer = new List<float>();
     // Change diffculty to next timer after 100s
     [SerializeField] float forceChangeDiffCountdown = 30f;
@@ -15,10 +14,15 @@ public class Spawning : MonoBehaviour
 
     #region Private Variables definition
     List<Point> spawnPoints;
+    Point point;
+    Vector2 spawnLocation;
     float timer = 0f;
     float spawnNow = 1f;
     float changeTimer = 0f;
     int diffCount = 0;
+    int groupSize = 1;
+    bool startSpawning = false;
+    bool currentlySpawning = false;
     #endregion
 
     #region Monobehaviour Method
@@ -41,6 +45,8 @@ public class Spawning : MonoBehaviour
         timer = 0f;
         changeTimer = 0f;
         diffCount = 0;
+        startSpawning = false;
+        currentlySpawning = false;
     }
 
     // Update is called once per frame
@@ -64,20 +70,18 @@ public class Spawning : MonoBehaviour
                 changeTimer = 0f;
             }
 
-            // Every "spawnNow" second spawn someone (might change how it works during development)
-            if (timer >= spawnNow)
+            if (GameManager.instance.isChangedEnemyGroupSize)
             {
-                // Getting random spawn location 
-                int randIdx = Random.Range(0, spawnPoints.Count);
-                Point point = spawnPoints[(randIdx < 0 ? 0 : randIdx)];
-                Vector2 spawnLocation = point.getCurrPosition();
-
-                // Get enemies from pool according to the cost
-                List<EnemyBehaviour> enemies = enemiesPool(cost, spawnLocation, point);
-
-                // Resetting the timer
-                timer = 0f;
+                groupSize++;
+                GameManager.instance.isChangedEnemyGroupSize = false;
             }
+
+            // Every "spawnNow" second spawn group of Zombies
+            if (timer >= spawnNow && !startSpawning)
+                startSpawning = true;
+
+            if (startSpawning && !currentlySpawning)
+                StartCoroutine(spawnZombies());
 
             timer += Time.deltaTime;
             changeTimer += Time.deltaTime;
@@ -86,22 +90,50 @@ public class Spawning : MonoBehaviour
     #endregion
 
     #region Private Method
-    // Adding cost for creating power for each wave
-    List<EnemyBehaviour> enemiesPool(int cost, Vector2 spawnLocation, Point target)
+    // spawn a bunch zombie
+    IEnumerator spawnZombies()
     {
-        List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
+        float groupSpawner = 0.3f;
+        float groupTimer = 0f;
+        int zombieCount = 0;
+        currentlySpawning = true;
 
-        // haven't added cost function
+        while (zombieCount < groupSize)
+        {
+            yield return null;
+            if (groupTimer >= groupSpawner && !GameManager.instance.isPaused)
+            {
+                // Getting random spawn location 
+                int randIdx = Random.Range(0, spawnPoints.Count);
+                point = spawnPoints[(randIdx < 0 ? 0 : randIdx)];
+                spawnLocation = point.getCurrPosition();
 
+                // Spawn enemy from pool according to the cost
+                enemiesPool(spawnLocation, point);
+                groupTimer = 0;
+                zombieCount++;
+            }
+            else if (!GameManager.instance.isPaused)
+                groupTimer += Time.deltaTime;
+        }
+
+        // reset the timer
+        startSpawning = false;
+        currentlySpawning = false;
+        timer = 0f;
+    }
+
+    // Adding cost for creating power for each wave
+    EnemyBehaviour enemiesPool(Vector2 spawnLocation, Point target)
+    {
         //Initializing all agent attribute
         GameObject enemyObj = inactiveObject.pooling();
         EnemyBehaviour enemy = enemyObj.GetComponent<EnemyBehaviour>();
-        enemy.spawn(spawnLocation);
         enemy.changeParent(activeObject);
         enemy.changeTargetFromCurrPoint(target);
-        enemies.Add(enemy);
+        enemy.spawn(spawnLocation);
 
-        return enemies;
+        return enemy;
     }
     #endregion
 }

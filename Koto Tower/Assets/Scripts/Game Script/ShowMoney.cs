@@ -12,8 +12,9 @@ public class ShowMoney : MonoBehaviour
     private void Start()
     {
         text = this.GetComponent<Text>();
-        text.text = "Money = " + (int)GameManager.instance.money;
-        this.gameObject.SetActive(!GameManager.instance.isPractice);
+        text.text = "" + (int)GameManager.instance.money;
+        Transform parent = this.transform.parent;
+        parent.gameObject.SetActive(!GameManager.instance.isPractice);
     }
 
     // change the money if there is a change
@@ -21,7 +22,7 @@ public class ShowMoney : MonoBehaviour
     {
         if (GameManager.instance.moneyChanged && !GameManager.instance.isPaused)
         {
-            text.text = "Money = " + (int)GameManager.instance.money;
+            text.text = "" + (int)GameManager.instance.money;
             GameManager.instance.moneyChanged = false;
         }
     }

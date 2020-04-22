@@ -61,6 +61,8 @@ Self Made
 Self Made
 28. Loading.PNG with its animation:
 Self Made
+29. Coin.PNG:
+Self Made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -132,6 +134,7 @@ Script:
 64. LevelUi
 65. ShowLevelBasedOnSaveFile
 66. LoginRegister
+67. DescriptionForBuilding
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -169,3 +172,4 @@ Bulan April :
 - 15/Apr/2020 : Add Save System, and practice mode(Reivaldo Julianto)
 - 16/Apr/2020 : Add login and register system, and change the database (Reivaldo Julianto)
 - 17/Apr/2020 : Add Login and Register validation, so that register can only have one username in database, and add loading when you are loging in or register you account, also remove a bug where you can choose 2 levels in level selection scene (Reivaldo Julianto)
+- 22/Apr/2020 : Add coin UI for economy in the game, Add description for a tower or trap that you want to spawn, and Fixes some bugs (Reivaldo Julianto)
