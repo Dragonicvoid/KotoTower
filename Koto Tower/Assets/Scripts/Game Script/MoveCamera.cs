@@ -15,6 +15,7 @@ public class MoveCamera : MonoBehaviour
     Renderer kotoTowerRenderer, generatorRenderer;
     ClickOnKotoTower kotoTower;
     ClickOnGenerator generator;
+    TruckBehaviour truck;
     Vector2 cameraPosition;
     Camera cam;
 
@@ -31,6 +32,7 @@ public class MoveCamera : MonoBehaviour
         generatorRenderer = GameObject.FindGameObjectWithTag("Generator").GetComponent<SpriteRenderer>();
         kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<ClickOnKotoTower>();
         generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<ClickOnGenerator>();
+        truck = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckBehaviour>();
     }
 
     // Update is called once per frame
@@ -101,8 +103,18 @@ public class MoveCamera : MonoBehaviour
     // go to maximal horizontal plane
     public void goToMaxX()
     {
-        this.transform.position = new Vector3(maxX, 0f, -10f);
-        rightTimer = 0f;
-        isTouchedRight = false;
+        if (!GameManager.instance.isPaused)
+        {
+            this.transform.position = new Vector3(maxX, 0f, -10f);
+            rightTimer = 0f;
+            isTouchedRight = false;
+        }
+    }
+
+    // go to truck position
+    public void goToTruck()
+    {
+        if (!GameManager.instance.isPaused)
+            this.transform.position = new Vector3(truck.transform.position.x <= maxX ? truck.transform.position.x : maxX, 0f, -10f);
     }
 }

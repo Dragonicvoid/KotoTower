@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DeleteTower : MonoBehaviour
 {
+    [SerializeField] DescriptionForInspection desc = null;
     TowerBehaviour selectedTower;
     Button[] buttons;
     RectTransform rect;
@@ -22,20 +23,23 @@ public class DeleteTower : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    // select Tower 
+    // select Tower, also enable descriptor
     void OnTowerSelected(TowerBehaviour obj)
     {
         selectedTower = obj;
-
+        desc.changeDescriptor(selectedTower.getTowerType());
+        desc.gameObject.SetActive(true);
         foreach (Button button in buttons)
             button.interactable = true;
 
         this.gameObject.SetActive(true);
     }
 
-    // unselect Tower
+    // unselect Tower, also disable descriptor
     void OnTowerUnselected()
     {
+        desc.gameObject.SetActive(false);
+
         foreach (Button button in buttons)
             button.interactable = false;
 

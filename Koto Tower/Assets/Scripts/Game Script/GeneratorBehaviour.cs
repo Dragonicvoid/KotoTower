@@ -81,6 +81,8 @@ public class GeneratorBehaviour : MonoBehaviour
             else
             {
                 GameManager.instance.isChangedDifficulty = true;
+                GameManager.instance.money += 20 * GameManager.instance.totalAnsweredQuestion;
+                GameManager.instance.moneyChanged = true;
                 questionText.text = "JAWABAN BENAR!!!";
                 isStartTiming = true; // start the timer
             }

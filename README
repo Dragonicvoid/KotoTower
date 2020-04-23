@@ -135,6 +135,8 @@ Script:
 65. ShowLevelBasedOnSaveFile
 66. LoginRegister
 67. DescriptionForBuilding
+68. ShowTruckButtonOnWait
+69. DescriptionForInspection
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -173,3 +175,4 @@ Bulan April :
 - 16/Apr/2020 : Add login and register system, and change the database (Reivaldo Julianto)
 - 17/Apr/2020 : Add Login and Register validation, so that register can only have one username in database, and add loading when you are loging in or register you account, also remove a bug where you can choose 2 levels in level selection scene (Reivaldo Julianto)
 - 22/Apr/2020 : Add coin UI for economy in the game, Add description for a tower or trap that you want to spawn, and Fixes some bugs (Reivaldo Julianto)
+- 23/Apr/2020 : Add extra money when you answer correctly, add UI when you select tower, Add UI that shows when your truck needs instruction, and add insert update for leaderboards if you are logged in (Reivaldo Julianto)

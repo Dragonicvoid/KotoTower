@@ -70,6 +70,7 @@ public class LevelProperty : MonoBehaviour
 
         loseWinController.changeText(true, calculateTimeScore(GameManager.instance.scoreboard.time), GameManager.instance.scoreboard.consecutiveAnswer);
         loseWinController.gameObject.SetActive(true);
+        loseWinController.sendDataToLeaderboards();
     }
 
     // when the game lose just change text to lose
@@ -78,6 +79,7 @@ public class LevelProperty : MonoBehaviour
         GameManager.instance.isPaused = true;
         loseWinController.changeText(false);
         loseWinController.gameObject.SetActive(true);
+        loseWinController.sendDataToLeaderboards();
     }
 
     // for pausing

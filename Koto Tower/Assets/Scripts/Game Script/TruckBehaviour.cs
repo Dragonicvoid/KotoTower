@@ -254,4 +254,10 @@ public class TruckBehaviour : MonoBehaviour
     {
         return currStatus == TruckStatus.EXPLODING;
     }
+
+    //get status
+    public TruckStatus getTruckStatus()
+    {
+        return this.currStatus;
+    }
 }
