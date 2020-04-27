@@ -94,6 +94,16 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    // go to leaderboards
+    public void goToLeaderboards()
+    {
+        if (!isNowConfirmation)
+        {
+            SaveManager.instance.load();
+            GameManager.instance.loadGame((int)Levels.LEADERBOARDS);
+        }
+    }
+
     // open login page and the filter
     public void openLogin()
     {
@@ -158,6 +168,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            SaveManager.instance.saveAndUpdate();
             Application.Quit(0);
         }
     }

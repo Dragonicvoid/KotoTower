@@ -6,5 +6,6 @@
     RANGKUMAN = 3,
     LEVEL1 = 4,
     LEVEL2 = 5,
-    TEST_LEVEL = 6
+    TEST_LEVEL = 6,
+    LEADERBOARDS = 7
 }
