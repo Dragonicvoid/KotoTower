@@ -10,6 +10,11 @@ public class LoseWinController : MonoBehaviour
     [SerializeField] Text consecutiveAnswerScoreText = null;
     [SerializeField] Text totalAnsweredQuestionScoreText = null;
     [SerializeField] Text totalScoreText = null;
+    [SerializeField] Text errorText = null;
+    [SerializeField] Button mainLagiButton = null;
+    [SerializeField] Button levelSelectButton = null;
+    [SerializeField] GameObject loading = null;
+    [SerializeField] List<GameObject> leaderboardText = null;
 
     float totalScore;
 
@@ -39,10 +44,26 @@ public class LoseWinController : MonoBehaviour
             StartCoroutine(sendLeaderboardsData());
     }
 
+    // stop the send data
+    public void stopSendData()
+    {
+        StopAllCoroutines();
+        mainLagiButton.interactable = true;
+        levelSelectButton.interactable = true;
+        loading.SetActive(false);
+        errorText.text = "Pembeharuan dibatalkan";
+        errorText.gameObject.SetActive(true);
+    }
+
     // test to send data
     IEnumerator sendLeaderboardsData()
     {
         yield return null;
+        mainLagiButton.interactable = false;
+        levelSelectButton.interactable = false;
+        errorText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.3f);
+        loading.SetActive(true);
         // if the requirement is valid
         WWWForm form = new WWWForm();
         form.AddField("userId", GameManager.instance.userId);
@@ -53,10 +74,60 @@ public class LoseWinController : MonoBehaviour
         yield return www;
 
         if (www.text == null || "".Equals(www.text))
-            Debug.Log("Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi");
-        else if (www.text[0] == '0')
+        {
             Debug.Log(www.text);
+            errorText.text = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
+            errorText.gameObject.SetActive(true);
+        } 
+        else if (www.text[0] == '0')
+        {
+            changeLeaderboardsData(www.text);
+            errorText.text = "";
+            errorText.gameObject.SetActive(false);
+        }
         else
-            Debug.Log("Error ditemukan : " + www.text.Substring(3, www.text.Length - 3));
+        {
+            Debug.Log(www.text);
+            errorText.text = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
+            errorText.gameObject.SetActive(true);
+        }
+
+        mainLagiButton.interactable = true;
+        levelSelectButton.interactable = true;
+        loading.SetActive(false);
+    }
+
+    // update the leaderboards data
+    void changeLeaderboardsData(string text)
+    {
+        resetLeaderboardField();
+        List<string> splitText = new List<string>(text.Split('\n'));
+        Debug.Log(splitText.Count);
+
+        // stop if already have 5 data or there is no more data, starts at 2 because the first data is 2
+        for (int i = 2; i < splitText.Count && i < 7; i++)
+        {
+            string[] splitData = splitText[i].Split('\t');
+            Text[] texts = leaderboardText[i - 2].GetComponentsInChildren<Text>(true);
+            // text 0 is ranking number, 1 is username, 2 is score
+            // for splitData 0 is the username, and 1 is the score
+            texts[1].text = splitData[0];
+            texts[2].text = splitData[1];
+            leaderboardText[i - 2].gameObject.SetActive(true);
+        }
+
+        // Change player data on the UI
+        string[] splitPlayerData = splitText[1].Split('\t');
+        Text[] playerTexts = leaderboardText[5].GetComponentsInChildren<Text>(true);
+        playerTexts[0].text = splitPlayerData[0];
+        playerTexts[2].text = splitPlayerData[1];
+        leaderboardText[5].gameObject.SetActive(true);
+    }
+
+    // reset all leaderboard field
+    void resetLeaderboardField()
+    {
+        foreach (GameObject text in leaderboardText)
+            text.SetActive(false);
     }
 }

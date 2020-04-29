@@ -9,6 +9,7 @@ public class LeaderboardsManager : MonoBehaviour
     [SerializeField] Dropdown dropdown = null;
     [SerializeField] Button prevButton = null;
     [SerializeField] Button nextButton = null;
+    [SerializeField] Text errorText = null;
 
     List<LeaderboardsRow> rowList;
     GameObject rowLeaderboards;
@@ -36,6 +37,8 @@ public class LeaderboardsManager : MonoBehaviour
     // clear all leaderboards row
     void clearRows()
     {
+        errorText.text = "";
+        errorText.gameObject.SetActive(false);
         foreach (LeaderboardsRow row in rowList)
             row.gameObject.SetActive(false);
     }
@@ -94,13 +97,20 @@ public class LeaderboardsManager : MonoBehaviour
         yield return www;
 
         if (www.text == null || "".Equals(www.text))
-            Debug.Log("Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi");
+            setErrorText("Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi");
         else if (www.text[0] == '0')
             setRowData(www.text);
         else
-            Debug.Log("Error ditemukan : " + www.text.Substring(3, www.text.Length - 3));
+            setErrorText("Error ditemukan : " + www.text.Substring(3, www.text.Length - 3));
 
         loading.SetActive(false);
+    }
+
+    // set error text
+    void setErrorText(string error)
+    {
+        errorText.text = error;
+        errorText.gameObject.SetActive(true);
     }
 
     // set row data
