@@ -12,6 +12,7 @@ public class DropdownCustom: MonoBehaviour
     private List<DropdownProperty> dptList;
     private List<LevelSelect> levels;
     private DropdownProperty currSummary;
+    private LevelManager levelManager;
 
     // initialization
     private void Start()
@@ -30,6 +31,8 @@ public class DropdownCustom: MonoBehaviour
         currSummary = dptList[GameManager.instance.selectedSummaryIndex != -1 ? GameManager.instance.selectedSummaryIndex : 0];
         currSummary.gameObject.SetActive(true);
         dropdownBab.value = currSummary.index;
+
+        levelManager = this.gameObject.GetComponentInParent<LevelManager>();
     }
 
     // Go to the next lesson
@@ -67,7 +70,7 @@ public class DropdownCustom: MonoBehaviour
     // open the current level for current summary
     public void openLevel()
     {
-        levels[currSummary.index > 1 ? 2 : currSummary.index].gameObject.SetActive(true);
         filter.gameObject.SetActive(true);
+        levelManager.openLevel(currSummary.index > 1 ? 2 : currSummary.index);
     }
 }

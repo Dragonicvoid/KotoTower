@@ -14,6 +14,7 @@ public class LevelSelect : MonoBehaviour
     // 0 : easy, 1: medium, 2: hard
     [SerializeField] List<Text> difficultyDescText = null;
     [SerializeField] Text difficultyText = null;
+    [SerializeField] Text descText = null;
     [SerializeField] Image backgroundDiffImage = null;
     [SerializeField] Levels level;
     [SerializeField] int levelIndex = 0;
@@ -39,6 +40,7 @@ public class LevelSelect : MonoBehaviour
         hardColor = difficultyDescText[2].color;
 
         difficultyIdx = 0;
+        showText();
     }
 
     // apabila menekan lanjut
@@ -97,6 +99,29 @@ public class LevelSelect : MonoBehaviour
     // show the text according to the difficulty
     void showText()
     {
+        Color color;
+        int totalQuestion;
+        switch (difficultyIdx)
+        {
+            case 0:
+                color = easyColor;
+                totalQuestion = 5;
+                break;
+            case 1:
+                color = mediumColor;
+                totalQuestion = 7;
+                break;
+            case 2:
+                color = hardColor;
+                totalQuestion = 10;
+                break;
+            default:
+                color = easyColor;
+                totalQuestion = 5;
+                break;
+        }
+        descText.text = "Untuk memenangkan level pemain harus menjawab <color=#" + ColorUtility.ToHtmlStringRGB(color) + "><b>" + totalQuestion.ToString() + "</b></color> pertanyaan berupa:";
+
         foreach (Text text in difficultyDescText)
             text.gameObject.SetActive(false);
 
@@ -107,6 +132,7 @@ public class LevelSelect : MonoBehaviour
     // bila pemain pilih untuk latihan
     public void practice()
     {
+        GameManager.instance.isTutorial = false;
         GameManager.instance.isPractice = true;
         GameManager.instance.currentLevelIndex = levelIndex;
         GameManager.instance.setDifficulty(difficultyIdx);
@@ -116,6 +142,17 @@ public class LevelSelect : MonoBehaviour
     // bila pemain pilih untuk bermain
     public void play()
     {
+        GameManager.instance.isTutorial = false;
+        GameManager.instance.isPractice = false;
+        GameManager.instance.currentLevelIndex = levelIndex;
+        GameManager.instance.setDifficulty(difficultyIdx);
+        GameManager.instance.loadGame((int)level);
+    }
+
+    // bila pemain membuka level pertama
+    public void tutorial()
+    {
+        GameManager.instance.isTutorial = true;
         GameManager.instance.isPractice = false;
         GameManager.instance.currentLevelIndex = levelIndex;
         GameManager.instance.setDifficulty(difficultyIdx);

@@ -31,6 +31,12 @@ public class LoseWinController : MonoBehaviour
         else
             lostWinText.text = "KALAH!";
 
+        if (GameManager.instance.isTutorial)
+            if (isWin) // if the player win the tutorial just make it that player can only go to level select, do the opposite if lose
+                mainLagiButton.gameObject.SetActive(false);
+            else
+                levelSelectButton.gameObject.SetActive(false);
+
         timeScoreText.text = timeScore.ToString();
         consecutiveAnswerScoreText.text = consecutiveAnswer.ToString() + " x " + 1000;
         totalAnsweredQuestionScoreText.text = GameManager.instance.totalAnsweredQuestion.ToString() + " x " + 1000;
@@ -40,7 +46,7 @@ public class LoseWinController : MonoBehaviour
     // send data to Leaderboards
     public void sendDataToLeaderboards()
     {
-        if (GameManager.instance.hasLogin)
+        if (GameManager.instance.hasLogin && !GameManager.instance.isTutorial)
             StartCoroutine(sendLeaderboardsData());
     }
 

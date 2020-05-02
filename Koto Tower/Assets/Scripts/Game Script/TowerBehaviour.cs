@@ -202,4 +202,10 @@ public class TowerBehaviour : MonoBehaviour
     {
         return this.property.type;
     }
+
+    // get is active
+    public bool getIsActive()
+    {
+        return this.isActive;
+    }
 }

@@ -21,7 +21,7 @@ public class TruckPowerUI : MonoBehaviour
         GameEvents.current.onTruckSentEnter += OnTruckSent;
 
         truckMove = false;
-        buttons = this.gameObject.GetComponentsInChildren<Button>();
+        buttons = this.gameObject.GetComponentsInChildren<Button>(true);
         rect = this.gameObject.GetComponent<RectTransform>();
         rectHeight = rect.rect.height;
         currentValue = rectHeight + 10;

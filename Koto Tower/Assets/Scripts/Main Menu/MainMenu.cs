@@ -54,7 +54,9 @@ public class MainMenu : MonoBehaviour
         else
         {
             SaveManager.instance.saveNewGame();
-            GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
+            GameManager.instance.isTutorial = true;
+            GameManager.instance.setDifficulty(0);
+            GameManager.instance.loadGame((int)Levels.TUTORIAL);
         }
     }
 
@@ -63,7 +65,9 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         SaveManager.instance.saveNewGame();
-        GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
+        GameManager.instance.isTutorial = true;
+        GameManager.instance.setDifficulty(0);
+        GameManager.instance.loadGame((int)Levels.TUTORIAL);
     }
 
     // close the confirmation

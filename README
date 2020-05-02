@@ -140,6 +140,9 @@ Script:
 70. LeaderboardsManager
 71. LeaderboardsRow
 72. ShowTimer
+73. SwipeUpPressed
+74. Tutorial
+75. TutorialManager
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -181,3 +184,6 @@ Bulan April :
 - 23/Apr/2020 : Add extra money when you answer correctly, add UI when you select tower, Add UI that shows when your truck needs instruction, and add insert update for leaderboards if you are logged in (Reivaldo Julianto)
 - 27/Apr/2020 : add leaderboards scene, and get data from it (Reivaldo Julianto)
 - 29/Apr/2020 : add timer to the game, leadeboards UI improvement, and also add leaderboard function at the end of the game (lose or win) (Reivaldo Julianto)
+
+Bulan Mei :
+- 02/Mei/2020 : add pressed event on swipe up and tutorial level on new game button (Reivaldo Julianto)

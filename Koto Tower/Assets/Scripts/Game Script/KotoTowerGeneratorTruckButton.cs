@@ -23,7 +23,11 @@ public class KotoTowerGeneratorTruckButton : MonoBehaviour
         generatorButton = this.gameObject.transform.GetChild(0).gameObject;
         kotoTowerButton = this.gameObject.transform.GetChild(1).gameObject;
 
-        showKotoTower = false;
+        if(!GameManager.instance.isTutorial)
+            showKotoTower = false;
+        else
+            showKotoTower = true;
+
         showGenerator = true;
         showtruck = false;
         isChanges = true;
@@ -73,6 +77,17 @@ public class KotoTowerGeneratorTruckButton : MonoBehaviour
     {
         showGenerator = true;
         isChanges = true;
+    }
+
+    // get showGenerator
+    public bool getShowGenerator()
+    {
+        return this.showGenerator;
+    }
+
+    public bool getShowKotoTower()
+    {
+        return this.showKotoTower;
     }
 
     //delete the event

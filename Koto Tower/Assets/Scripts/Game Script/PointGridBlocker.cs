@@ -7,6 +7,8 @@ public class PointGridBlocker : MonoBehaviour
     List<Point> neighbors;
     Direction direction;
 
+    [SerializeField] bool isBlocker;
+
     // create blockers for path
     private void Start()
     {
@@ -18,19 +20,19 @@ public class PointGridBlocker : MonoBehaviour
         xPoint += GridCustom.offsetX;
         yPoint += GridCustom.offsetY;
 
-        GridCustom.cells[xPoint, yPoint].cellContent = CellContent.PATH;
+        GridCustom.cells[xPoint, yPoint].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, yPoint), GridCustom.getWorldSpace(xPoint + 1, yPoint), Color.gray, 100f, false);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, yPoint), GridCustom.getWorldSpace(xPoint, yPoint + 1), Color.gray, 100f, false);
 
-        GridCustom.cells[xPoint - 1, yPoint].cellContent = CellContent.PATH;
+        GridCustom.cells[xPoint - 1, yPoint].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, yPoint), GridCustom.getWorldSpace(xPoint, yPoint), Color.gray, 100f, false);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, yPoint), GridCustom.getWorldSpace(xPoint - 1, yPoint + 1), Color.gray, 100f, false);
 
-        GridCustom.cells[xPoint, yPoint - 1].cellContent = CellContent.PATH;
+        GridCustom.cells[xPoint, yPoint - 1].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, yPoint - 1), GridCustom.getWorldSpace(xPoint, yPoint), Color.gray, 100f, false);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, yPoint - 1), GridCustom.getWorldSpace(xPoint + 1, yPoint - 1), Color.gray, 100f, false);
 
-        GridCustom.cells[xPoint - 1, yPoint - 1].cellContent = CellContent.PATH;
+        GridCustom.cells[xPoint - 1, yPoint - 1].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, yPoint - 1), GridCustom.getWorldSpace(xPoint - 1, yPoint), Color.gray, 100f, false);
         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, yPoint - 1), GridCustom.getWorldSpace(xPoint, yPoint - 1), Color.gray, 100f, false);
 
@@ -56,12 +58,12 @@ public class PointGridBlocker : MonoBehaviour
                     // draw right path, if it is neighbor then the path iteration is different since its smaller
                     for (int i = xPoint + 1, k = (neighbor.getIsGenerator() ? xNeighbor : xNeighbor - 1); i < k; i++)
                     {
-                        GridCustom.cells[i, yPoint].cellContent = CellContent.PATH;
+                        GridCustom.cells[i, yPoint].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
                         Debug.DrawLine(GridCustom.getWorldSpace(i, yPoint), GridCustom.getWorldSpace(i + 1, yPoint), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(i, yPoint), GridCustom.getWorldSpace(i, yPoint + 1), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(i, yPoint + 1), GridCustom.getWorldSpace(i + 1, yPoint + 1), Color.gray, 100f, false);
 
-                        GridCustom.cells[i, yPoint - 1].cellContent = CellContent.PATH;
+                        GridCustom.cells[i, yPoint - 1].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
                         Debug.DrawLine(GridCustom.getWorldSpace(i, yPoint - 1), GridCustom.getWorldSpace(i + 1, yPoint - 1), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(i, yPoint - 1), GridCustom.getWorldSpace(i, yPoint), Color.gray, 100f, false);
                     }
@@ -70,12 +72,12 @@ public class PointGridBlocker : MonoBehaviour
                     // draw upward path, if it is neighbor then the path iteration is different since its smaller
                     for (int i = yPoint + 1, k = (neighbor.getIsGenerator() ? yNeighbor : yNeighbor - 1); i < k; i++)
                     {
-                        GridCustom.cells[xPoint, i].cellContent = CellContent.PATH;
+                        GridCustom.cells[xPoint, i].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, i), GridCustom.getWorldSpace(xPoint + 1, i), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, i), GridCustom.getWorldSpace(xPoint, i + 1), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, i + 1), GridCustom.getWorldSpace(xPoint + 1, i + 1), Color.gray, 100f, false);
 
-                        GridCustom.cells[xPoint - 1, i].cellContent = CellContent.PATH;
+                        GridCustom.cells[xPoint - 1, i].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, i), GridCustom.getWorldSpace(xPoint - 1, i + 1), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, i), GridCustom.getWorldSpace(xPoint, i), Color.gray, 100f, false);
                     }
@@ -84,12 +86,12 @@ public class PointGridBlocker : MonoBehaviour
                     // draw downward path
                     for (int i = yPoint - 1; i > yNeighbor; i--)
                     {
-                        GridCustom.cells[xPoint, i].cellContent = CellContent.PATH;
+                        GridCustom.cells[xPoint, i].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, i), GridCustom.getWorldSpace(xPoint + 1, i), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint, i), GridCustom.getWorldSpace(xPoint, i - 1), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint + 1, i), GridCustom.getWorldSpace(xPoint + 1, i - 1), Color.gray, 100f, false);
 
-                        GridCustom.cells[xPoint - 1, i].cellContent = CellContent.PATH;
+                        GridCustom.cells[xPoint - 1, i].cellContent = (isBlocker ? CellContent.DISABLED : CellContent.PATH);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, i), GridCustom.getWorldSpace(xPoint, i), Color.gray, 100f, false);
                         Debug.DrawLine(GridCustom.getWorldSpace(xPoint - 1, i), GridCustom.getWorldSpace(xPoint - 1, i - 1), Color.gray, 100f, false);
                     }

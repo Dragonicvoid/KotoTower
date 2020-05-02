@@ -83,4 +83,10 @@ public class MoveUIToBottomScreen : MonoBehaviour
         else
             swipeUp.SetActive(false);
     }
+
+    // make the ui show when the button pressed
+    public void showUi()
+    {
+        currentValue = rectHeight / 10;
+    }
 }

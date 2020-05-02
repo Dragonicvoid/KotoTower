@@ -32,6 +32,9 @@ public class QuestionManager : MonoBehaviour
     TextMesh charCharge = null;
     Point truckSpawnPoint = null; // Koto Tower location
 
+    // for tutorial
+    bool nextForTutorial;
+
     // koto tower
     ClickOnKotoTower kotoTower = null; // Koto Tower
 
@@ -103,7 +106,7 @@ public class QuestionManager : MonoBehaviour
     private void Start()
     {
         isSendingTruck = false;
-
+        nextForTutorial = false;
         foreach (QuestionsAnswers question in easyQuestions)
             question.setAnswers(OtherMethod.shuffle<Answer>(question.getAnswers(), epoch));
 
@@ -141,6 +144,9 @@ public class QuestionManager : MonoBehaviour
         // get random answer for this test if its the start or the player got the answer right
         if (gotRight)
         {
+            if (GameManager.instance.isTutorial)
+                nextForTutorial = true;
+
             // remove the question so the player will not get the same one, only when playing
             if (!GameManager.instance.isPractice)
             {
@@ -228,6 +234,12 @@ public class QuestionManager : MonoBehaviour
     {
         foreach (Button button in possibleAnswers)
             button.interactable = status;
+    }
+
+    //  get for tutorial
+    public bool getNextForTutorial()
+    {
+        return this.nextForTutorial;
     }
 
     private void OnDestroy()

@@ -47,6 +47,9 @@ public class Spawning : MonoBehaviour
         diffCount = 0;
         startSpawning = false;
         currentlySpawning = false;
+
+        if(GameManager.instance.isTutorial)
+            StartCoroutine(spawnZombies());
     }
 
     // Update is called once per frame
@@ -54,6 +57,19 @@ public class Spawning : MonoBehaviour
     {
         if (!GameManager.instance.isPaused && !GameManager.instance.isPractice)
         {
+            // for tutorial
+            if (GameManager.instance.isTutorial)
+            {
+                int childCount = activeObject.childCount;
+                if (childCount < 1)
+                    timer += Time.deltaTime;
+
+                if (timer >= 10f)
+                    StartCoroutine(spawnZombies());
+
+                return;
+            }
+
             if (GameManager.instance.isChangedDifficulty || changeTimer >= forceChangeDiffCountdown)
             {
                 diffCount++;
@@ -96,6 +112,7 @@ public class Spawning : MonoBehaviour
         float groupSpawner = 0.3f;
         float groupTimer = 0f;
         int zombieCount = 0;
+        timer = 0f;
         currentlySpawning = true;
 
         while (zombieCount < groupSize)
@@ -120,7 +137,6 @@ public class Spawning : MonoBehaviour
         // reset the timer
         startSpawning = false;
         currentlySpawning = false;
-        timer = 0f;
     }
 
     // Adding cost for creating power for each wave

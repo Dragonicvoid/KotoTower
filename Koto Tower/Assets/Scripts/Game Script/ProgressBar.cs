@@ -15,17 +15,22 @@ public class ProgressBar : MonoBehaviour
     float width, height;
     RectTransform rectTrans;
 
+    // intialization
+    private void Awake()
+    {
+        currentAnswered = 0;
+        progressText = this.gameObject.GetComponentInChildren<Text>();
+        progressText.text = "0 / " + GameManager.instance.maxCharged;
+    }
+
     // start the slider at 0 and some initialization
     private void Start()
     {
         isDone = false;
         timer = 1.1f;
         changeTime = 1f;
-        progressText = this.gameObject.GetComponentInChildren<Text>();
-        progressText.text = "0 / " + GameManager.instance.maxCharged;
-        currentAnswered = 0;
         slider = this.gameObject.GetComponent<Slider>();
-        slider.value = 0;
+        slider.value = (float)((float)currentAnswered - (1 - deltaTime())) / GameManager.instance.maxCharged;
         rectTrans = this.GetComponent<RectTransform>();
         width = rectTrans.rect.width;
         height = rectTrans.rect.height;

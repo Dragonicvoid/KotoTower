@@ -12,6 +12,10 @@ public class SpawnTrap : MonoBehaviour
     GameObject currentTrap;
     TrapType currentTrapType;
 
+    // koto tower and generator
+    ClickOnGenerator generator;
+    ClickOnKotoTower kotoTower;
+
     // variable for spawning trap according the button that player selected
     [SerializeField] GameObject trapBomb = null;
     [SerializeField] GameObject trapTime = null;
@@ -26,6 +30,13 @@ public class SpawnTrap : MonoBehaviour
         isReadyToBuild = false;
         isReadyToSpawn = false;
         currentTrap = null;
+    }
+
+    // initialization
+    private void Start()
+    {
+        kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<ClickOnKotoTower>();
+        generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<ClickOnGenerator>();
     }
 
     // Update is called once per frame after normal update
@@ -128,6 +139,8 @@ public class SpawnTrap : MonoBehaviour
                     canSpawn = false;
                     desc.gameObject.SetActive(false);
                     GameEvents.current.TowerOrTrapBuild();
+                    generator.StartCoroutine(generator.openGenerator());
+                    kotoTower.StartCoroutine(kotoTower.openKotoTower());
                     return;
                 }
             }
@@ -217,6 +230,8 @@ public class SpawnTrap : MonoBehaviour
                 isReadyToSpawn = false;
                 desc.gameObject.SetActive(false);
                 GameEvents.current.TowerOrTrapBuild();
+                generator.StartCoroutine(generator.openGenerator());
+                kotoTower.StartCoroutine(kotoTower.openKotoTower());
                 return;
             }
         }

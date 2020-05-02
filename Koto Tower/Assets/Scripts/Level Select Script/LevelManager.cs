@@ -44,6 +44,7 @@ public class LevelManager : MonoBehaviour
         {
             isOpenLevel = true;
             currOpenLevel = levels[idx];
+            Debug.Log(currOpenLevel);
             filter.gameObject.SetActive(true);
             currOpenLevel.gameObject.SetActive(true);
         }

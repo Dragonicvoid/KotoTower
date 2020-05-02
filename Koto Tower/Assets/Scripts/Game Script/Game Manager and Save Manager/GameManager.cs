@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused;
     public bool isPractice;
+    public bool isTutorial;
 
     public int enemyVariation;
 

@@ -53,7 +53,7 @@ public static class OtherMethod
         if (position.x < (float)Screen.width * ((float)22 / 100) && position.y > (float)Screen.height * ((float)57 / 100))
             return true;
 
-        if (position.x > (float)Screen.width * ((float)79 / 100) && position.y > (float)Screen.height * ((float)90 / 100))
+        if (position.x > (float)Screen.width * ((float)84 / 100) && position.y > (float)Screen.height * ((float)90 / 100))
             return true;
 
         return false;

@@ -115,4 +115,10 @@ public class TrapsBehaviour : MonoBehaviour
         currentPosition = this.gameObject.transform.position;
         isActive = true;
     }
+
+    // get is active
+    public bool getIsActive()
+    {
+        return this.isActive;
+    }
 }

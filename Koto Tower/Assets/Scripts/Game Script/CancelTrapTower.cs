@@ -10,6 +10,10 @@ public class CancelTrapTower: MonoBehaviour
     RectTransform rect;
     MoveUIComponent moveUiComp;
 
+    // koto tower and generator
+    ClickOnGenerator generator;
+    ClickOnKotoTower kotoTower;
+
     // initialization
     private void Start()
     {
@@ -18,6 +22,8 @@ public class CancelTrapTower: MonoBehaviour
         buttons = this.gameObject.GetComponentsInChildren<Button>();
         rect = this.gameObject.GetComponent<RectTransform>();
         moveUiComp = this.gameObject.GetComponent<MoveUIComponent>();
+        kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<ClickOnKotoTower>();
+        generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<ClickOnGenerator>();
 
         this.gameObject.SetActive(false);
     }
@@ -38,6 +44,10 @@ public class CancelTrapTower: MonoBehaviour
             button.interactable = false;
 
         this.gameObject.SetActive(false);
+
+        //open generator and koto tower question answer
+        generator.StartCoroutine(generator.openGenerator());
+        kotoTower.StartCoroutine(kotoTower.openKotoTower());
     }
 
     // delete the event
