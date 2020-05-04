@@ -23,8 +23,9 @@ public class DropdownCustom: MonoBehaviour
         levels.AddRange(this.gameObject.transform.parent.GetComponentsInChildren<LevelSelect>(true));
         dropdownBab = this.gameObject.GetComponentInChildren<Dropdown>();
 
+        // including tutorial
         List<string> listOfString = new List<string>();
-        for (int i = 0; i < GameManager.instance.saveFile.levelDone && i < maxLevel; i++)
+        for (int i = 0; i < GameManager.instance.saveFile.levelDone + 1 && i < maxLevel; i++)
             listOfString.Add(dptList[i].namaBab);
 
         dropdownBab.AddOptions(listOfString);
@@ -38,7 +39,7 @@ public class DropdownCustom: MonoBehaviour
     // Go to the next lesson
     public void next()
     {
-        if(currSummary.index != GameManager.instance.saveFile.levelDone - 1 && currSummary.index != maxLevel - 1)
+        if(currSummary.index != GameManager.instance.saveFile.levelDone && currSummary.index != maxLevel - 1)
         {
             currSummary.gameObject.SetActive(false);
             currSummary = dptList[dropdownBab.value + 1];

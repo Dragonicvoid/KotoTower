@@ -18,7 +18,8 @@ public class ShowLevelBasedOnSaveFile : MonoBehaviour
         if (GameManager.instance.saveFile.levelDone > maxLevel)
             GameManager.instance.saveFile.levelDone = maxLevel;
 
-        for (int i = 0; i < GameManager.instance.saveFile.levelDone; i++)
+        // plus the tutorial
+        for (int i = 0; i < GameManager.instance.saveFile.levelDone + 1; i++)
             levelsUi[i].gameObject.SetActive(true);
     }
 }

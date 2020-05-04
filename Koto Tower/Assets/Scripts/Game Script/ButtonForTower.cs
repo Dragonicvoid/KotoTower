@@ -102,10 +102,6 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
             enableToogle(idx);
         }
 
-        // close the koto tower and generator balloon box
-        generator.StartCoroutine(generator.closeGenerator());
-        kotoTower.StartCoroutine(kotoTower.closeKotoTower());
-
         // Show the possible line
         if (GameManager.instance.isDoneMakingTowerLines && GameManager.instance.isSelectTower)
             lineParent.SetActive(true);
@@ -128,6 +124,11 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
     {
         if (GameManager.instance.money >= GameManager.instance.towerPrices[idx].price)
         {
+            // close the koto tower and generator balloon box
+            generator.StartCoroutine(generator.closeGenerator());
+            kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+
+            // select the tower
             ButtonChangeColor selectedButton = buttons[idx];
             selectedButton.activate();
             GameManager.instance.isSelectTower = true;

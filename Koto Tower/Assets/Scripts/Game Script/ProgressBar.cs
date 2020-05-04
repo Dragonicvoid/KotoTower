@@ -43,13 +43,14 @@ public class ProgressBar : MonoBehaviour
     {
         if (!GameManager.instance.isPaused && !GameManager.instance.isPractice)
         {
+            progressText.text = currentAnswered + " / " + GameManager.instance.maxCharged;
+
             if (timer < changeTime)
                 timer += Time.deltaTime;
 
             if (currentAnswered != GameManager.instance.totalAnsweredQuestion)
             {
                 currentAnswered = GameManager.instance.totalAnsweredQuestion;
-                progressText.text = currentAnswered + " / " + GameManager.instance.maxCharged;
 
                 timer = 0;
                 isDone = false;

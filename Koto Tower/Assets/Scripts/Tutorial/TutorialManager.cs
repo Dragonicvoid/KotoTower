@@ -13,6 +13,7 @@ public class TutorialManager : MonoBehaviour
     int tutorialIdx;
     float timer = 0;
     bool forTutor = false;
+    bool changeMoney = true;
 
     // initialization
     private void Awake()
@@ -133,17 +134,32 @@ public class TutorialManager : MonoBehaviour
             {
                 answer.SetActive(false);
                 question.SetActive(false);
-                if (tower.childCount > 0 && !forTutor)
+
+                // show this tutorial when in building mode
+                tutorialList[tutorialIdx].activateGameObject[0].SetActive(false);
+                tutorialList[tutorialIdx].activateGameObject[1].SetActive(false);
+                tutorialList[tutorialIdx].activateGameObject[2].SetActive(true);
+
+                // check if the player has spawned 2 towers
+                if (tower.childCount > 1 && !forTutor)
                 {
-                    TowerBehaviour towerBehave = tower.GetChild(0).GetComponent<TowerBehaviour>();
-                    if (towerBehave.getIsActive())
+                    TowerBehaviour towerBehaveOne = tower.GetChild(0).GetComponent<TowerBehaviour>();
+                    TowerBehaviour towerBehaveTwo = tower.GetChild(1).GetComponent<TowerBehaviour>();
+                    if (towerBehaveOne.getIsActive() && towerBehaveTwo.getIsActive())
                         forTutor = true;
+                }
+
+                if (GameManager.instance.isSelectTower)
+                {
+                    tutorialList[tutorialIdx].activateGameObject[0].SetActive(true);
+                    tutorialList[tutorialIdx].activateGameObject[1].SetActive(true);
+                    tutorialList[tutorialIdx].activateGameObject[2].SetActive(false);
                 }
 
                 if (forTutor)
                     timer += Time.deltaTime;
 
-                if (timer >= 4f)
+                if (timer >= 1f)
                 {
                     nextAndOpen();
                     answer.SetActive(true);
@@ -169,9 +185,19 @@ public class TutorialManager : MonoBehaviour
             // tutorial for trap
             if (tutorialIdx == 19)
             {
+                if(changeMoney)
+                {
+                    GameManager.instance.money += 100f;
+                    GameManager.instance.moneyChanged = true;
+                    changeMoney = false;
+                }
                 answer.SetActive(false);
                 question.SetActive(false);
+                tutorialList[tutorialIdx].activateGameObject[2].SetActive(false);
+                tutorialList[tutorialIdx].activateGameObject[3].SetActive(false);
+                tutorialList[tutorialIdx].activateGameObject[4].SetActive(true);
 
+                // check if the player has spawned a trap
                 if (trap.childCount > 0 && !forTutor)
                 {
                     TrapsBehaviour trapBehave = trap.GetChild(0).GetComponent<TrapsBehaviour>();
@@ -181,6 +207,13 @@ public class TutorialManager : MonoBehaviour
                     
                 if (forTutor)
                     timer += Time.deltaTime;
+
+                if (GameManager.instance.isSelectTrap)
+                {
+                    tutorialList[tutorialIdx].activateGameObject[2].SetActive(true);
+                    tutorialList[tutorialIdx].activateGameObject[3].SetActive(true);
+                    tutorialList[tutorialIdx].activateGameObject[4].SetActive(false);
+                }
 
                 if (timer >= 4f)
                 {

@@ -35,12 +35,15 @@ public class LevelSelect : MonoBehaviour
     {
         colorPropertyId = Shader.PropertyToID("_Color");
 
-        easyColor = difficultyDescText[0].color;
-        mediumColor = difficultyDescText[1].color;
-        hardColor = difficultyDescText[2].color;
-
         difficultyIdx = 0;
-        showText();
+
+        if (difficultyDescText.Count > 0)
+        {
+            easyColor = difficultyDescText[0].color;
+            mediumColor = difficultyDescText[1].color;
+            hardColor = difficultyDescText[2].color;
+            showText();
+        }
     }
 
     // apabila menekan lanjut

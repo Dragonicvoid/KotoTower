@@ -22,9 +22,6 @@ public class TweenCustom : MonoBehaviour
     // Singleton so other class can call it
     public static TweenCustom tween;
 
-    // List of action that has object id to identify
-    Dictionary<int, float> timeList = new Dictionary<int, float>();
-
     // Called singleton to reference that static class to this object
     private void Awake()
     {
@@ -38,18 +35,6 @@ public class TweenCustom : MonoBehaviour
             return timer / time;
         else
             return 1;
-    }
-
-    private bool checkForAvailability(int objId)
-    {
-        float totalTime;
-        if (!timeList.TryGetValue(objId, out totalTime))
-        {
-            timeList.Add(objId, 0f);
-            return false;
-        }
-        else
-            return true;
     }
 
     // calling vertical UI tween

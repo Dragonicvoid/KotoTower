@@ -37,6 +37,16 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.loadGame((int)Levels.RANGKUMAN, selectedIdx);
     }
 
+    // go to tutorial
+    public void goToTutorial()
+    {
+        GameManager.instance.isTutorial = true;
+        GameManager.instance.isPractice = false;
+        GameManager.instance.currentLevelIndex = 0;
+        GameManager.instance.setDifficulty(0);
+        GameManager.instance.loadGame((int)Levels.TUTORIAL);
+    }
+
     // open level at index
     public void openLevel(int idx)
     {

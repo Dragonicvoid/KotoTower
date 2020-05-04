@@ -101,10 +101,6 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
             enableButton(idx);
         }
 
-        // close the koto tower and generator balloon box
-        generator.StartCoroutine(generator.closeGenerator());
-        kotoTower.StartCoroutine(kotoTower.closeKotoTower());
-
         // Show the possible line
         if (GameManager.instance.isDoneMakingTrapLines && GameManager.instance.isSelectTrap)
             lineParent.SetActive(true);
@@ -127,6 +123,11 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
     {
         if (GameManager.instance.money >= GameManager.instance.trapPrices[idx].price)
         {
+            // close the koto tower and generator balloon box
+            generator.StartCoroutine(generator.closeGenerator());
+            kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+
+            // select the trap
             ButtonChangeColor selectedButton = buttons[idx];
             selectedButton.activate();
             GameManager.instance.isSelectTrap = true;

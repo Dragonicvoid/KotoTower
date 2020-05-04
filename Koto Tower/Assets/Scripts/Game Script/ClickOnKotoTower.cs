@@ -16,7 +16,6 @@ public class ClickOnKotoTower : MonoBehaviour
         isAnimating = false;
     }
 
-    /*
     // check every frame if we hit the tower or not
     private void Update()
     {
@@ -34,7 +33,6 @@ public class ClickOnKotoTower : MonoBehaviour
         if (Input.touchCount == 0 && Input.GetMouseButtonDown(0) && !isAnimating)
             StartCoroutine(mouseClickOnKotoTower());
     }
-    */
 
     IEnumerator mouseClickOnKotoTower()
     {

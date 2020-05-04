@@ -23,6 +23,11 @@ public class MoveUIToBottomScreen : MonoBehaviour
         currentValue = rectHeight * -1;
     }
 
+    private void OnEnable()
+    {
+        currentValue = rectHeight * -1;
+    }
+
     private void Update()
     {
         moveUIToBottomBehave();
