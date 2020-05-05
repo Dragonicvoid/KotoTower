@@ -107,11 +107,12 @@ public class LoseWinController : MonoBehaviour
     void changeLeaderboardsData(string text)
     {
         resetLeaderboardField();
+        Debug.Log(text);
         List<string> splitText = new List<string>(text.Split('\n'));
         Debug.Log(splitText.Count);
 
         // stop if already have 5 data or there is no more data, starts at 2 because the first data is 2
-        for (int i = 2; i < splitText.Count && i < 7; i++)
+        for (int i = 2; i < splitText.Count - 1 && i < 7; i++)
         {
             string[] splitData = splitText[i].Split('\t');
             Text[] texts = leaderboardText[i - 2].GetComponentsInChildren<Text>(true);

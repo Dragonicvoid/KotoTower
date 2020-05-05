@@ -8,5 +8,13 @@
     LEVEL2 = 5,
     TEST_LEVEL = 6,
     LEADERBOARDS = 7,
-    TUTORIAL = 8
+    TUTORIAL = 8,
+    LEVEL3 = 9,
+    LEVEL4 = 10,
+    LEVEL5 = 11,
+    LEVEL6 = 12,
+    LEVEL7 = 13,
+    LEVEL8 = 14,
+    LEVEL9 = 15,
+    LEVEL10 = 16
 }

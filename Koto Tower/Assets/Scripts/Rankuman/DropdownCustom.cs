@@ -39,7 +39,7 @@ public class DropdownCustom: MonoBehaviour
     // Go to the next lesson
     public void next()
     {
-        if(currSummary.index != GameManager.instance.saveFile.levelDone && currSummary.index != maxLevel - 1)
+        if(currSummary.index != GameManager.instance.saveFile.levelDone && currSummary.index != maxLevel)
         {
             currSummary.gameObject.SetActive(false);
             currSummary = dptList[dropdownBab.value + 1];
@@ -72,6 +72,6 @@ public class DropdownCustom: MonoBehaviour
     public void openLevel()
     {
         filter.gameObject.SetActive(true);
-        levelManager.openLevel(currSummary.index > 1 ? 2 : currSummary.index);
+        levelManager.openLevel(currSummary.index > 10 ? 11 : currSummary.index);
     }
 }

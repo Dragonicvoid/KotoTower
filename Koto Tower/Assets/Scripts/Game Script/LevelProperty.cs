@@ -114,10 +114,27 @@ public class LevelProperty : MonoBehaviour
     // calculate the score for time score
     private float calculateTimeScore(float time)
     {
+        int valueBasedDiff = 0;
+        switch (GameManager.instance.difficultyIdx)
+        {
+            case 0:
+                valueBasedDiff = 10000;
+                break;
+            case 1:
+                valueBasedDiff = 15000;
+                break;
+            case 2:
+                valueBasedDiff = 20000;
+                break;
+            default:
+                valueBasedDiff = 10000;
+                break;
+        }
+
         if (time <= timeEfficient)
             return 10000f;
         else
-            return Mathf.Floor(Mathf.Pow( (1 - deltaTime(time - timeEfficient, 900 - timeEfficient)), 2) * 10000);
+            return Mathf.Floor(Mathf.Pow( (1 - deltaTime(time - timeEfficient, 900 - timeEfficient)), 2) * valueBasedDiff);
     }
 
     // calculate the delta time
