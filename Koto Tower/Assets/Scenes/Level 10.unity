@@ -20945,63 +20945,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   easyQuestions:
-  - question: a = ?
+  - question: "\u3057\u3093\u3070\u3057 bersuara ?"
     answers:
-    - answer: "\u3042"
+    - answer: shimbashi
       isRightAnswer: 1
-    - answer: "\u3046"
+    - answer: shinbashi
       isRightAnswer: 0
-    - answer: "\u3048"
+    - answer: shibanshi
       isRightAnswer: 0
-    - answer: "\u304A"
+    - answer: shibamshi
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304A = ?"
+  - question: "\u307F\u3093\u306A bersuara ?"
     answers:
-    - answer: o
+    - answer: minna
       isRightAnswer: 1
-    - answer: i
+    - answer: mimna
       isRightAnswer: 0
-    - answer: a
+    - answer: mimma
       isRightAnswer: 0
-    - answer: u
+    - answer: mingna
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: e = ?
+  - question: "\u3069\u3093\u306A bersuara ?"
     answers:
-    - answer: "\u3048"
+    - answer: donna
       isRightAnswer: 1
-    - answer: "\u3042"
+    - answer: domna
       isRightAnswer: 0
-    - answer: "\u3046"
+    - answer: dona
       isRightAnswer: 0
-    - answer: "\u3044"
+    - answer: dongna
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: i = ?
+  - question: "\u3057\u3093\u3074 bersuara ?"
     answers:
-    - answer: "\u3044"
+    - answer: shimpi
       isRightAnswer: 1
-    - answer: "\u3046"
+    - answer: shinpi
       isRightAnswer: 0
-    - answer: "\u3042"
+    - answer: shingpi
       isRightAnswer: 0
-    - answer: "\u304A"
+    - answer: shippi
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3046 = ?"
+  - question: "\u305F\u3093\u304D bersuara ?"
     answers:
-    - answer: u
+    - answer: tangki
       isRightAnswer: 1
-    - answer: e
+    - answer: tanki
       isRightAnswer: 0
-    - answer: i
+    - answer: tamki
       isRightAnswer: 0
-    - answer: a
+    - answer: dangki
       isRightAnswer: 0
     audio: {fileID: 0}
   mediumQuestions:
-  - question: "\u304B\u304F = ?"
+  - question: "\u306F\u3063\u3051\u3093 = ?"
     answers:
     - answer: kaku
       isRightAnswer: 1
@@ -21012,104 +21012,170 @@ MonoBehaviour:
     - answer: kiki
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304B\u3046 = ?"
+  - question: "\u30A4\u30C4\u30AB = ?"
     answers:
-    - answer: kau
+    - answer: itsuka
       isRightAnswer: 1
-    - answer: kae
+    - answer: ikka
       isRightAnswer: 0
-    - answer: eki
+    - answer: inka
       isRightAnswer: 0
-    - answer: aki
+    - answer: itsukka
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3051 = ?"
+  - question: "\u3057\u3063\u307D = ?"
     answers:
-    - answer: ke
+    - answer: shippo
       isRightAnswer: 1
-    - answer: i
+    - answer: shihpo
       isRightAnswer: 0
-    - answer: a
+    - answer: shinpo
       isRightAnswer: 0
-    - answer: ko
+    - answer: sihtsupo
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: koi = ?
+  - question: "\u3056\u3063\u3057 = ?"
     answers:
-    - answer: "\u3053\u3044"
+    - answer: zasshi
       isRightAnswer: 1
-    - answer: "\u304B\u304A"
+    - answer: zatsushi
       isRightAnswer: 0
-    - answer: "\u304D\u304D"
+    - answer: zapshi
       isRightAnswer: 0
-    - answer: "\u3053\u3051"
+    - answer: zazushi
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: aki = ?
+  - question: "\u30C6\u30F3\u30AD bersuara ?"
     answers:
-    - answer: "\u3042\u304D"
+    - answer: tengki
       isRightAnswer: 1
-    - answer: "\u304A\u3044"
+    - answer: tenki
       isRightAnswer: 0
-    - answer: "\u304D\u3044"
+    - answer: temki
       isRightAnswer: 0
-    - answer: "\u3048\u304D"
+    - answer: tekki
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: "\u3069\u3063\u3061 bersuara ?"
+    answers:
+    - answer: dotchi
+      isRightAnswer: 1
+    - answer: docchi
+      isRightAnswer: 0
+    - answer: dotsuchi
+      isRightAnswer: 0
+    - answer: dochi
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: "\u30AD\u30C3\u30D7 bersuara ?"
+    answers:
+    - answer: kippu
+      isRightAnswer: 1
+    - answer: kihpu
+      isRightAnswer: 0
+    - answer: kitsupu
+      isRightAnswer: 0
+    - answer: kifpu
       isRightAnswer: 0
     audio: {fileID: 0}
   hardQuestions:
-  - question: saki = ?
+  - question: "\u30CB\u30E3\u30A2 = ?"
     answers:
-    - answer: "\u3055\u304D"
+    - answer: nyaa
       isRightAnswer: 1
-    - answer: "\u3046\u305D"
+    - answer: niyaa
       isRightAnswer: 0
-    - answer: "\u3059\u304D"
+    - answer: niaa
       isRightAnswer: 0
-    - answer: "\u3055\u3051"
+    - answer: nya
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: asa = ?
+  - question: otsukare = ?
     answers:
-    - answer: "\u3042\u3055"
+    - answer: "\u304A\u3064\u304B\u308C"
       isRightAnswer: 1
-    - answer: "\u3046\u305D"
+    - answer: "\u304A\u3063\u304B\u308C"
       isRightAnswer: 0
-    - answer: "\u304A\u304D"
+    - answer: "\u304A\u3064\u304D\u3083\u308C"
       isRightAnswer: 0
-    - answer: "\u3053\u3044"
+    - answer: "\u304A\u3064\u304C\u308C"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3055\u3048 = ?"
+  - question: "\u30DF\u30E3\u30CE = ?"
     answers:
-    - answer: sae
+    - answer: myano
       isRightAnswer: 1
-    - answer: kao
+    - answer: miyano
       isRightAnswer: 0
-    - answer: kae
+    - answer: miano
       isRightAnswer: 0
-    - answer: aki
+    - answer: mano
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304B\u3055 = ?"
+  - question: "\u3058\u3083\u307E = ?"
     answers:
-    - answer: kasa
+    - answer: jama
       isRightAnswer: 1
-    - answer: kesa
+    - answer: jyama
       isRightAnswer: 0
-    - answer: kuso
+    - answer: jiyama
       isRightAnswer: 0
-    - answer: uso
+    - answer: jiama
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: sushi = ?
+  - question: "\u3057\u3085\u307F = ?"
     answers:
-    - answer: "\u3059\u3057"
+    - answer: shumi
       isRightAnswer: 1
-    - answer: "\u3059\u3044"
+    - answer: syumi
       isRightAnswer: 0
-    - answer: "\u3055\u3048"
+    - answer: shyumi
       isRightAnswer: 0
-    - answer: "\u3042\u3057"
+    - answer: shimmi
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: "\u3057\u3087\u3046\u3058\u3087 = ?"
+    answers:
+    - answer: shoujo
+      isRightAnswer: 1
+    - answer: shyoujyo
+      isRightAnswer: 0
+    - answer: shyoujo
+      isRightAnswer: 0
+    - answer: shoujyo
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: "\u304A\u304D\u3083\u304F bersuara ?"
+    answers:
+    - answer: okyaku
+      isRightAnswer: 1
+    - answer: okkyaku
+      isRightAnswer: 0
+    - answer: okkyakku
+      isRightAnswer: 0
+    - answer: okyakku
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: toriyama = ?
+    answers:
+    - answer: "\u30C8\u30EA\u30E4\u30DE"
+      isRightAnswer: 1
+    - answer: "\u30C8\u30EA\u30E3\u30DE"
+      isRightAnswer: 0
+    - answer: "\u30C8\u30EA\u30A2\u30E0"
+      isRightAnswer: 0
+    - answer: "\u30C8\u30EA\u30E3\u30E0"
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: "\u30B7\u30E3\u30B7\u30F3 = ?"
+    answers:
+    - answer: shashin
+      isRightAnswer: 1
+    - answer: tsatsun
+      isRightAnswer: 0
+    - answer: shatsun
+      isRightAnswer: 0
+    - answer: tsashin
       isRightAnswer: 0
     audio: {fileID: 0}
   questionUI: {fileID: 1862568640}

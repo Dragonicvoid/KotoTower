@@ -2709,7 +2709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbor:
-  - {fileID: 5950167236081642721}
+  - {fileID: 1494477762}
   isStartPoint: 0
   isEndPoint: 0
   isGenerator: 0
@@ -7925,7 +7925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbor:
-  - {fileID: 1941727901}
+  - {fileID: 589317729}
   isStartPoint: 1
   isEndPoint: 0
   isGenerator: 0
@@ -16953,171 +16953,171 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   easyQuestions:
-  - question: a = ?
+  - question: sa = ?
     answers:
-    - answer: "\u3042"
+    - answer: "\u30B5"
       isRightAnswer: 1
-    - answer: "\u3046"
+    - answer: "\u30BB"
       isRightAnswer: 0
-    - answer: "\u3048"
+    - answer: "\u30BD"
       isRightAnswer: 0
-    - answer: "\u304A"
+    - answer: "\u30B3"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304A = ?"
+  - question: shi = ?
     answers:
-    - answer: o
+    - answer: "\u30B7"
       isRightAnswer: 1
-    - answer: i
+    - answer: "\u30B9"
       isRightAnswer: 0
-    - answer: a
+    - answer: "\u30AF"
       isRightAnswer: 0
-    - answer: u
+    - answer: "\u30A6"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: e = ?
+  - question: se = ?
     answers:
-    - answer: "\u3048"
+    - answer: "\u30BB"
       isRightAnswer: 1
-    - answer: "\u3042"
+    - answer: "\u30B7"
       isRightAnswer: 0
-    - answer: "\u3046"
+    - answer: "\u30BD"
       isRightAnswer: 0
-    - answer: "\u3044"
+    - answer: "\u30B5"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: i = ?
+  - question: su = ?
     answers:
-    - answer: "\u3044"
+    - answer: "\u30B9"
       isRightAnswer: 1
-    - answer: "\u3046"
+    - answer: "\u30AB"
       isRightAnswer: 0
-    - answer: "\u3042"
+    - answer: "\u30AF"
       isRightAnswer: 0
-    - answer: "\u304A"
+    - answer: "\u30AA"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3046 = ?"
+  - question: so = ?
     answers:
-    - answer: u
+    - answer: "\u30BD"
       isRightAnswer: 1
-    - answer: e
+    - answer: "\u30BD"
       isRightAnswer: 0
-    - answer: i
+    - answer: "\u30AA"
       isRightAnswer: 0
-    - answer: a
+    - answer: "\u30AF"
       isRightAnswer: 0
     audio: {fileID: 0}
   mediumQuestions:
-  - question: "\u304B\u304F = ?"
+  - question: ta = ?
     answers:
-    - answer: kaku
+    - answer: "\u30BF"
       isRightAnswer: 1
-    - answer: kae
+    - answer: "\u30C4"
       isRightAnswer: 0
-    - answer: kao
+    - answer: "\u30B7"
       isRightAnswer: 0
-    - answer: kiki
+    - answer: "\u30C8"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304B\u3046 = ?"
+  - question: sui = ?
     answers:
-    - answer: kau
+    - answer: "\u30B9\u30A4"
       isRightAnswer: 1
-    - answer: kae
+    - answer: "\u30B5\u30A8"
       isRightAnswer: 0
-    - answer: eki
+    - answer: "\u30C8\u30A4"
       isRightAnswer: 0
-    - answer: aki
+    - answer: "\u30AB\u30A4"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3051 = ?"
+  - question: te = ?
     answers:
-    - answer: ke
+    - answer: "\u30C6"
       isRightAnswer: 1
-    - answer: i
+    - answer: "\u30BF"
       isRightAnswer: 0
-    - answer: a
+    - answer: "\u30C1"
       isRightAnswer: 0
-    - answer: ko
+    - answer: "\u30C4"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: koi = ?
+  - question: chi = ?
     answers:
-    - answer: "\u3053\u3044"
+    - answer: "\u30C1"
       isRightAnswer: 1
-    - answer: "\u304B\u304A"
+    - answer: "\u30B1"
       isRightAnswer: 0
-    - answer: "\u304D\u304D"
+    - answer: "\u30A2"
       isRightAnswer: 0
-    - answer: "\u3053\u3051"
+    - answer: "\u30B5"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: aki = ?
+  - question: to = ?
     answers:
-    - answer: "\u3042\u304D"
+    - answer: "\u30C8"
       isRightAnswer: 1
-    - answer: "\u304A\u3044"
+    - answer: "\u30BF"
       isRightAnswer: 0
-    - answer: "\u304D\u3044"
+    - answer: "\u30C1"
       isRightAnswer: 0
-    - answer: "\u3048\u304D"
+    - answer: "\u30C8"
       isRightAnswer: 0
     audio: {fileID: 0}
   hardQuestions:
-  - question: saki = ?
+  - question: tesuto = ?
     answers:
-    - answer: "\u3055\u304D"
+    - answer: "\u30C6\u30B9\u30C8"
       isRightAnswer: 1
-    - answer: "\u3046\u305D"
+    - answer: "\u30C6\u30AF\u30BD"
       isRightAnswer: 0
-    - answer: "\u3059\u304D"
+    - answer: "\u30A2\u30BF\u30B7"
       isRightAnswer: 0
-    - answer: "\u3055\u3051"
+    - answer: "\u30C6\u30BD\u30C8"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: asa = ?
+  - question: tosu = ?
     answers:
-    - answer: "\u3042\u3055"
+    - answer: "\u30C8\u30B9"
       isRightAnswer: 1
-    - answer: "\u3046\u305D"
+    - answer: "\u30B1\u30AD"
       isRightAnswer: 0
-    - answer: "\u304A\u304D"
+    - answer: "\u30AF\u30AD"
       isRightAnswer: 0
-    - answer: "\u3053\u3044"
+    - answer: "\u30A6\u30BD"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3055\u3048 = ?"
+  - question: tako = ?
     answers:
-    - answer: sae
+    - answer: "\u30BF\u30B3"
       isRightAnswer: 1
-    - answer: kao
+    - answer: "\u30C4\u30B3"
       isRightAnswer: 0
-    - answer: kae
+    - answer: "\u30BF\u30BD"
       isRightAnswer: 0
-    - answer: aki
+    - answer: "\u30C6\u30B3"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304B\u3055 = ?"
+  - question: tokai = ?
     answers:
-    - answer: kasa
+    - answer: "\u30C8\u30AB\u30A4"
       isRightAnswer: 1
-    - answer: kesa
+    - answer: "\u30B3\u30AB\u30A4"
       isRightAnswer: 0
-    - answer: kuso
+    - answer: "\u30BB\u30AB\u30A4"
       isRightAnswer: 0
-    - answer: uso
+    - answer: "\u30A2\u30AB\u30A4"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: sushi = ?
+  - question: aisu = ?
     answers:
-    - answer: "\u3059\u3057"
+    - answer: "\u30A2\u30A4\u30B9"
       isRightAnswer: 1
-    - answer: "\u3059\u3044"
+    - answer: "\u30C6\u30B9\u30C8"
       isRightAnswer: 0
-    - answer: "\u3055\u3048"
+    - answer: "\u30BF\u30B9\u30AF"
       isRightAnswer: 0
-    - answer: "\u3042\u3057"
+    - answer: "\u30B7\u30B9\u30AB"
       isRightAnswer: 0
     audio: {fileID: 0}
   questionUI: {fileID: 1862568640}
@@ -17440,7 +17440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbor:
-  - {fileID: 5950167236081642721}
+  - {fileID: 587723467}
   isStartPoint: 0
   isEndPoint: 0
   isGenerator: 0
@@ -20647,7 +20647,7 @@ PrefabInstance:
         type: 3}
       propertyPath: neighbor.Array.data[0]
       value: 
-      objectReference: {fileID: 54625089}
+      objectReference: {fileID: 1888493288}
     - target: {fileID: 5950167234800254423, guid: 907e7ed442d0fc6428c7369fe9ff15a2,
         type: 3}
       propertyPath: neighbor.Array.data[1]

@@ -31,6 +31,9 @@ public class MainMenu : MonoBehaviour
         continueButton.interactable = PlayerPrefs.HasKey("save");
         rangkumanButton.interactable = PlayerPrefs.HasKey("save");
         leaderboards.interactable = GameManager.instance.hasLogin;
+
+        if(PlayerPrefs.HasKey("save"))
+            SaveManager.instance.load();
     }
 
     // get main camera of the scene
@@ -121,6 +124,9 @@ public class MainMenu : MonoBehaviour
         {
             GameManager.instance.hasLogin = false;
             GameManager.instance.userId = -1;
+            GameManager.instance.saveFile.username = "";
+            GameManager.instance.saveFile.setPassword("");
+            SaveManager.instance.saveAndUpdate();
             loginRegister.changeText(GameManager.instance.hasLogin);
             leaderboards.interactable = false;
         }

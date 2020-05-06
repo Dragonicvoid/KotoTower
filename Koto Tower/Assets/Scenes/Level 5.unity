@@ -2713,7 +2713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbor:
-  - {fileID: 5950167236081642721}
+  - {fileID: 1494477762}
   isStartPoint: 0
   isEndPoint: 0
   isGenerator: 0
@@ -15966,7 +15966,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1956269115}
         m_MethodName: selectTower
         m_Mode: 3
         m_Arguments:
@@ -16801,16 +16801,16 @@ MonoBehaviour:
   easyQuestions:
   - question: a = ?
     answers:
-    - answer: "\u3042"
+    - answer: "\u30A2"
       isRightAnswer: 1
-    - answer: "\u3046"
+    - answer: "\u30A6"
       isRightAnswer: 0
-    - answer: "\u3048"
+    - answer: "\u30A4"
       isRightAnswer: 0
-    - answer: "\u304A"
+    - answer: "\u30A8"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304A = ?"
+  - question: "\u30AA = ?"
     answers:
     - answer: o
       isRightAnswer: 1
@@ -16823,27 +16823,27 @@ MonoBehaviour:
     audio: {fileID: 0}
   - question: e = ?
     answers:
-    - answer: "\u3048"
+    - answer: "\u30A8"
       isRightAnswer: 1
-    - answer: "\u3042"
+    - answer: "\u30A2"
       isRightAnswer: 0
-    - answer: "\u3046"
+    - answer: "\u30A6"
       isRightAnswer: 0
-    - answer: "\u3044"
+    - answer: "\u30A4"
       isRightAnswer: 0
     audio: {fileID: 0}
   - question: i = ?
     answers:
-    - answer: "\u3044"
+    - answer: "\u30A4"
       isRightAnswer: 1
-    - answer: "\u3046"
+    - answer: "\u30A6"
       isRightAnswer: 0
-    - answer: "\u3042"
+    - answer: "\u30A2"
       isRightAnswer: 0
-    - answer: "\u304A"
+    - answer: "\u30AA"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3046 = ?"
+  - question: "\u30A6 = ?"
     answers:
     - answer: u
       isRightAnswer: 1
@@ -16855,85 +16855,85 @@ MonoBehaviour:
       isRightAnswer: 0
     audio: {fileID: 0}
   mediumQuestions:
-  - question: "\u304B\u304F = ?"
-    answers:
-    - answer: kaku
-      isRightAnswer: 1
-    - answer: kae
-      isRightAnswer: 0
-    - answer: kao
-      isRightAnswer: 0
-    - answer: kiki
-      isRightAnswer: 0
-    audio: {fileID: 0}
-  - question: "\u304B\u3046 = ?"
-    answers:
-    - answer: kau
-      isRightAnswer: 1
-    - answer: kae
-      isRightAnswer: 0
-    - answer: eki
-      isRightAnswer: 0
-    - answer: aki
-      isRightAnswer: 0
-    audio: {fileID: 0}
-  - question: "\u3051 = ?"
+  - question: "\u30B1 = ?"
     answers:
     - answer: ke
       isRightAnswer: 1
-    - answer: i
-      isRightAnswer: 0
-    - answer: a
+    - answer: ku
       isRightAnswer: 0
     - answer: ko
       isRightAnswer: 0
-    audio: {fileID: 0}
-  - question: koi = ?
-    answers:
-    - answer: "\u3053\u3044"
-      isRightAnswer: 1
-    - answer: "\u304B\u304A"
-      isRightAnswer: 0
-    - answer: "\u304D\u304D"
-      isRightAnswer: 0
-    - answer: "\u3053\u3051"
+    - answer: ka
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: aki = ?
+  - question: "\u30AB = ?"
     answers:
-    - answer: "\u3042\u304D"
+    - answer: ka
       isRightAnswer: 1
-    - answer: "\u304A\u3044"
+    - answer: ke
       isRightAnswer: 0
-    - answer: "\u304D\u3044"
+    - answer: ko
       isRightAnswer: 0
-    - answer: "\u3048\u304D"
+    - answer: ki
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: "\u30B3 = ?"
+    answers:
+    - answer: ko
+      isRightAnswer: 1
+    - answer: ka
+      isRightAnswer: 0
+    - answer: ku
+      isRightAnswer: 0
+    - answer: ke
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: ku = ?
+    answers:
+    - answer: "\u30AF"
+      isRightAnswer: 1
+    - answer: "\u30B3"
+      isRightAnswer: 0
+    - answer: "\u30AB"
+      isRightAnswer: 0
+    - answer: "\u30AD"
+      isRightAnswer: 0
+    audio: {fileID: 0}
+  - question: ki = ?
+    answers:
+    - answer: "\u30AD"
+      isRightAnswer: 1
+    - answer: "\u30B3"
+      isRightAnswer: 0
+    - answer: "\u30AB"
+      isRightAnswer: 0
+    - answer: "\u30B1"
       isRightAnswer: 0
     audio: {fileID: 0}
   hardQuestions:
-  - question: saki = ?
+  - question: "\u30A2\u30AD = ?"
     answers:
-    - answer: "\u3055\u304D"
+    - answer: aki
       isRightAnswer: 1
-    - answer: "\u3046\u305D"
+    - answer: uki
       isRightAnswer: 0
-    - answer: "\u3059\u304D"
+    - answer: oka
       isRightAnswer: 0
-    - answer: "\u3055\u3051"
+    - answer: iki
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: asa = ?
+  - question: ao = ?
     answers:
-    - answer: "\u3042\u3055"
+    - answer: "\u30A2\u30AA"
       isRightAnswer: 1
-    - answer: "\u3046\u305D"
+    - answer: "\u30AB\u30AA"
       isRightAnswer: 0
-    - answer: "\u304A\u304D"
+    - answer: "\u30A2\u30A4"
       isRightAnswer: 0
-    - answer: "\u3053\u3044"
+    - answer: "\u30A2\u30A6"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u3055\u3048 = ?"
+  - question: "\u30AB\u30AA = ?"
     answers:
     - answer: sae
       isRightAnswer: 1
@@ -16944,26 +16944,26 @@ MonoBehaviour:
     - answer: aki
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: "\u304B\u3055 = ?"
+  - question: "\u30B3\u30A2 = ?"
     answers:
-    - answer: kasa
+    - answer: koa
       isRightAnswer: 1
-    - answer: kesa
+    - answer: ako
       isRightAnswer: 0
-    - answer: kuso
+    - answer: kao
       isRightAnswer: 0
-    - answer: uso
+    - answer: koka
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: sushi = ?
+  - question: ie = ?
     answers:
-    - answer: "\u3059\u3057"
+    - answer: "\u30A4\u30A8"
       isRightAnswer: 1
-    - answer: "\u3059\u3044"
+    - answer: "\u30A2\u30A4"
       isRightAnswer: 0
-    - answer: "\u3055\u3048"
+    - answer: "\u30A2\u30A6"
       isRightAnswer: 0
-    - answer: "\u3042\u3057"
+    - answer: "\u30AB\u30AD"
       isRightAnswer: 0
     audio: {fileID: 0}
   questionUI: {fileID: 1862568640}
@@ -17112,7 +17112,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1956269115}
         m_MethodName: selectTower
         m_Mode: 3
         m_Arguments:
@@ -17323,7 +17323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbor:
-  - {fileID: 5950167236081642721}
+  - {fileID: 587723467}
   isStartPoint: 0
   isEndPoint: 0
   isGenerator: 0

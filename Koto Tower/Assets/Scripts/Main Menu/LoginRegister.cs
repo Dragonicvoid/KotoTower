@@ -10,6 +10,7 @@ public class LoginRegister : MonoBehaviour
     // login field
     [SerializeField] InputField usernameLoginField = null;
     [SerializeField] InputField passwordLoginField = null;
+    [SerializeField] Toggle rememberMeLogin = null;
 
     // register field
     [SerializeField] InputField usernameRegisterField = null;
@@ -44,6 +45,9 @@ public class LoginRegister : MonoBehaviour
     private void Start()
     {
         doneSending = false;
+
+        if (!"".Equals(GameManager.instance.saveFile.username) && !GameManager.instance.hasLogin)
+            loginFromRememberMe();
     }
 
     // check validity for login
@@ -122,6 +126,49 @@ public class LoginRegister : MonoBehaviour
         return true;
     }
 
+    // login from remember me situation
+    public void loginFromRememberMe()
+    {
+        doneSending = false;
+        StartCoroutine(loginFromRememberMeCheckAndSend());
+    }
+
+    // couroutine for login from remember me
+    IEnumerator loginFromRememberMeCheckAndSend()
+    {
+        yield return null;
+        loadingBox.SetActive(true);
+        filterLoginRegister.SetActive(true);
+        errorText = "";
+        WWWForm form = new WWWForm();
+        form.AddField("username", GameManager.instance.saveFile.username);
+
+        string hashedPassword = hashing(GameManager.instance.saveFile.getPassword());
+        form.AddField("password", hashedPassword);
+
+        WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
+        yield return www;
+
+        if (www.text == null || "".Equals(www.text))
+            errorText = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
+        else if (www.text[0] == '0')
+        {
+            cancelButton.interactable = false;
+            string[] data = www.text.Split('\t');
+            GameManager.instance.userId = int.Parse(data[1]);
+            GameManager.instance.hasLogin = true;
+            changeText(GameManager.instance.hasLogin);
+            leaderboards.interactable = GameManager.instance.hasLogin;
+            cancelButton.interactable = true;
+        }
+        else
+            errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
+
+        Debug.Log(errorText);
+        loadingBox.SetActive(false);
+        filterLoginRegister.SetActive(false);
+    }
+
     // login
     public void login()
     {
@@ -156,6 +203,19 @@ public class LoginRegister : MonoBehaviour
                 string[] data = www.text.Split('\t');
                 GameManager.instance.userId = int.Parse(data[1]);
                 GameManager.instance.hasLogin = true;
+
+                if (rememberMeLogin.isOn)
+                {
+                    GameManager.instance.saveFile.username = usernameLoginField.text;
+                    GameManager.instance.saveFile.setPassword(passwordLoginField.text);
+                    SaveManager.instance.saveAndUpdate();
+                }
+                else
+                {
+                    GameManager.instance.saveFile.username = "";
+                    GameManager.instance.saveFile.setPassword("");
+                }
+
                 changeText(GameManager.instance.hasLogin);
                 leaderboards.interactable = GameManager.instance.hasLogin;
                 resetFields();

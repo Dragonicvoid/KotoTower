@@ -189,3 +189,4 @@ Bulan Mei :
 - 02/Mei/2020 : add pressed event on swipe up and tutorial level on new game button (Reivaldo Julianto)
 - 04/Mei/2020 : add three levels, and fixes on ui, and change the tile map to a new one (Reivaldo Julianto)
 - 05/Mei/2020 : add 10 level, and change how the points work (Reivaldo Julianto)
+- 06/Mei/2020 : add question to all levels, and change description to all levels, also add function to automaticly login when you have login and check the remember box (Reivaldo Julianto)

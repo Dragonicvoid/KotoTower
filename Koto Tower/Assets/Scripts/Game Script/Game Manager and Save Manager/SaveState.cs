@@ -6,7 +6,7 @@ public class SaveState
 {
     public int levelDone;
     public string username;
-    private string password;
+    public string password;
 
     //constructor when the save are created
     public SaveState()
