@@ -46,7 +46,7 @@ public class EnemiesPooling : MonoBehaviour
                 instantiatedEnemy = Instantiate(prefEnemyArmored);
                 break;
             case 2:
-                if(giantCount <= maxGiant)
+                if(giantCount < maxGiant)
                 {
                     instantiatedEnemy = Instantiate(prefEnemyGiant);
                     giantCount++;
