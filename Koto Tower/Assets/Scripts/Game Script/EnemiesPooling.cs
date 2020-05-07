@@ -7,6 +7,8 @@ public class EnemiesPooling : MonoBehaviour
     [SerializeField] GameObject prefEnemy = null;
     [SerializeField] GameObject prefEnemyArmored = null;
     [SerializeField] GameObject prefEnemyGiant = null;
+    [SerializeField] int maxGiant = 2;
+    int giantCount;
     List<EnemyBehaviour> nonActiveEnemies;
 
     // Start is called before the first frame update
@@ -18,6 +20,8 @@ public class EnemiesPooling : MonoBehaviour
 
         foreach (Transform child in this.transform)
             nonActiveEnemies.Add(child.GetComponent<EnemyBehaviour>());
+
+        giantCount = 0;
     }
 
     public GameObject pooling()
@@ -42,7 +46,13 @@ public class EnemiesPooling : MonoBehaviour
                 instantiatedEnemy = Instantiate(prefEnemyArmored);
                 break;
             case 2:
-                instantiatedEnemy = Instantiate(prefEnemyGiant);
+                if(giantCount <= maxGiant)
+                {
+                    instantiatedEnemy = Instantiate(prefEnemyGiant);
+                    giantCount++;
+                }
+                else
+                    instantiatedEnemy = Instantiate(prefEnemyArmored);
                 break;
             default:
                 instantiatedEnemy = Instantiate(prefEnemy);

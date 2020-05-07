@@ -17,6 +17,6 @@ MonoBehaviour:
   maxHealth: 200
   damage: 2
   shockRecovery: 10
-  rewardPrice: 200
+  rewardPrice: 50
   hitRate: 2
   type: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tower Sniper Properties
   m_EditorClassIdentifier: 
   prefabName: Tower Sniper
-  damage: 50
+  damage: 25
   radius: 10
   fireRate: 2
   shootAround: 0

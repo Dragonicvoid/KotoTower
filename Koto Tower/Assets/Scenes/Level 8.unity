@@ -1378,6 +1378,7 @@ MonoBehaviour:
     type: 3}
   prefEnemyGiant: {fileID: 8590819985370394449, guid: 3dd7922480bf8fa4caf1c04e0e1aa319,
     type: 3}
+  maxGiant: 4
 --- !u!1 &91969042
 GameObject:
   m_ObjectHideFlags: 0
