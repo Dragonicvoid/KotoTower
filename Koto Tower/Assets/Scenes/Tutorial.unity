@@ -13781,9 +13781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6abcbc111b42a84992955a707cf2ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbor:
-  - {fileID: 305808464}
-  - {fileID: 77160710}
+  neighbor: []
   isStartPoint: 0
   isEndPoint: 0
   isGenerator: 0
@@ -19276,6 +19274,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1475847372}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1048339771}
+        m_MethodName: cancel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -25657,6 +25666,7 @@ MonoBehaviour:
   mainLagiButton: {fileID: 1208283953}
   levelSelectButton: {fileID: 847503624}
   loading: {fileID: 1533708556}
+  pleaseLogin: {fileID: 0}
   leaderboardText:
   - {fileID: 240360892}
   - {fileID: 1482873884}
