@@ -29,6 +29,7 @@ public class LoginRegister : MonoBehaviour
     [SerializeField] Text loginText = null;
     [SerializeField] Text loginErrorText = null;
     [SerializeField] Text registerErrorText = null;
+    [SerializeField] Text loginRegisterLoadingText = null;
 
     // cancel button when loading
     [SerializeField] GameObject loadingBox = null;
@@ -137,6 +138,7 @@ public class LoginRegister : MonoBehaviour
     IEnumerator loginFromRememberMeCheckAndSend()
     {
         yield return null;
+        loginRegisterLoadingText.text = "LOGIN AKUN";
         loadingBox.SetActive(true);
         filterLoginRegister.SetActive(true);
         errorText = "";
@@ -183,6 +185,7 @@ public class LoginRegister : MonoBehaviour
         // if the requirement is valid
         if (checkLogin())
         {
+            loginRegisterLoadingText.text = "LOGIN AKUN";
             loadingBox.SetActive(true);
             filterLoginRegister.SetActive(true);
             errorText = "";
@@ -249,6 +252,7 @@ public class LoginRegister : MonoBehaviour
         // if requirement is valid
         if (checkRegister())
         {
+            loginRegisterLoadingText.text = "MEMBUAT AKUN BARU";
             loadingBox.SetActive(true);
             filterLoginRegister.SetActive(true);
             errorText = "";

@@ -294,4 +294,22 @@ public class TutorialManager : MonoBehaviour
 
         yield return null;
     }
+
+    // next tutorial and stop
+    public void nextAndStop()
+    {
+        StartCoroutine(nextAndStopEnumerator());
+    }
+
+    // next tutorial and stop
+    IEnumerator nextAndStopEnumerator()
+    {
+        // close the current panel
+        filter.SetActive(false);
+        GameManager.instance.isPaused = false;
+        if (tutorialList[tutorialIdx].tutorialPanel != null)
+            tutorialList[tutorialIdx].tutorialPanel.SetActive(false);
+
+        yield return null;
+    }
 }

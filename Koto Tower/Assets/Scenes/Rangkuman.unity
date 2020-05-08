@@ -1391,7 +1391,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2030766768}
   m_HandleRect: {fileID: 2030766767}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2578,7 +2578,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &119782913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4863,7 +4863,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &288803258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4940,7 +4940,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Katakana 2
+  m_Text: Katakana 3
 --- !u!222 &289291059
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5017,7 +5017,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &290910863
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5094,7 +5094,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &295279540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5756,7 +5756,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &310892404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9906,7 +9906,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &555550457
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10060,7 +10060,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &564248881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12698,7 +12698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &723200251
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12947,7 +12947,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &729263585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13816,7 +13816,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &776214859
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14783,7 +14783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &824594778
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16753,7 +16753,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &931345704
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17471,7 +17471,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &970451927
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20022,7 +20022,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1125973071
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20934,7 +20934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1157737596
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23727,7 +23727,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1331408154
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26947,7 +26947,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1534630613
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27024,7 +27024,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1536890590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29611,7 +29611,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1631312070
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32171,7 +32171,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1745578531
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32610,7 +32610,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1763169894
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34146,7 +34146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1832659269
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36422,7 +36422,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1999757322
 CanvasRenderer:
   m_ObjectHideFlags: 0

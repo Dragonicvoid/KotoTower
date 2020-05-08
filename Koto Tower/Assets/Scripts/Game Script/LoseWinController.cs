@@ -14,6 +14,7 @@ public class LoseWinController : MonoBehaviour
     [SerializeField] Button mainLagiButton = null;
     [SerializeField] Button levelSelectButton = null;
     [SerializeField] GameObject loading = null;
+    [SerializeField] GameObject pleaseLogin = null;
     [SerializeField] List<GameObject> leaderboardText = null;
 
     float totalScore;
@@ -48,6 +49,8 @@ public class LoseWinController : MonoBehaviour
     {
         if (GameManager.instance.hasLogin && !GameManager.instance.isTutorial)
             StartCoroutine(sendLeaderboardsData());
+        else if(!GameManager.instance.hasLogin)
+            pleaseLogin.SetActive(true);
     }
 
     // stop the send data

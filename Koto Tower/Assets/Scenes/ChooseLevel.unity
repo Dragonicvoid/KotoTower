@@ -2442,7 +2442,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &119490293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5965,7 +5965,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &242678053
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11608,7 +11608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &486610714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13202,7 +13202,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &565228277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13867,7 +13867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 253.57, y: -50}
+  m_AnchoredPosition: {x: 253.57, y: -166}
   m_SizeDelta: {x: 507.14, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581283681
@@ -14547,7 +14547,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Katakana 2
+  m_Text: Katakana 3
 --- !u!222 &609435978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15859,8 +15859,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1047214091}
   m_HandleRect: {fileID: 1047214090}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.8770129
+  m_Value: 1.000001
+  m_Size: 0.87701297
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16878,7 +16878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &739314593
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21865,8 +21865,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1246191346}
   m_HandleRect: {fileID: 1246191345}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.8770129
+  m_Value: 1.000001
+  m_Size: 0.87701297
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -22132,7 +22132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &903339975
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23329,7 +23329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &971021731
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23497,8 +23497,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 174983782}
   m_HandleRect: {fileID: 174983781}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.8770129
+  m_Value: 1.000001
+  m_Size: 0.87701297
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -24113,7 +24113,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1005043772
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27554,7 +27554,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1172220491
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28587,7 +28587,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1215719840
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29766,7 +29766,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1620875081}
   m_HandleRect: {fileID: 1620875080}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -32182,8 +32182,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1752331502}
   m_HandleRect: {fileID: 1752331501}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.8770129
+  m_Value: 1.000001
+  m_Size: 0.87701297
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -32366,7 +32366,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1397463499
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36658,7 +36658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1572852819
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36876,7 +36876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1583025767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40489,7 +40489,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1815229355
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41828,7 +41828,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 253.57, y: -50}
+  m_AnchoredPosition: {x: 253.57, y: -282}
   m_SizeDelta: {x: 507.14, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868218255
@@ -43120,7 +43120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1927235836
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43354,7 +43354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -165.76, y: -26.5}
+  m_AnchoredPosition: {x: -165.76, y: -23.4}
   m_SizeDelta: {x: 294.89, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1934825932
@@ -43671,8 +43671,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 680681272}
   m_HandleRect: {fileID: 680681271}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.8770129
+  m_Value: 1.000001
+  m_Size: 0.87701297
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -44086,7 +44086,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &1964623646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44163,7 +44163,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1965917411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45197,7 +45197,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &1995709374
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46125,7 +46125,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &2030792984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46463,7 +46463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &2047540003
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46613,7 +46613,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Practice
+  m_Text: Latihan
 --- !u!222 &2068200868
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46796,7 +46796,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &2086283686
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47362,7 +47362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Main
 --- !u!222 &2088431862
 CanvasRenderer:
   m_ObjectHideFlags: 0

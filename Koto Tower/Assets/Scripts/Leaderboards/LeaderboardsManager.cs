@@ -10,6 +10,9 @@ public class LeaderboardsManager : MonoBehaviour
     [SerializeField] Button prevButton = null;
     [SerializeField] Button nextButton = null;
     [SerializeField] Text errorText = null;
+    [SerializeField] Text peringkatPemain = null;
+    [SerializeField] Text namaPemain = null;
+    [SerializeField] Text skorPemain = null;
 
     List<LeaderboardsRow> rowList;
     GameObject rowLeaderboards;
@@ -34,11 +37,21 @@ public class LeaderboardsManager : MonoBehaviour
         getLeaderboardsRow(currDropDownIdx + 1);
     }
 
-    // clear all leaderboards row
+    // clear all leaderboards row even the error and player leaderboards
     void clearRows()
     {
         errorText.text = "";
         errorText.gameObject.SetActive(false);
+
+        peringkatPemain.gameObject.SetActive(false);
+        peringkatPemain.text = "";
+
+        namaPemain.gameObject.SetActive(false);
+        namaPemain.text = "";
+
+        skorPemain.gameObject.SetActive(false);
+        skorPemain.text = "";
+
         foreach (LeaderboardsRow row in rowList)
             row.gameObject.SetActive(false);
     }
@@ -93,6 +106,7 @@ public class LeaderboardsManager : MonoBehaviour
         loading.SetActive(true);
         WWWForm form = new WWWForm();
         form.AddField("levelIdx", levelIdx);
+        form.AddField("userId", GameManager.instance.userId);
         WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/getLeaderboardsDataMainMenu.php", form);
         yield return www;
 
@@ -106,16 +120,28 @@ public class LeaderboardsManager : MonoBehaviour
         loading.SetActive(false);
     }
 
-    // set error text
+    // set error text and deactivate pemain's score
     void setErrorText(string error)
     {
+        peringkatPemain.gameObject.SetActive(false);
+        peringkatPemain.text = "";
+
+        namaPemain.gameObject.SetActive(false);
+        namaPemain.text = "";
+
+        skorPemain.gameObject.SetActive(false);
+        skorPemain.text = "";
+
         errorText.text = error;
         errorText.gameObject.SetActive(true);
     }
 
-    // set row data
+    // set row data and dsiable error text
     void setRowData(string text)
     {
+        errorText.gameObject.SetActive(false);
+        errorText.text = "";
+
         prevButton.interactable = false;
         nextButton.interactable = false;
         dropdown.interactable = false;
@@ -124,8 +150,28 @@ public class LeaderboardsManager : MonoBehaviour
         // set curr index for collected data, starts at 1
         int currIdx = 1;
 
+        // set player's data
+        List<string> colTextForPemain = new List<string>(rowText[currIdx].Split('\t'));
+        if(colTextForPemain.Count > 1)
+        {
+            peringkatPemain.gameObject.SetActive(true);
+            peringkatPemain.text = colTextForPemain[0];
+
+            namaPemain.gameObject.SetActive(true);
+            namaPemain.text = colTextForPemain[1];
+
+            skorPemain.gameObject.SetActive(true);
+            skorPemain.text = colTextForPemain[2];
+        }
+        else
+        {
+            namaPemain.gameObject.SetActive(true);
+            namaPemain.text = rowText[currIdx];
+        }
+        currIdx++;
+
         // set data to already created row
-        for(int i = 0; i < rowList.Count && currIdx < rowText.Count - 1; i++)
+        for (int i = 0; i < rowList.Count && currIdx < rowText.Count - 1; i++)
         {
             LeaderboardsRow currRow = rowList[i];
             string[] colText = rowText[currIdx].Split('\t');

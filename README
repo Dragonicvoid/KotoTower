@@ -63,6 +63,14 @@ Self Made
 Self Made
 29. Coin.PNG:
 Self Made
+30. Foto-Foto Tutorial:
+Self Made
+31. foto untuk level panel:
+Self Made
+32. Thumbnail_Koto_Tower.PNG:
+Self Made
+33. Main_Menu_Koto_Tower.PNG:
+Self Made
 
 Assets (audio):
 1. 母.mp3: soundoftext.com
@@ -190,3 +198,4 @@ Bulan Mei :
 - 04/Mei/2020 : add three levels, and fixes on ui, and change the tile map to a new one (Reivaldo Julianto)
 - 05/Mei/2020 : add 10 level, and change how the points work (Reivaldo Julianto)
 - 06/Mei/2020 : add question to all levels, and change description to all levels, also add function to automaticly login when you have login and check the remember box (Reivaldo Julianto)
+- 07/Mei/2020 : add picture for tutorials, level, main menu, and thumbnail, change some of the text, add text to tell user you have to login to see leaderboards, and add user ranking on leaderboards scene (Reivaldo Julianto)
