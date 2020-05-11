@@ -9,6 +9,7 @@ public class KotoTowerBehaviour : MonoBehaviour
     float maxHealth;
     float damageTimer = 3f;
     HealthController healthController;
+    AudioSource audioSource;
 
     // initilization
     private void Start()
@@ -16,6 +17,7 @@ public class KotoTowerBehaviour : MonoBehaviour
         maxHealth = health;
         damageTimer = -1f;
         isHit = false;
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         healthController = this.gameObject.GetComponentInChildren<HealthController>();
     }
 
@@ -47,6 +49,8 @@ public class KotoTowerBehaviour : MonoBehaviour
     {
         isHit = true;
         damageTimer = 3f;
+        audioSource.Pause();
+        audioSource.Play();
         healthController.gotDamaged(health, maxHealth);
     }
 

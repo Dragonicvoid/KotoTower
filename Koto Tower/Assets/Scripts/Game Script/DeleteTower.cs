@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class DeleteTower : MonoBehaviour
 {
     [SerializeField] DescriptionForInspection desc = null;
+    [SerializeField] GameObject moneyAdd = null;
+
     TowerBehaviour selectedTower;
     Button[] buttons;
     RectTransform rect;
@@ -49,9 +51,11 @@ public class DeleteTower : MonoBehaviour
     //despawn the tower and give back the money
     public void despawn()
     {
+        GameObject moneyAddObj = Instantiate(moneyAdd);
+        MoneyAddedBehaviour moneyAddBehave = moneyAddObj.GetComponent<MoneyAddedBehaviour>();
+        moneyAddBehave.activateRefund((int)(GameManager.instance.getRefundMoney(selectedTower.getTowerType())), selectedTower.transform.position);
         TowerGridBlocker blocker = selectedTower.gameObject.GetComponent<TowerGridBlocker>();
         blocker.removeGridStatus();
-        Debug.Log(selectedTower + " : " + selectedTower.transform.position);
         GameManager.instance.refund(selectedTower.getTowerType());
         Destroy(selectedTower.gameObject);
         GameEvents.current.TowerUnselected();

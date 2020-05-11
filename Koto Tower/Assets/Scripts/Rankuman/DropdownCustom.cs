@@ -41,6 +41,7 @@ public class DropdownCustom: MonoBehaviour
     {
         if(currSummary.index != GameManager.instance.saveFile.levelDone && currSummary.index != maxLevel)
         {
+            GameManager.instance.makeButtonPressSound();
             currSummary.gameObject.SetActive(false);
             currSummary = dptList[dropdownBab.value + 1];
             currSummary.gameObject.SetActive(true);
@@ -53,6 +54,7 @@ public class DropdownCustom: MonoBehaviour
     {
         if (currSummary.index != 0)
         {
+            GameManager.instance.makeButtonPressSound();
             currSummary.gameObject.SetActive(false);
             currSummary = dptList[dropdownBab.value - 1];
             currSummary.gameObject.SetActive(true);
@@ -63,6 +65,7 @@ public class DropdownCustom: MonoBehaviour
     // change the dropdown 
     public void dropdown()
     {
+        GameManager.instance.makeButtonPressSound();
         currSummary.gameObject.SetActive(false);
         currSummary = dptList[dropdownBab.value];
         currSummary.gameObject.SetActive(true);

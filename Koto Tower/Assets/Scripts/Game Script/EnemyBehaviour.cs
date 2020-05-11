@@ -6,6 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     // Enemy attribute
     [SerializeField] EnemyPropertiesScriptableObject property = null;
+    [SerializeField] GameObject moneyAdd = null;
     EnemiesPooling pooler = null;
     float shockTimer;
     float attackTimer;
@@ -259,6 +260,9 @@ public class EnemyBehaviour : MonoBehaviour
         // if it dies just put it to the pooler
         if (currHealth <= 0f || status == EnemyStatus.FROZEN)
         {
+            GameObject moneyAddObj = Instantiate(moneyAdd);
+            MoneyAddedBehaviour money = moneyAddObj.GetComponent<MoneyAddedBehaviour>();
+            money.activatePlus((int)property.rewardPrice, position);
             pooler.insertBack(this);
             GameManager.instance.addMoney(property.rewardPrice);
         }

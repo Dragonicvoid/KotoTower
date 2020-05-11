@@ -73,7 +73,14 @@ Self Made
 Self Made
 
 Assets (audio):
-1. 母.mp3: soundoftext.com
+1. Sniper_Tower_Shoot.wav : https://www.bfxr.net/
+2. Sell_Tower.wav : https://www.bfxr.net/
+3. Machine_Gun_Tower_Shoot.wav : https://www.bfxr.net/
+4. Hit_Hurt.wav : https://www.bfxr.net/
+5. Get_Coin.wav : https://www.bfxr.net/
+6. Electric_Tower_Sound.wav : https://www.bfxr.net/
+7. Button_Select.wav : https://www.bfxr.net/
+8. Build_Tower.wav : https://www.bfxr.net/
 
 Script:
 1. EnemiesPooling
@@ -151,6 +158,7 @@ Script:
 73. SwipeUpPressed
 74. Tutorial
 75. TutorialManager
+76. MoneyAddedBehaviour
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -199,3 +207,4 @@ Bulan Mei :
 - 05/Mei/2020 : add 10 level, and change how the points work (Reivaldo Julianto)
 - 06/Mei/2020 : add question to all levels, and change description to all levels, also add function to automaticly login when you have login and check the remember box (Reivaldo Julianto)
 - 07/Mei/2020 : add picture for tutorials, level, main menu, and thumbnail, change some of the text, add text to tell user you have to login to see leaderboards, and add user ranking on leaderboards scene (Reivaldo Julianto)
+- 11/Mei/2020 : add sound, fixes on some typo, and added money UI when get or lose money (Reivaldo Julianto)

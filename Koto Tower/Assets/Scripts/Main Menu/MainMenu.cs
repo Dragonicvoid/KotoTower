@@ -48,6 +48,7 @@ public class MainMenu : MonoBehaviour
     // go to level select by new Game
     public void goToLevelSelectNewGame()
     {
+        GameManager.instance.makeButtonPressSound();
         if (PlayerPrefs.HasKey("save"))
         {
             filter.SetActive(true);
@@ -66,6 +67,7 @@ public class MainMenu : MonoBehaviour
     // go to level select by new Game after confirmation
     public void goToLevelSelectNewGameAfterConfirmation()
     {
+        GameManager.instance.makeButtonPressSound();
         PlayerPrefs.DeleteAll();
         SaveManager.instance.saveNewGame();
         GameManager.instance.isTutorial = true;
@@ -76,6 +78,7 @@ public class MainMenu : MonoBehaviour
     // close the confirmation
     public void closeConfirmation()
     {
+        GameManager.instance.makeButtonPressSound();
         confirmationPanel.SetActive(false);
         filter.SetActive(false);
         isNowConfirmation = false;
@@ -86,6 +89,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             SaveManager.instance.load();
             GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
         }
@@ -96,6 +100,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             SaveManager.instance.load();
             GameManager.instance.loadGame((int)Levels.RANGKUMAN);
         }
@@ -106,6 +111,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             SaveManager.instance.load();
             GameManager.instance.loadGame((int)Levels.LEADERBOARDS);
         }
@@ -116,12 +122,14 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation && !GameManager.instance.hasLogin)
         {
+            GameManager.instance.makeButtonPressSound();
             loginRegister.resetFields();
             filter.SetActive(true);
             login.SetActive(true);
         }
         else if(!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             GameManager.instance.hasLogin = false;
             GameManager.instance.userId = -1;
             GameManager.instance.saveFile.username = "";
@@ -137,6 +145,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             loginRegister.resetFields();
             login.SetActive(false);
             register.SetActive(true);
@@ -148,6 +157,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             login.SetActive(false);
             filter.SetActive(false);
         }
@@ -158,6 +168,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             register.SetActive(false);
             filter.SetActive(false);
         }
@@ -168,6 +179,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             register.SetActive(false);
             login.SetActive(true);
         }
@@ -178,6 +190,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isNowConfirmation)
         {
+            GameManager.instance.makeButtonPressSound();
             SaveManager.instance.saveAndUpdate();
             Application.Quit(0);
         }

@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class TrapsBehaviour : MonoBehaviour
 {
+    // attribute
     [SerializeField] TrapPropertiesScriptableObject property = null;
+    // when buying tower, show the decrease money
+    [SerializeField] GameObject moneyAdd = null;
+
+    // other variables for explosion
     bool hasExplode;
     bool isActive;
     Vector3 currentPosition;
     float timer;
+
+    // audio source
+    AudioSource audioSource;
 
     // initialization
     private void Awake()
@@ -21,6 +29,7 @@ public class TrapsBehaviour : MonoBehaviour
     // when they are spawned
     private void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         hasExplode = false;
         isActive = false;
         timer = 0f;
@@ -112,8 +121,11 @@ public class TrapsBehaviour : MonoBehaviour
     //activate
     public void activate()
     {
+        GameObject moneyAddObj = Instantiate(moneyAdd);
+        MoneyAddedBehaviour moneyAddBehave = moneyAddObj.GetComponent<MoneyAddedBehaviour>();
         currentPosition = this.gameObject.transform.position;
         isActive = true;
+        moneyAddBehave.activateMinus((int)GameManager.instance.getPrice(property.type), currentPosition);
     }
 
     // get is active

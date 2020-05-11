@@ -13,6 +13,8 @@ public class LeaderboardsManager : MonoBehaviour
     [SerializeField] Text peringkatPemain = null;
     [SerializeField] Text namaPemain = null;
     [SerializeField] Text skorPemain = null;
+    [SerializeField] Text belumMenyelesaikan = null;
+    [SerializeField] int maxLevel = 0;
 
     List<LeaderboardsRow> rowList;
     GameObject rowLeaderboards;
@@ -27,7 +29,7 @@ public class LeaderboardsManager : MonoBehaviour
 
         // add option based on level done by player
         List<string> options = new List<string>();
-        for (int i = 0; i < GameManager.instance.saveFile.levelDone; i++)
+        for (int i = 0; i < GameManager.instance.saveFile.levelDone && i < maxLevel; i++)
             options.Add("Level " + (i + 1));
         maxDropDownIdx = options.Count - 1;
         dropdown.AddOptions(options);
@@ -52,6 +54,9 @@ public class LeaderboardsManager : MonoBehaviour
         skorPemain.gameObject.SetActive(false);
         skorPemain.text = "";
 
+        belumMenyelesaikan.gameObject.SetActive(false);
+        belumMenyelesaikan.text = "";
+
         foreach (LeaderboardsRow row in rowList)
             row.gameObject.SetActive(false);
     }
@@ -61,6 +66,7 @@ public class LeaderboardsManager : MonoBehaviour
     {
         if (currDropDownIdx != maxDropDownIdx)
         {
+            GameManager.instance.makeButtonPressSound();
             StopAllCoroutines();
             clearRows();
             currDropDownIdx++;
@@ -74,6 +80,7 @@ public class LeaderboardsManager : MonoBehaviour
     {
         if (currDropDownIdx != 0)
         {
+            GameManager.instance.makeButtonPressSound();
             StopAllCoroutines();
             clearRows();
             currDropDownIdx--;
@@ -85,6 +92,7 @@ public class LeaderboardsManager : MonoBehaviour
     // get data based on 
     public void getDataBasedOnValueChange()
     {
+        GameManager.instance.makeButtonPressSound();
         StopAllCoroutines();
         clearRows();
         currDropDownIdx = dropdown.value;
@@ -165,8 +173,8 @@ public class LeaderboardsManager : MonoBehaviour
         }
         else
         {
-            namaPemain.gameObject.SetActive(true);
-            namaPemain.text = rowText[currIdx];
+            belumMenyelesaikan.gameObject.SetActive(true);
+            belumMenyelesaikan.text = rowText[currIdx];
         }
         currIdx++;
 

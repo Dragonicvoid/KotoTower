@@ -166,7 +166,6 @@ public class LoginRegister : MonoBehaviour
         else
             errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
 
-        Debug.Log(errorText);
         loadingBox.SetActive(false);
         filterLoginRegister.SetActive(false);
     }

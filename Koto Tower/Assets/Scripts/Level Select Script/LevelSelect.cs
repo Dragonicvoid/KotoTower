@@ -51,6 +51,7 @@ public class LevelSelect : MonoBehaviour
     {
         if(difficultyIdx != 2)
         {
+            GameManager.instance.makeButtonPressSound();
             difficultyIdx++;
             switch (difficultyIdx)
             {
@@ -77,6 +78,7 @@ public class LevelSelect : MonoBehaviour
     {
         if (difficultyIdx != 0)
         {
+            GameManager.instance.makeButtonPressSound();
             difficultyIdx--;
             switch (difficultyIdx)
             {
@@ -135,6 +137,7 @@ public class LevelSelect : MonoBehaviour
     // bila pemain pilih untuk latihan
     public void practice()
     {
+        GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = false;
         GameManager.instance.isPractice = true;
         GameManager.instance.currentLevelIndex = levelIndex;
@@ -145,6 +148,7 @@ public class LevelSelect : MonoBehaviour
     // bila pemain pilih untuk bermain
     public void play()
     {
+        GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = false;
         GameManager.instance.isPractice = false;
         GameManager.instance.currentLevelIndex = levelIndex;
@@ -155,6 +159,7 @@ public class LevelSelect : MonoBehaviour
     // bila pemain membuka level pertama
     public void tutorial()
     {
+        GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = true;
         GameManager.instance.isPractice = false;
         GameManager.instance.currentLevelIndex = levelIndex;

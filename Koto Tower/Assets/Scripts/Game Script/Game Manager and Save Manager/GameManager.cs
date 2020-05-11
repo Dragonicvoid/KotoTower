@@ -75,6 +75,9 @@ public class GameManager : MonoBehaviour
     // attribute for level selection
     public int difficultyIdx;
 
+    // Audio Source
+    AudioSource audioSource;
+
     private void Awake()
     {
         instance = this;
@@ -83,6 +86,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync((int)Levels.MAIN_MENU, LoadSceneMode.Additive);
         currentSceneIndex = (int)Levels.MAIN_MENU;
         selectedSummaryIndex = -1;
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -184,6 +188,22 @@ public class GameManager : MonoBehaviour
         moneyChanged = true;
     }
 
+    // get money value
+    public float getPrice(TowerType type)
+    {
+        switch (type)
+        {
+            case TowerType.MACHINE_GUN:
+                return towerPrices[0].price;
+            case TowerType.SNIPER:
+                return towerPrices[1].price;
+            case TowerType.ELECTRIC:
+                return towerPrices[2].price;
+            default:
+                return towerPrices[0].price;
+        }
+    }
+
     // pay for trap
     public void pay(TrapType type)
     {
@@ -202,6 +222,22 @@ public class GameManager : MonoBehaviour
                 break;
         }
         moneyChanged = true;
+    }
+
+    // get money value
+    public float getPrice(TrapType type)
+    {
+        switch (type)
+        {
+            case TrapType.BOMB_TRAP:
+                return trapPrices[0].price;
+            case TrapType.TIME_TRAP:
+                return trapPrices[1].price;
+            case TrapType.FREEZE_TRAP:
+                return trapPrices[2].price;
+            default:
+                return trapPrices[0].price;
+        }
     }
 
     // refund for tower for quarter of the price
@@ -224,6 +260,22 @@ public class GameManager : MonoBehaviour
         moneyChanged = true;
     }
 
+    // get Refund Tower Money
+    public float getRefundMoney(TowerType type)
+    {
+        switch (type)
+        {
+            case TowerType.MACHINE_GUN:
+                return Mathf.Floor(towerPrices[0].price / 4f);
+            case TowerType.SNIPER:
+                return Mathf.Floor(towerPrices[1].price / 4f);
+            case TowerType.ELECTRIC:
+                return Mathf.Floor(towerPrices[2].price / 4f);
+            default:
+                return Mathf.Floor(towerPrices[0].price / 4f);
+        }
+    }
+
     public void setDifficulty(int difficultyIdx)
     {
         this.difficultyIdx = difficultyIdx;
@@ -235,6 +287,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoad;
     }
 
+    // load a game based on scene index / level index, also if it has rangkuman idx open that rangkuman
     public void loadGame(int levelIdx, int rangkumanIdx = -1)
     {
         if(!isLoading)
@@ -249,6 +302,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // load progress
     public IEnumerator GetSceneLoadProgress()
     {
         for (int i = 0; i < scenesLoading.Count; i++)
@@ -263,5 +317,12 @@ public class GameManager : MonoBehaviour
     public int getUserId()
     {
         return userId;
+    }
+
+    // make sound (for buttons)
+    public void makeButtonPressSound()
+    {
+        audioSource.Stop();
+        audioSource.Play();
     }
 }

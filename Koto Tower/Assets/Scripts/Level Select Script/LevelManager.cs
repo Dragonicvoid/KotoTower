@@ -22,7 +22,8 @@ public class LevelManager : MonoBehaviour
     // back to main menu
     public void backToMainMenu()
     {
-        if(GameManager.instance.selectedSummaryIndex == -1)
+        GameManager.instance.makeButtonPressSound();
+        if (GameManager.instance.selectedSummaryIndex == -1)
             GameManager.instance.loadGame((int)Levels.MAIN_MENU);
         else
         {
@@ -34,12 +35,14 @@ public class LevelManager : MonoBehaviour
     // go to rangkuman menu
     public void goToRangkuman(int selectedIdx)
     {
+        GameManager.instance.makeButtonPressSound();
         GameManager.instance.loadGame((int)Levels.RANGKUMAN, selectedIdx);
     }
 
     // go to tutorial
     public void goToTutorial()
     {
+        GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = true;
         GameManager.instance.isPractice = false;
         GameManager.instance.currentLevelIndex = 0;
@@ -52,9 +55,9 @@ public class LevelManager : MonoBehaviour
     {
         if (!isOpenLevel)
         {
+            GameManager.instance.makeButtonPressSound();
             isOpenLevel = true;
             currOpenLevel = levels[idx];
-            Debug.Log(currOpenLevel);
             filter.gameObject.SetActive(true);
             currOpenLevel.gameObject.SetActive(true);
         }
@@ -65,6 +68,7 @@ public class LevelManager : MonoBehaviour
     {
         if (isOpenLevel)
         {
+            GameManager.instance.makeButtonPressSound();
             isOpenLevel = false;
             currOpenLevel.gameObject.SetActive(false);
             filter.gameObject.SetActive(false);

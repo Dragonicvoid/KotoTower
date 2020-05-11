@@ -7,8 +7,14 @@ public class TowerBehaviour : MonoBehaviour
     // tower attribute
     [SerializeField] TowerPropertiesScriptableObject property = null;
 
+    // when buying tower, show the decrease money
+    [SerializeField] GameObject moneyAdd = null;
+
     // Tower isActive
     bool isActive;
+
+    // how many time tower has fire
+    int totalFire;
 
     // Tower fire flash that seen when shooting
     GameObject fireFlash;
@@ -24,13 +30,18 @@ public class TowerBehaviour : MonoBehaviour
     Vector2 currentTargetPosition;
     List<EnemyBehaviour> enemy;
 
+    // audio source
+    AudioSource audioSource;
+
     // Initialize variables so we dont have to keep using transform class and for shoot method
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         fireFlash = transform.GetChild(0).gameObject;
         circle = transform.GetChild(1).gameObject;
         enemy = new List<EnemyBehaviour>();
         isActive = false;
+        totalFire = 5;
     }
 
     // Create gizmos so we can see the tower range when selected
@@ -125,7 +136,11 @@ public class TowerBehaviour : MonoBehaviour
                 // Hit enemy and reset timer
                 foreach (EnemyBehaviour target in enemy)
                     target.addDamage(property.damage, property.type);
+
+                // make shoot sound
                 shootTimer = 0f;
+                audioSource.Pause();
+                audioSource.Play();
             }
             else if (shootTimer >= (property.fireRate * (75 / 100)))
                 fireFlash.gameObject.SetActive(false);
@@ -144,6 +159,9 @@ public class TowerBehaviour : MonoBehaviour
                 fireFlash.gameObject.SetActive(true);
                 enemy[0].addDamage(property.damage, property.type);
                 shootTimer = 0f;
+
+                audioSource.Pause();
+                audioSource.Play();
             }
             else if (shootTimer >= (property.fireRate * (75 / 100)))
                 fireFlash.gameObject.SetActive(false);
@@ -178,11 +196,15 @@ public class TowerBehaviour : MonoBehaviour
     // activate means start shooting
     public void activate()
     {
+        GameObject moneyAddObj = Instantiate(moneyAdd);
+        MoneyAddedBehaviour moneyAddBehave = moneyAddObj.GetComponent<MoneyAddedBehaviour>();
         hasTarget = false;
         shootTimer = property.fireRate;
         currentPosition = this.transform.position;
         isActive = true;
         circle.SetActive(false);
+        totalFire = 5;
+        moneyAddBehave.activateMinus((int)GameManager.instance.getPrice(property.type), currentPosition);
     }
 
     // show Circle

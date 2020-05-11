@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   property: {fileID: 11400000, guid: 695627f1fe3fa1e40bf739b9509d7449, type: 2}
+  moneyAdd: {fileID: 7332781879800260560, guid: 4dabfdadba65e82418abb20ca07945a5,
+    type: 3}
   status: 0
 --- !u!58 &-5875510009684064455
 CircleCollider2D:

@@ -8,6 +8,9 @@ public class GeneratorBehaviour : MonoBehaviour
     // Question and Answer property for testing (change the text if the answer is correct or wrong)
     [SerializeField] QuestionManager questionManager = null;
 
+    // for money added
+    [SerializeField] GameObject moneyAdd = null;
+
     // timer for how long the text showing the player if the answer is correct or not
     float waitTimer = 3f;
 
@@ -81,6 +84,9 @@ public class GeneratorBehaviour : MonoBehaviour
             else
             {
                 GameManager.instance.isChangedDifficulty = true;
+                GameObject moneyAddObj = Instantiate(moneyAdd);
+                MoneyAddedBehaviour moneyAddBehave = moneyAddObj.GetComponent<MoneyAddedBehaviour>();
+                moneyAddBehave.activatePlus((int)(20 * GameManager.instance.totalAnsweredQuestion), this.gameObject.transform.position);
                 GameManager.instance.money += 20 * GameManager.instance.totalAnsweredQuestion;
                 GameManager.instance.moneyChanged = true;
                 questionText.text = "JAWABAN BENAR!!!";
