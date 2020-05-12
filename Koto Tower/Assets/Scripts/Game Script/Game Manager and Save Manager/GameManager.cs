@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 {
     // private method
     [SerializeField] GameObject loadingScreen = null;
+    [SerializeField] MainMenuAudio mainMenuAudio = null;
+
     bool isLoading;
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
@@ -324,5 +326,18 @@ public class GameManager : MonoBehaviour
     {
         audioSource.Stop();
         audioSource.Play();
+    }
+
+    // stop main menu music
+    public void stopMainMenuMusic()
+    {
+        mainMenuAudio.stop();
+    }
+
+    // start main menu music
+    public void startMainMenuMusic()
+    {
+        if(!mainMenuAudio.isNowPlaying())
+            mainMenuAudio.start();
     }
 }

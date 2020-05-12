@@ -81,6 +81,8 @@ Assets (audio):
 6. Electric_Tower_Sound.wav : https://www.bfxr.net/
 7. Button_Select.wav : https://www.bfxr.net/
 8. Build_Tower.wav : https://www.bfxr.net/
+9. In_Game.Mp3 :  https://www.youtube.com/watch?v=OuRvOCf9mJ4
+10. Main_Menu.Mp3 :  https://opengameart.org/content/games-a-bgm-track
 
 Script:
 1. EnemiesPooling
@@ -159,6 +161,7 @@ Script:
 74. Tutorial
 75. TutorialManager
 76. MoneyAddedBehaviour
+77. MainMenuAudio
 
 ===============================================================================================================================================
 ===============================================================================================================================================
@@ -208,3 +211,4 @@ Bulan Mei :
 - 06/Mei/2020 : add question to all levels, and change description to all levels, also add function to automaticly login when you have login and check the remember box (Reivaldo Julianto)
 - 07/Mei/2020 : add picture for tutorials, level, main menu, and thumbnail, change some of the text, add text to tell user you have to login to see leaderboards, and add user ranking on leaderboards scene (Reivaldo Julianto)
 - 11/Mei/2020 : add sound, fixes on some typo, and added money UI when get or lose money (Reivaldo Julianto)
+- 12/Mei/2020 : add song, and handler so it doesn't play on Rangkuman, practice, and tutorial, also fixes some UI bugs (Reivaldo Julianto)

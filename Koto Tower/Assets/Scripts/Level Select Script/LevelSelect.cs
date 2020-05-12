@@ -140,6 +140,7 @@ public class LevelSelect : MonoBehaviour
         GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = false;
         GameManager.instance.isPractice = true;
+        GameManager.instance.stopMainMenuMusic();
         GameManager.instance.currentLevelIndex = levelIndex;
         GameManager.instance.setDifficulty(difficultyIdx);
         GameManager.instance.loadGame((int)level);
@@ -151,6 +152,7 @@ public class LevelSelect : MonoBehaviour
         GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = false;
         GameManager.instance.isPractice = false;
+        GameManager.instance.stopMainMenuMusic();
         GameManager.instance.currentLevelIndex = levelIndex;
         GameManager.instance.setDifficulty(difficultyIdx);
         GameManager.instance.loadGame((int)level);
@@ -162,6 +164,7 @@ public class LevelSelect : MonoBehaviour
         GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = true;
         GameManager.instance.isPractice = false;
+        GameManager.instance.stopMainMenuMusic();
         GameManager.instance.currentLevelIndex = levelIndex;
         GameManager.instance.setDifficulty(difficultyIdx);
         GameManager.instance.loadGame((int)level);

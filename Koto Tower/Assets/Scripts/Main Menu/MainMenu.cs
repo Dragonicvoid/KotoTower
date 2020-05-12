@@ -58,6 +58,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             SaveManager.instance.saveNewGame();
+            GameManager.instance.stopMainMenuMusic();
             GameManager.instance.isTutorial = true;
             GameManager.instance.setDifficulty(0);
             GameManager.instance.loadGame((int)Levels.TUTORIAL);
@@ -70,6 +71,7 @@ public class MainMenu : MonoBehaviour
         GameManager.instance.makeButtonPressSound();
         PlayerPrefs.DeleteAll();
         SaveManager.instance.saveNewGame();
+        GameManager.instance.stopMainMenuMusic();
         GameManager.instance.isTutorial = true;
         GameManager.instance.setDifficulty(0);
         GameManager.instance.loadGame((int)Levels.TUTORIAL);
@@ -102,6 +104,7 @@ public class MainMenu : MonoBehaviour
         {
             GameManager.instance.makeButtonPressSound();
             SaveManager.instance.load();
+            GameManager.instance.stopMainMenuMusic();
             GameManager.instance.loadGame((int)Levels.RANGKUMAN);
         }
     }

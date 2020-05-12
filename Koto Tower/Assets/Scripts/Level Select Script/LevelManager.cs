@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     public void backToMainMenu()
     {
         GameManager.instance.makeButtonPressSound();
+        GameManager.instance.startMainMenuMusic();
         if (GameManager.instance.selectedSummaryIndex == -1)
             GameManager.instance.loadGame((int)Levels.MAIN_MENU);
         else
@@ -35,6 +36,7 @@ public class LevelManager : MonoBehaviour
     // go to rangkuman menu
     public void goToRangkuman(int selectedIdx)
     {
+        GameManager.instance.stopMainMenuMusic();
         GameManager.instance.makeButtonPressSound();
         GameManager.instance.loadGame((int)Levels.RANGKUMAN, selectedIdx);
     }
@@ -45,6 +47,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.makeButtonPressSound();
         GameManager.instance.isTutorial = true;
         GameManager.instance.isPractice = false;
+        GameManager.instance.stopMainMenuMusic();
         GameManager.instance.currentLevelIndex = 0;
         GameManager.instance.setDifficulty(0);
         GameManager.instance.loadGame((int)Levels.TUTORIAL);

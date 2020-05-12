@@ -15,6 +15,9 @@ public class LevelProperty : MonoBehaviour
     [SerializeField] LoseWinController loseWinController = null;
     [SerializeField] GameObject exitConfirmationBox = null;
 
+    // song
+    AudioSource audioSource;
+
     // On Start change value on GameManager
     private void Awake()
     {
@@ -48,6 +51,10 @@ public class LevelProperty : MonoBehaviour
     {
         GameEvents.current.onGameWonEnter += OnGameWon;
         GameEvents.current.onKotoTowerDestroyedEnter += OnGameLost;
+
+        audioSource = this.gameObject.GetComponent<AudioSource>();
+        if (GameManager.instance.isPractice)
+            audioSource.Stop();
     }
 
     // update the timer as long the game is not paused and not reached 15 minutes
@@ -102,6 +109,7 @@ public class LevelProperty : MonoBehaviour
     // For exiting the game
     public void exitLevel()
     {
+        GameManager.instance.startMainMenuMusic();
         GameManager.instance.loadGame((int)Levels.CHOOSE_LEVEL);
     }
 
