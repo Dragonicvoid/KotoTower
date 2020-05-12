@@ -46,7 +46,7 @@ public class TutorialManager : MonoBehaviour
         if (increaseVolume)
         {
             soundTimer += Time.deltaTime;
-            bgm.volume = 0.15f * deltaTime(soundTimer, 1f) + 0.05f;
+            bgm.volume = 0.05f * deltaTime(soundTimer, 1f) + 0.05f;
         }
             
 
