@@ -11042,6 +11042,7 @@ MonoBehaviour:
   trap: {fileID: 0}
   answer: {fileID: 0}
   question: {fileID: 0}
+  bgm: {fileID: 1801745529}
 --- !u!114 &794036287
 MonoBehaviour:
   m_ObjectHideFlags: 0

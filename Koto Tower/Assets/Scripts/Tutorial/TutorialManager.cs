@@ -9,11 +9,14 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] KotoTowerGeneratorTruckButton kotoTowerGeneratorTruckButton = null;
     [SerializeField] Transform tower, trap;
     [SerializeField] GameObject answer, question;
+    [SerializeField] AudioSource bgm = null;
     TruckBehaviour truck;
     int tutorialIdx;
     float timer = 0;
     bool forTutor = false;
     bool changeMoney = true;
+    bool increaseVolume = false;
+    float soundTimer = 0f;
 
     // initialization
     private void Awake()
@@ -26,6 +29,7 @@ public class TutorialManager : MonoBehaviour
     {
         tutorialIdx = 0;
         timer = 0;
+        soundTimer = 0f;
         foreach (GameObject obj in tutorialList[tutorialIdx].activateGameObject)
             obj.SetActive(true);
 
@@ -33,11 +37,19 @@ public class TutorialManager : MonoBehaviour
         filter.SetActive(true);
         tutorialList[tutorialIdx].tutorialPanel.SetActive(true);
         forTutor = false;
+        increaseVolume = false;
     }
 
     // check situation by tutorial index
     private void Update()
     {
+        if (increaseVolume)
+        {
+            soundTimer += Time.deltaTime;
+            bgm.volume = 0.15f * deltaTime(soundTimer, 1f) + 0.05f;
+        }
+            
+
         if (GameManager.instance.isTutorial)
         {
             // tutorial for Koto Tower
@@ -236,9 +248,25 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    // delta time, for one second
+    float deltaTime(float curr, float max)
+    {
+        if (curr == 0)
+            return 0;
+        else if (curr < max)
+            return curr / max;
+        else
+        {
+            increaseVolume = false;
+            return 1;
+        }
+    }
+
     // next tutorial and open the next one
     public void nextAndOpen()
     {
+        bgm.volume = 0.05f;
+        increaseVolume = false;
         StartCoroutine(nextAndOpenEnumerator());
     }
     
@@ -272,6 +300,7 @@ public class TutorialManager : MonoBehaviour
     // next tutorial but do not open the next one
     public void nextAndWait()
     {
+        increaseVolume = true;
         StartCoroutine(nextAndWaitEnumerator());
     }
 
@@ -298,6 +327,7 @@ public class TutorialManager : MonoBehaviour
     // next tutorial and stop
     public void nextAndStop()
     {
+        increaseVolume = true;
         StartCoroutine(nextAndStopEnumerator());
     }
 
