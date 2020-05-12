@@ -64,7 +64,7 @@ public class LeaderboardsManager : MonoBehaviour
     // next level leaderboards
     public void next()
     {
-        if (currDropDownIdx != maxDropDownIdx)
+        if (currDropDownIdx < maxDropDownIdx)
         {
             GameManager.instance.makeButtonPressSound();
             StopAllCoroutines();
@@ -78,7 +78,7 @@ public class LeaderboardsManager : MonoBehaviour
     // prev level leaderboards
     public void prev()
     {
-        if (currDropDownIdx != 0)
+        if (currDropDownIdx > 0)
         {
             GameManager.instance.makeButtonPressSound();
             StopAllCoroutines();

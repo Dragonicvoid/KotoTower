@@ -25,7 +25,7 @@ public class DropdownCustom: MonoBehaviour
 
         // including tutorial
         List<string> listOfString = new List<string>();
-        for (int i = 0; i < GameManager.instance.saveFile.levelDone + 1 && i < maxLevel; i++)
+        for (int i = 0; i < GameManager.instance.saveFile.levelDone + 1 && i <= maxLevel; i++)
             listOfString.Add(dptList[i].namaBab);
 
         dropdownBab.AddOptions(listOfString);
@@ -39,7 +39,7 @@ public class DropdownCustom: MonoBehaviour
     // Go to the next lesson
     public void next()
     {
-        if(currSummary.index != GameManager.instance.saveFile.levelDone && currSummary.index != maxLevel)
+        if (currSummary.index <= GameManager.instance.saveFile.levelDone && currSummary.index < maxLevel)
         {
             GameManager.instance.makeButtonPressSound();
             currSummary.gameObject.SetActive(false);
@@ -52,7 +52,7 @@ public class DropdownCustom: MonoBehaviour
     // Go back to the previous lesson
     public void prev()
     {
-        if (currSummary.index != 0)
+        if (currSummary.index > 0)
         {
             GameManager.instance.makeButtonPressSound();
             currSummary.gameObject.SetActive(false);
