@@ -78,6 +78,7 @@ public class LoseWinController : MonoBehaviour
         form.AddField("userId", GameManager.instance.userId);
         form.AddField("levelId", GameManager.instance.currentLevelIndex);
         form.AddField("score", totalScore.ToString());
+        form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
 
         WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/leaderboardsOnWin.php", form);
         yield return www;

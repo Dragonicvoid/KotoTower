@@ -340,4 +340,10 @@ public class GameManager : MonoBehaviour
         if(!mainMenuAudio.isNowPlaying())
             mainMenuAudio.start();
     }
+
+    // password for MySql Database
+    public string getMySQLPasword()
+    {
+        return "scg8sfxxpmu7lq8e";
+    }
 }

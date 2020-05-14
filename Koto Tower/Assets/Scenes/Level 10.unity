@@ -20974,13 +20974,13 @@ MonoBehaviour:
   mediumQuestions:
   - question: "\u306F\u3063\u3051\u3093 = ?"
     answers:
-    - answer: kaku
+    - answer: hokken
       isRightAnswer: 1
-    - answer: kae
+    - answer: hokeken
       isRightAnswer: 0
-    - answer: kao
+    - answer: hotsuken
       isRightAnswer: 0
-    - answer: kiki
+    - answer: hakken
       isRightAnswer: 0
     audio: {fileID: 0}
   - question: "\u30A4\u30C4\u30AB = ?"

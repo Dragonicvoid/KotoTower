@@ -18707,13 +18707,13 @@ MonoBehaviour:
     audio: {fileID: 0}
   - question: kaze = ?
     answers:
-    - answer: kau
+    - answer: "\u304B\u305C"
       isRightAnswer: 1
-    - answer: kae
+    - answer: "\u304B\u3056"
       isRightAnswer: 0
-    - answer: eki
+    - answer: "\u304C\u305B"
       isRightAnswer: 0
-    - answer: aki
+    - answer: "\u304B\u305E"
       isRightAnswer: 0
     audio: {fileID: 0}
   - question: daigaku = ?

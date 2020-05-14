@@ -17828,10 +17828,10 @@ MonoBehaviour:
     audio: {fileID: 0}
   - question: "\u30AB\u30AA = ?"
     answers:
-    - answer: sae
-      isRightAnswer: 1
     - answer: kao
       isRightAnswer: 0
+    - answer: kai
+      isRightAnswer: 1
     - answer: kae
       isRightAnswer: 0
     - answer: aki

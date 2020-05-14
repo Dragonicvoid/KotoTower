@@ -148,6 +148,8 @@ public class LoginRegister : MonoBehaviour
         string hashedPassword = hashing(GameManager.instance.saveFile.getPassword());
         form.AddField("password", hashedPassword);
 
+        form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
+        
         WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
         yield return www;
 
@@ -166,6 +168,7 @@ public class LoginRegister : MonoBehaviour
         else
             errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
 
+        Debug.Log(errorText);
         loadingBox.SetActive(false);
         filterLoginRegister.SetActive(false);
     }
@@ -193,6 +196,8 @@ public class LoginRegister : MonoBehaviour
 
             string hashedPassword = hashing(passwordLoginField.text);
             form.AddField("password", hashedPassword);
+
+            form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
 
             WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
             yield return www;
@@ -257,15 +262,14 @@ public class LoginRegister : MonoBehaviour
             errorText = "";
             WWWForm form = new WWWForm();
             form.AddField("username", usernameRegisterField.text);
-            Debug.Log(usernameRegisterField.text);
 
             string hashedPassword = hashing(passwordRegisterField.text);
             form.AddField("password", hashedPassword);
-            Debug.Log(hashedPassword);
 
             string hashedUsername = hashing(usernameRegisterField.text);
             form.AddField("userKey", hashedUsername);
-            Debug.Log(hashedUsername);
+
+            form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
 
             WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/register.php", form);
             yield return www;

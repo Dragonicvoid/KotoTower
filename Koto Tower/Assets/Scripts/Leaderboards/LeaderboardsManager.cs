@@ -115,6 +115,7 @@ public class LeaderboardsManager : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("levelIdx", levelIdx);
         form.AddField("userId", GameManager.instance.userId);
+        form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
         WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/getLeaderboardsDataMainMenu.php", form);
         yield return www;
 

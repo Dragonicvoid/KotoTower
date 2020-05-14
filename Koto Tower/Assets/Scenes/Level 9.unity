@@ -19357,7 +19357,7 @@ MonoBehaviour:
     - answer: "\u30B3\u30A4\u30D3\u30C8\u30EF"
       isRightAnswer: 0
     audio: {fileID: 0}
-  - question: empitsu = ?
+  - question: enpitsu = ?
     answers:
     - answer: "\u30A8\u30F3\u30D4\u30C4"
       isRightAnswer: 1
