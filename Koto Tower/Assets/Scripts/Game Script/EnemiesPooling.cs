@@ -26,8 +26,10 @@ public class EnemiesPooling : MonoBehaviour
 
     public GameObject pooling()
     {
-        //pooling a nonactive object, if there is a data in the list
-        if (nonActiveEnemies.Count != 0)
+        int randChoice = Random.Range(0, 10);
+
+        //pooling a nonactive object, if there is a data in the list, 20 percent change to not take from pooler
+        if (nonActiveEnemies.Count != 0 && randChoice < 8)
         {
             GameObject enemy = nonActiveEnemies[0].gameObject;
             nonActiveEnemies.RemoveAt(0);
@@ -52,7 +54,10 @@ public class EnemiesPooling : MonoBehaviour
                     giantCount++;
                 }
                 else
-                    instantiatedEnemy = Instantiate(prefEnemyArmored);
+                {
+                    randChoice = Random.Range(0, 2);
+                    instantiatedEnemy = Instantiate(randChoice == 0 ? prefEnemyArmored : prefEnemy);
+                }
                 break;
             default:
                 instantiatedEnemy = Instantiate(prefEnemy);
