@@ -17829,9 +17829,9 @@ MonoBehaviour:
   - question: "\u30AB\u30AA = ?"
     answers:
     - answer: kao
-      isRightAnswer: 0
-    - answer: kai
       isRightAnswer: 1
+    - answer: kai
+      isRightAnswer: 0
     - answer: kae
       isRightAnswer: 0
     - answer: aki
