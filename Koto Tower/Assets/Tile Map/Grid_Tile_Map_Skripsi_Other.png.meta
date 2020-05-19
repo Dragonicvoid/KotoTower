@@ -1,0 +1,3871 @@
+fileFormatVersion: 2
+guid: a53ab46356f5c5947b759667cdd28e4b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7447916548115987828
+    second: Grid_Tile_Map_Skripsi_Other_0
+  - first:
+      213: 6628272457341527875
+    second: Grid_Tile_Map_Skripsi_Other_1
+  - first:
+      213: -3133151032169018317
+    second: Grid_Tile_Map_Skripsi_Other_2
+  - first:
+      213: -8685004986949230271
+    second: Grid_Tile_Map_Skripsi_Other_3
+  - first:
+      213: 57382518110827236
+    second: Grid_Tile_Map_Skripsi_Other_4
+  - first:
+      213: -7572724197490481756
+    second: Grid_Tile_Map_Skripsi_Other_5
+  - first:
+      213: -2827628246244097518
+    second: Grid_Tile_Map_Skripsi_Other_6
+  - first:
+      213: 4052083580265421873
+    second: Grid_Tile_Map_Skripsi_Other_7
+  - first:
+      213: -5780351422247691342
+    second: Grid_Tile_Map_Skripsi_Other_8
+  - first:
+      213: -157327194679998935
+    second: Grid_Tile_Map_Skripsi_Other_9
+  - first:
+      213: 4450757365478418295
+    second: Grid_Tile_Map_Skripsi_Other_10
+  - first:
+      213: -8520404535568145399
+    second: Grid_Tile_Map_Skripsi_Other_11
+  - first:
+      213: 3956650798446526051
+    second: Grid_Tile_Map_Skripsi_Other_12
+  - first:
+      213: 5961528386663295261
+    second: Grid_Tile_Map_Skripsi_Other_13
+  - first:
+      213: -8109640812057495847
+    second: Grid_Tile_Map_Skripsi_Other_14
+  - first:
+      213: -1188911621869592466
+    second: Grid_Tile_Map_Skripsi_Other_15
+  - first:
+      213: -4086612119501595559
+    second: Grid_Tile_Map_Skripsi_Other_16
+  - first:
+      213: 8978326055497278192
+    second: Grid_Tile_Map_Skripsi_Other_17
+  - first:
+      213: 1865127405876003093
+    second: Grid_Tile_Map_Skripsi_Other_18
+  - first:
+      213: -7388339155129922875
+    second: Grid_Tile_Map_Skripsi_Other_19
+  - first:
+      213: 3088238136574758666
+    second: Grid_Tile_Map_Skripsi_Other_20
+  - first:
+      213: 2115615707133029673
+    second: Grid_Tile_Map_Skripsi_Other_21
+  - first:
+      213: -7805488688121164334
+    second: Grid_Tile_Map_Skripsi_Other_22
+  - first:
+      213: 412323700383093014
+    second: Grid_Tile_Map_Skripsi_Other_23
+  - first:
+      213: -8738732309824706138
+    second: Grid_Tile_Map_Skripsi_Other_24
+  - first:
+      213: 6270968773936243763
+    second: Grid_Tile_Map_Skripsi_Other_25
+  - first:
+      213: -3405963313028376867
+    second: Grid_Tile_Map_Skripsi_Other_26
+  - first:
+      213: -8369926037370186073
+    second: Grid_Tile_Map_Skripsi_Other_27
+  - first:
+      213: 524740787835926049
+    second: Grid_Tile_Map_Skripsi_Other_28
+  - first:
+      213: 3723610571818099656
+    second: Grid_Tile_Map_Skripsi_Other_29
+  - first:
+      213: 8831189298681778773
+    second: Grid_Tile_Map_Skripsi_Other_30
+  - first:
+      213: -7926319060885730566
+    second: Grid_Tile_Map_Skripsi_Other_31
+  - first:
+      213: 838897748412056002
+    second: Grid_Tile_Map_Skripsi_Other_32
+  - first:
+      213: 4695410848750153923
+    second: Grid_Tile_Map_Skripsi_Other_33
+  - first:
+      213: -5275181699031956784
+    second: Grid_Tile_Map_Skripsi_Other_34
+  - first:
+      213: -4667527634921973160
+    second: Grid_Tile_Map_Skripsi_Other_35
+  - first:
+      213: 5804302228339272156
+    second: Grid_Tile_Map_Skripsi_Other_36
+  - first:
+      213: 7571627587349650433
+    second: Grid_Tile_Map_Skripsi_Other_37
+  - first:
+      213: -2152584248191924199
+    second: Grid_Tile_Map_Skripsi_Other_38
+  - first:
+      213: -8030851043846358835
+    second: Grid_Tile_Map_Skripsi_Other_39
+  - first:
+      213: -5059861492912964801
+    second: Grid_Tile_Map_Skripsi_Other_40
+  - first:
+      213: 2188841159571629302
+    second: Grid_Tile_Map_Skripsi_Other_41
+  - first:
+      213: 5606328374432723214
+    second: Grid_Tile_Map_Skripsi_Other_42
+  - first:
+      213: 2230547302953933909
+    second: Grid_Tile_Map_Skripsi_Other_43
+  - first:
+      213: -8862725270256580652
+    second: Grid_Tile_Map_Skripsi_Other_44
+  - first:
+      213: 3635034455940388126
+    second: Grid_Tile_Map_Skripsi_Other_45
+  - first:
+      213: -8413295206705280223
+    second: Grid_Tile_Map_Skripsi_Other_46
+  - first:
+      213: -3809097898896637307
+    second: Grid_Tile_Map_Skripsi_Other_47
+  - first:
+      213: 4288034175197430333
+    second: Grid_Tile_Map_Skripsi_Other_48
+  - first:
+      213: 8758479326314125550
+    second: Grid_Tile_Map_Skripsi_Other_49
+  - first:
+      213: 5882938159172503907
+    second: Grid_Tile_Map_Skripsi_Other_50
+  - first:
+      213: -8151981671698049552
+    second: Grid_Tile_Map_Skripsi_Other_51
+  - first:
+      213: -5408117921656519230
+    second: Grid_Tile_Map_Skripsi_Other_52
+  - first:
+      213: 6302723216255075877
+    second: Grid_Tile_Map_Skripsi_Other_53
+  - first:
+      213: 8310918884930176708
+    second: Grid_Tile_Map_Skripsi_Other_54
+  - first:
+      213: 147623711319692966
+    second: Grid_Tile_Map_Skripsi_Other_55
+  - first:
+      213: -5815487858774809819
+    second: Grid_Tile_Map_Skripsi_Other_56
+  - first:
+      213: 7476251347190174681
+    second: Grid_Tile_Map_Skripsi_Other_57
+  - first:
+      213: -801067321418444883
+    second: Grid_Tile_Map_Skripsi_Other_58
+  - first:
+      213: -1582993115556446963
+    second: Grid_Tile_Map_Skripsi_Other_59
+  - first:
+      213: -1658154544419627271
+    second: Grid_Tile_Map_Skripsi_Other_60
+  - first:
+      213: -1223769273944875974
+    second: Grid_Tile_Map_Skripsi_Other_61
+  - first:
+      213: -1839644021674280515
+    second: Grid_Tile_Map_Skripsi_Other_62
+  - first:
+      213: -1021123679202794060
+    second: Grid_Tile_Map_Skripsi_Other_63
+  - first:
+      213: 5855482671259923738
+    second: Grid_Tile_Map_Skripsi_Other_64
+  - first:
+      213: -5950431981825155830
+    second: Grid_Tile_Map_Skripsi_Other_65
+  - first:
+      213: -6326430132284995078
+    second: Grid_Tile_Map_Skripsi_Other_66
+  - first:
+      213: -1235303755137007153
+    second: Grid_Tile_Map_Skripsi_Other_67
+  - first:
+      213: 3094355039653424544
+    second: Grid_Tile_Map_Skripsi_Other_68
+  - first:
+      213: -6877520852035975680
+    second: Grid_Tile_Map_Skripsi_Other_69
+  - first:
+      213: 219377101067261359
+    second: Grid_Tile_Map_Skripsi_Other_70
+  - first:
+      213: 3202493069724810168
+    second: Grid_Tile_Map_Skripsi_Other_71
+  - first:
+      213: -9032225070822485032
+    second: Grid_Tile_Map_Skripsi_Other_72
+  - first:
+      213: 9179901320709169936
+    second: Grid_Tile_Map_Skripsi_Other_73
+  - first:
+      213: 8012808957865864566
+    second: Grid_Tile_Map_Skripsi_Other_74
+  - first:
+      213: 491143477639413755
+    second: Grid_Tile_Map_Skripsi_Other_75
+  - first:
+      213: 292027335791154208
+    second: Grid_Tile_Map_Skripsi_Other_76
+  - first:
+      213: 820876487724759936
+    second: Grid_Tile_Map_Skripsi_Other_77
+  - first:
+      213: 7696375041378325288
+    second: Grid_Tile_Map_Skripsi_Other_78
+  - first:
+      213: -7303648226606598118
+    second: Grid_Tile_Map_Skripsi_Other_79
+  - first:
+      213: -5191324451752810490
+    second: Grid_Tile_Map_Skripsi_Other_80
+  - first:
+      213: -5329168802498234649
+    second: Grid_Tile_Map_Skripsi_Other_81
+  - first:
+      213: 4702949326005546567
+    second: Grid_Tile_Map_Skripsi_Other_82
+  - first:
+      213: -3673209181748932917
+    second: Grid_Tile_Map_Skripsi_Other_83
+  - first:
+      213: 2165194342054981863
+    second: Grid_Tile_Map_Skripsi_Other_84
+  - first:
+      213: 8643825943907188780
+    second: Grid_Tile_Map_Skripsi_Other_85
+  - first:
+      213: 6118270951473360505
+    second: Grid_Tile_Map_Skripsi_Other_86
+  - first:
+      213: -6452219225304085493
+    second: Grid_Tile_Map_Skripsi_Other_87
+  - first:
+      213: 5374368826455146237
+    second: Grid_Tile_Map_Skripsi_Other_88
+  - first:
+      213: 2265420279898718530
+    second: Grid_Tile_Map_Skripsi_Other_89
+  - first:
+      213: 4818826029191644878
+    second: Grid_Tile_Map_Skripsi_Other_90
+  - first:
+      213: 4702713293564259343
+    second: Grid_Tile_Map_Skripsi_Other_91
+  - first:
+      213: -2915984586207734748
+    second: Grid_Tile_Map_Skripsi_Other_92
+  - first:
+      213: 3803174742210398945
+    second: Grid_Tile_Map_Skripsi_Other_93
+  - first:
+      213: -4510672748804071053
+    second: Grid_Tile_Map_Skripsi_Other_94
+  - first:
+      213: -7745752384434994788
+    second: Grid_Tile_Map_Skripsi_Other_95
+  - first:
+      213: -2369727878645491167
+    second: Grid_Tile_Map_Skripsi_Other_96
+  - first:
+      213: 3367055260059884147
+    second: Grid_Tile_Map_Skripsi_Other_97
+  - first:
+      213: -6336488985233733681
+    second: Grid_Tile_Map_Skripsi_Other_98
+  - first:
+      213: 1751068975795081068
+    second: Grid_Tile_Map_Skripsi_Other_99
+  - first:
+      213: 6203818273332650541
+    second: Grid_Tile_Map_Skripsi_Other_100
+  - first:
+      213: 5907546073534452307
+    second: Grid_Tile_Map_Skripsi_Other_101
+  - first:
+      213: -7594584095760912737
+    second: Grid_Tile_Map_Skripsi_Other_102
+  - first:
+      213: 2005666520909415597
+    second: Grid_Tile_Map_Skripsi_Other_103
+  - first:
+      213: 1700039659187983619
+    second: Grid_Tile_Map_Skripsi_Other_104
+  - first:
+      213: -3923520052698730317
+    second: Grid_Tile_Map_Skripsi_Other_105
+  - first:
+      213: 7111677463424020798
+    second: Grid_Tile_Map_Skripsi_Other_106
+  - first:
+      213: 5127794402561421989
+    second: Grid_Tile_Map_Skripsi_Other_107
+  - first:
+      213: -2023564455244978084
+    second: Grid_Tile_Map_Skripsi_Other_108
+  - first:
+      213: 1373461831584755378
+    second: Grid_Tile_Map_Skripsi_Other_109
+  - first:
+      213: 3072122951065466283
+    second: Grid_Tile_Map_Skripsi_Other_110
+  - first:
+      213: 2525137790944918822
+    second: Grid_Tile_Map_Skripsi_Other_111
+  - first:
+      213: -857071503424871354
+    second: Grid_Tile_Map_Skripsi_Other_112
+  - first:
+      213: -1104012111663299214
+    second: Grid_Tile_Map_Skripsi_Other_113
+  - first:
+      213: 3984386015203649870
+    second: Grid_Tile_Map_Skripsi_Other_114
+  - first:
+      213: -2313215647840465142
+    second: Grid_Tile_Map_Skripsi_Other_115
+  - first:
+      213: -5436306105126291820
+    second: Grid_Tile_Map_Skripsi_Other_116
+  - first:
+      213: -3039087279411368190
+    second: Grid_Tile_Map_Skripsi_Other_117
+  - first:
+      213: -3958574127980044043
+    second: Grid_Tile_Map_Skripsi_Other_118
+  - first:
+      213: 6246845878473843952
+    second: Grid_Tile_Map_Skripsi_Other_119
+  - first:
+      213: 8951152690971254223
+    second: Grid_Tile_Map_Skripsi_Other_120
+  - first:
+      213: 8882034255191124083
+    second: Grid_Tile_Map_Skripsi_Other_121
+  - first:
+      213: 6539836791397426320
+    second: Grid_Tile_Map_Skripsi_Other_122
+  - first:
+      213: 3066482880767588841
+    second: Grid_Tile_Map_Skripsi_Other_123
+  - first:
+      213: 2156920924542600835
+    second: Grid_Tile_Map_Skripsi_Other_124
+  - first:
+      213: -2688392044964093805
+    second: Grid_Tile_Map_Skripsi_Other_125
+  - first:
+      213: 2718691979788202687
+    second: Grid_Tile_Map_Skripsi_Other_126
+  - first:
+      213: 6733906481418884583
+    second: Grid_Tile_Map_Skripsi_Other_127
+  - first:
+      213: -3179607447269422368
+    second: Grid_Tile_Map_Skripsi_Other_128
+  - first:
+      213: -7262100862910702983
+    second: Grid_Tile_Map_Skripsi_Other_129
+  - first:
+      213: -3422803288294529118
+    second: Grid_Tile_Map_Skripsi_Other_130
+  - first:
+      213: 1049536549036608796
+    second: Grid_Tile_Map_Skripsi_Other_131
+  - first:
+      213: 2410860992200600332
+    second: Grid_Tile_Map_Skripsi_Other_132
+  - first:
+      213: 7431869315505645431
+    second: Grid_Tile_Map_Skripsi_Other_133
+  - first:
+      213: -2669427247340466259
+    second: Grid_Tile_Map_Skripsi_Other_134
+  - first:
+      213: 1174324882199972997
+    second: Grid_Tile_Map_Skripsi_Other_135
+  - first:
+      213: 8757208997571596813
+    second: Grid_Tile_Map_Skripsi_Other_136
+  - first:
+      213: 3627582250159191822
+    second: Grid_Tile_Map_Skripsi_Other_137
+  - first:
+      213: 7618180273765842096
+    second: Grid_Tile_Map_Skripsi_Other_138
+  - first:
+      213: -8529415733847281278
+    second: Grid_Tile_Map_Skripsi_Other_139
+  - first:
+      213: -397345835839772093
+    second: Grid_Tile_Map_Skripsi_Other_140
+  - first:
+      213: 2910170134647889513
+    second: Grid_Tile_Map_Skripsi_Other_141
+  - first:
+      213: -4329870709210630836
+    second: Grid_Tile_Map_Skripsi_Other_142
+  - first:
+      213: 311820797245754688
+    second: Grid_Tile_Map_Skripsi_Other_143
+  - first:
+      213: 9112654696978511293
+    second: Grid_Tile_Map_Skripsi_Other_144
+  - first:
+      213: 4250988405477120580
+    second: Grid_Tile_Map_Skripsi_Other_145
+  - first:
+      213: 4932381989239239564
+    second: Grid_Tile_Map_Skripsi_Other_146
+  - first:
+      213: 875972850020540213
+    second: Grid_Tile_Map_Skripsi_Other_147
+  - first:
+      213: 8228888857092645287
+    second: Grid_Tile_Map_Skripsi_Other_148
+  - first:
+      213: 2923800962496567546
+    second: Grid_Tile_Map_Skripsi_Other_149
+  - first:
+      213: 8152091408425635039
+    second: Grid_Tile_Map_Skripsi_Other_150
+  - first:
+      213: 1418488791027143835
+    second: Grid_Tile_Map_Skripsi_Other_151
+  - first:
+      213: 8109598848682432770
+    second: Grid_Tile_Map_Skripsi_Other_152
+  - first:
+      213: 5605177905188677283
+    second: Grid_Tile_Map_Skripsi_Other_153
+  - first:
+      213: 8275123312742648905
+    second: Grid_Tile_Map_Skripsi_Other_154
+  - first:
+      213: -2585649032994481019
+    second: Grid_Tile_Map_Skripsi_Other_155
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47df437c3a05c5760800000000000000
+      internalID: 7447916548115987828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347e85e8eaa5cfb50800000000000000
+      internalID: 6628272457341527875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ccae38cbfc484d0800000000000000
+      internalID: -3133151032169018317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1412560caf9a87780800000000000000
+      internalID: -8685004986949230271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_4
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e23050a81ddbc000800000000000000
+      internalID: 57382518110827236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a52392e67748e690800000000000000
+      internalID: -7572724197490481756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_6
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21282c9671f32c8d0800000000000000
+      internalID: -2827628246244097518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_7
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cd9e12c84eb3830800000000000000
+      internalID: 4052083580265421873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb9000d10118cfa0800000000000000
+      internalID: -5780351422247691342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_9
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926079fffbf01ddf0800000000000000
+      internalID: -157327194679998935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_10
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7776bc62e3444cd30800000000000000
+      internalID: 4450757365478418295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_11
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90465dac73171c980800000000000000
+      internalID: -8520404535568145399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_12
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ebbad10f8d8e630800000000000000
+      internalID: 3956650798446526051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d19297d6b7a9bb250800000000000000
+      internalID: 5961528386663295261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_14
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d67d4de5a4c47f80800000000000000
+      internalID: -8109640812057495847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_15
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 285
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e602125dd23208fe0800000000000000
+      internalID: -1188911621869592466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_16
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c1d4addef6947c0800000000000000
+      internalID: -4086612119501595559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_17
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2ac8f6afb699c70800000000000000
+      internalID: 8978326055497278192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_18
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511c5186e7342e910800000000000000
+      internalID: 1865127405876003093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_19
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca0f5afea8577990800000000000000
+      internalID: -7388339155129922875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_20
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f4a581930abda20800000000000000
+      internalID: 3088238136574758666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_21
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92da6e0d64d2c5d10800000000000000
+      internalID: 2115615707133029673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_22
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd4536b4655da390800000000000000
+      internalID: -7805488688121164334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_23
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6111fcd883ed8b500800000000000000
+      internalID: 412323700383093014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_24
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a96ba59349c9b680800000000000000
+      internalID: -8738732309824706138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_25
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3346908ffd4f60750800000000000000
+      internalID: 6270968773936243763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_26
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd65ee099669bb0d0800000000000000
+      internalID: -3405963313028376867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_27
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6d1426d9c08db80800000000000000
+      internalID: -8369926037370186073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_28
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1267e1267f0484700800000000000000
+      internalID: 524740787835926049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_29
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c36b17261ceca330800000000000000
+      internalID: 3723610571818099656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_30
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5529824a0efae8a70800000000000000
+      internalID: 8831189298681778773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_31
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa8f7f3fce000290800000000000000
+      internalID: -7926319060885730566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_32
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1c9f8be0d54ab00800000000000000
+      internalID: 838897748412056002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_33
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0b4422a43792140800000000000000
+      internalID: 4695410848750153923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_34
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d20f8f913acac6b0800000000000000
+      internalID: -5275181699031956784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_35
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a182d785c993fb0800000000000000
+      internalID: -4667527634921973160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_36
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9ab29cf160d8050800000000000000
+      internalID: 5804302228339272156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_37
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c168bac23d31960800000000000000
+      internalID: 7571627587349650433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_38
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9184b69f70c7022e0800000000000000
+      internalID: -2152584248191924199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_39
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8767f568fac8090800000000000000
+      internalID: -8030851043846358835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_40
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bbe3ec7c2c7c9b0800000000000000
+      internalID: -5059861492912964801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_41
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4650a0073506e10800000000000000
+      internalID: 2188841159571629302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_42
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e017144f3fdadcd40800000000000000
+      internalID: 5606328374432723214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_43
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c564f34fe74fe10800000000000000
+      internalID: 2230547302953933909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_44
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d78a7cc256410580800000000000000
+      internalID: -8862725270256580652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_45
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 255
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15d1a4149c327230800000000000000
+      internalID: 3635034455940388126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_46
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12bc5d5c598fd3b80800000000000000
+      internalID: -8413295206705280223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_47
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582449574ad532bc0800000000000000
+      internalID: -3809097898896637307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_48
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32c0650d58228b30800000000000000
+      internalID: 4288034175197430333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_49
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee85e89fa8e5c8970800000000000000
+      internalID: 8758479326314125550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_50
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369411d261564a150800000000000000
+      internalID: 5882938159172503907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_51
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f551f25cd75ede80800000000000000
+      internalID: -8151981671698049552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_52
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c54d38576182f4b0800000000000000
+      internalID: -5408117921656519230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_53
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526cd763f55c77750800000000000000
+      internalID: 6302723216255075877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_54
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c6495551b0565370800000000000000
+      internalID: 8310918884930176708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_55
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a692a9bbf67c0200800000000000000
+      internalID: 147623711319692966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_56
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523612eaa9c3b4fa0800000000000000
+      internalID: -5815487858774809819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_57
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d35ec84dfaf0c760800000000000000
+      internalID: 7476251347190174681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_58
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf0ea1f38902e4f0800000000000000
+      internalID: -801067321418444883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_59
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d7e510624180ae0800000000000000
+      internalID: -1582993115556446963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_60
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 240
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe1b252a3d0df8e0800000000000000
+      internalID: -1658154544419627271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_61
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c5a73445c440fe0800000000000000
+      internalID: -1223769273944875974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_62
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9fee652854876e0800000000000000
+      internalID: -1839644021674280515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_63
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5a0658c6d34d1f0800000000000000
+      internalID: -1021123679202794060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_64
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1537e0477ad24150800000000000000
+      internalID: 5855482671259923738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_65
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d1037a3a1db6da0800000000000000
+      internalID: -5950431981825155830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_66
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af943d440510438a0800000000000000
+      internalID: -6326430132284995078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_67
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc14a5597c15bdee0800000000000000
+      internalID: -1235303755137007153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_68
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad6b73938b51fa20800000000000000
+      internalID: 3094355039653424544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_69
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006cd0749332e80a0800000000000000
+      internalID: -6877520852035975680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_70
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa518f4af426b0300800000000000000
+      internalID: 219377101067261359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_71
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbf898ba7a817c20800000000000000
+      internalID: 3202493069724810168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_72
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d39f32272717a280800000000000000
+      internalID: -9032225070822485032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_73
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013620e2d9f856f70800000000000000
+      internalID: 9179901320709169936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_74
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67da9a22b47333f60800000000000000
+      internalID: 8012808957865864566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_75
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 225
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff72760464e0d600800000000000000
+      internalID: 491143477639413755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_76
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 210
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024198e805d7d0400800000000000000
+      internalID: 292027335791154208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_77
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 210
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08bfd4ff0d6546b00800000000000000
+      internalID: 820876487724759936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_78
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 210
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 823998fa2540fca60800000000000000
+      internalID: 7696375041378325288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_79
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 210
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a18b3b062aa34aa90800000000000000
+      internalID: -7303648226606598118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_80
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 195
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608697b7ae5b4f7b0800000000000000
+      internalID: -5191324451752810490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_81
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 195
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6bff2953dfa06b0800000000000000
+      internalID: -5329168802498234649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_82
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 195
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e2935ae7b344140800000000000000
+      internalID: 4702949326005546567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_83
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 195
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcec620f5b3260dc0800000000000000
+      internalID: -3673209181748932917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_84
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 195
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e07fdb48c05c0e10800000000000000
+      internalID: 2165194342054981863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_85
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 195
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c20c4e626e905f770800000000000000
+      internalID: 8643825943907188780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_86
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 195
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97e292ea30778e450800000000000000
+      internalID: 6118270951473360505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_87
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 180
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ccdc6cccc1576a0800000000000000
+      internalID: -6452219225304085493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_88
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 180
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfebac819f7959a40800000000000000
+      internalID: 5374368826455146237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_89
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 180
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241445aedb3607f10800000000000000
+      internalID: 2265420279898718530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_90
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 180
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6cf580eb8efd240800000000000000
+      internalID: 4818826029191644878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_91
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 180
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ca76f03d4634140800000000000000
+      internalID: 4702713293564259343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_92
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 180
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424d298e7775887d0800000000000000
+      internalID: -2915984586207734748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_93
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 180
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea4038274797c430800000000000000
+      internalID: 3803174742210398945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_94
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371af75980fd661c0800000000000000
+      internalID: -4510672748804071053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_95
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c910e9fbe3f818490800000000000000
+      internalID: -7745752384434994788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_96
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12adefabc090d1fd0800000000000000
+      internalID: -2369727878645491167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_97
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37adafa6bee2abe20800000000000000
+      internalID: 3367055260059884147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_98
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7c7ff07d44018a0800000000000000
+      internalID: -6336488985233733681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_99
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f0977b4fb0d4810800000000000000
+      internalID: 1751068975795081068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_100
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22e111b9d3681650800000000000000
+      internalID: 6203818273332650541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_101
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3525647bad1dbf150800000000000000
+      internalID: 5907546073534452307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_102
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ee653b00e9a9690800000000000000
+      internalID: -7594584095760912737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_103
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da403b4031f85db10800000000000000
+      internalID: 2005666520909415597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_104
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305d9f51011c79710800000000000000
+      internalID: 1700039659187983619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_105
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b035cdbc4bdc89c0800000000000000
+      internalID: -3923520052698730317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_106
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e313a8449f0c1b260800000000000000
+      internalID: 7111677463424020798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_107
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2f8e547d5992740800000000000000
+      internalID: 5127794402561421989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_108
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 135
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c58240969dadae3e0800000000000000
+      internalID: -2023564455244978084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_109
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 135
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2beaa2842448f0310800000000000000
+      internalID: 1373461831584755378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_110
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 135
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba5f4941c8f52aa20800000000000000
+      internalID: 3072122951065466283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_111
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 135
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62dbf2e21771b0320800000000000000
+      internalID: 2525137790944918822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_112
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 135
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644204332021b14f0800000000000000
+      internalID: -857071503424871354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_113
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 135
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 275849075d2cda0f0800000000000000
+      internalID: -1104012111663299214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_114
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 135
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e496f3c78f16b4730800000000000000
+      internalID: 3984386015203649870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_115
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 120
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f089dcf9ec5efd0800000000000000
+      internalID: -2313215647840465142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_116
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 120
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496f8a1766c5e84b0800000000000000
+      internalID: -5436306105126291820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_117
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 120
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fe64d983ef2d5d0800000000000000
+      internalID: -3039087279411368190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_118
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 120
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0a2b4ddc15019c0800000000000000
+      internalID: -3958574127980044043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_119
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 120
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4eb01ba3141b650800000000000000
+      internalID: 6246845878473843952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_120
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 120
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd9f9b72f1e83c70800000000000000
+      internalID: 8951152690971254223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_121
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 120
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378a4879813534b70800000000000000
+      internalID: 8882034255191124083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_122
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094264889ea22ca50800000000000000
+      internalID: 6539836791397426320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_123
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9f7f1eee55e8a20800000000000000
+      internalID: 3066482880767588841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_124
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38608fb272ceeed10800000000000000
+      internalID: 2156920924542600835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_125
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390ede6cda9e0bad0800000000000000
+      internalID: -2688392044964093805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_126
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2bafc83fbbab520800000000000000
+      internalID: 2718691979788202687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_127
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e55caf5444a37d50800000000000000
+      internalID: 6733906481418884583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_128
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 105
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eac15c7fd3cfd3d0800000000000000
+      internalID: -3179607447269422368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_129
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 75
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a562fcdb5d73b90800000000000000
+      internalID: -7262100862910702983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_130
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 75
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a76a294b82cf70d0800000000000000
+      internalID: -3422803288294529118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_131
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 75
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1dcd104ee3b09e00800000000000000
+      internalID: 1049536549036608796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_132
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 75
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b66f29c49157120800000000000000
+      internalID: 2410860992200600332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_133
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 75
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777e6d744cd432760800000000000000
+      internalID: 7431869315505645431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_134
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 60
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafc580df0a44fad0800000000000000
+      internalID: -2669427247340466259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_135
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 60
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c8e6e224a0c4010800000000000000
+      internalID: 1174324882199972997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_136
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 60
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d021c148f2bd78970800000000000000
+      internalID: 8757208997571596813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_137
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 60
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07304636d2c75230800000000000000
+      internalID: 3627582250159191822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_138
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 60
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc73bc989639b960800000000000000
+      internalID: 7618180273765842096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_139
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 45
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281b762b49d61a980800000000000000
+      internalID: -8529415733847281278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_140
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 45
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a2ac941185c7af0800000000000000
+      internalID: -397345835839772093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_141
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 45
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e53a79150036820800000000000000
+      internalID: 2910170134647889513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_142
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 45
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c45b126d78539e3c0800000000000000
+      internalID: -4329870709210630836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_143
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 45
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d896dec5fc35400800000000000000
+      internalID: 311820797245754688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_144
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 30
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5f23e7a27a67e70800000000000000
+      internalID: 9112654696978511293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_145
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 30
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a94cc9e6b8efa30800000000000000
+      internalID: 4250988405477120580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_146
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 30
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83b32d4947537440800000000000000
+      internalID: 4932381989239239564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_147
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 30
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f5c5e7aa4182c00800000000000000
+      internalID: 875972850020540213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_148
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 30
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a16d2721d2e23270800000000000000
+      internalID: 8228888857092645287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_149
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 15
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af89d830c7d639820800000000000000
+      internalID: 2923800962496567546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_150
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 15
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdc49bfb1fb022170800000000000000
+      internalID: 8152091408425635039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_151
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 15
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94db0b3a0c7fa310800000000000000
+      internalID: 1418488791027143835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_152
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 15
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20912a6bf251b8070800000000000000
+      internalID: 8109598848682432770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_153
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 15
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a6a3a57b9799cd40800000000000000
+      internalID: 5605177905188677283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_154
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c44983fc427d270800000000000000
+      internalID: 8275123312742648905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grid_Tile_Map_Skripsi_Other_155
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c188267eded1cd0800000000000000
+      internalID: -2585649032994481019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
