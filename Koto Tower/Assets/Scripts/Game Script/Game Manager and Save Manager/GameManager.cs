@@ -342,7 +342,7 @@ public class GameManager : MonoBehaviour
     }
 
     // password for MySql Database
-    public string getMySQLPasword()
+    public string getMySQLPassword()
     {
         return "scg8sfxxpmu7lq8e";
     }

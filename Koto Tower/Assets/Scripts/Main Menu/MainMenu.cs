@@ -28,12 +28,19 @@ public class MainMenu : MonoBehaviour
     // check if there is save file, if yes activate the continue
     private void Awake()
     {
-        continueButton.interactable = PlayerPrefs.HasKey("save");
-        rangkumanButton.interactable = PlayerPrefs.HasKey("save");
-        leaderboards.interactable = GameManager.instance.hasLogin;
-
-        if(PlayerPrefs.HasKey("save"))
+        if (PlayerPrefs.HasKey("save"))
+        {
             SaveManager.instance.load();
+            continueButton.interactable = GameManager.instance.saveFile.levelDone != 0;
+            rangkumanButton.interactable = GameManager.instance.saveFile.levelDone != 0;
+            leaderboards.interactable = GameManager.instance.hasLogin && GameManager.instance.saveFile.levelDone != 0;
+        }
+        else
+        {
+            continueButton.interactable = false;
+            rangkumanButton.interactable = false;
+            leaderboards.interactable = false;
+        }
     }
 
     // get main camera of the scene
@@ -134,10 +141,15 @@ public class MainMenu : MonoBehaviour
         {
             GameManager.instance.makeButtonPressSound();
             GameManager.instance.hasLogin = false;
-            GameManager.instance.userId = -1;
-            GameManager.instance.saveFile.username = "";
-            GameManager.instance.saveFile.setPassword("");
-            SaveManager.instance.saveAndUpdate();
+
+            // update if player has a save
+            if(PlayerPrefs.HasKey("save"))
+            {
+                GameManager.instance.userId = -1;
+                GameManager.instance.saveFile.username = "";
+                GameManager.instance.saveFile.setPassword("");
+                SaveManager.instance.saveAndUpdate();
+            }
             loginRegister.changeText(GameManager.instance.hasLogin);
             leaderboards.interactable = false;
         }
@@ -194,7 +206,8 @@ public class MainMenu : MonoBehaviour
         if (!isNowConfirmation)
         {
             GameManager.instance.makeButtonPressSound();
-            SaveManager.instance.saveAndUpdate();
+            if(PlayerPrefs.HasKey("save"))
+                SaveManager.instance.saveAndUpdate();
             Application.Quit(0);
         }
     }

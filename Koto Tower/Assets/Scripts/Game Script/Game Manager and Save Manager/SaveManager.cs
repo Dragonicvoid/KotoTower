@@ -16,7 +16,7 @@ public class SaveManager : MonoBehaviour
     //Save the whole state of this saveState
     public void saveNewGame()
     {
-        state = new SaveState();
+        state = new SaveState(true);
         PlayerPrefs.SetString("save", OtherMethod.serialize<SaveState>(state));
         GameManager.instance.saveFile = state;
     }

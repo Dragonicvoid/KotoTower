@@ -6,7 +6,6 @@ public class MoveUIToTopScreen : MonoBehaviour
 {
     float rectHeight;
     float currentValue;
-    Vector3 startTouch;
     bool isJustText;
 
     // get this rect transform component

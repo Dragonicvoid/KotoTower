@@ -103,7 +103,15 @@ public class TrapsBehaviour : MonoBehaviour
 
         // For debug
         if(property.type != TrapType.TIME_TRAP)
+        {
+            GameObject explodeSound = new GameObject();
+            AudioSource ads = explodeSound.AddComponent<AudioSource>();
+            ads.clip = audioSource.clip;
+            ads.volume = 0.5f;
+            ads.Play();
+            Destroy(explodeSound, 1f);
             Destroy(this.gameObject);
+        } 
     }
 
     // when the trap has exced the duration
@@ -121,6 +129,9 @@ public class TrapsBehaviour : MonoBehaviour
     //activate
     public void activate()
     {
+        if (property.type == TrapType.TIME_TRAP)
+            audioSource.Play();
+
         GameObject moneyAddObj = Instantiate(moneyAdd);
         MoneyAddedBehaviour moneyAddBehave = moneyAddObj.GetComponent<MoneyAddedBehaviour>();
         currentPosition = this.gameObject.transform.position;

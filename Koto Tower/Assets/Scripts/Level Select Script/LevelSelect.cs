@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum UiType
-{
-    TEXT,
-    DIFFICULTY_SELECT
-}
-
 public class LevelSelect : MonoBehaviour
 {
     // 0 : easy, 1: medium, 2: hard

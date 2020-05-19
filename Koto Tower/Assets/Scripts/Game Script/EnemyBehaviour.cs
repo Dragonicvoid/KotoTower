@@ -81,6 +81,9 @@ public class EnemyBehaviour : MonoBehaviour
         position = pointPosition;
         status = EnemyStatus.MOVING;
         this.gameObject.SetActive(true);
+        Vector3 targetPosition = currTarget.gameObject.transform.position - this.transform.position;
+        float zRotation = (Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg) - 90.0f;
+        this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, zRotation));
     }
 
     // Despawning the enemy
@@ -163,6 +166,9 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if(attackTimer >= property.hitRate)
         {
+            if(kotoTower == null)
+                kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<KotoTowerBehaviour>();
+
             kotoTower.addDamage(property.damage);
             attackTimer = 0f;
         }

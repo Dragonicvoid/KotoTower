@@ -47,7 +47,7 @@ public class LoginRegister : MonoBehaviour
     {
         doneSending = false;
 
-        if (!"".Equals(GameManager.instance.saveFile.username) && !GameManager.instance.hasLogin)
+        if (PlayerPrefs.HasKey("save") && !"".Equals(GameManager.instance.saveFile.username) && !GameManager.instance.hasLogin)
             loginFromRememberMe();
     }
 
@@ -148,7 +148,7 @@ public class LoginRegister : MonoBehaviour
         string hashedPassword = hashing(GameManager.instance.saveFile.getPassword());
         form.AddField("password", hashedPassword);
 
-        form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
+        form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
         
         WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
         yield return www;
@@ -162,7 +162,7 @@ public class LoginRegister : MonoBehaviour
             GameManager.instance.userId = int.Parse(data[1]);
             GameManager.instance.hasLogin = true;
             changeText(GameManager.instance.hasLogin);
-            leaderboards.interactable = GameManager.instance.hasLogin;
+            leaderboards.interactable = GameManager.instance.saveFile.levelDone != 0;
             cancelButton.interactable = true;
         }
         else
@@ -197,7 +197,7 @@ public class LoginRegister : MonoBehaviour
             string hashedPassword = hashing(passwordLoginField.text);
             form.AddField("password", hashedPassword);
 
-            form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
+            form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
 
             WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
             yield return www;
@@ -213,6 +213,9 @@ public class LoginRegister : MonoBehaviour
 
                 if (rememberMeLogin.isOn)
                 {
+                    if (!PlayerPrefs.HasKey("save"))
+                        GameManager.instance.saveFile = new SaveState(false);
+
                     GameManager.instance.saveFile.username = usernameLoginField.text;
                     GameManager.instance.saveFile.setPassword(passwordLoginField.text);
                     SaveManager.instance.saveAndUpdate();
@@ -224,7 +227,7 @@ public class LoginRegister : MonoBehaviour
                 }
 
                 changeText(GameManager.instance.hasLogin);
-                leaderboards.interactable = GameManager.instance.hasLogin;
+                leaderboards.interactable = GameManager.instance.saveFile.levelDone != 0;
                 resetFields();
                 loginBox.SetActive(false);
                 registerBox.SetActive(false);
@@ -269,7 +272,7 @@ public class LoginRegister : MonoBehaviour
             string hashedUsername = hashing(usernameRegisterField.text);
             form.AddField("userKey", hashedUsername);
 
-            form.AddField("mySQLPassword", GameManager.instance.getMySQLPasword());
+            form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
 
             WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/register.php", form);
             yield return www;

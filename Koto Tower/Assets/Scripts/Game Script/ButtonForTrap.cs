@@ -35,9 +35,6 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
     GameObject lineParent;
     [SerializeField] List<ButtonChangeColor> buttons = null;
 
-    // property id for color;
-    int colorPropertyId = Shader.PropertyToID("_Color");
-
     // Connect to Tower
     ButtonForTower towerUi;
 

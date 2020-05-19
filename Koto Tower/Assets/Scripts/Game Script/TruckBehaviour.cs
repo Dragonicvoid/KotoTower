@@ -28,10 +28,13 @@ public class TruckBehaviour : MonoBehaviour
 
     // charCharge (Answer) that the truck bring
     Answer charCharge;
-    Vector3 charChagePosition;
+    Vector3 charChargePosition;
 
     // Radius Circle
     GameObject radiusCircle;
+
+    //audio source
+    AudioSource audioSource;
 
     private void OnEnable()
     {
@@ -42,7 +45,7 @@ public class TruckBehaviour : MonoBehaviour
     private void Awake()
     {
         // set char charge position
-        charChagePosition = this.gameObject.transform.GetChild(0).GetComponent<Transform>().position;
+        charChargePosition = this.gameObject.transform.GetChild(0).GetComponent<Transform>().position;
         radiusCircle = this.gameObject.transform.GetChild(1).gameObject;
     }
 
@@ -56,6 +59,8 @@ public class TruckBehaviour : MonoBehaviour
         defaultColor = render.material.GetColor(colorPropertyId);
         // reset health
         resetAttribute();
+        //add audio source
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Call Update method
@@ -210,13 +215,13 @@ public class TruckBehaviour : MonoBehaviour
         {
             currStatus = TruckStatus.EXPLODING;
             radiusCircle.SetActive(true);
-            charChagePosition = this.gameObject.transform.GetChild(0).GetComponent<Transform>().position;
+            charChargePosition = this.gameObject.transform.GetChild(0).GetComponent<Transform>().position;
             chooseDirection.closeAllPossiblePath();
             GameEvents.current.TruckDestroyedEnter(true);
         }
         else
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(charChagePosition, property.radius, (1 << 8));
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(charChargePosition, property.radius, (1 << 8));
 
             if (hitColliders.Length > 0)
                 foreach (Collider2D hitCollider in hitColliders)
@@ -225,6 +230,12 @@ public class TruckBehaviour : MonoBehaviour
             currStatus = TruckStatus.DESTROYED;
             // Reset Timer
             explodeTimer = 0;
+            GameObject explodeSound = new GameObject();
+            AudioSource ads = explodeSound.AddComponent<AudioSource>();
+            ads.clip = audioSource.clip;
+            ads.volume = 0.5f;
+            ads.Play();
+            Destroy(explodeSound, 1f);
             despawn();
         }
     }

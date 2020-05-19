@@ -60,8 +60,14 @@ public class Spawning : MonoBehaviour
             // for tutorial
             if (GameManager.instance.isTutorial)
             {
+                if (GameManager.instance.isChangedEnemyGroupSize)
+                {
+                    groupSize++;
+                    GameManager.instance.isChangedEnemyGroupSize = false;
+                }
+
                 int childCount = activeObject.childCount;
-                if (childCount < 1)
+                if (childCount < groupSize)
                     timer += Time.deltaTime;
 
                 if (timer >= 10f)

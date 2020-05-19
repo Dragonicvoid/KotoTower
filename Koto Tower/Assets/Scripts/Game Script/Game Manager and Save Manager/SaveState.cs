@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class SaveState
 {
-    public int levelDone;
+    public int levelDone = 0;
     public string username;
     public string password;
 
     //constructor when the save are created
+    public SaveState(bool forNewGame)
+    {
+        if (forNewGame)
+        {
+            levelDone = 1;
+            username = "";
+            password = "";
+        }
+        else
+        {
+            levelDone = 0;
+            username = "";
+            password = "";
+        }
+    }
+
     public SaveState()
     {
-        levelDone = 1;
+        levelDone = 0;
         username = "";
         password = "";
     }
