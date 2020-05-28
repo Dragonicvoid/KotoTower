@@ -12,9 +12,6 @@ public class MoveCamera : MonoBehaviour
     bool isTouchedRight;
     float rightTimer;
     float leftTimer;
-    Renderer kotoTowerRenderer, generatorRenderer;
-    ClickOnKotoTower kotoTower;
-    ClickOnGenerator generator;
     TruckBehaviour truck;
     Vector2 cameraPosition;
     Camera cam;
@@ -28,10 +25,6 @@ public class MoveCamera : MonoBehaviour
         leftTimer = 0f;
         cameraPosition = new Vector2(0f, 0f);
         cam = this.GetComponent<Camera>();
-        kotoTowerRenderer = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<SpriteRenderer>();
-        generatorRenderer = GameObject.FindGameObjectWithTag("Generator").GetComponent<SpriteRenderer>();
-        kotoTower = GameObject.FindGameObjectWithTag("Koto Tower").GetComponent<ClickOnKotoTower>();
-        generator = GameObject.FindGameObjectWithTag("Generator").GetComponent<ClickOnGenerator>();
         truck = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckBehaviour>();
     }
 

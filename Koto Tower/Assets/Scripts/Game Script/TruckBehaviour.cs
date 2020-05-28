@@ -61,6 +61,9 @@ public class TruckBehaviour : MonoBehaviour
         resetAttribute();
         //add audio source
         audioSource = this.gameObject.GetComponent<AudioSource>();
+        // change layer order
+        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        this.gameObject.GetComponentInChildren<TextMesh>().gameObject.GetComponent<MeshRenderer>().sortingOrder = 2;
     }
 
     // Call Update method

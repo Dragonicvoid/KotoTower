@@ -14877,7 +14877,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cancel
+  m_Text: Batalkan
 --- !u!222 &1063556046
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22153,7 +22153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 710342343}
         m_MethodName: stopSendData
         m_Mode: 1
         m_Arguments:

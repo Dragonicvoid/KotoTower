@@ -60,7 +60,7 @@ public class LoseWinController : MonoBehaviour
         mainLagiButton.interactable = true;
         levelSelectButton.interactable = true;
         loading.SetActive(false);
-        errorText.text = "Pembeharuan dibatalkan";
+        errorText.text = "Pembaharuan dibatalkan";
         errorText.gameObject.SetActive(true);
     }
 
