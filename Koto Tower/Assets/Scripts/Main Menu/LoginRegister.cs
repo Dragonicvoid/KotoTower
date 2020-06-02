@@ -144,9 +144,7 @@ public class LoginRegister : MonoBehaviour
         errorText = "";
         WWWForm form = new WWWForm();
         form.AddField("username", GameManager.instance.saveFile.username);
-
-        string hashedPassword = hashing(GameManager.instance.saveFile.getPassword());
-        form.AddField("password", hashedPassword);
+        form.AddField("password", GameManager.instance.saveFile.password);
 
         form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
         
@@ -193,9 +191,7 @@ public class LoginRegister : MonoBehaviour
             errorText = "";
             WWWForm form = new WWWForm();
             form.AddField("username", usernameLoginField.text);
-
-            string hashedPassword = hashing(passwordLoginField.text);
-            form.AddField("password", hashedPassword);
+            form.AddField("password", passwordLoginField.text);
 
             form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
 
@@ -265,12 +261,7 @@ public class LoginRegister : MonoBehaviour
             errorText = "";
             WWWForm form = new WWWForm();
             form.AddField("username", usernameRegisterField.text);
-
-            string hashedPassword = hashing(passwordRegisterField.text);
-            form.AddField("password", hashedPassword);
-
-            string hashedUsername = hashing(usernameRegisterField.text);
-            form.AddField("userKey", hashedUsername);
+            form.AddField("password", passwordRegisterField.text);
 
             form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
 

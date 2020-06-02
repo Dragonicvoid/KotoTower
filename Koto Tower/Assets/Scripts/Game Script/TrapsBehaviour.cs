@@ -60,11 +60,11 @@ public class TrapsBehaviour : MonoBehaviour
     private void Update()
     {
         // if it is playing and the game is paused (only for time trap)
-        if (audioSource.isPlaying && GameManager.instance.isPaused && property.type == TrapType.TIME_TRAP)
+        if (audioSource.isPlaying && GameManager.instance.isPaused && property.type == TrapType.TIME_TRAP && isActive)
             audioSource.Pause();
 
         // if its not on pause, and it is a time trap, play the sound
-        if (!audioSource.isPlaying && !GameManager.instance.isPaused && property.type == TrapType.TIME_TRAP)
+        if (!audioSource.isPlaying && !GameManager.instance.isPaused && property.type == TrapType.TIME_TRAP && isActive)
             audioSource.Play();
 
         if (isActive && !GameManager.instance.isPaused)

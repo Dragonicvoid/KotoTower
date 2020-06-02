@@ -78,6 +78,9 @@ public class Spawning : MonoBehaviour
 
             if (GameManager.instance.isChangedDifficulty || changeTimer >= forceChangeDiffCountdown)
             {
+                if(changeTimer >= forceChangeDiffCountdown)
+                    GameManager.instance.isChangedEnemyGroupSize = true;
+
                 diffCount++;
                 if (diffCount >= spawnTimer.Count)
                     spawnNow = spawnTimer[spawnTimer.Count - 1];

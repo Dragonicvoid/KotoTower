@@ -10290,9 +10290,13 @@ MonoBehaviour:
   - 4
   - 3
   - 2
+  - 2
+  - 2
+  - 2
   - 1
   - 1
-  forceChangeDiffCountdown: 100
+  - 1
+  forceChangeDiffCountdown: 60
 --- !u!1 &708184747
 GameObject:
   m_ObjectHideFlags: 0

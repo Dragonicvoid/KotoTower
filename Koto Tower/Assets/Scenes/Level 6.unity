@@ -8849,10 +8849,15 @@ MonoBehaviour:
   - 5
   - 4
   - 3
+  - 3
+  - 3
+  - 3
+  - 2
+  - 2
+  - 2
   - 2
   - 1
-  - 1
-  forceChangeDiffCountdown: 100
+  forceChangeDiffCountdown: 50
 --- !u!1 &698011701
 GameObject:
   m_ObjectHideFlags: 0
@@ -17698,7 +17703,7 @@ MonoBehaviour:
       isRightAnswer: 0
     - answer: "\u30C1"
       isRightAnswer: 0
-    - answer: "\u30C8"
+    - answer: "\u30A4"
       isRightAnswer: 0
     audio: {fileID: 0}
   hardQuestions:

@@ -7657,7 +7657,6 @@ GameObject:
   - component: {fileID: 666055496}
   - component: {fileID: 666055499}
   - component: {fileID: 666055498}
-  - component: {fileID: 666055497}
   m_Layer: 5
   m_Name: Money Counter
   m_TagString: Untagged
@@ -7686,18 +7685,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &666055497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666055495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d63115f2ec8bff4c8170d4c7cd5af32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &666055498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7944,7 +7931,7 @@ MonoBehaviour:
   - 4.5
   - 4.5
   - 4.5
-  forceChangeDiffCountdown: 100
+  forceChangeDiffCountdown: 30
 --- !u!1 &728150357
 GameObject:
   m_ObjectHideFlags: 0
