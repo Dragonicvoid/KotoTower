@@ -4701,7 +4701,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1523248401}
   m_OnClick:
     m_PersistentCalls:
@@ -6393,6 +6393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8ef548974ce1f4ca209f8893408464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButton: {fileID: 1523248400}
   continueButton: {fileID: 1666354379}
   rangkumanButton: {fileID: 1040659124}
   confirmationPanel: {fileID: 525244345}
@@ -6429,6 +6430,9 @@ MonoBehaviour:
   loadingBox: {fileID: 1169947799}
   cancelButton: {fileID: 391155593}
   leaderboards: {fileID: 1010691307}
+  newGameButton: {fileID: 1523248400}
+  continueButton: {fileID: 1666354379}
+  rangkumanButton: {fileID: 1040659124}
 --- !u!1 &2026243423
 GameObject:
   m_ObjectHideFlags: 0

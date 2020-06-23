@@ -108,7 +108,7 @@ public class LevelSelect : MonoBehaviour
                 break;
             case 1:
                 color = mediumColor;
-                totalQuestion = 7;
+                totalQuestion = 8;
                 break;
             case 2:
                 color = hardColor;

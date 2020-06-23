@@ -17,6 +17,12 @@ public class SaveManager : MonoBehaviour
     public void saveNewGame()
     {
         state = new SaveState(true);
+        // dont update the username and password when making new game
+        if(!"".Equals(GameManager.instance.saveFile.username))
+        {
+            state.username = GameManager.instance.saveFile.username;
+            state.password = GameManager.instance.saveFile.password;
+        }
         PlayerPrefs.SetString("save", OtherMethod.serialize<SaveState>(state));
         GameManager.instance.saveFile = state;
     }

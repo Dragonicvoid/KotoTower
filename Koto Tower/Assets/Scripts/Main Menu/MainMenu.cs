@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    // register
+    [SerializeField] Button newGameButton = null;
     // continue
     [SerializeField] Button continueButton = null;
     // Rangkuman 
@@ -31,12 +33,15 @@ public class MainMenu : MonoBehaviour
         if (PlayerPrefs.HasKey("save"))
         {
             SaveManager.instance.load();
-            continueButton.interactable = GameManager.instance.saveFile.levelDone != 0;
-            rangkumanButton.interactable = GameManager.instance.saveFile.levelDone != 0;
+            newGameButton.interactable = GameManager.instance.hasLogin;
+            continueButton.interactable = GameManager.instance.hasLogin && GameManager.instance.saveFile.levelDone != 0;
+            rangkumanButton.interactable = GameManager.instance.hasLogin && GameManager.instance.saveFile.levelDone != 0;
             leaderboards.interactable = GameManager.instance.hasLogin && GameManager.instance.saveFile.levelDone != 0;
         }
         else
         {
+            GameManager.instance.saveFile = new SaveState();
+            newGameButton.interactable = false;
             continueButton.interactable = false;
             rangkumanButton.interactable = false;
             leaderboards.interactable = false;
@@ -50,13 +55,20 @@ public class MainMenu : MonoBehaviour
         mainCamera = Camera.main;
         loginRegister = this.gameObject.GetComponent<LoginRegister>();
         loginRegister.changeText(GameManager.instance.hasLogin);
+
+        if ((!PlayerPrefs.HasKey("save") || (PlayerPrefs.HasKey("save") && "".Equals(GameManager.instance.saveFile.username)) ) && !GameManager.instance.hasLogin)
+        {
+            loginRegister.resetFields();
+            filter.SetActive(true);
+            login.SetActive(true);
+        }
     }
 
     // go to level select by new Game
     public void goToLevelSelectNewGame()
     {
         GameManager.instance.makeButtonPressSound();
-        if (PlayerPrefs.HasKey("save"))
+        if (PlayerPrefs.HasKey("save") && GameManager.instance.saveFile.levelDone != 0)
         {
             filter.SetActive(true);
             confirmationPanel.SetActive(true);
@@ -149,9 +161,12 @@ public class MainMenu : MonoBehaviour
                 GameManager.instance.saveFile.username = "";
                 GameManager.instance.saveFile.setPassword("");
                 SaveManager.instance.saveAndUpdate();
+                newGameButton.interactable = false;
+                continueButton.interactable = false;
+                rangkumanButton.interactable = false;
+                leaderboards.interactable = false;
             }
             loginRegister.changeText(GameManager.instance.hasLogin);
-            leaderboards.interactable = false;
         }
     }
 

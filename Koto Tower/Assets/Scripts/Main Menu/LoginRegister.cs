@@ -37,6 +37,12 @@ public class LoginRegister : MonoBehaviour
 
     // button leaderboards
     [SerializeField] Button leaderboards = null;
+    // button new Game
+    [SerializeField] Button newGameButton = null;
+    // button Continue
+    [SerializeField] Button continueButton = null;
+    // button Rangkuman
+    [SerializeField] Button rangkumanButton = null;
 
     // is sending the input field done?
     bool doneSending;
@@ -161,6 +167,9 @@ public class LoginRegister : MonoBehaviour
             GameManager.instance.hasLogin = true;
             changeText(GameManager.instance.hasLogin);
             leaderboards.interactable = GameManager.instance.saveFile.levelDone != 0;
+            newGameButton.interactable = true;
+            continueButton.interactable = GameManager.instance.saveFile.levelDone != 0;
+            rangkumanButton.interactable = GameManager.instance.saveFile.levelDone != 0;
             cancelButton.interactable = true;
         }
         else
@@ -224,6 +233,9 @@ public class LoginRegister : MonoBehaviour
 
                 changeText(GameManager.instance.hasLogin);
                 leaderboards.interactable = GameManager.instance.saveFile.levelDone != 0;
+                newGameButton.interactable = true;
+                continueButton.interactable = GameManager.instance.saveFile.levelDone != 0;
+                rangkumanButton.interactable = GameManager.instance.saveFile.levelDone != 0;
                 resetFields();
                 loginBox.SetActive(false);
                 registerBox.SetActive(false);
@@ -277,7 +289,10 @@ public class LoginRegister : MonoBehaviour
                 GameManager.instance.userId = int.Parse(data[1]);
                 GameManager.instance.hasLogin = true;
                 changeText(GameManager.instance.hasLogin);
-                leaderboards.interactable = GameManager.instance.hasLogin;
+                leaderboards.interactable = GameManager.instance.saveFile.levelDone != 0;
+                newGameButton.interactable = true;
+                continueButton.interactable = GameManager.instance.saveFile.levelDone != 0;
+                rangkumanButton.interactable = GameManager.instance.saveFile.levelDone != 0;
                 resetFields();
                 registerBox.SetActive(false);
                 loginBox.SetActive(false);
