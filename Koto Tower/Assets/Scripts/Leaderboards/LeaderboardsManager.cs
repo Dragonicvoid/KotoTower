@@ -27,16 +27,30 @@ public class LeaderboardsManager : MonoBehaviour
         rowList = new List<LeaderboardsRow>(this.gameObject.GetComponentsInChildren<LeaderboardsRow>(true));
         rowLeaderboards = rowList[0].gameObject;
 
-        // add option based on level done by player
-        List<string> options = new List<string>();
-        for (int i = 0; i < GameManager.instance.saveFile.levelDone && i < maxLevel; i++)
-            options.Add("Level " + (i + 1));
-        maxDropDownIdx = options.Count - 1;
-        dropdown.AddOptions(options);
+        if(GameManager.instance.saveFile != null)
+        {
+            // add option based on level done by player
+            List<string> options = new List<string>();
+            for (int i = 0; i < GameManager.instance.saveFile.levelDone && i < maxLevel; i++)
+                options.Add("Level " + (i + 1));
 
-        currDropDownIdx = 0;
-        dropdown.value = currDropDownIdx;
-        getLeaderboardsRow(currDropDownIdx + 1);
+            if(GameManager.instance.saveFile.levelDone == 0)
+                options.Add("Level " + 1);
+
+            maxDropDownIdx = options.Count - 1;
+            dropdown.AddOptions(options);
+
+            currDropDownIdx = 0;
+            dropdown.value = currDropDownIdx;
+            getLeaderboardsRow(currDropDownIdx + 1);
+        }
+        else
+        {
+            clearRows();
+            setErrorText("Mulai game baru untuk dapat melihat papan peringkat!");
+            belumMenyelesaikan.gameObject.SetActive(true);
+            belumMenyelesaikan.text = "";
+        }   
     }
 
     // clear all leaderboards row even the error and player leaderboards

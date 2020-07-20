@@ -16018,7 +16018,7 @@ MonoBehaviour:
       isRightAnswer: 0
     - answer: "\u307B\u3057\u3044"
       isRightAnswer: 0
-    - answer: "\u306F\u3084\u3044"
+    - answer: "\u307B\u3084\u3044"
       isRightAnswer: 0
     audio: {fileID: 0}
   - question: iro = ?
