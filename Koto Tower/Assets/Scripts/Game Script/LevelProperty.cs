@@ -140,7 +140,7 @@ public class LevelProperty : MonoBehaviour
         }
 
         if (time <= timeEfficient)
-            return 10000f;
+            return valueBasedDiff;
         else
             return Mathf.Floor(Mathf.Pow( (1 - deltaTime(time - timeEfficient, 900 - timeEfficient)), 2) * valueBasedDiff);
     }

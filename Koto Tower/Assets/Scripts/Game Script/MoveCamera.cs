@@ -23,7 +23,16 @@ public class MoveCamera : MonoBehaviour
         isTouchedRight = false;
         rightTimer = 0f;
         leftTimer = 0f;
-        cameraPosition = new Vector2(0f, 0f);
+
+        // based on the game type change camera position
+        if(GameManager.instance.isTutorial)
+            cameraPosition = new Vector3(0f, 0f, -10f);
+        else
+        {
+            this.gameObject.transform.position = new Vector3(minX - 2, 0f, -10f);
+            cameraPosition = new Vector3(minX - 2, 0f, -10f);
+        }
+        
         cam = this.GetComponent<Camera>();
         truck = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckBehaviour>();
     }
@@ -52,7 +61,7 @@ public class MoveCamera : MonoBehaviour
                 if (Mathf.Abs(touchDelta.x) > 0.05f)
                 {
                     this.transform.Translate(-touchDelta.x * speed * Time.deltaTime, 0f, 0f);
-                    this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX, maxX), 0f, -10f);
+                    this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX - 2, maxX + 2), 0f, -10f);
                 }
             }
         }
@@ -61,7 +70,7 @@ public class MoveCamera : MonoBehaviour
         if (Input.mouseScrollDelta.y != 0 && !Input.GetKey(KeyCode.LeftControl) && !GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && !GameManager.instance.isPaused)
         {
             this.transform.Translate(-Input.mouseScrollDelta.y * speed * Time.deltaTime * 15f, 0f, 0f);
-            this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX, maxX), 0f, -10f);
+            this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minX - 2, maxX + 2), 0f, -10f);
         }
 
         // Look at timer if the screen on left is pressed
@@ -88,7 +97,7 @@ public class MoveCamera : MonoBehaviour
     // go to minimal horizontal plane
     public void goToMinX()
     {
-        this.transform.position = new Vector3(minX, 0f, -10f);
+        this.transform.position = new Vector3(minX - 2, 0f, -10f);
         leftTimer = 0f;
         isTouchedLeft = false;
     }
@@ -98,7 +107,7 @@ public class MoveCamera : MonoBehaviour
     {
         if (!GameManager.instance.isPaused)
         {
-            this.transform.position = new Vector3(maxX, 0f, -10f);
+            this.transform.position = new Vector3(maxX + 2, 0f, -10f);
             rightTimer = 0f;
             isTouchedRight = false;
         }
