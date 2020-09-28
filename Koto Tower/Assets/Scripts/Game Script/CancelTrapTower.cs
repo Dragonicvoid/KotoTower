@@ -45,9 +45,12 @@ public class CancelTrapTower: MonoBehaviour
 
         this.gameObject.SetActive(false);
 
-        //open generator and koto tower question answer
-        generator.StartCoroutine(generator.openGenerator());
-        kotoTower.StartCoroutine(kotoTower.openKotoTower());
+        if(GameManager.instance.gameStart)
+        {
+            //open generator and koto tower question answer
+            generator.StartCoroutine(generator.openGenerator());
+            kotoTower.StartCoroutine(kotoTower.openKotoTower());
+        }
     }
 
     // delete the event

@@ -139,8 +139,11 @@ public class SpawnTrap : MonoBehaviour
                     canSpawn = false;
                     desc.gameObject.SetActive(false);
                     GameEvents.current.TowerOrTrapBuild();
-                    generator.StartCoroutine(generator.openGenerator());
-                    kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                    if(GameManager.instance.gameStart)
+                    {
+                        generator.StartCoroutine(generator.openGenerator());
+                        kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                    }
                     return;
                 }
             }
@@ -230,8 +233,11 @@ public class SpawnTrap : MonoBehaviour
                 isReadyToSpawn = false;
                 desc.gameObject.SetActive(false);
                 GameEvents.current.TowerOrTrapBuild();
-                generator.StartCoroutine(generator.openGenerator());
-                kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                if(GameManager.instance.gameStart)
+                {
+                    generator.StartCoroutine(generator.openGenerator());
+                    kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                }
                 return;
             }
         }

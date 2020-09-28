@@ -156,8 +156,11 @@ public class SpawnTower : MonoBehaviour
                     currY = -1;
                     desc.gameObject.SetActive(false);
                     GameEvents.current.TowerOrTrapBuild();
-                    generator.StartCoroutine(generator.openGenerator());
-                    kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                    if (GameManager.instance.gameStart)
+                    {
+                        generator.StartCoroutine(generator.openGenerator());
+                        kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                    }
                     return;
                 }
             }
@@ -264,8 +267,11 @@ public class SpawnTower : MonoBehaviour
                 currY = -1;
                 desc.gameObject.SetActive(false);
                 GameEvents.current.TowerOrTrapBuild();
-                generator.StartCoroutine(generator.openGenerator());
-                kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                if (GameManager.instance.gameStart)
+                {
+                    generator.StartCoroutine(generator.openGenerator());
+                    kotoTower.StartCoroutine(kotoTower.openKotoTower());
+                }
                 return;
             }
         }

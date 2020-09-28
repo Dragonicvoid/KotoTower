@@ -120,10 +120,13 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
     {
         if (GameManager.instance.money >= GameManager.instance.trapPrices[idx].price)
         {
-            // close the koto tower and generator balloon box
-            generator.StartCoroutine(generator.closeGenerator());
-            kotoTower.StartCoroutine(kotoTower.closeKotoTower());
-
+            if(GameManager.instance.gameStart)
+            {
+                // close the koto tower and generator balloon box
+                generator.StartCoroutine(generator.closeGenerator());
+                kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+            }
+            
             // select the trap
             ButtonChangeColor selectedButton = buttons[idx];
             selectedButton.activate();

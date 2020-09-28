@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
     public int maxCharged;
     public bool isChangedDifficulty;
     public bool isChangedEnemyGroupSize;
+    public bool gameStart;
 
     public Camera mainCamera;
 

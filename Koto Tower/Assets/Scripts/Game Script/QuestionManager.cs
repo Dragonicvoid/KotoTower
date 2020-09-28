@@ -51,6 +51,11 @@ public class QuestionManager : MonoBehaviour
     // Are the trucks on the way, prevent any other truck to spawn
     public static bool isSendingTruck = false;
 
+    //timer for the start of game
+    [SerializeField] Text warningText;
+    float timer;
+    bool hasDonePrepare;
+
     // variable initialization
     private void Awake()
     {
@@ -116,11 +121,55 @@ public class QuestionManager : MonoBehaviour
         foreach (QuestionsAnswers question in hardQuestions)
             question.setAnswers(OtherMethod.shuffle<Answer>(question.getAnswers(), epoch));
 
-        getNewQuestion(true);
-
         currentRightAnswer = 0;
+
+        if(GameManager.instance.isPractice || GameManager.instance.isTutorial)
+            getNewQuestion(true);
+
+        if (!GameManager.instance.isPractice && !GameManager.instance.isTutorial)
+        {
+            timer = 10f;
+            hasDonePrepare = false;
+
+            // disable all answer and question
+            possibleAnswers[0].transform.parent.parent.gameObject.SetActive(false);
+            questionUI.transform.parent.parent.gameObject.SetActive(false);
+        }
+        else if(!GameManager.instance.isTutorial)
+        {
+            hasDonePrepare = true;
+            warningText.gameObject.SetActive(false);
+        }
+        else
+            hasDonePrepare = true;
+
         // game event controller
         GameEvents.current.onTruckDestroyedEnter += OnTruckDestroyed;
+    }
+
+    // change answer block status after 10 second
+    private void Update()
+    {
+        if(timer <= 0 && !hasDonePrepare && !GameManager.instance.isPaused)
+        {
+            hasDonePrepare = true;
+
+            warningText.gameObject.SetActive(false);
+            GameManager.instance.gameStart = true;
+
+            // enable all answer and question
+            possibleAnswers[0].transform.parent.parent.gameObject.SetActive(true);
+            questionUI.transform.parent.parent.gameObject.SetActive(true);
+
+            getNewQuestion(true);
+        }
+
+        if(!hasDonePrepare && !GameManager.instance.isPaused)
+        {
+            warningText.text = "Zombie akan muncul dalam " + "<color=red><b>" + Mathf.FloorToInt(timer) + "</b></color>" +  
+                        "\n Siapkan Tower Anda";
+            timer -= Time.deltaTime;
+        }
     }
 
     void OnTruckDestroyed(bool isTruckDestroyed)

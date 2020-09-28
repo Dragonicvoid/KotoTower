@@ -124,9 +124,12 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
     {
         if (GameManager.instance.money >= GameManager.instance.towerPrices[idx].price)
         {
-            // close the koto tower and generator balloon box
-            generator.StartCoroutine(generator.closeGenerator());
-            kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+            if(GameManager.instance.gameStart)
+            {
+                // close the koto tower and generator balloon box
+                generator.StartCoroutine(generator.closeGenerator());
+                kotoTower.StartCoroutine(kotoTower.closeKotoTower());
+            }
 
             // select the tower
             ButtonChangeColor selectedButton = buttons[idx];

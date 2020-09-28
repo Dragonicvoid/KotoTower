@@ -52,6 +52,10 @@ public class LevelProperty : MonoBehaviour
         GameEvents.current.onGameWonEnter += OnGameWon;
         GameEvents.current.onKotoTowerDestroyedEnter += OnGameLost;
 
+        if (!GameManager.instance.isPractice && !GameManager.instance.isTutorial)
+            GameManager.instance.gameStart = false;
+        else
+            GameManager.instance.gameStart = true;
         audioSource = this.gameObject.GetComponent<AudioSource>();
         if (GameManager.instance.isPractice)
             audioSource.Stop();
@@ -60,7 +64,7 @@ public class LevelProperty : MonoBehaviour
     // update the timer as long the game is not paused and not reached 15 minutes
     private void Update()
     {
-        if (!GameManager.instance.isPaused && GameManager.instance.scoreboard.time <= 900)
+        if (!GameManager.instance.isPaused && GameManager.instance.scoreboard.time <= 900 && GameManager.instance.gameStart)
             GameManager.instance.scoreboard.time += Time.deltaTime;
     }
 

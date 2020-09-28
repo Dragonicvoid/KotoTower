@@ -26,11 +26,11 @@ public class ClickOnKotoTower : MonoBehaviour
     void clickKotoTowerBehave()
     {
         // If there is touch(es)
-        if (Input.touchCount > 0 && !isAnimating)
+        if (Input.touchCount > 0 && !isAnimating && GameManager.instance.gameStart)
             StartCoroutine(touchOnKotoTower());
 
         // If there is scroll wheel input move the screen (for PC debugging)
-        if (Input.touchCount == 0 && Input.GetMouseButtonDown(0) && !isAnimating)
+        if (Input.touchCount == 0 && Input.GetMouseButtonDown(0) && !isAnimating && GameManager.instance.gameStart)
             StartCoroutine(mouseClickOnKotoTower());
     }
 

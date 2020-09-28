@@ -154,17 +154,18 @@ public class MainMenu : MonoBehaviour
             GameManager.instance.makeButtonPressSound();
             GameManager.instance.hasLogin = false;
 
+            newGameButton.interactable = false;
+            continueButton.interactable = false;
+            rangkumanButton.interactable = false;
+            leaderboards.interactable = false;
+
             // update if player has a save
-            if(PlayerPrefs.HasKey("save"))
+            if (PlayerPrefs.HasKey("save"))
             {
                 GameManager.instance.userId = -1;
                 GameManager.instance.saveFile.username = "";
                 GameManager.instance.saveFile.setPassword("");
                 SaveManager.instance.saveAndUpdate();
-                newGameButton.interactable = false;
-                continueButton.interactable = false;
-                rangkumanButton.interactable = false;
-                leaderboards.interactable = false;
             }
             loginRegister.changeText(GameManager.instance.hasLogin);
         }
