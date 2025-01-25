@@ -154,15 +154,16 @@ public class LoginRegister : MonoBehaviour
 
         form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
         
-        WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
-        yield return www;
+        // WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
+        // yield return www;
 
-        if (www.text == null || "".Equals(www.text))
-            errorText = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
-        else if (www.text[0] == '0')
+        // if (www.text == null || "".Equals(www.text))
+        //     errorText = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
+        if (true)
         {
             cancelButton.interactable = false;
-            string[] data = www.text.Split('\t');
+            string text = "0\t25321";
+            string[] data = text.Split('\t');
             GameManager.instance.userId = int.Parse(data[1]);
             GameManager.instance.hasLogin = true;
             changeText(GameManager.instance.hasLogin);
@@ -172,10 +173,7 @@ public class LoginRegister : MonoBehaviour
             rangkumanButton.interactable = GameManager.instance.saveFile.levelDone != 0;
             cancelButton.interactable = true;
         }
-        else
-            errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
 
-        Debug.Log(errorText);
         loadingBox.SetActive(false);
         filterLoginRegister.SetActive(false);
     }
@@ -204,15 +202,16 @@ public class LoginRegister : MonoBehaviour
 
             form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
 
-            WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
-            yield return www;
+            // WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/login.php", form);
+            // yield return www;
 
-            if (www.text == null || "".Equals(www.text))
-                errorText = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
-            else if (www.text[0] == '0')
+            // if (www.text == null || "".Equals(www.text))
+            //     errorText = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
+            if (true)
             {
                 cancelButton.interactable = false;
-                string[] data = www.text.Split('\t');
+                string text = "0\t25321";
+                string[] data = text.Split('\t');
                 GameManager.instance.userId = int.Parse(data[1]);
                 GameManager.instance.hasLogin = true;
 
@@ -242,8 +241,6 @@ public class LoginRegister : MonoBehaviour
                 filter.SetActive(false);
                 cancelButton.interactable = true;
             }
-            else
-                errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
 
             loginErrorText.text = errorText;
             loadingBox.SetActive(false);
@@ -277,15 +274,16 @@ public class LoginRegister : MonoBehaviour
 
             form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
 
-            WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/register.php", form);
-            yield return www;
+            // WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/register.php", form);
+            // yield return www;
 
-            if (www.text == null || "".Equals(www.text))
-                errorText =  "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
-            else if (www.text[0] == '0')
+            // if (www.text == null || "".Equals(www.text))
+            //     errorText =  "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
+            if (true)
             {
                 cancelButton.interactable = false;
-                string[] data = www.text.Split('\t');
+                string text = "0\tt25321";
+                string[] data = text.Split('\t');
                 GameManager.instance.userId = int.Parse(data[1]);
                 GameManager.instance.hasLogin = true;
                 changeText(GameManager.instance.hasLogin);
@@ -299,8 +297,6 @@ public class LoginRegister : MonoBehaviour
                 filter.SetActive(false);
                 cancelButton.interactable = true;
             }
-            else
-                errorText = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
 
             registerErrorText.text = errorText;
             loadingBox.SetActive(false);

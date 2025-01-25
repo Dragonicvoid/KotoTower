@@ -80,26 +80,21 @@ public class LoseWinController : MonoBehaviour
         form.AddField("score", totalScore.ToString());
         form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
 
-        WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/leaderboardsOnWin.php", form);
-        yield return www;
+        // WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/leaderboardsOnWin.php", form);
+        // yield return www;
 
-        if (www.text == null || "".Equals(www.text))
+        // if (www.text == null || "".Equals(www.text))
+        // {
+        //     Debug.Log(www.text);
+        //     errorText.text = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
+        //     errorText.gameObject.SetActive(true);
+        // } 
+        if (true)
         {
-            Debug.Log(www.text);
-            errorText.text = "Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi";
-            errorText.gameObject.SetActive(true);
-        } 
-        else if (www.text[0] == '0')
-        {
-            changeLeaderboardsData(www.text);
+            string text = "0\ntest\n1\tOffline1\t2000\n2\tOffline2\t1000\n3\tOffline3\t500";
+            changeLeaderboardsData(text);
             errorText.text = "";
             errorText.gameObject.SetActive(false);
-        }
-        else
-        {
-            Debug.Log(www.text);
-            errorText.text = "Error ditemukan : " + www.text.Substring(3, www.text.Length - 3);
-            errorText.gameObject.SetActive(true);
         }
 
         mainLagiButton.interactable = true;
