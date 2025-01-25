@@ -47,7 +47,7 @@ public class GetDataTest : MonoBehaviour
     public void getData()
     {
         isDoneScanData = false;
-        StartCoroutine(getDataTest());
+        getDataTest();
     }
 
     public void stopAllGetData()
@@ -56,25 +56,20 @@ public class GetDataTest : MonoBehaviour
         isDoneScanData = false;
     }
 
-    IEnumerator getDataTest()
+    void getDataTest()
     {
-        WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/testGetData/testGetData.php");
-        yield return www;
+        // WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/testGetData/testGetData.php");
+        // yield return www;
 
-        if (www.text == null || "".Equals(www.text))
+        // if (www.text == null || "".Equals(www.text))
+        // {
+        //     description = "error : " + "\n server is offline";
+        //     isDoneScanData = true;
+        // }
+        if (true)
         {
-            description = "error : " + "\n server is offline";
-            isDoneScanData = true;
-        }
-        else if (www.text[0] == '0')
-        {
-            string[] data = www.text.Split('\t');
+            string[] data = {"Null", "Null", "Null"};
             description = "Deskripsi : " + data[1] + " \n" + "Tanggal : " + data[2];
-            isDoneScanData = true;
-        }
-        else
-        {
-            description = "FOUND ERROR NO " + www.text;
             isDoneScanData = true;
         }
     }

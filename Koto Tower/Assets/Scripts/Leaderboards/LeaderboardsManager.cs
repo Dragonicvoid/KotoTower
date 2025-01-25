@@ -130,15 +130,17 @@ public class LeaderboardsManager : MonoBehaviour
         form.AddField("levelIdx", levelIdx);
         form.AddField("userId", GameManager.instance.userId);
         form.AddField("mySQLPassword", GameManager.instance.getMySQLPassword());
-        WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/getLeaderboardsDataMainMenu.php", form);
-        yield return www;
+        // WWW www = new WWW("https://tranquil-fjord-77396.herokuapp.com/getData/getLeaderboardsDataMainMenu.php", form);
+        // yield return www;
 
-        if (www.text == null || "".Equals(www.text))
-            setErrorText("Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi");
-        else if (www.text[0] == '0')
-            setRowData(www.text);
-        else
-            setErrorText("Error ditemukan : " + www.text.Substring(3, www.text.Length - 3));
+        // if (www.text == null || "".Equals(www.text))
+        //     setErrorText("Error ditemukan : " + "server sedang mati, silahkan coba beberapa saat lagi");
+        if (true) {
+            string text = "0\n1\tMain Player\t25000\n1\tMain Player\t25000\n2\tPlayer 1\t20000\n3\tPlayer 2\t15000\n4\tPlayer 3\t10000";
+            setRowData(text);
+        }
+        // else
+            // setErrorText("Error ditemukan : " + www.text.Substring(3, www.text.Length - 3));
 
         loading.SetActive(false);
     }
