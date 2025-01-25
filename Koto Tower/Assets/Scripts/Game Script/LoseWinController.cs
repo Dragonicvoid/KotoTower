@@ -123,11 +123,11 @@ public class LoseWinController : MonoBehaviour
         }
 
         // Change player data on the UI
-        string[] splitPlayerData = splitText[1].Split('\t');
-        Text[] playerTexts = leaderboardText[5].GetComponentsInChildren<Text>(true);
-        playerTexts[0].text = splitPlayerData[0];
-        playerTexts[2].text = splitPlayerData[1];
-        leaderboardText[5].gameObject.SetActive(true);
+        // string[] splitPlayerData = splitText[1].Split('\t');
+        // Text[] playerTexts = leaderboardText[5].GetComponentsInChildren<Text>(true);
+        // playerTexts[0].text = splitPlayerData[0];
+        // playerTexts[2].text = splitPlayerData[1];
+        // leaderboardText[5].gameObject.SetActive(true);
     }
 
     // reset all leaderboard field
