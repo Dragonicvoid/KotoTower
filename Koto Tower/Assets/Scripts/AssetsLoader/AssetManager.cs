@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class AssetManager : MonoBehaviour
 {
-    Dictionary<ASSET_KEY, Texture2D> assetsTex = new Dictionary<ASSET_KEY, Texture2D>();
+    public Dictionary<ASSET_KEY, Texture2D> assetsTexture = new Dictionary<ASSET_KEY, Texture2D>();
+
+    public Dictionary<ASSET_KEY, string> assetsText = new Dictionary<ASSET_KEY, string>();
 
     public static AssetManager current;
 
@@ -15,11 +17,16 @@ public class AssetManager : MonoBehaviour
 
     public void AddTexture(ASSET_KEY key, Texture2D tex)
     {
-        assetsTex.Add(key, tex);
+        assetsTexture.Add(key, tex);
+    }
+
+    public void AddTextAsset(ASSET_KEY key, string text)
+    {
+        assetsText.Add(key, text);
     }
 
     public void Remove(ASSET_KEY key)
     {
-        assetsTex.Remove(key);
+        assetsTexture.Remove(key);
     }
 }

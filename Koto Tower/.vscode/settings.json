@@ -53,8 +53,8 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "editor.formatOnSave": true,
     "[csharp]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp"
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+        "editor.formatOnSave": true,
     }
 }

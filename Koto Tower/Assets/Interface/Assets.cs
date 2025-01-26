@@ -2,6 +2,7 @@
 {
     public string url { get; set; }
     public ASSET_KEY key { get; set; }
+    public ASSET_TYPE type { get; set; }
     public DownloadOpts opts { get; set; }
 }
 

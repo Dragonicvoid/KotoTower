@@ -28,7 +28,7 @@ public class LoseWinController : MonoBehaviour
         totalScore = timeScore + consecutiveScore + totalAnsweredScore;
 
         if (isWin)
-            lostWinText.text = "MENANG!"; 
+            lostWinText.text = "MENANG!";
         else
             lostWinText.text = "KALAH!";
 
@@ -49,7 +49,7 @@ public class LoseWinController : MonoBehaviour
     {
         if (GameManager.instance.hasLogin && !GameManager.instance.isTutorial)
             StartCoroutine(sendLeaderboardsData());
-        else if(!GameManager.instance.hasLogin)
+        else if (!GameManager.instance.hasLogin)
             pleaseLogin.SetActive(true);
     }
 
@@ -106,9 +106,7 @@ public class LoseWinController : MonoBehaviour
     void changeLeaderboardsData(string text)
     {
         resetLeaderboardField();
-        Debug.Log(text);
         List<string> splitText = new List<string>(text.Split('\n'));
-        Debug.Log(splitText.Count);
 
         // stop if already have 5 data or there is no more data, starts at 2 because the first data is 2
         for (int i = 2; i < splitText.Count - 1 && i < 7; i++)

@@ -3,62 +3,75 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DropdownCustom: MonoBehaviour
+public class DropdownCustom : MonoBehaviour
 {
     [SerializeField] GameObject filter = null;
-    [SerializeField] int maxLevel = 2;
+    [SerializeField] int maxLevel = 10;
 
     private Dropdown dropdownBab;
     private List<DropdownProperty> dptList;
-    private List<LevelSelect> levels;
     private DropdownProperty currSummary;
     private LevelManager levelManager;
+
+    private int currIdx = 0;
 
     // initialization
     private void Start()
     {
+        currIdx = 0;
         dptList = new List<DropdownProperty>();
-        levels = new List<LevelSelect>();
-        dptList.AddRange(this.gameObject.GetComponentsInChildren<DropdownProperty>(true));
-        levels.AddRange(this.gameObject.transform.parent.GetComponentsInChildren<LevelSelect>(true));
-        dropdownBab = this.gameObject.GetComponentInChildren<Dropdown>();
+        dptList.AddRange(gameObject.GetComponentsInChildren<DropdownProperty>(true));
+        dropdownBab = gameObject.GetComponentInChildren<Dropdown>();
 
         // including tutorial
+        string json;
         List<string> listOfString = new List<string>();
-        for (int i = 0; i < GameManager.instance.saveFile.levelDone + 1 && i <= maxLevel; i++)
-            listOfString.Add(dptList[i].namaBab);
+        AssetManager.current.assetsText.TryGetValue(ASSET_KEY.LEVEL_SELECT_JSON, out json);
+
+        if (json != "")
+        {
+            LevelSelectData levelSelectData = JsonUtility.FromJson<LevelSelectData>(json);
+            int idx = 0;
+            levelSelectData.data.ForEach((data) =>
+            {
+                if (idx > GameManager.instance.saveFile.levelDone) return;
+                listOfString.Add(data.header);
+                idx++;
+            });
+        }
 
         dropdownBab.AddOptions(listOfString);
-        currSummary = dptList[GameManager.instance.selectedSummaryIndex != -1 ? GameManager.instance.selectedSummaryIndex : 0];
+        currSummary = dptList[0];
+        currSummary.Index = currIdx;
         currSummary.gameObject.SetActive(true);
-        dropdownBab.value = currSummary.index;
+        dropdownBab.value = currIdx;
 
-        levelManager = this.gameObject.GetComponentInParent<LevelManager>();
+        levelManager = gameObject.GetComponentInParent<LevelManager>();
     }
 
     // Go to the next lesson
     public void next()
     {
-        if (currSummary.index <= GameManager.instance.saveFile.levelDone && currSummary.index < maxLevel)
+        if (currSummary.Index <= GameManager.instance.saveFile.levelDone && currSummary.Index < maxLevel)
         {
+            currIdx++;
             GameManager.instance.makeButtonPressSound();
-            currSummary.gameObject.SetActive(false);
-            currSummary = dptList[dropdownBab.value + 1];
+            currSummary.Index = currIdx;
             currSummary.gameObject.SetActive(true);
-            dropdownBab.value++;
+            dropdownBab.value = currIdx;
         }
     }
 
     // Go back to the previous lesson
     public void prev()
     {
-        if (currSummary.index > 0)
+        if (currSummary.Index > 0)
         {
+            currIdx--;
             GameManager.instance.makeButtonPressSound();
-            currSummary.gameObject.SetActive(false);
-            currSummary = dptList[dropdownBab.value - 1];
+            currSummary.Index = currIdx;
             currSummary.gameObject.SetActive(true);
-            dropdownBab.value--;
+            dropdownBab.value = currIdx;
         }
     }
 
@@ -66,8 +79,8 @@ public class DropdownCustom: MonoBehaviour
     public void dropdown()
     {
         GameManager.instance.makeButtonPressSound();
-        currSummary.gameObject.SetActive(false);
-        currSummary = dptList[dropdownBab.value];
+        currIdx = dropdownBab.value;
+        currSummary.Index = currIdx;
         currSummary.gameObject.SetActive(true);
     }
 
@@ -75,6 +88,6 @@ public class DropdownCustom: MonoBehaviour
     public void openLevel()
     {
         filter.gameObject.SetActive(true);
-        levelManager.openLevel(currSummary.index > 10 ? 11 : currSummary.index);
+        levelManager.openLevel(currSummary.Index > 10 ? 11 : currSummary.Index);
     }
 }
