@@ -1,0 +1,15 @@
+﻿public enum ASSET_KEY : ushort
+{
+    MATERI_LEVEL_0,
+    MATERI_LEVEL_1,
+    MATERI_LEVEL_2,
+    MATERI_LEVEL_3,
+    MATERI_LEVEL_4,
+    MATERI_LEVEL_5,
+    MATERI_LEVEL_6,
+    MATERI_LEVEL_7,
+    MATERI_LEVEL_8,
+    MATERI_LEVEL_9,
+    MATERI_LEVEL_10,
+
+}

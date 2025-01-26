@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 10.unity
     guid: 602da1c67a8b8a545b95780074f7541a
+  - enabled: 1
+    path: Assets/Scenes/Preload.unity
+    guid: c8b9fc5bd6504914889ccc8f1e17ea08
   m_configObjects: {}

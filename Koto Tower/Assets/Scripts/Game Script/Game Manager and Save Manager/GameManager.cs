@@ -86,8 +86,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         hasLogin = false;
         userId = -1;
-        SceneManager.LoadSceneAsync((int)Levels.MAIN_MENU, LoadSceneMode.Additive);
-        currentSceneIndex = (int)Levels.MAIN_MENU;
+        SceneManager.LoadSceneAsync((int)Levels.PRELOAD, LoadSceneMode.Additive);
+        currentSceneIndex = (int)Levels.PRELOAD;
         selectedSummaryIndex = -1;
         audioSource = this.gameObject.GetComponent<AudioSource>();
     }
@@ -293,7 +293,7 @@ public class GameManager : MonoBehaviour
     // load a game based on scene index / level index, also if it has rangkuman idx open that rangkuman
     public void loadGame(int levelIdx, int rangkumanIdx = -1)
     {
-        if(!isLoading)
+        if (!isLoading)
         {
             isLoading = true;
             loadingScreen.gameObject.SetActive(true);
@@ -338,7 +338,7 @@ public class GameManager : MonoBehaviour
     // start main menu music
     public void startMainMenuMusic()
     {
-        if(!mainMenuAudio.isNowPlaying())
+        if (!mainMenuAudio.isNowPlaying())
             mainMenuAudio.start();
     }
 
