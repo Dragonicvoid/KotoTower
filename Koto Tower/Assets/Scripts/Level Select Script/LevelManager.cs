@@ -60,7 +60,8 @@ public class LevelManager : MonoBehaviour
         {
             GameManager.instance.makeButtonPressSound();
             isOpenLevel = true;
-            currOpenLevel = levels[idx];
+            currOpenLevel = idx > 0 ? levels[1] : levels[0];
+            currOpenLevel.levelIndex = idx;
             filter.gameObject.SetActive(true);
             currOpenLevel.gameObject.SetActive(true);
         }
@@ -73,6 +74,7 @@ public class LevelManager : MonoBehaviour
         {
             GameManager.instance.makeButtonPressSound();
             isOpenLevel = false;
+            currOpenLevel.levelIndex = 0;
             currOpenLevel.gameObject.SetActive(false);
             filter.gameObject.SetActive(false);
             currOpenLevel = null;

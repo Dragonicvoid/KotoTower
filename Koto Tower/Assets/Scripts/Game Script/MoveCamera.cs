@@ -24,17 +24,7 @@ public class MoveCamera : MonoBehaviour
         rightTimer = 0f;
         leftTimer = 0f;
 
-        // based on the game type change camera position
-        if(GameManager.instance.isTutorial)
-            cameraPosition = new Vector3(0f, 0f, -10f);
-        else
-        {
-            this.gameObject.transform.position = new Vector3(minX - 2, 0f, -10f);
-            cameraPosition = new Vector3(minX - 2, 0f, -10f);
-        }
-        
-        cam = this.GetComponent<Camera>();
-        truck = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckBehaviour>();
+        // this.InitPosition();
     }
 
     // Update is called once per frame
@@ -42,6 +32,21 @@ public class MoveCamera : MonoBehaviour
     {
         if (!GameManager.instance.isPaused)
             touches();
+    }
+
+    public void InitPosition()
+    {
+        // based on the game type change camera position
+        if (GameManager.instance.isTutorial)
+            cameraPosition = new Vector3(0f, 0f, -10f);
+        else
+        {
+            this.gameObject.transform.position = new Vector3(minX - 2, 0f, -10f);
+            cameraPosition = new Vector3(minX - 2, 0f, -10f);
+        }
+
+        cam = this.GetComponent<Camera>();
+        truck = GameObject.FindGameObjectWithTag("Truck").GetComponent<TruckBehaviour>();
     }
 
     // just to make it more readable

@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
+    [SerializeField] Text header = null;
+    [SerializeField] Text subHeader = null;
+    [SerializeField] Image image = null;
+
     // 0 : easy, 1: medium, 2: hard
-    [SerializeField] List<Text> difficultyDescText = null;
     [SerializeField] Text difficultyText = null;
     [SerializeField] Text descText = null;
     [SerializeField] Image backgroundDiffImage = null;
     [SerializeField] Levels level;
-    [SerializeField] int levelIndex = 0;
+    [SerializeField] public int levelIndex = 0;
 
     // get color property id
     int colorPropertyId;
@@ -24,26 +27,55 @@ public class LevelSelect : MonoBehaviour
     // difficulty index 0: easy, 1: medium, 2: hard;
     int difficultyIdx;
 
+    LevelSelectData levelSelectData = new LevelSelectData();
+
+    // Index 0: Tutorial, Index 1 - Next: Level 1,2,3
+    ASSET_KEY[] imageKeys = {
+        ASSET_KEY.HEADER_LEVEL_0,
+        ASSET_KEY.HEADER_LEVEL_1,
+        ASSET_KEY.HEADER_LEVEL_2,
+        ASSET_KEY.HEADER_LEVEL_3,
+        ASSET_KEY.HEADER_LEVEL_4,
+        ASSET_KEY.HEADER_LEVEL_5,
+        ASSET_KEY.HEADER_LEVEL_6,
+        ASSET_KEY.HEADER_LEVEL_7,
+        ASSET_KEY.HEADER_LEVEL_8,
+        ASSET_KEY.HEADER_LEVEL_9,
+        ASSET_KEY.HEADER_LEVEL_10,
+    };
+
     // initialization
+    private void Awake()
+    {
+
+        string json;
+        AssetManager.current.assetsText.TryGetValue(ASSET_KEY.LEVEL_SELECT_JSON, out json);
+
+        if (json != "")
+        {
+            levelSelectData = JsonUtility.FromJson<LevelSelectData>(json);
+        }
+    }
+
     private void Start()
     {
         colorPropertyId = Shader.PropertyToID("_Color");
-
         difficultyIdx = 0;
+        easyColor = new Color((float)54 / 255, (float)176 / 255, 0);
+        mediumColor = new Color((float)176 / 255, (float)153 / 255, 0);
+        hardColor = new Color((float)207 / 255, 0, (float)9 / 255);
+        setupConfig();
+    }
 
-        if (difficultyDescText.Count > 0)
-        {
-            easyColor = difficultyDescText[0].color;
-            mediumColor = difficultyDescText[1].color;
-            hardColor = difficultyDescText[2].color;
-            showText();
-        }
+    private void OnEnable()
+    {
+        setupConfig();
     }
 
     // apabila menekan lanjut
     public void next()
     {
-        if(difficultyIdx != 2)
+        if (difficultyIdx != 2)
         {
             GameManager.instance.makeButtonPressSound();
             difficultyIdx++;
@@ -64,7 +96,7 @@ public class LevelSelect : MonoBehaviour
             }
         }
 
-        showText();
+        setupConfig();
     }
 
     // apabila menekan sebelum
@@ -92,12 +124,37 @@ public class LevelSelect : MonoBehaviour
 
         }
 
-        showText();
+        setupConfig();
     }
 
     // show the text according to the difficulty
-    void showText()
+    void setupConfig()
     {
+        LevelSelectConf conf = levelSelectData.data.Find((c) => { return c.level == levelIndex; });
+
+        if (conf == null) return;
+
+        ASSET_KEY key = getKeyFromLevel();
+
+        Sprite prevSprite = image.sprite;
+        Rect rec = new Rect(0, 0, image.sprite.rect.width, image.sprite.rect.height);
+
+        Texture2D confTex;
+        AssetManager.current.assetsTexture.TryGetValue(key, out confTex);
+        Sprite confSprite = Sprite.Create(confTex, rec, new Vector2(0, 0), 0.01f);
+
+        if (confSprite)
+        {
+            image.sprite = confSprite;
+        }
+        else
+        {
+            image.sprite = prevSprite;
+        }
+
+        header.text = conf.header;
+        subHeader.text = conf.subHeader;
+
         Color color;
         int totalQuestion;
         switch (difficultyIdx)
@@ -119,13 +176,20 @@ public class LevelSelect : MonoBehaviour
                 totalQuestion = 5;
                 break;
         }
-        descText.text = "Untuk memenangkan level pemain harus menjawab <color=#" + ColorUtility.ToHtmlStringRGB(color) + "><b>" + totalQuestion.ToString() + "</b></color> pertanyaan berupa:";
 
-        foreach (Text text in difficultyDescText)
-            text.gameObject.SetActive(false);
+        string finalText = conf.description
+            .Replace("{question}", "<color=#" + ColorUtility.ToHtmlStringRGB(color) + "><b>" + totalQuestion.ToString() + "</b></color>")
+            .Replace("{level_mudah}", "<color=#" + ColorUtility.ToHtmlStringRGB(easyColor) + "><b>" + (difficultyIdx >= 0 ? conf.easyText.ToString() : "") + "</b></color>")
+            .Replace("{level_medium}", "<color=#" + ColorUtility.ToHtmlStringRGB(mediumColor) + "><b>" + (difficultyIdx >= 1 ? conf.mediumText.ToString() : "") + "</b></color>")
+            .Replace("{level_hard}", "<color=#" + ColorUtility.ToHtmlStringRGB(hardColor) + "><b>" + (difficultyIdx >= 2 ? conf.hardText.ToString() : "") + "</b></color>")
+            .Replace("{min_difficulty}", "<color=#" + ColorUtility.ToHtmlStringRGB(hardColor) + "><b>Hard</b></color>");
 
-        for (int i = 0; i <= difficultyIdx; i++)
-            difficultyDescText[i].gameObject.SetActive(true);
+        descText.text = finalText;
+    }
+
+    ASSET_KEY getKeyFromLevel()
+    {
+        return imageKeys[levelIndex];
     }
 
     // bila pemain pilih untuk latihan

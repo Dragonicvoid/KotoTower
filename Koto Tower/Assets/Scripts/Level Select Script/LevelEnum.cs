@@ -16,5 +16,6 @@
     LEVEL7 = 13,
     LEVEL8 = 14,
     LEVEL9 = 15,
-    LEVEL10 = 16
+    LEVEL10 = 16,
+    PRELOAD = 17
 }
