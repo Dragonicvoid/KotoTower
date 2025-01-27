@@ -10,6 +10,8 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject filter = null;
     [SerializeField] CancelTrapTower cancelButton = null;
     [SerializeField] GameObject desc = null;
+    [SerializeField] GameObject towerUiObject = null;
+    [SerializeField] GameObject towerParent = null;
 
     // property
     int countLine;
@@ -33,7 +35,7 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
     }
 
     GameObject lineParent;
-    [SerializeField] List<ButtonChangeColor> buttons = null;
+    List<ButtonChangeColor> buttons = new List<ButtonChangeColor>();
 
     // property id for color;
     int colorPropertyId = Shader.PropertyToID("_Color");
@@ -49,6 +51,38 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         trapUi = this.gameObject.GetComponent<ButtonForTrap>();
+
+
+        int currLvl = GameManager.instance.currentLevelIndex;
+        string json;
+        List<string> listOfString = new List<string>();
+        AssetManager.current.assetsText.TryGetValue(ASSET_KEY.LEVEL_CONFIG_JSON, out json);
+
+        LevelConfig conf = null;
+        List<TowerPrice> startTowerPrices = new List<TowerPrice>();
+        List<TrapPrice> startTrapPrices = new List<TrapPrice>();
+        if (json != "")
+        {
+            LevelData levelData = JsonUtility.FromJson<LevelData>(json);
+            conf = levelData.data.Find((c) => { return c.levelId == currLvl; });
+        }
+
+        conf.traps.ForEach((c) =>
+        {
+            GameObject currTower = Instantiate(towerUiObject);
+            Image image = currTower.GetComponentsInChildren<Image>()[1];
+            image.sprite = getImageFromType((TowerType)c.id);
+
+            Text text = currTower.GetComponentInChildren<Text>();
+            text.text = c.price.ToString();
+
+            Button button = currTower.GetComponent<Button>();
+            button.onClick.AddListener(delegate { selectTower(c.id); });
+            buttons.Add(currTower.GetComponent<ButtonChangeColor>());
+
+            currTower.transform.parent = towerParent.transform;
+        });
+
         countLine = 0;
         GameManager.instance.resetOnPlay();
     }
@@ -124,7 +158,7 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
     {
         if (GameManager.instance.money >= GameManager.instance.towerPrices[idx].price)
         {
-            if(GameManager.instance.gameStart)
+            if (GameManager.instance.gameStart)
             {
                 // close the koto tower and generator balloon box
                 generator.StartCoroutine(generator.closeGenerator());
@@ -132,7 +166,9 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
             }
 
             // select the tower
+            Debug.Log(buttons.Count + " : " + idx);
             ButtonChangeColor selectedButton = buttons[idx];
+            Debug.Log("SELECTED");
             selectedButton.activate();
             GameManager.instance.isSelectTower = true;
             GameManager.instance.selectedTower = (short)idx;
@@ -141,7 +177,7 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
             desc.gameObject.SetActive(true);
             filter.SetActive(true);
             cancelButton.readyToSpawn();
-        }         
+        }
     }
 
     // on the button click, this is for the mouse click (debug)
@@ -294,6 +330,21 @@ public class ButtonForTower : MonoBehaviour, IPointerClickHandler
                 drawLine(line.startVector, line.endVector, new Color(0, 1, 0, 100f), lineParent.transform);
                 countLine++;
             }
+        }
+    }
+
+    private Sprite getImageFromType(TowerType type)
+    {
+        switch (type)
+        {
+            case TowerType.MACHINE_GUN:
+                return Resources.Load<Sprite>("Image/Machine_Gun_Tower");
+            case TowerType.SNIPER:
+                return Resources.Load<Sprite>("Image/Sniper_Tower");
+            case TowerType.ELECTRIC:
+                return Resources.Load<Sprite>("Image/Electric_Tower");
+            default:
+                return Resources.Load<Sprite>("Image/Machine_Gun_Tower");
         }
     }
 }

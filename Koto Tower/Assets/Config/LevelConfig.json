@@ -1,0 +1,288 @@
+{
+    "data": [
+        {
+            "levelId": 0,
+            "startingCoin": 500,
+            "enemyVariance": 1,
+            "timeEfficient": 180,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 1,
+            "startingCoin": 150,
+            "enemyVariance": 1,
+            "timeEfficient": 45,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                }
+            ],
+            "traps": [],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 2,
+            "startingCoin": 100,
+            "enemyVariance": 1,
+            "timeEfficient": 45,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 3,
+            "startingCoin": 100,
+            "enemyVariance": 1,
+            "timeEfficient": 45,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 4,
+            "startingCoin": 300,
+            "enemyVariance": 2,
+            "timeEfficient": 60,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                },
+                {
+                    "id": 1,
+                    "price": 150
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 5,
+            "startingCoin": 300,
+            "enemyVariance": 2,
+            "timeEfficient": 60,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                },
+                {
+                    "id": 1,
+                    "price": 150
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                },
+                {
+                    "id": 1,
+                    "price": 200
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 6,
+            "startingCoin": 300,
+            "enemyVariance": 2,
+            "timeEfficient": 60,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                },
+                {
+                    "id": 1,
+                    "price": 150
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                },
+                {
+                    "id": 1,
+                    "price": 200
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 7,
+            "startingCoin": 300,
+            "enemyVariance": 3,
+            "timeEfficient": 100,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                },
+                {
+                    "id": 1,
+                    "price": 150
+                },
+                {
+                    "id": 2,
+                    "price": 200
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                },
+                {
+                    "id": 1,
+                    "price": 200
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 8,
+            "startingCoin": 300,
+            "enemyVariance": 3,
+            "timeEfficient": 100,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                },
+                {
+                    "id": 1,
+                    "price": 150
+                },
+                {
+                    "id": 2,
+                    "price": 200
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                },
+                {
+                    "id": 1,
+                    "price": 200
+                },
+                {
+                    "id": 2,
+                    "price": 400
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 9,
+            "startingCoin": 300,
+            "enemyVariance": 3,
+            "timeEfficient": 100,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                },
+                {
+                    "id": 1,
+                    "price": 150
+                },
+                {
+                    "id": 2,
+                    "price": 200
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                },
+                {
+                    "id": 1,
+                    "price": 200
+                },
+                {
+                    "id": 2,
+                    "price": 400
+                }
+            ],
+            "tutorialId": 0
+        },
+        {
+            "levelId": 10,
+            "startingCoin": 300,
+            "enemyVariance": 3,
+            "timeEfficient": 100,
+            "towers": [
+                {
+                    "id": 0,
+                    "price": 50
+                },
+                {
+                    "id": 1,
+                    "price": 150
+                },
+                {
+                    "id": 2,
+                    "price": 200
+                }
+            ],
+            "traps": [
+                {
+                    "id": 0,
+                    "price": 100
+                },
+                {
+                    "id": 1,
+                    "price": 200
+                },
+                {
+                    "id": 2,
+                    "price": 400
+                }
+            ],
+            "tutorialId": 0
+        }
+    ]
+}

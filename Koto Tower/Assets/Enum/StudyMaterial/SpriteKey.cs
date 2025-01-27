@@ -28,6 +28,7 @@
 
     // Level Select Config
     LEVEL_SELECT_JSON,
+    LEVEL_CONFIG_JSON,
 }
 
 public enum ASSET_TYPE

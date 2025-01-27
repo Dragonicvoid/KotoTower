@@ -8,8 +8,6 @@ public class LevelProperty : MonoBehaviour
     [SerializeField] float startMoney = 0f;
     [SerializeField] int maxCharged = 0;
     [SerializeField] int levelIndex = 0;
-    [SerializeField] List<TowerPrice> startTowerPrices = null;
-    [SerializeField] List<TrapPrice> startTrapPrices = null;
     [SerializeField] int enemyVariation = 0;
     [SerializeField] float timeEfficient = 0f; // minimal time to get maximum time score
     [SerializeField] LoseWinController loseWinController = null;
@@ -21,10 +19,41 @@ public class LevelProperty : MonoBehaviour
     // On Start change value on GameManager
     private void Awake()
     {
-        GameManager.instance.setMoney(startMoney);
+        int currLvl = GameManager.instance.currentLevelIndex;
+
+        string json;
+        List<string> listOfString = new List<string>();
+        AssetManager.current.assetsText.TryGetValue(ASSET_KEY.LEVEL_CONFIG_JSON, out json);
+
+        LevelConfig conf = null;
+        List<TowerPrice> startTowerPrices = new List<TowerPrice>();
+        List<TrapPrice> startTrapPrices = new List<TrapPrice>();
+        if (json != "")
+        {
+            LevelData levelData = JsonUtility.FromJson<LevelData>(json);
+            conf = levelData.data.Find((c) => { return c.levelId == currLvl; });
+            conf.towers.ForEach((c) =>
+            {
+                startTowerPrices.Add(new TowerPrice { price = c.price, type = (TowerType)c.id });
+            });
+            conf.traps.ForEach((c) =>
+            {
+                startTrapPrices.Add(new TrapPrice { price = c.price, type = (TrapType)c.id });
+            });
+            enemyVariation = conf.enemyVariance;
+            timeEfficient = conf.timeEfficient;
+        }
+
+        if (conf == null)
+        {
+            exitLevel();
+            return;
+        }
+
+        GameManager.instance.setMoney(conf.startingCoin);
         GameManager.instance.setPrices(startTowerPrices, startTrapPrices);
         GameManager.instance.setEnemyVariation(enemyVariation);
-        
+
         switch (GameManager.instance.difficultyIdx)
         {
             case 0:
@@ -72,7 +101,7 @@ public class LevelProperty : MonoBehaviour
     void OnGameWon()
     {
         GameManager.instance.isPaused = true;
-        
+
         // save game when game won, and update unlockable level when player was playing hard
         if (GameManager.instance.saveFile.levelDone <= GameManager.instance.currentLevelIndex && GameManager.instance.difficultyIdx == 2)
             GameManager.instance.saveFile.levelDone = GameManager.instance.currentLevelIndex + 1;
@@ -96,7 +125,7 @@ public class LevelProperty : MonoBehaviour
     // for pausing
     public void pause()
     {
-        if(!GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus != GameStatus.SELECTING_TOWER)
+        if (!GameManager.instance.isSelectTower && !GameManager.instance.isSelectTrap && GameManager.instance.currentStatus != GameStatus.SELECTING_TOWER)
         {
             GameManager.instance.isPaused = true;
             exitConfirmationBox.SetActive(true);
@@ -146,7 +175,7 @@ public class LevelProperty : MonoBehaviour
         if (time <= timeEfficient)
             return valueBasedDiff;
         else
-            return Mathf.Floor(Mathf.Pow( (1 - deltaTime(time - timeEfficient, 900 - timeEfficient)), 2) * valueBasedDiff);
+            return Mathf.Floor(Mathf.Pow((1 - deltaTime(time - timeEfficient, 900 - timeEfficient)), 2) * valueBasedDiff);
     }
 
     // calculate the delta time

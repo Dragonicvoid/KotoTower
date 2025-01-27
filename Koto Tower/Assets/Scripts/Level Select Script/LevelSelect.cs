@@ -213,7 +213,7 @@ public class LevelSelect : MonoBehaviour
         GameManager.instance.stopMainMenuMusic();
         GameManager.instance.currentLevelIndex = levelIndex;
         GameManager.instance.setDifficulty(difficultyIdx);
-        GameManager.instance.loadGame((int)level);
+        GameManager.instance.loadGame((int)Levels.LEVEL5);
     }
 
     // bila pemain membuka level pertama

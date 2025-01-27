@@ -10,6 +10,8 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject filter = null;
     [SerializeField] CancelTrapTower cancelButton = null;
     [SerializeField] GameObject desc = null;
+    [SerializeField] GameObject trapUiObject = null;
+    [SerializeField] GameObject trapParent = null;
 
     // property
     int countLine;
@@ -33,7 +35,7 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
     }
 
     GameObject lineParent;
-    [SerializeField] List<ButtonChangeColor> buttons = null;
+    List<ButtonChangeColor> buttons = new List<ButtonChangeColor>();
 
     // Connect to Tower
     ButtonForTower towerUi;
@@ -46,6 +48,37 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         towerUi = this.gameObject.GetComponent<ButtonForTower>();
+
+        int currLvl = GameManager.instance.currentLevelIndex;
+        string json;
+        List<string> listOfString = new List<string>();
+        AssetManager.current.assetsText.TryGetValue(ASSET_KEY.LEVEL_CONFIG_JSON, out json);
+
+        LevelConfig conf = null;
+        List<TowerPrice> startTowerPrices = new List<TowerPrice>();
+        List<TrapPrice> startTrapPrices = new List<TrapPrice>();
+        if (json != "")
+        {
+            LevelData levelData = JsonUtility.FromJson<LevelData>(json);
+            conf = levelData.data.Find((c) => { return c.levelId == currLvl; });
+        }
+
+        conf.traps.ForEach((c) =>
+        {
+            GameObject currTrap = Instantiate(trapUiObject);
+            Image image = currTrap.GetComponentsInChildren<Image>()[1];
+            image.sprite = getImageFromType((TrapType)c.id);
+
+            Text text = currTrap.GetComponentInChildren<Text>();
+            text.text = c.price.ToString();
+
+            Button button = currTrap.GetComponent<Button>();
+            button.onClick.AddListener(delegate { selectTrap(c.id); });
+            buttons.Add(currTrap.GetComponent<ButtonChangeColor>());
+
+            currTrap.transform.parent = trapParent.transform;
+        });
+
         countLine = 0;
         GameManager.instance.resetOnPlay();
     }
@@ -120,13 +153,13 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
     {
         if (GameManager.instance.money >= GameManager.instance.trapPrices[idx].price)
         {
-            if(GameManager.instance.gameStart)
+            if (GameManager.instance.gameStart)
             {
                 // close the koto tower and generator balloon box
                 generator.StartCoroutine(generator.closeGenerator());
                 kotoTower.StartCoroutine(kotoTower.closeKotoTower());
             }
-            
+
             // select the trap
             ButtonChangeColor selectedButton = buttons[idx];
             selectedButton.activate();
@@ -137,7 +170,7 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
             desc.gameObject.SetActive(true);
             filter.SetActive(true);
             cancelButton.readyToSpawn();
-        }          
+        }
     }
 
     // on the button click, this is for the mouse click (debug)
@@ -290,6 +323,21 @@ public class ButtonForTrap : MonoBehaviour, IPointerClickHandler
                 drawLine(line.startVector, line.endVector, new Color(0, 1, 0, 100f), lineParent.transform);
                 countLine++;
             }
+        }
+    }
+
+    private Sprite getImageFromType(TrapType type)
+    {
+        switch (type)
+        {
+            case TrapType.BOMB_TRAP:
+                return Resources.Load<Sprite>("Image/Bomb_Trap");
+            case TrapType.TIME_TRAP:
+                return Resources.Load<Sprite>("Image/Time_Trap");
+            case TrapType.FREEZE_TRAP:
+                return Resources.Load<Sprite>("Image/Freeze_Trap");
+            default:
+                return Resources.Load<Sprite>("Image/Bomb_Trap");
         }
     }
 }

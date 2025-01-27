@@ -1,1 +1,103 @@
-{"data":[{"header":"Tutorial","subHeader":"Ini Adalah Tutorial","description":"Terdapat {question} Pertanyaan Berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nHarus Menyelesaikan Level {min_difficulty} Untuk membuka Level Selanjutnya","level":0,"easyText":"","mediumText":"","hardText":""},{"header":"Level 1","subHeader":"Hiragana 1","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":1,"easyText":"Hiragana a, i, u ,e ,o","mediumText":"Hiragana ka, ki, ku, ke, ko","hardText":"Hiragana sa, shi, su, se, so"},{"header":"Level 2","subHeader":"Hiragana 2","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":2,"easyText":"Hiragana pada level sebelumnya dan\n\tHiragana ta, chi, tsu, te ,to","mediumText":"Hiragana na, ni, nu, ne, no","hardText":"Hiragana ha, hi, fu, he, ho"},{"header":"Level 3","subHeader":"Hiragana 3","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":3,"easyText":"Hiragana pada level sebelumnya dan\n\tHiragana ma, mi, mu, me ,mo","mediumText":"Hiragana ya, yu, yo, ra, ri, ru, re, ro","hardText":"Hiragana wa, wo, n"},{"header":"Level 4","subHeader":"Hiragana 4","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":4,"easyText":"Hiragana pada level sebelumnya dan\n\t<i>Voiced sound</i> hiragana baris \"Ka\"","mediumText":"<i>Voiced sound</i> hiragana baris \"Sa\" dan \"Da\"","hardText":"<i>Voiced sound</i> hiragana baris \"Ha\" dan Hiragana baris \"Pa\""},{"header":"Level 5","subHeader":"Katakana 1","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":5,"easyText":"Katakana a, i, u, e ,o","mediumText":"Katakana ka, ki, ku, ke, ko","hardText":"Kata-kata menggunakan katakana"},{"header":"Level 6","subHeader":"Katakana 2","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":6,"easyText":"Katakana pada level sebelumnya dan\n\tKatakana sa, shi, su, se ,so","mediumText":"Katakana ta, chi, tsu, te, to","hardText":"Kata-kata menggunakan Katakana"},{"header":"Level 7","subHeader":"Katakana 3","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":7,"easyText":"Katakana pada level sebelumnya\n\tKatakana na, ni, nu, ne ,no","mediumText":"Katakana ha, hi, fu, he, ho","hardText":"Kata-kata menggunakan katakana"},{"header":"Level 8","subHeader":"Katakana 4","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":8,"easyText":"Katakana pada level sebelumnya\n\tKatakana ma, mi, mu, me ,mo","mediumText":"Katakana ya, yu, yo, ra, ri, ru, re, ro","hardText":"Katakana wa, wo, n"},{"header":"Level 9","subHeader":"Katakana 5","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya","level":9,"easyText":"Materi pada level sebelumnya\n\t<i>voiced sound</i> katakana baris \"Ka\"","mediumText":"<i>voiced sound</i> katakana baris \"Ga\" dan \"Za\"","hardText":"<i>voiced sound</i> hiragana baris \"Ha\" dan Katakana baris \"Pa\""},{"header":"Level 10","subHeader":"Konsonan dan <i>Contracted Sound</i>","description":"Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}","level":10,"easyText":"Hirgana dan Katakana pada level sebelumnya\n\tSuara ん","mediumText":"Konsonan ganda つ","hardText":"Suara yang dikontrak"}]}
+{
+    "data": [
+        {
+            "header": "Tutorial",
+            "subHeader": "Ini Adalah Tutorial",
+            "description": "Terdapat {question} Pertanyaan Berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nHarus Menyelesaikan Level {min_difficulty} Untuk membuka Level Selanjutnya",
+            "level": 0,
+            "easyText": "",
+            "mediumText": "",
+            "hardText": ""
+        },
+        {
+            "header": "Level 1",
+            "subHeader": "Hiragana 1",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 1,
+            "easyText": "Hiragana a, i, u ,e ,o",
+            "mediumText": "Hiragana ka, ki, ku, ke, ko",
+            "hardText": "Hiragana sa, shi, su, se, so"
+        },
+        {
+            "header": "Level 2",
+            "subHeader": "Hiragana 2",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 2,
+            "easyText": "Hiragana pada level sebelumnya dan\n\tHiragana ta, chi, tsu, te ,to",
+            "mediumText": "Hiragana na, ni, nu, ne, no",
+            "hardText": "Hiragana ha, hi, fu, he, ho"
+        },
+        {
+            "header": "Level 3",
+            "subHeader": "Hiragana 3",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 3,
+            "easyText": "Hiragana pada level sebelumnya dan\n\tHiragana ma, mi, mu, me ,mo",
+            "mediumText": "Hiragana ya, yu, yo, ra, ri, ru, re, ro",
+            "hardText": "Hiragana wa, wo, n"
+        },
+        {
+            "header": "Level 4",
+            "subHeader": "Hiragana 4",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 4,
+            "easyText": "Hiragana pada level sebelumnya dan\n\t<i>Voiced sound</i> hiragana baris \"Ka\"",
+            "mediumText": "<i>Voiced sound</i> hiragana baris \"Sa\" dan \"Da\"",
+            "hardText": "<i>Voiced sound</i> hiragana baris \"Ha\" dan Hiragana baris \"Pa\""
+        },
+        {
+            "header": "Level 5",
+            "subHeader": "Katakana 1",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 5,
+            "easyText": "Katakana a, i, u, e ,o",
+            "mediumText": "Katakana ka, ki, ku, ke, ko",
+            "hardText": "Kata-kata menggunakan katakana"
+        },
+        {
+            "header": "Level 6",
+            "subHeader": "Katakana 2",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 6,
+            "easyText": "Katakana pada level sebelumnya dan\n\tKatakana sa, shi, su, se ,so",
+            "mediumText": "Katakana ta, chi, tsu, te, to",
+            "hardText": "Kata-kata menggunakan Katakana"
+        },
+        {
+            "header": "Level 7",
+            "subHeader": "Katakana 3",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 7,
+            "easyText": "Katakana pada level sebelumnya\n\tKatakana na, ni, nu, ne ,no",
+            "mediumText": "Katakana ha, hi, fu, he, ho",
+            "hardText": "Kata-kata menggunakan katakana"
+        },
+        {
+            "header": "Level 8",
+            "subHeader": "Katakana 4",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 8,
+            "easyText": "Katakana pada level sebelumnya\n\tKatakana ma, mi, mu, me ,mo",
+            "mediumText": "Katakana ya, yu, yo, ra, ri, ru, re, ro",
+            "hardText": "Katakana wa, wo, n"
+        },
+        {
+            "header": "Level 9",
+            "subHeader": "Katakana 5",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}\nMemenangkan level pada tingkat kesulitan {min_difficulty} akan membuka level selanjutnya",
+            "level": 9,
+            "easyText": "Materi pada level sebelumnya\n\t<i>voiced sound</i> katakana baris \"Ka\"",
+            "mediumText": "<i>voiced sound</i> katakana baris \"Ga\" dan \"Za\"",
+            "hardText": "<i>voiced sound</i> hiragana baris \"Ha\" dan Katakana baris \"Pa\""
+        },
+        {
+            "header": "Level 10",
+            "subHeader": "Konsonan dan <i>Contracted Sound</i>",
+            "description": "Untuk memenangkan level pemain harus menjawab {question} pertanyaan berisi:\n\t{level_mudah}\n\t{level_medium}\n\t{level_hard}",
+            "level": 10,
+            "easyText": "Hirgana dan Katakana pada level sebelumnya\n\tSuara ん",
+            "mediumText": "Konsonan ganda つ",
+            "hardText": "Suara yang dikontrak"
+        }
+    ]
+}

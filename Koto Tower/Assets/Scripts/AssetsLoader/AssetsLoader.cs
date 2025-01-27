@@ -169,6 +169,12 @@ public class AssetsLoader : MonoBehaviour
                 key = ASSET_KEY.LEVEL_SELECT_JSON,
                 type = ASSET_TYPE.TEXT,
                 opts = new DownloadOpts(),
+            },
+            new AssetConfig {
+                url = "https://res.cloudinary.com/dyfgknhce/raw/upload/v1737981055/Config/LevelConfig_naysqh.json",
+                key = ASSET_KEY.LEVEL_CONFIG_JSON,
+                type = ASSET_TYPE.TEXT,
+                opts = new DownloadOpts(),
             }
         };
 
@@ -283,9 +289,6 @@ public class AssetsLoader : MonoBehaviour
         }
         else
         {
-            LevelSelectData levelSelectData = JsonUtility.FromJson<LevelSelectData>(request.downloadHandler.text);
-            var output = JsonUtility.ToJson(levelSelectData, true);
-
             AssetManager.current.AddTextAsset(conf.key, request.downloadHandler.text);
             AssetLoadEvent.current.DownloadAssetSuccessEnter(conf);
         }
